@@ -1,6 +1,5 @@
 <div aling="center">
-    <h1>Hola!, Soy Juan Gómez</h1>
-
+    <h1 aling="center">Hola!, Soy Juan Gómez</h1>
 </div>
 
 # 💫 Sobre mí:
