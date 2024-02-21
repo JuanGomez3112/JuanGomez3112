@@ -2,13 +2,15 @@
 
 
 ## <picture><img src = "https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/about_me.gif" width = 50px></picture> **About me**
-¡Hola y bienvenido/a a mi perfil! Soy un apasionado programador joven, siempre hambriento por aprender y destacarme en el mundo de la tecnología. Con 24 años y proveniente de la hermosa República Dominicana, estoy en constante búsqueda de oportunidades para crecer tanto profesional como personalmente.<br><br>Mi pasión por la programación va más allá del código; se trata de resolver problemas, desafiar límites y construir soluciones innovadoras que impacten de manera positiva en la sociedad. Desde proyectos personales hasta colaboraciones en equipos multidisciplinarios, siempre busco involucrarme en desafíos que me permitan expandir mis habilidades y conocimientos.<br><br>Con una mentalidad abierta y una actitud proactiva, me encanta sumergirme en nuevos proyectos y enfrentar desafíos complejos. Estoy emocionado/a de contribuir con mi experiencia y creatividad a cualquier equipo en el que tenga la oportunidad de participar.<br><br>Si estás buscando a alguien comprometido, con un espíritu de colaboración y una sed insaciable de aprendizaje, ¡has llegado al lugar indicado! Estoy listo/a para sumergirme en nuevas aventuras tecnológicas y marcar la diferencia junto a profesionales apasionados como tú. ¡Hagamos cosas increíbles juntos!
+<p>
+    "¡Hola! 👋 Soy Juan Gómez, un apasionado programador y diseñador de 24 años de la República Dominicana. Me encanta sumergirme en proyectos desafiantes donde pueda aprender y destacarme. Con experiencia previa en diseño, aporto una perspectiva creativa a mis soluciones. Estoy emocionado por contribuir y crecer en nuevos proyectos. ¡Conversemos sobre cómo puedo agregar valor a tu equipo!"
+</p>
 
 
 ## 🌐 Redes Sociales:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/juangomez3112) 
 
-### 🛠 &nbsp;Tech Stack
+## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="25"><b> Skills</b>
 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
 ![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)&nbsp;
