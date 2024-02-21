@@ -1,4 +1,5 @@
 ### Hola!, Soy Juan Gomez 👋
+<br>
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=juangomez3112&show_icons=true&theme=dark&locale=en&layout=compact" alt="anii693" /></p>
 <!--
 **JuanGomez3112/JuanGomez3112** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
