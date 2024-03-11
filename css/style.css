@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Winter Holidays;
+  src: url("/assets/fuentes/Winter Holidays.otf");
+}
+@font-face {
+  font-family: DM Sans;
+  src: url("/assets/fuentes/DMSans/DMSans-Variable.ttf");
+}
+@font-face {
+  font-family: Better Grade;
+  src: url("/assets/fuentes/Better Grade.otf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #171A2F;
+}
+
+@keyframes olas {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+.contenedor header {
+  position: relative;
+  width: 100%;
+  height: max-content;
+  overflow: hidden;
+}
+.contenedor header .olas {
+  z-index: 1;
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background-image: url("../assets/svg/ImgCurve3.svg");
+  background-size: contain;
+  animation: olas 16s linear infinite;
+  animation-fill-mode: forwards;
+}
+.contenedor header .header-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 4rem;
+  z-index: 2;
+}
+.contenedor header .header-content .logo {
+  font-family: Winter Holidays;
+  font-size: 4rem;
+  color: #020320;
+}
+.contenedor header .header-content .menu-container {
+  padding-right: 6.5rem;
+}
+.contenedor header .header-content .menu-container .menu {
+  display: flex;
+  align-items: top;
+  gap: 56px;
+}
+.contenedor header .header-content .menu-container .menu .item-menu {
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.contenedor header .header-content .menu-container .menu .item-menu a {
+  color: #2C303E;
+}
+.contenedor header .header-content .menu-container .menu .item-menu a:hover {
+  color: #F8CF95;
+}
+.contenedor header .header-content .menu-container .menu .item-menu.activo {
+  padding-bottom: 1rem;
+  border-bottom: 4px solid #020320;
+  font-weight: 900;
+}
+.contenedor header .header-content .menu-container .menu .item-menu.activo a {
+  color: #020320;
+}
+.contenedor main .section-perfil {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,81 @@
+@import 'main';
+
+.contenedor {
+
+    header {
+        position: relative;
+        width: 100%;
+        height: max-content;
+        overflow: hidden;
+
+        
+        .olas {
+            z-index: 1;
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background-image: url('../assets/svg/ImgCurve3.svg');
+            background-size: contain;
+            animation: olas 16s linear infinite;
+            animation-fill-mode: forwards;
+        }
+        
+        .header-content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 4rem;
+            z-index: 2;
+
+            .logo {
+                font-family: $tipografiaPrincipal;
+                font-size: 4rem;
+                color: $azul;
+            }
+
+            .menu-container {
+                padding-right: 6.5rem;
+
+                .menu {
+                    display: flex;
+                    align-items: top;
+                    gap: 56px;
+
+                    .item-menu {
+                        font-family: $tipografiaSecundaria;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+
+                        a {
+                            color: $gris;
+                            
+                            &:hover {
+                                color: $crema;
+                            }
+                        }
+
+
+                        &.activo {
+                            padding-bottom: 1rem;
+                            border-bottom: 4px solid $azul;
+                            font-weight: 900;
+                            
+                            a {
+                                color: $azul;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        .section-perfil {
+            display: flex;
+            align-items: center;
+
+        }
+    }
+}

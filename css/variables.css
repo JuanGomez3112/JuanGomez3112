@@ -1,0 +1,40 @@
+@font-face {
+  font-family: Winter Holidays;
+  src: url("/assets/fuentes/Winter Holidays.otf");
+}
+@font-face {
+  font-family: DM Sans;
+  src: url("/assets/fuentes/DMSans/DMSans-Variable.ttf");
+}
+@font-face {
+  font-family: Better Grade;
+  src: url("/assets/fuentes/Better Grade.otf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background: #171A2F;
+}
+
+@keyframes olas {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+/*# sourceMappingURL=variables.css.map */

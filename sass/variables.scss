@@ -1,0 +1,73 @@
+// Tipografia
+// =================================
+
+@font-face {
+    font-family: Winter Holidays;
+    src: url('/assets/fuentes/Winter\ Holidays.otf');
+}
+
+@font-face {
+    font-family: DM Sans;
+    src: url('/assets/fuentes/DMSans/DMSans-Variable.ttf');
+}
+
+@font-face {
+    font-family: Better Grade;
+    src: url('/assets/fuentes/Better\ Grade.otf');
+}
+
+
+$tipografiaPrincipal: Winter Holidays;
+$tipografiaSecundaria: DM Sans;
+$tipografiaTerciaria: Better Grade;
+
+// Colores
+// =================================
+
+$blanco: #FEFEFD;
+$azul: #020320;
+$gris: #2C303E;
+$crema: #F8CF95;
+$fondo: #171A2F;
+
+$degradadoPrincipal: linear-gradient(45deg, $azul 0%, $gris 100%);
+$degradadoVivo: linear-gradient(45deg, $gris 0%, $crema 100%);
+
+// Reset CSS
+// =================================
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+// Componentes
+// =================================
+
+body {
+    background: $fondo;
+}
+
+
+// Animaciones
+// =================================
+
+
+@keyframes olas {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 100%;
+    }
+}
