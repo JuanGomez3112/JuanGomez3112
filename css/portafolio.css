@@ -111,7 +111,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   display: inline-flex;
   gap: 0.5rem;
   padding: 1rem;
-  border-radius: 26px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
   color: #F8CF95;

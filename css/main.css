@@ -114,7 +114,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   display: inline-flex;
   gap: 0.5rem;
   padding: 1rem;
-  border-radius: 26px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
   color: #F8CF95;
@@ -269,7 +269,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   display: inline-flex;
   gap: 0.5rem;
   padding: 1rem;
-  border-radius: 26px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
   color: #F8CF95;
@@ -424,7 +424,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   display: inline-flex;
   gap: 0.5rem;
   padding: 1rem;
-  border-radius: 26px;
+  border-radius: 30px;
   position: relative;
   overflow: hidden;
   color: #F8CF95;
@@ -827,6 +827,61 @@ header .header-content .menu-container .menu .item-menu.activo a {
 }
 .contenedor main .proyectos .contenedor-proyectos .card-proyect:nth-child(3) a i {
   font-size: 5rem;
+}
+.contenedor main .cta-contacto {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor main .cta-contacto .img-ola {
+  position: relative;
+  z-index: 4;
+}
+.contenedor main .cta-contacto .img-ola img {
+  box-shadow: drop-shadow(8px 8px 16px #B7B7B6), drop-shadow(-8px -8px 16px #FFFFFF);
+}
+.contenedor main .cta-contacto .texto-cta {
+  max-width: 1212px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  justify-content: center;
+  gap: 40px;
+}
+.contenedor main .cta-contacto .texto-cta h3 {
+  font-family: Winter Holidays;
+  font-size: 4rem;
+  color: #2C303E;
+  font-weight: 500;
+}
+.contenedor main .cta-contacto .texto-cta p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 300;
+  color: #2C303E;
+}
+.contenedor main .cta-contacto .texto-cta .botones {
+  display: flex;
+  gap: 1.5rem;
+}
+.contenedor main .cta-contacto .texto-cta .botones a {
+  background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);
+  font-size: 20px;
+  color: #FEFEFD;
+  font-family: "DM Sans", sans-serif;
+  border-radius: 2rem;
+  transition: background 0.5s ease-in-out;
+}
+.contenedor main .cta-contacto .texto-cta .botones a span {
+  padding: 1rem;
+}
+.contenedor main .cta-contacto .texto-cta .botones a:hover {
+  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
 }
 
 /*# sourceMappingURL=main.css.map */

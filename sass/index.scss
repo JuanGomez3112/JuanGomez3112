@@ -300,7 +300,7 @@
                     box-shadow: $sombra;
                     overflow: hidden;
                     transition: box-shadow .4s ease-in-out;
-                    
+
 
                     .imagen-card {
                         position: absolute;
@@ -319,9 +319,9 @@
                             opacity: 0;
                             transition: opacity 0.4s ease;
                             z-index: 2;
-                            
+
                         }
-                        
+
                         img {
                             width: 100%;
                             height: auto;
@@ -407,13 +407,13 @@
                         .imagen-card::before {
                             opacity: 0.8;
                         }
-        
+
                         & .imagen-card img {
                             filter: blur(16px);
                         }
                     }
 
-                    &:nth-child(3){
+                    &:nth-child(3) {
                         background-color: $gris;
                         display: flex;
                         justify-content: center;
@@ -432,6 +432,75 @@
                                 font-size: 5rem;
                             }
 
+                        }
+                    }
+                }
+            }
+        }
+
+        .cta-contacto {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .img-ola {
+                position: relative;
+                z-index: 4;
+
+                img {
+                    box-shadow: 
+                        drop-shadow(8px 8px 16px #B7B7B6),
+                        drop-shadow(-8px -8px 16px #FFFFFF);
+                    ;
+                }
+            }
+
+            .texto-cta {
+                max-width: 1212px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 5;
+                justify-content: center;
+                gap: 40px;
+
+                h3 {
+                    font-family: $tipografiaPrincipal;
+                    font-size: 4rem;
+                    color: $gris;
+                    font-weight: 500;
+                }
+
+                p {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    font-family: $tipografiaSecundaria;
+                    font-weight: 300;
+                    color: $gris;
+
+                }
+
+                .botones{
+                    display: flex;
+                    gap: 1.5rem;
+
+                    a {
+                        background: linear-gradient(45deg, $gris 0%, $gris 100%);
+                        font-size: 20px;
+                        color: $blanco;
+                        font-family: $tipografiaSecundaria;
+                        border-radius: 2rem;
+                        transition: background .5s ease-in-out;
+                        
+                        span {
+                            padding: 1rem;
+                        }
+
+                        &:hover {
+                            background: linear-gradient(45deg, $gris 0%, $azul 100%);
                         }
                     }
                 }
