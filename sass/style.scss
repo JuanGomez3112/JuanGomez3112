@@ -12,12 +12,11 @@
         .olas {
             z-index: 1;
             position: absolute;
-            width: 200%;
+            width: 100%;
             height: 100%;
             background-image: url('../assets/svg/ImgCurve3.svg');
-            background-size: contain;
+            background-size: cover;
             animation: olas 16s linear infinite;
-            animation-fill-mode: forwards;
         }
         
         .header-content {
