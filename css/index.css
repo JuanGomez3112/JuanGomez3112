@@ -1,11 +1,8 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
   font-family: Winter Holidays;
   src: url("/assets/fuentes/Winter Holidays.otf");
-}
-@font-face {
-  font-family: DM Sans;
-  src: url("/assets/fuentes/DMSans/DMSans-Variable.ttf");
 }
 @font-face {
   font-family: Better Grade;
@@ -81,7 +78,7 @@ header .header-content .menu-container .menu {
   gap: 56px;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -109,7 +106,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
 
 .btn {
   width: max-content;
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   font-weight: 500;
   align-items: center;
   display: inline-flex;
@@ -195,7 +192,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   gap: 56px;
 }
 .contenedor header .header-content .menu-container .menu .item-menu {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -236,7 +233,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   height: 250px;
 }
 .contenedor main .section-perfil .info-perfil span {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   font-size: 2.5rem;
   color: #FEFEFD;
   font-weight: 500;
@@ -355,13 +352,13 @@ header .header-content .menu-container .menu .item-menu.activo a {
   gap: 1.5rem;
 }
 .contenedor main .cta-curriculum article.cta-curriculum_info .curriculum_info h3 {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   color: #F8CF95;
   font-size: 2.25rem;
   text-align: justify;
 }
 .contenedor main .cta-curriculum article.cta-curriculum_info .curriculum_info p {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   line-height: 2.25rem;
   text-align: justify;
   color: #FEFEFD;
@@ -389,7 +386,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   gap: 3.5rem;
 }
 .contenedor main .proyectos h3 {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   color: #F8CF95;
   font-size: 2.25rem;
 }
@@ -455,7 +452,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   gap: 0.5rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .card-proyect .card-info .info-proyect h4 {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   color: #FEFEFD;
   font-size: 1.5rem;
 }
@@ -469,7 +466,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   color: #F8CF95;
 }
 .contenedor main .proyectos .contenedor-proyectos .card-proyect .card-info .info-proyect p {
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   color: #F8CF95;
   font-size: 0.875rem;
   font-weight: 700;
@@ -513,7 +510,7 @@ header .header-content .menu-container .menu .item-menu.activo a {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  font-family: DM Sans;
+  font-family: "DM Sans", sans-serif;
   gap: 2rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .card-proyect:nth-child(3) a i {

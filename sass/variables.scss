@@ -6,10 +6,7 @@
     src: url('/assets/fuentes/Winter\ Holidays.otf');
 }
 
-@font-face {
-    font-family: DM Sans;
-    src: url('/assets/fuentes/DMSans/DMSans-Variable.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @font-face {
     font-family: Better Grade;
@@ -18,7 +15,7 @@
 
 
 $tipografiaPrincipal: Winter Holidays;
-$tipografiaSecundaria: DM Sans;
+$tipografiaSecundaria: "DM Sans", sans-serif;
 $tipografiaTerciaria: Better Grade;
 
 // Colores
