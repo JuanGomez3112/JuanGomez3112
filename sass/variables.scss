@@ -31,7 +31,37 @@ $crema: #F8CF95;
 $fondo: #171A2F;
 
 $degradadoPrincipal: linear-gradient(45deg, $azul 0%, $gris 100%);
+$degradadoSecundario: linear-gradient(45deg, $gris 0%, $azul 100%);
 $degradadoVivo: linear-gradient(45deg, $gris 0%, $crema 100%);
+$degradadoClaro: linear-gradient(45deg, $blanco 0%, $crema 100%);
+
+
+// sombras
+// =================================
+
+$sombra: 0px 2px 8px $azul;
+$sombraHover: 0px 7px 29px $azul;
+
+
+// Animaciones
+// =================================
+
+
+@keyframes olas {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 100%;
+    }
+}
+
+@keyframes scroll {
+    to {
+        translate: calc(-17 * 15rem);
+    }
+}
+
 
 // Reset CSS
 // =================================
@@ -55,19 +85,153 @@ a {
 // =================================
 
 body {
+    width: 100%;
+    height: 100%;
     background: $fondo;
 }
 
+header {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    overflow: hidden;
 
-// Animaciones
-// =================================
 
-
-@keyframes olas {
-    0% {
-        background-position-x: 0;
+    .olas {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: url('../assets/svg/ImgCurve3.svg');
+        background-size: cover;
+        animation: olas 16s linear infinite;
     }
-    100% {
-        background-position-x: 100%;
+
+
+    .header-content {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2.5rem 4rem;
+        z-index: 2;
+
+        .logo {
+            font-family: $tipografiaPrincipal;
+            font-size: 4rem;
+            color: $azul;
+        }
+
+        .menu-container {
+            padding-right: 6.5rem;
+
+            .menu {
+                display: flex;
+                align-items: top;
+                gap: 56px;
+
+                .item-menu {
+                    font-family: $tipografiaSecundaria;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+
+                    a {
+                        color: $gris;
+
+                        &:hover {
+                            color: $crema;
+                        }
+                    }
+
+
+                    &.activo {
+                        padding-bottom: 1rem;
+                        border-bottom: 4px solid $azul;
+                        font-weight: 900;
+
+                        a {
+                            color: $azul;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
+
+.burbuja {
+    background: $degradadoSecundario;
+    width: 13.25rem;
+    height: 13.25rem;
+    border-radius: 50%;
+}
+
+$border-radius: 26px; 
+$border-width: 2px;
+
+.btn {
+    width: max-content;
+    font-family: $tipografiaSecundaria;
+    font-weight: 500;
+    align-items: center;
+    display: inline-flex;
+    gap: 0.5rem;
+    padding: 1rem; 
+    border-radius: $border-radius;
+    position: relative;
+    overflow: hidden;
+    color: $crema;
+    transition: background .3s ease;
+
+    
+
+    
+}
+
+.btn-pq {
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+}
+
+.ctn-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-bd {
+    border: 2px solid transparent;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1; 
+        border-radius: inherit; 
+        padding: $border-width; 
+        background: $degradadoVivo;
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    
+    }
+
+    &:hover {
+        background: $blanco;
+        // border-color: $blanco;
+        color: $gris;
+        font-weight: 500;
+    }
+}
+
+
+
+
