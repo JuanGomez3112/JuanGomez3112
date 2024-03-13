@@ -7,7 +7,6 @@
         height: max-content;
         overflow: hidden;
 
-
         .olas {
             z-index: 1;
             position: absolute;
@@ -181,28 +180,32 @@
             width: 100%;
 
             .slide-cont {
-                overflow: hidden;
                 margin: 0 10rem;
-            }
+                overflow: hidden;
 
-            .wrapper {
-                display: grid;
-                grid-auto-flow: column;
-                grid-auto-columns: 15rem;
-                align-items: center;
+                .wrapper {
+                    display: flex;
+                    height: 128px;
+                    align-items: center;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                    
 
-                animation: scroll 40s linear infinite;
+                        img {
+                            width: 96px;
+                            height: 96px;
+                            object-fit: contain;
+                            opacity: 0.4;
+                            transition: opacity .3s ease, transform .3s ease;
+                            margin: 0 3.75rem;
+                            transform: scale(1);
 
-                img {
-                    width: 96px;
-                    height: 96px;
-                    object-fit: contain;
-                    opacity: 0.4;
-                    transition: opacity .3s ease;
-
-                    &:hover {
-                        opacity: 1;
-                    }
+                            &:hover {
+                                opacity: 1;
+                                transform: scale(1.1);
+                            }
+                        }
+                    
                 }
             }
         }
@@ -450,7 +453,7 @@
                 z-index: 4;
 
                 img {
-                    box-shadow: 
+                    box-shadow:
                         drop-shadow(8px 8px 16px #B7B7B6),
                         drop-shadow(-8px -8px 16px #FFFFFF);
                     ;
@@ -483,7 +486,7 @@
 
                 }
 
-                .botones{
+                .botones {
                     display: flex;
                     gap: 1.5rem;
 
@@ -494,7 +497,7 @@
                         font-family: $tipografiaSecundaria;
                         border-radius: 2rem;
                         transition: background .5s ease-in-out;
-                        
+
                         span {
                             padding: 1rem;
                         }

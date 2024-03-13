@@ -54,9 +54,8 @@ $sombraHover: 0px 7px 29px $azul;
 }
 
 @keyframes scroll {
-    to {
-        translate: calc(-17 * 15rem);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% * 15)); }
 }
 
 

@@ -16,8 +16,11 @@
   }
 }
 @keyframes scroll {
-  to {
-    translate: -255rem;
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1500%);
   }
 }
 * {

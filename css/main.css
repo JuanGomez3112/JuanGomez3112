@@ -19,8 +19,11 @@
   }
 }
 @keyframes scroll {
-  to {
-    translate: -255rem;
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1500%);
   }
 }
 * {
@@ -174,8 +177,11 @@ header .header-content .menu-container .menu .item-menu.activo a {
   }
 }
 @keyframes scroll {
-  to {
-    translate: -255rem;
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1500%);
   }
 }
 * {
@@ -329,8 +335,11 @@ header .header-content .menu-container .menu .item-menu.activo a {
   }
 }
 @keyframes scroll {
-  to {
-    translate: -255rem;
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1500%);
   }
 }
 * {
@@ -617,25 +626,28 @@ header .header-content .menu-container .menu .item-menu.activo a {
   width: 100%;
 }
 .contenedor main .stack-slide .slide-cont {
-  overflow: hidden;
   margin: 0 10rem;
+  overflow: hidden;
 }
-.contenedor main .stack-slide .wrapper {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 15rem;
+.contenedor main .stack-slide .slide-cont .wrapper {
+  display: flex;
+  height: 128px;
   align-items: center;
-  animation: scroll 40s linear infinite;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
-.contenedor main .stack-slide .wrapper img {
+.contenedor main .stack-slide .slide-cont .wrapper img {
   width: 96px;
   height: 96px;
   object-fit: contain;
   opacity: 0.4;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin: 0 3.75rem;
+  transform: scale(1);
 }
-.contenedor main .stack-slide .wrapper img:hover {
+.contenedor main .stack-slide .slide-cont .wrapper img:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 .contenedor main .cta-curriculum {
   display: grid;
