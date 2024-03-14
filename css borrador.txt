@@ -1,0 +1,523 @@
+@import 'variables';
+
+.contenedor {
+    header {
+        position: relative;
+        width: 100%;
+        height: max-content;
+        overflow: hidden;
+        display: flex;
+
+        .cont-olas {
+            position: relative;
+            z-index: 1;
+
+            .olas {
+                position: relative;
+                width: 100%;
+                height: 0;
+                background-color: $blanco;
+            }
+            
+            img {
+                position: relative;
+                animation: olas 16s linear infinite;
+            }
+        }
+
+        .header-content {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 4rem;
+            z-index: 2;
+
+
+            .logo {
+                font-family: $tipografiaPrincipal;
+                font-size: 4rem;
+                color: $azul;
+            }
+
+            .menu-container {
+                padding-right: 6.5rem;
+
+                .menu {
+                    display: flex;
+                    align-items: top;
+                    gap: 56px;
+
+                    .item-menu {
+                        font-family: $tipografiaSecundaria;
+                        font-weight: 700;
+                        font-size: 1.1rem;
+
+                        a {
+                            color: $gris;
+
+                            &:hover {
+                                color: $crema;
+                            }
+                        }
+
+
+                        &.activo {
+                            padding-bottom: 1rem;
+                            border-bottom: 4px solid $azul;
+                            font-weight: 900;
+
+                            a {
+                                color: $azul;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        height: max-content;
+        overflow: hidden;
+        padding: 3.5rem 0;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 192px;
+
+        .section-perfil {
+            position: relative;
+            padding: 0 7rem;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 1fr;
+
+            .info-perfil {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                height: 250px;
+
+                span {
+                    font-family: $tipografiaSecundaria;
+                    font-size: 2.5rem;
+                    color: $blanco;
+                    font-weight: 500;
+                }
+
+                .nombre-profesion {
+                    position: relative;
+                    display: flex;
+                    left: 7rem;
+                    top: -1.5rem;
+
+                    h1 {
+                        position: absolute;
+                        font-family: $tipografiaPrincipal;
+                        font-size: 8rem;
+                        color: $blanco;
+                        font-weight: 400;
+                    }
+
+                    h2 {
+                        position: absolute;
+                        font-family: $tipografiaTerciaria;
+                        font-size: 3.5rem;
+                        color: $crema;
+                        font-weight: 400;
+                        top: 9rem;
+
+                    }
+                }
+
+            }
+
+            .image-perfil {
+                display: flex;
+                position: relative;
+                height: 848px;
+
+                .burbuja {
+                    position: absolute;
+
+                    &:nth-child(1) {
+                        bottom: 0;
+                    }
+
+                    &:nth-child(2) {
+                        left: 150px;
+                        top: 150px;
+
+                    }
+
+                    &:nth-child(3) {
+                        right: 0;
+                    }
+
+                    &.cont-imagen {
+                        display: flex;
+                        width: 34rem;
+                        height: 34rem;
+                        justify-content: center;
+                        align-items: center;
+
+                        .fondo-degradado {
+                            width: 28rem;
+                            height: 28rem;
+                            background: $degradadoVivo;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: center;
+                            position: relative;
+
+                            img {
+                                position: absolute;
+                                width: auto;
+                                height: 88%;
+                                object-fit: cover;
+                                bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .stack-slide {
+            width: 100%;
+
+            .slide-cont {
+                margin: 0 10rem;
+                overflow: hidden;
+
+                .wrapper {
+                    display: flex;
+                    height: 128px;
+                    align-items: center;
+                    overflow-x: hidden;
+                    overflow-y: hidden;
+                    
+
+                        img {
+                            width: 96px;
+                            height: 96px;
+                            object-fit: contain;
+                            opacity: 0.4;
+                            transition: opacity .3s ease, transform .3s ease;
+                            margin: 0 3.75rem;
+                            transform: scale(1);
+
+                            &:hover {
+                                opacity: 1;
+                                transform: scale(1.1);
+                            }
+                        }
+                    
+                }
+            }
+        }
+
+        .cta-curriculum {
+            display: grid;
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            height: 45rem;
+            position: relative;
+            gap: 3.5rem;
+            align-items: center;
+
+            article {
+                position: relative;
+                width: 100%;
+                height: 100%;
+
+
+                &.cta-curriculum_info {
+                    padding-left: 7rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .curriculum_info {
+                        max-width: 792px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.5rem;
+
+                        h3 {
+                            font-family: $tipografiaSecundaria;
+                            color: $crema;
+                            font-size: 2.25rem;
+                            text-align: justify;
+                        }
+
+                        p {
+                            font-family: $tipografiaSecundaria;
+                            line-height: 2.25rem;
+                            text-align: justify;
+                            color: $blanco;
+                            font-size: 1.5rem;
+                        }
+
+                        .botones {
+                            display: flex;
+                            gap: 2rem;
+                        }
+                    }
+
+                }
+
+                &.cta-curriculum_img {
+                    overflow: hidden;
+                    display: flex;
+
+                    img {
+                        position: absolute;
+                        left: 0;
+                        width: auto;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+        }
+
+        .proyectos {
+            padding: 0 7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+
+            h3 {
+                font-family: $tipografiaSecundaria;
+                color: $crema;
+                font-size: 2.25rem;
+            }
+
+            .contenedor-proyectos {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(533px, 1fr));
+                gap: 40px;
+
+                .card-proyect {
+                    display: flex;
+                    position: relative;
+                    width: 100%;
+                    min-height: 300px;
+                    height: auto;
+                    box-shadow: $sombra;
+                    overflow: hidden;
+                    transition: box-shadow .4s ease-in-out;
+
+
+                    .imagen-card {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+
+                        /* Añade un pseudo-elemento para el fondo gris */
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: $gris;
+                            opacity: 0;
+                            transition: opacity 0.4s ease;
+                            z-index: 2;
+
+                        }
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                            z-index: 1;
+                            filter: blur(0);
+                            transition: filter .4s ease-in-out;
+                        }
+
+                    }
+
+                    .card-info {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                        transition: opacity .3s ease-in-out;
+                        z-index: 3;
+                        padding: 2rem;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        .info-proyect {
+                            width: 100%;
+                            height: max-content;
+                            display: flex;
+                            flex-direction: column;
+                            gap: .5rem;
+
+                            h4 {
+                                font-family: $tipografiaSecundaria;
+                                color: $blanco;
+                                font-size: 1.5rem;
+                            }
+
+                            .valoracion {
+                                display: flex;
+                                gap: .5rem;
+                                margin-bottom: 1rem;
+
+                                i {
+                                    font-size: 1rem;
+                                    color: $crema;
+                                }
+                            }
+
+                            p {
+                                font-family: $tipografiaSecundaria;
+                                color: $crema;
+                                font-size: 0.875rem;
+                                font-weight: 700;
+                            }
+
+                            .tags {
+                                display: flex;
+                                gap: .5rem;
+                                margin-top: 1.5rem;
+
+                                .btn-tags {
+                                    font-size: 0.75rem;
+                                    background: $degradadoClaro;
+                                    color: $azul;
+                                    font-weight: 700;
+
+                                }
+                            }
+                        }
+
+                        .botones {
+                            position: absolute;
+                            bottom: 2rem;
+                        }
+                    }
+
+                    &:hover {
+                        box-shadow: $sombraHover;
+
+                        .card-info {
+                            opacity: 1;
+                        }
+
+                        .imagen-card::before {
+                            opacity: 0.8;
+                        }
+
+                        & .imagen-card img {
+                            filter: blur(16px);
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        background-color: $gris;
+                        display: flex;
+                        justify-content: center;
+
+                        a {
+                            display: flex;
+                            flex-direction: column;
+                            color: $crema;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.5rem;
+                            font-family: $tipografiaSecundaria;
+                            gap: 2rem;
+
+                            i {
+                                font-size: 5rem;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        .cta-contacto {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .img-ola {
+                position: relative;
+                z-index: 4;
+
+                img {
+                    box-shadow:
+                        drop-shadow(8px 8px 16px #B7B7B6),
+                        drop-shadow(-8px -8px 16px #FFFFFF);
+                    ;
+                }
+            }
+
+            .texto-cta {
+                max-width: 1212px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 5;
+                justify-content: center;
+                gap: 40px;
+
+                h3 {
+                    font-family: $tipografiaPrincipal;
+                    font-size: 4rem;
+                    color: $gris;
+                    font-weight: 500;
+                }
+
+                p {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    font-family: $tipografiaSecundaria;
+                    font-weight: 300;
+                    color: $gris;
+
+                }
+
+                .botones {
+                    display: flex;
+                    gap: 1.5rem;
+
+                    a {
+                        background: linear-gradient(45deg, $gris 0%, $gris 100%);
+                        font-size: 20px;
+                        color: $blanco;
+                        font-family: $tipografiaSecundaria;
+                        border-radius: 2rem;
+                        transition: background .5s ease-in-out;
+
+                        span {
+                            padding: 1rem;
+                        }
+
+                        &:hover {
+                            background: linear-gradient(45deg, $gris 0%, $azul 100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "compRollup": "rollup --config --watch"
+  },
+  "devDependencies": {
+    "rollup": "^4.13.0"
+  }
+}
