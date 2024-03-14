@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/assets/fuentes/Winter-Holidays.otf");
+  src: url("assets/fuentes/Winter-Holidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("assets/fuentes/Better-Grade.otf");
 }
 @keyframes olas {
   0% {
@@ -199,11 +199,11 @@ header .header-content .candy-box .candy-item {
 
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/assets/fuentes/Winter-Holidays.otf");
+  src: url("assets/fuentes/Winter-Holidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("assets/fuentes/Better-Grade.otf");
 }
 @keyframes olas {
   0% {
@@ -395,11 +395,11 @@ header .header-content .candy-box .candy-item {
 
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/assets/fuentes/Winter-Holidays.otf");
+  src: url("assets/fuentes/Winter-Holidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("assets/fuentes/Better-Grade.otf");
 }
 @keyframes olas {
   0% {
