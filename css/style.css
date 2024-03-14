@@ -82,7 +82,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "Winter Holidays";
+  font-family: "DM Sans";
   font-size: 2.5rem;
   color: #020320;
 }
@@ -278,7 +278,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "Winter Holidays";
+  font-family: "DM Sans";
   font-size: 2.5rem;
   color: #020320;
 }
@@ -474,7 +474,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "Winter Holidays";
+  font-family: "DM Sans";
   font-size: 2.5rem;
   color: #020320;
 }
@@ -675,7 +675,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion h1 {
   position: relative;
-  font-family: "Winter Holidays";
+  font-family: "DM Sans";
   font-size: 4.5rem;
   color: #FEFEFD;
   font-weight: 400;
@@ -942,7 +942,7 @@ header .header-content .candy-box .candy-item {
   padding: 1.5rem;
 }
 .contenedor main .cta-contacto .texto-cta h3 {
-  font-family: "Winter Holidays";
+  font-family: "DM Sans";
   font-size: 1.6rem;
   color: #2C303E;
   font-weight: 500;
