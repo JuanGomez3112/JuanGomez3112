@@ -3,19 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 @font-face {
-    font-family: "Winter Holidays";
+    font-family: 'Winter Holidays';
     src: url('/src/assets/fuentes/Winter-Holidays.otf');
 }
 
 @font-face {
-font-family: "Better Grade";
+    font-family: 'Better Grade';
     src: url('/src/assets/fuentes/Better-Grade.otf');
 }
 
 
-$tipografiaPrincipal: "Winter Holidays";
-$tipografiaSecundaria: "DM Sans", sans-serif;
-$tipografiaTerciaria: "Better Grade";
+$tipografiaPrincipal: 'Winter Holidays';
+$tipografiaSecundaria: 'DM Sans', sans-serif;
+$tipografiaTerciaria: 'Better Grade';
 
 // Colores
 // =================================
