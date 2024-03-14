@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/fuentes/Winter-Holidays.otf");
+  src: url("/assets/fuentes/WinterHolidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("/assets/fuentes/BetterGrade.otf");
 }
 @keyframes olas {
   0% {
@@ -109,7 +109,7 @@ header .header-content .menu-container .menu {
   gap: 2rem;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -148,7 +148,7 @@ header .header-content .candy-box .candy-item {
 
 .btn {
   width: max-content;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 500;
   align-items: center;
   display: inline-flex;
@@ -199,11 +199,11 @@ header .header-content .candy-box .candy-item {
 
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/fuentes/Winter-Holidays.otf");
+  src: url("/assets/fuentes/WinterHolidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("/assets/fuentes/BetterGrade.otf");
 }
 @keyframes olas {
   0% {
@@ -305,7 +305,7 @@ header .header-content .menu-container .menu {
   gap: 2rem;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -344,7 +344,7 @@ header .header-content .candy-box .candy-item {
 
 .btn {
   width: max-content;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 500;
   align-items: center;
   display: inline-flex;
@@ -395,11 +395,11 @@ header .header-content .candy-box .candy-item {
 
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/fuentes/Winter-Holidays.otf");
+  src: url("/assets/fuentes/WinterHolidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("/assets/fuentes/BetterGrade.otf");
 }
 @keyframes olas {
   0% {
@@ -501,7 +501,7 @@ header .header-content .menu-container .menu {
   gap: 2rem;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -540,7 +540,7 @@ header .header-content .candy-box .candy-item {
 
 .btn {
   width: max-content;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 500;
   align-items: center;
   display: inline-flex;
@@ -659,7 +659,7 @@ header .header-content .candy-box .candy-item {
   position: relative;
 }
 .contenedor main .section-perfil .info-perfil span {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-size: 1.25rem;
   color: #FEFEFD;
   font-weight: 500;
@@ -732,13 +732,13 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   color: #F8CF95;
   font-size: 1.5rem;
   text-align: justify;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info p {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   line-height: 1.5rem;
   text-align: justify;
   color: #FEFEFD;
@@ -767,7 +767,7 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .contenedor main .proyectos h3 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   color: #F8CF95;
   font-size: 1.5rem;
 }
@@ -844,7 +844,7 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect h4 {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   color: #FEFEFD;
   font-size: 1rem;
 }
@@ -857,7 +857,7 @@ header .header-content .candy-box .candy-item {
   color: #F8CF95;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect p {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   color: #F8CF95;
   font-size: 0.625rem;
   font-weight: 700;
@@ -894,7 +894,7 @@ header .header-content .candy-box .candy-item {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   gap: 2rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:nth-child(3) a i {
@@ -950,7 +950,7 @@ header .header-content .candy-box .candy-item {
 .contenedor main .cta-contacto .texto-cta p {
   text-align: justify;
   font-size: 1rem;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 300;
   color: #2C303E;
 }
@@ -965,7 +965,7 @@ header .header-content .candy-box .candy-item {
   background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);
   font-size: 20px;
   color: #FEFEFD;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   border-radius: 2rem;
   transition: background 0.5s ease-in-out;
   width: max-content;

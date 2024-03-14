@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
   font-family: "Winter Holidays";
-  src: url("/fuentes/Winter-Holidays.otf");
+  src: url("/assets/fuentes/WinterHolidays.otf");
 }
 @font-face {
   font-family: "Better Grade";
-  src: url("/assets/fuentes/Better-Grade.otf");
+  src: url("/assets/fuentes/BetterGrade.otf");
 }
 @keyframes olas {
   0% {
@@ -107,7 +107,7 @@ header .header-content .menu-container .menu {
   gap: 2rem;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -146,7 +146,7 @@ header .header-content .candy-box .candy-item {
 
 .btn {
   width: max-content;
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans";
   font-weight: 500;
   align-items: center;
   display: inline-flex;
