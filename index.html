@@ -7,7 +7,7 @@
     <title>Juan Gomez | Web Personal</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="/js/main.js" defer></script>
+    <script src="js/bundle.js" defer></script>
 </head>
 
 <body>
@@ -15,7 +15,11 @@
         <!-- Header -->
         <header class="header-container">
             <!-- Barra de Navegacion (Olas) -->
-            <div class="olas"></div>
+            <div class="cont-olas">
+
+                <div class="olas"></div>
+                <img src="src/assets/svg/ImgCurve3.svg" alt="">
+            </div>
             <!-- Fin Barra de Navegacion (Olas) -->
 
             <!-- Contenido del Header -->
@@ -35,6 +39,18 @@
                     </ul>
                 </nav>
                 <!-- Fin Menu de Navegacion -->
+
+                <div class="candy-box">
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                    <div class="candy-item"></div>
+                </div>
             </div>
             <!-- Fin Contenido del Header -->
             
@@ -99,13 +115,13 @@
                         <h3>Descarga mi currículum y descubre cómo puedo impulsar tu equipo hacia el éxito</h3>
                         <p>¿Buscas un candidato con experiencia, habilidades sólidas y un historial probado de éxito? ¡No busques más! Descarga mi currículum ahora mismo para conocer cómo mis habilidades y experiencia pueden agregar valor a tu equipo. Estoy listo para llevar tus proyectos al siguiente nivel. ¡Haz clic para empezar!</p>
                         <div class="botones">
-                            <a href="" class="btn btn-bd bd-gradient btn-gd ">
+                            <a href="" class="btn btn-bd bd-gradient">
                                 <span class="ctn-btn"> 
                                     <i class="fa-solid fa-file-arrow-down"></i>
                                     Descargar CV
                                 </span>
                             </a>
-                            <a href="" class="btn btn-bd bd-gradient btn-gd ">
+                            <a href="" class="btn btn-bd bd-gradient">
                                 <span class="ctn-btn">
                                     <i class="fa-brands fa-linkedin"></i>
                                     Conectar en LinkedIn
@@ -126,87 +142,91 @@
                 <h3>Proyectos Recientes</h3>
                 <div class="contenedor-proyectos">
 
-                    <!-- Card 1 -->
-                    <article class="card-proyect">
-                        <div class="imagen-card">
-                            <img src="src/assets/img/proyectos/web personal.png" alt="">
-                        </div>
-                        <div class="card-info">
-                            <div class="info-proyect">
-                                <h4>Portafolio Web Personal</h4>
-                                <div class="valoracion">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <p>HTML • CSS • SASS • JAVASCRIPTS</p>
-                                <div class="tags">
-                                    <div class="btn btn-pq btn-tags">Diseño Web</div>
-                                    <div class="btn btn-pq btn-tags">Responsive</div>
-                                    <div class="btn btn-pq btn-tags">Desarrollo Web</div>
-                                    <div class="btn btn-pq btn-tags">Marca Personal</div>
-                                </div>
+                    <div class="proyectos-card">
+                        <!-- Card 1 -->
+                        <article class="card-proyect">
+                            <div class="imagen-card">
+                                <img src="src/assets/img/proyectos/web personal.png" alt="">
                             </div>
-                            <div class="botones">
-                                <a href="" class="btn btn-pq btn-bd">
-                                    <i class="fa-brands fa-github"></i>
-                                    Repositorio
-                                </a>
-                                <a href="" class="btn btn-pq btn-bd">
-                                    <i class="fa-solid fa-eye"></i>
-                                    Ver Proyecto
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- Fin Card 1 -->
+                            
+                            <div class="card-info">
+                                <div class="info-proyect">
+                                    <h4>Portafolio Web Personal</h4>
+                                    <div class="valoracion">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>HTML • CSS • SASS • JAVASCRIPTS</p>
+                                    <div class="tags">
+                                        <div class="btn btn-pq btn-tags">Diseño Web</div>
+                                        <div class="btn btn-pq btn-tags">Responsive</div>
+                                        <div class="btn btn-pq btn-tags">Desarrollo Web</div>
+                                        <div class="btn btn-pq btn-tags">Marca Personal</div>
+                                    </div>
+                                </div>
 
-                    <!-- Card 2 -->
-                    <article class="card-proyect">
-                        <div class="imagen-card">
-                            <img src="src/assets/img/proyectos/implementech.jpg" alt="">
-                        </div>
-                        <div class="card-info">
-                            <div class="info-proyect">
-                                <h4>Implementech</h4>
-                                <div class="valoracion">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <p>HTML   •   CSS   •   SASS   •   JAVASCRIPTS   •    PHP   •   WordPress</p>
-                                <div class="tags">
-                                    <div class="btn btn-pq btn-tags">Diseño Web</div>
-                                    <div class="btn btn-pq btn-tags">Responsive</div>
-                                    <div class="btn btn-pq btn-tags">Desarrollo Web</div>
+                                <div class="botones">
+                                    <a href="" class="btn btn-bd">
+                                        <i class="fa-brands fa-github"></i>
+                                        Repositorio
+                                    </a>
+                                    <a href="" class="btn btn-pq btn-bd">
+                                        <i class="fa-solid fa-eye"></i>
+                                        Ver Proyecto
+                                    </a>
                                 </div>
                             </div>
-                            <div class="botones">
-                                <a href="" class="btn btn-pq btn-bd">
-                                    <i class="fa-brands fa-github"></i>
-                                    Repositorio
-                                </a>
-                                <a href="" class="btn btn-pq btn-bd">
-                                    <i class="fa-solid fa-eye"></i>
-                                    Ver Proyecto
-                                </a>
+                        </article>
+                        <!-- Fin Card 1 -->
+                        
+                        <!-- Card 2 -->
+                        <article class="card-proyect">
+                            <div class="imagen-card">
+                                <img src="src/assets/img/proyectos/implementech.jpg" alt="">
                             </div>
-                        </div>
-                    </article>
-                    <!-- Fin Card 2 -->
-
-                    <!-- Card 3 -->
-                    <article class="card-proyect card-more">
-                        <a href="/portafolio.html">
-                            <i class="fa-solid fa-plus"></i>
-                            Ver mas proyectos
-                        </a>
-                    </article>
-                    <!-- Fin Card 3 -->
+                            <div class="card-info">
+                                <div class="info-proyect">
+                                    <h4>Implementech</h4>
+                                    <div class="valoracion">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p>HTML   •   CSS   •   SASS   •   JAVASCRIPTS   •    PHP   •   WordPress</p>
+                                    <div class="tags">
+                                        <div class="btn btn-pq btn-tags">Diseño Web</div>
+                                        <div class="btn btn-pq btn-tags">Responsive</div>
+                                        <div class="btn btn-pq btn-tags">Desarrollo Web</div>
+                                    </div>
+                                </div>
+                                <div class="botones">
+                                    <a href="" class="btn btn-pq btn-bd">
+                                        <i class="fa-brands fa-github"></i>
+                                        Repositorio
+                                    </a>
+                                    <a href="" class="btn btn-pq btn-bd">
+                                        <i class="fa-solid fa-eye"></i>
+                                        Ver Proyecto
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Fin Card 2 -->
+                        
+                        <!-- Card 3 -->
+                        <article class="card-proyect card-more">
+                            <a href="/portafolio.html">
+                                <i class="fa-solid fa-plus"></i>
+                                Ver mas proyectos
+                            </a>
+                        </article>
+                        <!-- Fin Card 3 -->
+                    </div>
 
                 </div>
             </section>
