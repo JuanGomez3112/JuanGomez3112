@@ -549,7 +549,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .cta-contacto .texto-cta h3 {
   font-family: Winter Holidays;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: #2C303E;
   font-weight: 500;
 }
@@ -563,8 +563,9 @@ header .header-content .candy-box .candy-item {
 .contenedor main .cta-contacto .texto-cta .botones {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
+  margin-top: 1rem;
 }
 .contenedor main .cta-contacto .texto-cta .botones a {
   background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);

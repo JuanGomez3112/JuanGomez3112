@@ -425,7 +425,7 @@
 
                 h3 {
                     font-family: $tipografiaPrincipal;
-                    font-size: 1.5rem;
+                    font-size: 1.6rem;
                     color: $gris;
                     font-weight: 500;
                 }
@@ -442,8 +442,9 @@
                 .botones {
                     display: flex;
                     flex-direction: column;
-                    gap: 1.5rem;
+                    gap: 1rem;
                     align-items: center;
+                    margin-top: 1rem;
 
                     a {
                         background: linear-gradient(45deg, $gris 0%, $gris 100%);
