@@ -3,11 +3,11 @@
   src: url("/src/assets/fuentes/DMSans-Variable.ttf");
 }
 @font-face {
-  font-family: "Winter Holidays";
+  font-family: "WinterHolidays";
   src: url("/src/assets/fuentes/WinterHolidays.ttf");
 }
 @font-face {
-  font-family: "Better Grade";
+  font-family: "BetterGrade";
   src: url("/src/assets/fuentes/BetterGrade.ttf");
 }
 @keyframes olas {
@@ -83,7 +83,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "Winter Holidays";
+  font-family: "WinterHolidays";
   font-size: 2.5rem;
   color: #020320;
 }
