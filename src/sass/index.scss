@@ -1,5 +1,3 @@
-@import 'variables';
-
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -99,7 +97,7 @@
                     h1 {
                         position: relative;
                         font-family: $tipografiaPrincipal;
-                        font-size: 4.5rem;
+                        font-size: 3.2rem;
                         color: $blanco;
                         font-weight: 400;
                         width: max-content;
@@ -108,11 +106,29 @@
                     h2 {
                         position: relative;
                         font-family: $tipografiaTerciaria;
-                        font-size: 2rem;
+                        font-size: 1.4rem;
                         color: $crema;
                         font-weight: 400;
-                        top: -1.5rem;
-                        left: -1.5rem;
+                        top: -1.2rem;
+                        left: -1.2rem;
+                    }
+                }
+            }
+
+            @media  (min-width: 430px) {
+
+                .info-perfil {
+                    .nombre-profesion {
+
+                        h1 {
+                            font-size: 4.5rem;
+                        }
+
+                        h2 {
+                            font-size: 2rem;
+                            top: -1.5rem;
+                            left: -1.5rem;
+                        }
                     }
                 }
             }
@@ -169,7 +185,7 @@
                     h3 {
                         font-family: $tipografiaSecundaria;
                         color: $crema;
-                        font-size: 1.5rem;
+                        font-size: 1.25rem;
                         text-align: justify;
                     }
 
@@ -180,7 +196,6 @@
                         color: $blanco;
                         font-size: 1rem;
                     }
-
 
                     .botones {
                         margin-top: 1rem;
@@ -195,12 +210,28 @@
 
             .cta-curriculum_img {
                 width: 100%;
-                height: 21.25rem;
+                height: 18.75rem;
                 overflow: hidden;
 
                 img {
-                    height: 100%;
-                    width: auto;
+                    height: auto;
+                    width: 200%;
+                }
+            }
+
+            @media  (min-width: 430px) {
+
+                .cta-curriculum_info {
+                    .curriculum_info {
+                        h3 {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+
+                .cta-curriculum_img {
+                    height: 21.25rem;
+
                 }
             }
         }
@@ -215,7 +246,7 @@
             h3 {
                 font-family: $tipografiaSecundaria;
                 color: $crema;
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
 
             .contenedor-proyectos {
@@ -234,7 +265,7 @@
 
                     .card-proyect {
                         flex: 0 0 auto;
-                        width: calc(100% / 3 + 3rem);
+                        width: calc(100% / 3);
                         min-height: max-content;
                         display: flex;
                         position: relative;
@@ -279,7 +310,8 @@
 
                         .card-info {
                             position: relative;
-                            width: 100%;
+                            width: calc(100vw - 1.5rem)
+                            ;
                             height: 100%;
                             opacity: 0;
                             transition: opacity .3s ease-in-out;
@@ -387,6 +419,21 @@
                     }
                 }
             }
+
+            @media  (min-width: 430px) {
+                h3 {
+                    font-size: 1.5rem;
+                }
+
+                .contenedor-proyectos {
+                    .proyectos-card {
+                        .card-info{
+                            width: calc(100vw - 1.5rem);
+                        }
+                    }
+                }
+            }
+
         }
 
         .cta-contacto {

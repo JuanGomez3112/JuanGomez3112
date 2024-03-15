@@ -4,11 +4,11 @@
 }
 @font-face {
   font-family: "WinterHolidays";
-  src: url("/src/assets/fuentes/WinterHolidays.ttf");
+  src: url("/src/assets/fuentes/WinterHolidays.otf");
 }
 @font-face {
   font-family: "BetterGrade";
-  src: url("/src/assets/fuentes/BetterGrade.ttf");
+  src: url("/src/assets/fuentes/BetterGrade.otf");
 }
 @keyframes olas {
   0% {
@@ -47,13 +47,14 @@ body {
 }
 
 header {
-  width: 100vw;
+  width: 100%;
   height: max-content;
   display: flex;
   position: relative;
   overflow: hidden;
 }
 header .cont-olas {
+  width: 100vw;
   position: relative;
   z-index: 1;
 }
