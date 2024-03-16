@@ -1,5 +1,6 @@
-// Función para cargar los datos de los proyectos desde el archivo JSON
-function cargarProyectos() {
+// proyectosRecientes.js
+
+export function cargarProyectos() {
     fetch('src/data/proyectos.json')
         .then(response => response.json())
         .then(data => {
@@ -62,6 +63,3 @@ function cargarProyectos() {
             console.error(error.message);
         });
 }
-
-// Llamar a cargarProyectosRecientes al cargar la página
-window.onload = cargarProyectosRecientes;
