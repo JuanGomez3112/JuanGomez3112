@@ -80,7 +80,7 @@ function iniciarDropdown() {
 // cargarProyectos.js
 
 function cargarProyectos(callback) {
-    fetch('src/data/proyectos.json')
+    fetch('../src/data/proyectos.json')
         .then(response => response.json())
         .then(data => {
             callback(data);

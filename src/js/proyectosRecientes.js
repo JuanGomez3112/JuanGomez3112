@@ -1,15 +1,7 @@
-// Función para cargar los proyectos recientes y mostrarlos en la página
-function cargarProyectosRecientes() {
-    // Realizar una solicitud HTTP para obtener los datos de los proyectos
-    fetch('/src/data/proyectos.json')
-        .then(response => {
-            // Verificar si la solicitud fue exitosa
-            if (!response.ok) {
-                throw new Error('No se pudo cargar los datos de los proyectos.');
-            }
-            // Convertir la respuesta a formato JSON
-            return response.json();
-        })
+// Función para cargar los datos de los proyectos desde el archivo JSON
+function cargarProyectos() {
+    fetch('src/data/proyectos.json')
+        .then(response => response.json())
         .then(data => {
             // Obtener la referencia al contenedor de proyectos recientes
             var contenedorProyectos = document.querySelector('#proyectos-recientes');
