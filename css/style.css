@@ -63,7 +63,7 @@ header .cont-olas .olas {
   width: 100%;
   height: 0px;
   background-color: #FEFEFD;
-  transition: height 1s ease-in-out;
+  transition: height 0.3s ease-in-out;
 }
 header .cont-olas .olas.active {
   height: 400px;
@@ -197,6 +197,222 @@ header .header-content .candy-box .candy-item {
   background: #FEFEFD;
   color: #2C303E;
   font-weight: 500;
+}
+
+.contenido-portafolio .vista-previa {
+  width: 100vw;
+  height: 16rem;
+}
+.contenido-portafolio .vista-previa .img-previa {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+.contenido-portafolio .vista-previa .img-previa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.contenido-portafolio .vista-previa .img-previa .degradado-up {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(23, 26, 47, 0) 64%, rgb(23, 26, 47) 100%);
+}
+.contenido-portafolio .vista-previa .img-previa .degradado-down {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgb(23, 26, 47) 0%, rgba(23, 26, 47, 0) 48%);
+}
+.contenido-portafolio .vista-previa .img-previa .info {
+  bottom: 0;
+  position: absolute;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contenido-portafolio .vista-previa .img-previa .info h4 {
+  color: #FEFEFD;
+  font-family: "DM Sans";
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.contenido-portafolio .vista-previa .img-previa .info .valoracion {
+  display: flex;
+  gap: 0.25rem;
+}
+.contenido-portafolio .vista-previa .img-previa .info .valoracion i {
+  font-size: 0.75rem;
+  color: #F8CF95;
+}
+.contenido-portafolio .vista-previa .img-previa .info .tags {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.contenido-portafolio .vista-previa .img-previa .info .tags span {
+  font-family: "DM Sans";
+  color: #F8CF95;
+}
+.contenido-portafolio .tabs-proyectos {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100vw;
+  height: max-content;
+}
+.contenido-portafolio .tabs-proyectos .tab {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.contenido-portafolio .tabs-proyectos .tab .tablinks {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  font-family: "DM Sans";
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  color: #FEFEFD;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+.contenido-portafolio .tabs-proyectos .tab .tablinks.active {
+  color: #F8CF95;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #F8CF95;
+  font-weight: 600;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent {
+  width: 100%;
+  height: max-content;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect {
+  min-width: 320px;
+  flex: 0 0 auto;
+  position: relative;
+  box-shadow: 0px 2px 8px #020320;
+  transition: box-shadow 0.4s ease-in-out;
+  height: auto;
+  overflow: hidden;
+  min-height: 240px;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2C303E;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: blur(0);
+  transition: filter 0.4s ease-in-out;
+  top: 0;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info {
+  position: relative;
+  width: calc(100vw - 1.5rem);
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 3;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect h4 {
+  font-family: "DM Sans";
+  color: #FEFEFD;
+  font-size: 1rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion {
+  display: flex;
+  gap: 0.5rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
+  font-size: 0.75rem;
+  color: #F8CF95;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect p {
+  font-family: "DM Sans";
+  color: #F8CF95;
+  font-size: 0.625rem;
+  font-weight: 700;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
+  font-size: 0.625rem;
+  background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
+  color: #020320;
+  font-weight: 800;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones {
+  position: relative;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones a {
+  padding: 0.375rem 0.5rem;
+  border-radius: 2rem;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover {
+  box-shadow: 0px 7px 29px #020320;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .card-info {
+  opacity: 1;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card::before {
+  opacity: 0.8;
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card img {
+  filter: blur(16px);
+}
+.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect.active {
+  border: 2px solid #F8CF95;
 }
 
 .contenedor {
@@ -400,6 +616,14 @@ header .header-content .candy-box .candy-item {
 @media (min-width: 430px) {
   .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
     font-size: 1.5rem;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: 28rem;
+  }
+}
+@media (min-width: 500px) {
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: 30rem;
   }
 }
 .contenedor main .proyectos {

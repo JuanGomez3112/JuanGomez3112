@@ -240,6 +240,8 @@
                 }
             }
 
+            
+
             @media  (min-width: 430px) {
 
                 .cta-curriculum_info {
@@ -250,9 +252,15 @@
                     }
                 }
 
-                // .cta-curriculum_img {
+                .cta-curriculum_img {
+                    height: 28rem;
+                }
+            }
 
-                // }
+            @media  (min-width: 500px) {
+                .cta-curriculum_img {
+                    height: 30rem;
+                }
             }
         }
 

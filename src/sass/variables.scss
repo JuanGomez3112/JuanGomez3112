@@ -112,7 +112,7 @@ header {
             height: 0px;
             background-color: $blanco;
             transition:
-                height 1s ease-in-out;
+            height 0.3s ease-in-out;
 
             &.active {
                 height: 400px;

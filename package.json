@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "compRollup": "rollup --config --watch"
+    "compijs": "rollup --config --watch"
   },
   "devDependencies": {
     "rollup": "^4.13.0"

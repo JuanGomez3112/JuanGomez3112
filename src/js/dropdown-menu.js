@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         timerId = setTimeout(() => {
             menuCont.style.opacity = "1";
-        }, 800);
+        }, 300);
     };
 
     const dropUp = () => {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         timerId = setTimeout(() => {
             menuCont.style.display = "none";
             contOlas.classList.remove("active");
-        }, 800);
+        }, 300);
     };
 
     circleBoton.addEventListener("click", () => {

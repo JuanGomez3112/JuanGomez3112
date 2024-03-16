@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"portafolio.css"}
+{"version":3,"sourceRoot":"","sources":["../src/sass/portafolio.scss"],"names":[],"mappings":"AAEI;EACI;EACA;;AAEA;EACI;EACA;EACA;EACA;;AAEA;EACI;EACA;EACA;EACA;;AAGJ;EACI;EACA;EACA","file":"portafolio.css"}

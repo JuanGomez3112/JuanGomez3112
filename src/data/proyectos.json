@@ -1,0 +1,60 @@
+[
+    {
+        "nombre": "Portafolio Web Personal",
+        "categoria": "front-end",
+        "imagen": "src/assets/img/proyectos/web personal.png",
+        "valoracion": 5,
+        "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS",
+        "tags": [
+            "Diseño Web",
+            "Responsive",
+            "Desarrollo Web",
+            "Marca Personal"
+        ],
+        "repositorio": "https://github.com/JuanGomez3112/JuanGomez3112/tree/master",
+        "verProyecto": "https://juangomez3112.github.io/JuanGomez3112/"
+    },
+    {
+        "nombre": "Plantilla Oficial Gubernamental",
+        "categoria": "front-end",
+        "imagen": "src/assets/img/proyectos/plantilla gubernamental.jpg",
+        "valoracion": 5,
+        "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS • PHP • WordPress",
+        "tags": [
+            "Diseño Web",
+            "Responsive",
+            "Desarrollo Web"
+        ],
+        "repositorio": "#",
+        "verProyecto": "https://test.c5iffaa.gob.do/"
+    },
+    {
+        "nombre": "Implementech",
+        "categoria": "front-end",
+        "imagen": "src/assets/img/proyectos/implementech.jpg",
+        "valoracion": 4,
+        "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS",
+        "tags": [
+            "Diseño Web",
+            "Responsive",
+            "Desarrollo Web",
+            "Marca Personal"
+        ],
+        "repositorio": "https://github.com/JuanGomez3112/DarkTech.git",
+        "verProyecto": "https://implementech.net/"
+    },
+    {
+        "nombre": "Mercury",
+        "categoria": ["diseño grafico", "front-end", "Branding"],
+        "imagen": "src/assets/img/proyectos/mercury.jpg",
+        "valoracion": 5,
+        "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS • PHP • WordPress",
+        "tags": [
+            "Diseño Web",
+            "Responsive",
+            "Desarrollo Web"
+        ],
+        "repositorio": "https://github.com/JuanGomez3112/Mercury.git",
+        "verProyecto": "https://test.c5iffaa.gob.do/"
+    }
+]
