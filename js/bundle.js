@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Función para cargar los datos de los proyectos desde el archivo JSON
 function cargarProyectos$1() {
-    fetch('src/data/proyectos.json')
+    fetch('../src/data/proyectos.json')
         .then(response => response.json())
         .then(data => {
             // Obtener las referencias a los elementos HTML
