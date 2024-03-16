@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
-  font-family: "WinterHolidays";
-  src: url("/src/assets/fuentes/WinterHolidays.otf");
+  font-family: "DM Sans";
+  src: url("/src/assets/fuentes/dmsans-variable-webfont.woff2") format("woff2");
 }
 @font-face {
-  font-family: "BetterGrade";
-  src: url("/src/assets/fuentes/BetterGrade.otf");
+  font-family: "Winter Holidays";
+  src: url("/src/assets/fuentes/winterholidays-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Better Grade";
+  src: url("/src/assets/fuentes/bettergrade-webfont.woff2") format("woff2");
 }
 @keyframes olas {
   0% {
@@ -81,7 +84,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "WinterHolidays";
+  font-family: "Winter Holidays";
   font-size: 2.5rem;
   color: #020320;
 }

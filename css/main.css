@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @font-face {
-  font-family: "WinterHolidays";
-  src: url("/src/assets/fuentes/WinterHolidays.otf");
+  font-family: "DM Sans";
+  src: url("/src/assets/fuentes/dmsans-variable-webfont.woff2") format("woff2");
 }
 @font-face {
-  font-family: "BetterGrade";
-  src: url("/src/assets/fuentes/BetterGrade.otf");
+  font-family: "Winter Holidays";
+  src: url("/src/assets/fuentes/winterholidays-webfont.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Better Grade";
+  src: url("/src/assets/fuentes/bettergrade-webfont.woff2") format("woff2");
 }
 @keyframes olas {
   0% {
@@ -81,7 +84,7 @@ header .header-content {
   height: max-content;
 }
 header .header-content .logo {
-  font-family: "WinterHolidays";
+  font-family: "Winter Holidays";
   font-size: 2.5rem;
   color: #020320;
 }
@@ -282,7 +285,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion h1 {
   position: relative;
-  font-family: "WinterHolidays";
+  font-family: "Winter Holidays";
   font-size: 3.2rem;
   color: #FEFEFD;
   font-weight: 400;
@@ -290,7 +293,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion h2 {
   position: relative;
-  font-family: "BetterGrade";
+  font-family: "Better Grade";
   font-size: 1.4rem;
   color: #F8CF95;
   font-weight: 400;
@@ -588,7 +591,7 @@ header .header-content .candy-box .candy-item {
   padding: 1.5rem;
 }
 .contenedor main .cta-contacto .texto-cta h3 {
-  font-family: "WinterHolidays";
+  font-family: "Winter Holidays";
   font-size: 1.6rem;
   color: #2C303E;
   font-weight: 500;
