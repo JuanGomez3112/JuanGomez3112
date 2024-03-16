@@ -97,7 +97,7 @@
                     h1 {
                         position: relative;
                         font-family: $tipografiaPrincipal;
-                        font-size: 3.2rem;
+                        font-size: 3.4rem;
                         color: $blanco;
                         font-weight: 400;
                         width: max-content;
@@ -106,7 +106,7 @@
                     h2 {
                         position: relative;
                         font-family: $tipografiaTerciaria;
-                        font-size: 1.4rem;
+                        font-size: 1.5rem;
                         color: $crema;
                         font-weight: 400;
                         top: -1.2rem;
@@ -188,6 +188,7 @@
                         color: $crema;
                         font-size: 1.25rem;
                         text-align: justify;
+                        line-height: 1.8rem;
                     }
 
                     p {
