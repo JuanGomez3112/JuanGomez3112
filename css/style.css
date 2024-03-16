@@ -201,7 +201,7 @@ header .header-content .candy-box .candy-item {
 
 .contenido-portafolio .vista-previa {
   width: 100vw;
-  height: 16rem;
+  height: 20rem;
 }
 .contenido-portafolio .vista-previa .img-previa {
   width: 100%;
@@ -225,7 +225,7 @@ header .header-content .candy-box .candy-item {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgb(23, 26, 47) 0%, rgba(23, 26, 47, 0) 48%);
+  background: linear-gradient(0deg, rgb(23, 26, 47) 0%, rgba(23, 26, 47, 0) 72%);
 }
 .contenido-portafolio .vista-previa .img-previa .info {
   bottom: 0;
@@ -244,6 +244,7 @@ header .header-content .candy-box .candy-item {
 .contenido-portafolio .vista-previa .img-previa .info .valoracion {
   display: flex;
   gap: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 .contenido-portafolio .vista-previa .img-previa .info .valoracion i {
   font-size: 0.75rem;
