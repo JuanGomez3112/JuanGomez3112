@@ -1,41 +1,46 @@
 'use strict';
 
-document.addEventListener("DOMContentLoaded", function() {
+function iniciarSlide() {
     const wrapper = document.querySelector(".wrapper");
 
-    let intervalo = null;
-    let step = 1;
-    let maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+    if (wrapper) {
+        let intervalo = null;
+        let step = 1;
+        let maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
 
-    const start = () => {
-        intervalo = setInterval(() => {
-            wrapper.scrollLeft = wrapper.scrollLeft + step;
+        const start = () => {
+            intervalo = setInterval(() => {
+                wrapper.scrollLeft = wrapper.scrollLeft + step;
 
-            if (wrapper.scrollLeft === maxScrollLeft) {
-                step = step * -1;
-            } else if (wrapper.scrollLeft === 0) {
-                step = step * -1;
-            }
+                if (wrapper.scrollLeft === maxScrollLeft) {
+                    step = step * -1;
+                } else if (wrapper.scrollLeft === 0) {
+                    step = step * -1;
+                }
+            }, 10);
+        };
 
-        }, 10);
-    };
+        const stop = () => {
+            clearInterval(intervalo);
+        };
 
-    const stop = () => {
-        clearInterval(intervalo);
-    };
+        wrapper.addEventListener("mouseover", () => {
+            stop();
+        });
 
-    wrapper.addEventListener("mouseover", () => {
-        stop();
-    });
+        wrapper.addEventListener("mouseout", () => {
+            start();
+        });
 
-    wrapper.addEventListener("mouseout", () => {
         start();
-    });
+    } else {
+        console.error("No se encontró ningún elemento con la clase '.wrapper'");
+    }
+}
 
-    start();
-});
+// dropdown.js
 
-document.addEventListener("DOMContentLoaded", function() {
+function iniciarDropdown() {
     const boton = document.querySelector(".candy-box");
     const circleBoton = boton.querySelector(".candy-item");
     const contOlas = document.querySelector(".olas");
@@ -70,85 +75,25 @@ document.addEventListener("DOMContentLoaded", function() {
             dropDown();
         }
     });
-});
+}
 
-// Función para cargar los datos de los proyectos desde el archivo JSON
-function cargarProyectos$1() {
+// cargarProyectos.js
+
+function cargarProyectos(callback) {
     fetch('src/data/proyectos.json')
         .then(response => response.json())
         .then(data => {
-            // Obtener las referencias a los elementos HTML
-            var contenedorProyectos = document.querySelector('.contenedor-proyectos');
-            var proyectosCard = contenedorProyectos.querySelector('.proyectos-card');
-
-            // Iterar sobre los primeros dos proyectos y agregarlos al HTML
-            data.slice(0, 2).forEach(proyecto => {
-                var cardProyecto = document.createElement('article');
-                cardProyecto.classList.add('card-proyect');
-
-                // Contenido del proyecto
-                var contenidoProyecto = `
-                    <div class="imagen-card">
-                        <img src="${proyecto.imagen}" alt="${proyecto.nombre}">
-                    </div>
-                    <div class="card-info">
-                        <div class="info-proyect">
-                            <h4>${proyecto.nombre}</h4>
-                            <div class="valoracion">
-                                ${'<i class="fa-solid fa-star"></i>'.repeat(proyecto.valoracion)}
-                            </div>
-                            <p>${proyecto.tecnologias}</p>
-                            <div class="tags">
-                                ${proyecto.tags.map(tag => `<div class="btn btn-pq btn-tags">${tag}</div>`).join('')}
-                            </div>
-                        </div>
-                        <div class="botones">
-                            <a href="${proyecto.repositorio}" class="btn btn-bd" target="_blank">
-                                <i class="fa-brands fa-github"></i>
-                                Repositorio
-                            </a>
-                            <a href="${proyecto.verProyecto}" class="btn btn-pq btn-bd" target="_blank">
-                                <i class="fa-solid fa-eye"></i>
-                                Ver Proyecto
-                            </a>
-                        </div>
-                    </div>
-                `;
-
-                cardProyecto.innerHTML = contenidoProyecto;
-                proyectosCard.appendChild(cardProyecto);
-            });
-
-            // Mostrar el enlace para ver más proyectos
-            var cardMasProyectos = document.createElement('article');
-            cardMasProyectos.classList.add('card-proyect', 'card-more');
-            cardMasProyectos.innerHTML = `
-                <a href="/portafolio.html">
-                    <i class="fa-solid fa-plus"></i>
-                    Ver más proyectos
-                </a>
-            `;
-            proyectosCard.appendChild(cardMasProyectos);
+            callback(data);
         })
         .catch(error => console.error('Error al cargar los proyectos:', error));
 }
 
-// Cargar los proyectos al cargar la página
-window.onload = function() {
-    cargarProyectos$1();
-};
-
-// main.js
-
-// Función para cargar los datos de los proyectos desde el archivo JSON
-function cargarProyectos() {
-    fetch('src/data/proyectos.json')
-        .then(response => response.json())
-        .then(data => {
-            manejarTabs(data); // Llamar a la función para manejar los tabs y mostrar proyectos
-            manejarVistaPrevia(data); // Llamar a la función para manejar la vista previa de los proyectos
-        })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+// Función para cargar los datos de los proyectos y manejar los tabs y la vista previa
+function cargarYManejarProyectos() {
+    cargarProyectos(data => {
+        manejarTabs(data);
+        manejarVistaPrevia(data);
+    });
 }
 
 // Función para manejar la vista previa de los proyectos
@@ -250,7 +195,15 @@ function manejarVistaPrevia(proyectos) {
 // Función para manejar los tabs y mostrar proyectos
 function manejarTabs(data) {
     var tabButtons = document.getElementById('tab-buttons');
-    var tabContent = document.querySelector('.proyectos-card');
+    if (tabButtons) {
+        var tabContent = document.querySelector('#todos-los-proyectos');
+
+        if (!tabContent) {
+            console.error("El elemento con el ID 'todos-los-proyectos' no se encontró en el DOM.");
+        }
+    } else {
+        console.error("El elemento con el ID 'tab-buttons' no se encontró en el DOM.");
+    }
 
     // Obtener todas las categorías únicas de los proyectos
     var categorias = [...new Set(data.flatMap(proyecto => proyecto.categoria))];
@@ -351,9 +304,19 @@ function manejarTabs(data) {
     }
 }
 
-
-
 // Cargar los proyectos al cargar la página
 window.onload = function () {
-    cargarProyectos();
+    cargarYManejarProyectos();
+};
+
+// Iniciar funcionalidades al cargar la página
+window.onload = function () {
+    iniciarSlide();
+    iniciarDropdown();
+
+    // Llamar a cargarProyectos sin argumentos y manejar los proyectos dentro de la función de devolución de llamada
+    cargarProyectos(function(data) {
+        // Lógica para manejar los proyectos cargados
+        cargarYManejarProyectos();
+    });
 };

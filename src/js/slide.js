@@ -1,34 +1,39 @@
-document.addEventListener("DOMContentLoaded", function() {
+function iniciarSlide() {
     const wrapper = document.querySelector(".wrapper");
 
-    let intervalo = null;
-    let step = 1;
-    let maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
+    if (wrapper) {
+        let intervalo = null;
+        let step = 1;
+        let maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
 
-    const start = () => {
-        intervalo = setInterval(() => {
-            wrapper.scrollLeft = wrapper.scrollLeft + step;
+        const start = () => {
+            intervalo = setInterval(() => {
+                wrapper.scrollLeft = wrapper.scrollLeft + step;
 
-            if (wrapper.scrollLeft === maxScrollLeft) {
-                step = step * -1;
-            } else if (wrapper.scrollLeft === 0) {
-                step = step * -1;
-            }
+                if (wrapper.scrollLeft === maxScrollLeft) {
+                    step = step * -1;
+                } else if (wrapper.scrollLeft === 0) {
+                    step = step * -1;
+                }
+            }, 10);
+        };
 
-        }, 10);
-    };
+        const stop = () => {
+            clearInterval(intervalo);
+        };
 
-    const stop = () => {
-        clearInterval(intervalo);
-    };
+        wrapper.addEventListener("mouseover", () => {
+            stop();
+        });
 
-    wrapper.addEventListener("mouseover", () => {
-        stop();
-    });
+        wrapper.addEventListener("mouseout", () => {
+            start();
+        });
 
-    wrapper.addEventListener("mouseout", () => {
         start();
-    });
+    } else {
+        console.error("No se encontró ningún elemento con la clase '.wrapper'");
+    }
+}
 
-    start();
-});
+export { iniciarSlide };

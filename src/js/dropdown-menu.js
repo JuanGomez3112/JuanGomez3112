@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function() {
+// dropdown.js
+
+function iniciarDropdown() {
     const boton = document.querySelector(".candy-box");
     const circleBoton = boton.querySelector(".candy-item");
     const contOlas = document.querySelector(".olas");
@@ -33,4 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
             dropDown();
         }
     });
-});
+}
+
+export { iniciarDropdown };

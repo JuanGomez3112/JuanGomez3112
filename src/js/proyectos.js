@@ -1,14 +1,11 @@
-// main.js
+import { cargarProyectos } from './cargarProyectos.js';
 
-// Función para cargar los datos de los proyectos desde el archivo JSON
-function cargarProyectos() {
-    fetch('src/data/proyectos.json')
-        .then(response => response.json())
-        .then(data => {
-            manejarTabs(data); // Llamar a la función para manejar los tabs y mostrar proyectos
-            manejarVistaPrevia(data); // Llamar a la función para manejar la vista previa de los proyectos
-        })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+// Función para cargar los datos de los proyectos y manejar los tabs y la vista previa
+function cargarYManejarProyectos() {
+    cargarProyectos(data => {
+        manejarTabs(data);
+        manejarVistaPrevia(data);
+    });
 }
 
 // Función para manejar la vista previa de los proyectos
@@ -110,7 +107,17 @@ function manejarVistaPrevia(proyectos) {
 // Función para manejar los tabs y mostrar proyectos
 function manejarTabs(data) {
     var tabButtons = document.getElementById('tab-buttons');
-    var tabContent = document.querySelector('.proyectos-card');
+    if (tabButtons) {
+        var tabContent = document.querySelector('#todos-los-proyectos');
+
+        if (!tabContent) {
+            console.error("El elemento con el ID 'todos-los-proyectos' no se encontró en el DOM.");
+        } else {
+            // Resto del código para agregar botones de pestañas al elemento tabButtons
+        }
+    } else {
+        console.error("El elemento con el ID 'tab-buttons' no se encontró en el DOM.");
+    }
 
     // Obtener todas las categorías únicas de los proyectos
     var categorias = [...new Set(data.flatMap(proyecto => proyecto.categoria))];
@@ -211,9 +218,9 @@ function manejarTabs(data) {
     }
 }
 
-
-
 // Cargar los proyectos al cargar la página
 window.onload = function () {
-    cargarProyectos();
+    cargarYManejarProyectos();
 };
+
+export { cargarYManejarProyectos };

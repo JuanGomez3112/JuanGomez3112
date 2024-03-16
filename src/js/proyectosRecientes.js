@@ -1,13 +1,23 @@
-// Función para cargar los datos de los proyectos desde el archivo JSON
-function cargarProyectos() {
-    fetch('src/data/proyectos.json')
-        .then(response => response.json())
+// Función para cargar los proyectos recientes y mostrarlos en la página
+function cargarProyectosRecientes() {
+    // Realizar una solicitud HTTP para obtener los datos de los proyectos
+    fetch('/src/data/proyectos.json')
+        .then(response => {
+            // Verificar si la solicitud fue exitosa
+            if (!response.ok) {
+                throw new Error('No se pudo cargar los datos de los proyectos.');
+            }
+            // Convertir la respuesta a formato JSON
+            return response.json();
+        })
         .then(data => {
-            // Obtener las referencias a los elementos HTML
-            var contenedorProyectos = document.querySelector('.contenedor-proyectos');
-            var proyectosCard = contenedorProyectos.querySelector('.proyectos-card');
+            // Obtener la referencia al contenedor de proyectos recientes
+            var contenedorProyectos = document.querySelector('#proyectos-recientes');
 
-            // Iterar sobre los primeros dos proyectos y agregarlos al HTML
+            // Limpiar el contenedor antes de agregar nuevos proyectos
+            contenedorProyectos.innerHTML = '';
+
+            // Iterar sobre los proyectos y agregarlos al HTML
             data.slice(0, 2).forEach(proyecto => {
                 var cardProyecto = document.createElement('article');
                 cardProyecto.classList.add('card-proyect');
@@ -42,10 +52,10 @@ function cargarProyectos() {
                 `;
 
                 cardProyecto.innerHTML = contenidoProyecto;
-                proyectosCard.appendChild(cardProyecto);
+                contenedorProyectos.appendChild(cardProyecto);
             });
 
-            // Mostrar el enlace para ver más proyectos
+            // Agregar la tercera caja diferente
             var cardMasProyectos = document.createElement('article');
             cardMasProyectos.classList.add('card-proyect', 'card-more');
             cardMasProyectos.innerHTML = `
@@ -54,12 +64,12 @@ function cargarProyectos() {
                     Ver más proyectos
                 </a>
             `;
-            proyectosCard.appendChild(cardMasProyectos);
+            contenedorProyectos.appendChild(cardMasProyectos);
         })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+        .catch(error => {
+            console.error(error.message);
+        });
 }
 
-// Cargar los proyectos al cargar la página
-window.onload = function() {
-    cargarProyectos();
-};
+// Llamar a cargarProyectosRecientes al cargar la página
+window.onload = cargarProyectosRecientes;
