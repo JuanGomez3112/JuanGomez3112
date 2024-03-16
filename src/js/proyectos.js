@@ -100,6 +100,20 @@ function manejarVistaPrevia(proyectos) {
             }
             mostrarProyecto(indiceActual);
         });
+    } else {
+        // Agregar funcionalidad para botones en escritorios
+        const btnAnterior = vistaPrevia.querySelector('.fa-circle-chevron-left');
+        const btnSiguiente = vistaPrevia.querySelector('.fa-circle-chevron-right');
+
+        btnAnterior.addEventListener('click', () => {
+            indiceActual = (indiceActual - 1 + proyectos.length) % proyectos.length;
+            mostrarProyecto(indiceActual);
+        });
+
+        btnSiguiente.addEventListener('click', () => {
+            indiceActual = (indiceActual + 1) % proyectos.length;
+            mostrarProyecto(indiceActual);
+        });
     }
 }
 
