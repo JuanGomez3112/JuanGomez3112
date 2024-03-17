@@ -120,16 +120,7 @@
         "certificadoLink": "src/data/certificados/Introducción al Desarrollo Web front end. HTML y CSS desde cero.pdf",
         "cursoLink": "enlace-curso3.html",
         "categorias": "Front-end"
-    },
-    {
-        "nombre": "Fundamentos de Diseño de Interfaces UI",
-        "imagen": "src/assets/img/diplomas/Fundamentos-de-Diseño-de-Interfaces-UI.webp",
-        "tipo": "Constancia",
-        "proveedor": "Crehana",
-        "certificadoLink": "src/data/certificados/Fundamentos de Diseño de Interfaces UI.pdf",
-        "cursoLink": "enlace-curso2.html",
-        "categorias": "Front-end"
-    },
+    } ,
     {
         "nombre": "Excel básico para principiantes",
         "imagen": "src/assets/img/diplomas/Excel-básico-para-principiantes.webp",

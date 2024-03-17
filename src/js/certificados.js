@@ -85,11 +85,11 @@ function manejarTabs(data) {
                 <div class="info-hidden">
                     <span>${certificado.proveedor}</span>
                     <div class="botones">
-                        <a href="${certificado.certificadoLink}" class="btn btn-pq btn-bd" target="_blank">
+                        <a href="${certificado.certificadoLink}" class="btn btn-pq btn-bd bd-gradient" download="${certificado.nombre}.pdf">
                             <i class="fa-solid fa-certificate"></i>
                             Certificado
                         </a>
-                        <a href="${certificado.cursoLink}" class="btn btn-pq btn-bd" target="_blank">
+                        <a href="${certificado.cursoLink}" class="btn btn-pq btn-bd bd-gradient">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             Ir al Curso
                         </a>

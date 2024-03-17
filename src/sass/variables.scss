@@ -319,7 +319,7 @@ $border-width: 2px;
 .btn-bd {
     border: 2px solid transparent;
 
-    &::after {
+    &::before {
         content: "";
         position: absolute;
         top: 0;
