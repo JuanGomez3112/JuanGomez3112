@@ -201,7 +201,7 @@ function manejarTabs(data) {
                             </div>
                         </div>
                         <div class="botones">
-                            <a href="${proyecto.repositorio}" class="btn btn-bd" target="_blank">
+                            <a href="${proyecto.repositorio}" class="btn btn-pq btn-bd" target="_blank">
                                 <i class="fa-brands fa-github"></i>
                                 Repositorio
                             </a>

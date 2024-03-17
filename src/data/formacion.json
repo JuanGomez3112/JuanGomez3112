@@ -1,0 +1,36 @@
+[
+    {
+        "nombre": "Branding desde cero: Crea la identidad visual de una marca",
+        "imagen": "/src/assets/img/diplomas/Branding desde cero. Crea la identidad visual de una marca.jpg",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "enlace-certificado1.pdf",
+        "cursoLink": "enlace-curso1.html",
+        "categorias": [
+            "Diseño",
+            "Brander"
+        ]
+    },
+    {
+        "nombre": "Diseño de Interfaces de Usuario",
+        "imagen": "ruta/imagen2.jpg",
+        "tipo": "Certificado",
+        "proveedor": "Platzi",
+        "certificadoLink": "enlace-certificado2.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": 
+            "Diseño"
+        
+    },
+    {
+        "nombre": "Marketing Digital",
+        "imagen": "ruta/imagen3.jpg",
+        "tipo": "Diploma",
+        "proveedor": "Udemy",
+        "certificadoLink": "enlace-certificado3.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": [
+            "Marketing"
+        ]
+    }
+]
