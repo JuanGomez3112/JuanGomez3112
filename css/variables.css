@@ -58,20 +58,15 @@ header .cont-olas {
   position: relative;
   z-index: 1;
 }
-header .cont-olas .olas {
+header .cont-olas .contenedor-olas {
   position: relative;
   width: 100%;
   height: 0px;
   background-color: #FEFEFD;
   transition: height 0.3s ease-in-out;
 }
-header .cont-olas .olas.active {
+header .cont-olas .contenedor-olas.active {
   height: 400px;
-}
-header .cont-olas img {
-  position: relative;
-  width: auto;
-  height: 100px;
 }
 header .header-content {
   width: 100%;

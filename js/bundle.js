@@ -43,7 +43,7 @@ function iniciarSlide() {
 function iniciarDropdown() {
     const boton = document.querySelector(".candy-box");
     const circleBoton = boton.querySelector(".candy-item");
-    const contOlas = document.querySelector(".olas");
+    const contOlas = document.querySelector(".contenedor-olas");
     const menuCont = document.querySelector(".menu-container");
 
     let timerId;
@@ -64,8 +64,11 @@ function iniciarDropdown() {
 
         timerId = setTimeout(() => {
             menuCont.style.display = "none";
-            contOlas.classList.remove("active");
-        }, 300);
+            setTimeout(() => {
+
+                contOlas.classList.remove("active");
+            }, 100);
+        }, 400);
     };
 
     circleBoton.addEventListener("click", () => {
@@ -389,12 +392,11 @@ function cargarProyectos() {
         });
 }
 
-// Iniciar funcionalidades al cargar la página
+// main.js
+
 window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
-
-    // Llamar a cargarProyectos al cargar la página
     cargarProyectos();
     cargarYManejarProyectos();
 };
