@@ -809,7 +809,14 @@ header .header-content .candy-box .candy-item {
   justify-content: center;
   box-shadow: drop-shadow(8px 8px 16px #B7B7B6), drop-shadow(-8px -8px 16px #FFFFFF);
 }
-.contenedor main .cta-contacto .texto-cta {
+.contenedor main .cta-contacto .contenedor-cta {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #FEFEFD;
+  justify-content: center;
+}
+.contenedor main .cta-contacto .contenedor-cta .texto-cta {
   max-width: 1212px;
   position: relative;
   display: flex;
@@ -819,30 +826,30 @@ header .header-content .candy-box .candy-item {
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: #FEFEFD;
 }
-.contenedor main .cta-contacto .texto-cta h3 {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta h3 {
   font-family: "Winter Holidays";
   font-size: 1.6rem;
   color: #2C303E;
   font-weight: 500;
   text-align: center;
 }
-.contenedor main .cta-contacto .texto-cta p {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta p {
   text-align: justify;
   font-size: 1rem;
   font-family: "DM Sans";
   font-weight: 300;
   color: #2C303E;
+  line-height: 1.25rem;
 }
-.contenedor main .cta-contacto .texto-cta .botones {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   margin-top: 1rem;
 }
-.contenedor main .cta-contacto .texto-cta .botones a {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a {
   background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);
   font-size: 20px;
   color: #FEFEFD;
@@ -851,12 +858,16 @@ header .header-content .candy-box .candy-item {
   transition: background 0.5s ease-in-out;
   width: max-content;
 }
-.contenedor main .cta-contacto .texto-cta .botones a span {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a span {
   padding: 1rem;
   font-size: 1rem;
 }
-.contenedor main .cta-contacto .texto-cta .botones a:hover {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a:hover {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
+}
+.contenedor main .cta-contacto img {
+  width: 100%;
+  height: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
