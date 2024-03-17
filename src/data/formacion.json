@@ -1,36 +1,151 @@
 [
     {
         "nombre": "Branding desde cero: Crea la identidad visual de una marca",
-        "imagen": "/src/assets/img/diplomas/Branding desde cero. Crea la identidad visual de una marca.jpg",
+        "imagen": "/src/assets/img/diplomas/Branding desde cero. Crea la identidad visual de una marca_1.webp",
         "tipo": "Constancia",
         "proveedor": "Crehana",
-        "certificadoLink": "enlace-certificado1.pdf",
+        "certificadoLink": "/src/data/certificados/Branding desde cero. Crea la identidad visual de una marca.pdf",
         "cursoLink": "enlace-curso1.html",
         "categorias": [
-            "Diseño",
+            "Diseño Grafico",
             "Brander"
         ]
     },
     {
-        "nombre": "Diseño de Interfaces de Usuario",
-        "imagen": "ruta/imagen2.jpg",
-        "tipo": "Certificado",
-        "proveedor": "Platzi",
-        "certificadoLink": "enlace-certificado2.pdf",
+        "nombre": "Adobe Photoshop CC desde cero: Experto en diseño gráfico",
+        "imagen": "/src/assets/img/diplomas/Adobe Photoshop CC desde cero. Experto en diseño gráfico_1.webp",
+        "tipo": "Diploma",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Adobe Photoshop CC desde cero. Experto en diseño gráfico.pdf",
         "cursoLink": "enlace-curso2.html",
         "categorias": 
-            "Diseño"
+            "Diseño Grafico"
         
     },
     {
-        "nombre": "Marketing Digital",
-        "imagen": "ruta/imagen3.jpg",
+        "nombre": "Retoque Avanzado para Retratos",
+        "imagen": "/src/assets/img/diplomas/Retoque-Avanzado-para-Retratos.webp",
         "tipo": "Diploma",
-        "proveedor": "Udemy",
-        "certificadoLink": "enlace-certificado3.pdf",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Retoque Avanzado para Retratos.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": 
+            "Diseño Grafico"
+        
+    },
+    {
+        "nombre": "Introducción a Adobe Photoshop CC2020",
+        "imagen": "/src/assets/img/diplomas/Introducción-a-Adobe-Photoshop-CC2020.webp",
+        "tipo": "Diploma",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Introducción a Adobe Photoshop CC2020.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": 
+            "Diseño Grafico"
+        
+    },
+    {
+        "nombre": "Técnicas avanzadas de styling: Sass y SCSS",
+        "imagen": "/src/assets/img/diplomas/Técnicas-avanzadas-de-styling.-Sass-y-SCSS.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Técnicas avanzadas de styling. Sass y SCSS.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": 
+            "Front-end"
+        
+    },
+    {
+        "nombre": "Diseño de logotipos desde cero",
+        "imagen": "/src/assets/img/diplomas/Diseño de logotipos desde cero_1.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Diseño de logotipos desde cero.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": [
+            "Diseño Grafico",
+            "Brander"
+        ]
+        
+    },
+    {
+        "nombre": "Estrategias de naming: Dándole un nombre a tu marca",
+        "imagen": "/src/assets/img/diplomas/Estrategias de naming. Dándole un nombre a tu marca_1.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Estrategias de naming. Dándole un nombre a tu marca.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": 
+            "Brander"
+    },
+    {
+        "nombre": "Creación de una identidad visual desde cero",
+        "imagen": "/src/assets/img/diplomas/Creación de una identidad visual desde cero_1.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Creación de una identidad visual desde cero.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": [
+            "Diseño Grafico",
+            "Brander"
+        ]
+        
+    },
+    {
+        "nombre": "Ideación y creatividad desde cero",
+        "imagen": "/src/assets/img/diplomas/Ideación-y-creatividad-desde-cero.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Ideación y creatividad desde cero.pdf",
         "cursoLink": "enlace-curso3.html",
         "categorias": [
-            "Marketing"
+            "Diseño Grafico",
+            "Brander", "Extras"
         ]
+    },
+    {
+        "nombre": "Fundamentos de Diseño de Interfaces UI",
+        "imagen": "/src/assets/img/diplomas/Fundamentos-de-Diseño-de-Interfaces-UI.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Fundamentos de Diseño de Interfaces UI.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": "Front-end"
+    },
+    {
+        "nombre": "Introducción al Desarrollo Web front end: HTML y CSS desde cero",
+        "imagen": "/src/assets/img/diplomas/Introducción-al-Desarrollo-Web-front-end.-HTML-y-CSS-desde-cero.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Introducción al Desarrollo Web front end. HTML y CSS desde cero.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": "Front-end"
+    },
+    {
+        "nombre": "Fundamentos de Diseño de Interfaces UI",
+        "imagen": "/src/assets/img/diplomas/Fundamentos-de-Diseño-de-Interfaces-UI.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Fundamentos de Diseño de Interfaces UI.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": "Front-end"
+    },
+    {
+        "nombre": "Excel básico para principiantes",
+        "imagen": "/src/assets/img/diplomas/Excel-básico-para-principiantes.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Excel básico para principiantes.pdf",
+        "cursoLink": "enlace-curso3.html",
+        "categorias": "Extras"
+    },
+    {
+        "nombre": "Branding emocional: crea una marca inspiradora",
+        "imagen": "/src/assets/img/diplomas/Branding emocional. crea una marca inspiradora_1.webp",
+        "tipo": "Constancia",
+        "proveedor": "Crehana",
+        "certificadoLink": "/src/data/certificados/Branding emocional. crea una marca inspiradora.pdf",
+        "cursoLink": "enlace-curso2.html",
+        "categorias": ["Brander", "Diseño Grafico"]
     }
 ]
