@@ -951,6 +951,9 @@ header .header-content .candy-box .candy-item {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  height: max-content;
+  background: linear-gradient(0deg, rgba(23, 26, 47, 0) 80%, rgb(23, 26, 47) 100%);
 }
 .seccion-formacion .line-time .contain_line {
   display: flex;
