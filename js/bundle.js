@@ -488,7 +488,7 @@ function manejarTabs(data) {
                 <div class="info-hidden">
                     <span>${certificado.proveedor}</span>
                     <div class="botones">
-                        <a href="${certificado.certificadoLink}" class="btn btn-pq btn-bd bd-gradient" download="${certificado.nombre}.pdf">
+                        <a href="${certificado.certificadoLink}" class="btn btn-pq btn-bd bd-gradient" download>
                             <i class="fa-solid fa-certificate"></i>
                             Certificado
                         </a>

@@ -338,8 +338,9 @@ $border-width: 2px;
             linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
-
     }
+
+    
 
     &:hover {
         background: $blanco;
