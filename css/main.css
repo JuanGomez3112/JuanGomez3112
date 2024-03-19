@@ -135,6 +135,14 @@ header .header-content .candy-box .candy-item {
   border-radius: 50%;
 }
 
+.contenido h1 {
+  font-family: "Winter Holidays";
+  text-align: center;
+  color: #FEFEFD;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 .burbuja {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
   border-radius: 50%;
@@ -191,35 +199,35 @@ header .header-content .candy-box .candy-item {
   font-weight: 500;
 }
 
-.contenido-portafolio .vista-previa {
+.vista-previa {
   width: 100vw;
   height: 26rem;
 }
-.contenido-portafolio .vista-previa .img-previa {
+.vista-previa .img-previa {
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
 }
-.contenido-portafolio .vista-previa .img-previa img {
+.vista-previa .img-previa img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: relative;
 }
-.contenido-portafolio .vista-previa .img-previa .degradado-up {
+.vista-previa .img-previa .degradado-up {
   position: absolute;
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgba(23, 26, 47, 0) 80%, rgb(23, 26, 47) 100%);
 }
-.contenido-portafolio .vista-previa .img-previa .degradado-down {
+.vista-previa .img-previa .degradado-down {
   position: absolute;
   width: 100%;
   height: 100%;
   background: linear-gradient(0deg, rgb(23, 26, 47) 0%, rgba(23, 26, 47, 0) 80%);
 }
-.contenido-portafolio .vista-previa .img-previa .info {
+.vista-previa .img-previa .info {
   bottom: 0;
   position: absolute;
   padding: 1.5rem;
@@ -227,34 +235,35 @@ header .header-content .candy-box .candy-item {
   flex-direction: column;
   gap: 0.5rem;
 }
-.contenido-portafolio .vista-previa .img-previa .info h4 {
+.vista-previa .img-previa .info h4 {
   color: #FEFEFD;
   font-family: "DM Sans";
   font-weight: 600;
   letter-spacing: 1px;
 }
-.contenido-portafolio .vista-previa .img-previa .info .valoracion {
+.vista-previa .img-previa .info .valoracion {
   display: flex;
   gap: 0.25rem;
   margin-bottom: 0.5rem;
 }
-.contenido-portafolio .vista-previa .img-previa .info .valoracion i {
+.vista-previa .img-previa .info .valoracion i {
   font-size: 0.75rem;
   color: #F8CF95;
 }
-.contenido-portafolio .vista-previa .img-previa .info .tags {
+.vista-previa .img-previa .info .tags {
   display: flex;
   column-gap: 1rem;
   row-gap: 0.5rem;
   flex-wrap: wrap;
 }
-.contenido-portafolio .vista-previa .img-previa .info .tags span {
+.vista-previa .img-previa .info .tags span {
   font-family: "DM Sans";
   color: #F8CF95;
   font-weight: 600;
   font-size: 0.875rem;
 }
-.contenido-portafolio .tabs-proyectos {
+
+.tabs-proyectos {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -262,7 +271,7 @@ header .header-content .candy-box .candy-item {
   width: 100vw;
   height: max-content;
 }
-.contenido-portafolio .tabs-proyectos .tab {
+.tabs-proyectos .tab {
   display: flex;
   gap: 1rem;
   align-items: start;
@@ -270,7 +279,7 @@ header .header-content .candy-box .candy-item {
   display: flex;
   width: 100%;
 }
-.contenido-portafolio .tabs-proyectos .tab .tablinks {
+.tabs-proyectos .tab .tablinks {
   font-family: "DM Sans";
   padding: 0.5rem 1rem;
   background: none;
@@ -283,33 +292,33 @@ header .header-content .candy-box .candy-item {
   display: flex;
   gap: 0.5rem;
 }
-.contenido-portafolio .tabs-proyectos .tab .tablinks.active {
+.tabs-proyectos .tab .tablinks.active {
   color: #F8CF95;
   padding-bottom: 1rem;
   border-bottom: 2px solid #F8CF95;
   font-weight: 600;
 }
-.contenido-portafolio .tabs-proyectos .tab::-webkit-scrollbar {
+.tabs-proyectos .tab::-webkit-scrollbar {
   width: 0;
   height: 0;
   display: none;
   visibility: hidden;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent {
+.tabs-proyectos .tabcontent {
   width: 100%;
   height: max-content;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card {
+.tabs-proyectos .tabcontent .proyectos-card {
   display: flex;
   gap: 1.5rem;
   overflow-x: auto;
   flex-wrap: nowrap;
   padding: 1rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect {
   min-width: 320px;
   flex: 0 0 auto;
   position: relative;
@@ -319,13 +328,13 @@ header .header-content .candy-box .candy-item {
   overflow: hidden;
   min-height: 240px;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card {
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card::before {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -337,7 +346,7 @@ header .header-content .candy-box .candy-item {
   transition: opacity 0.4s ease;
   z-index: 2;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card img {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .imagen-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -346,7 +355,7 @@ header .header-content .candy-box .candy-item {
   transition: filter 0.4s ease-in-out;
   top: 0;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info {
   position: relative;
   width: calc(100vw - 1.5rem);
   height: 100%;
@@ -359,68 +368,68 @@ header .header-content .candy-box .candy-item {
   align-items: center;
   gap: 1.5rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect {
   width: 100%;
   height: max-content;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect h4 {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect h4 {
   font-family: "DM Sans";
   color: #FEFEFD;
   font-size: 1rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion {
   display: flex;
   gap: 0.5rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
   font-size: 0.75rem;
   color: #F8CF95;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect p {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect p {
   font-family: "DM Sans";
   color: #F8CF95;
   font-size: 0.625rem;
   font-weight: 700;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
   margin-top: 0.5rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
   font-size: 0.625rem;
   background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
   color: #020320;
   font-weight: 800;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones {
   position: relative;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones a {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones a {
   padding: 0.375rem 0.5rem;
   border-radius: 2rem;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover {
   box-shadow: 0px 7px 29px #020320;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .card-info {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .card-info {
   opacity: 1;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card::before {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card::before {
   opacity: 0.8;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card img {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .imagen-card img {
   filter: blur(16px);
 }
-.contenido-portafolio .tabs-proyectos .tabcontent .proyectos-card .card-proyect.active {
+.tabs-proyectos .tabcontent .proyectos-card .card-proyect.active {
   border: 2px solid #F8CF95;
 }
-.contenido-portafolio .tabs-proyectos .tabcontent::-webkit-scrollbar {
+.tabs-proyectos .tabcontent::-webkit-scrollbar {
   width: 0;
   height: 0;
   display: none;
@@ -436,7 +445,7 @@ header .header-content .candy-box .candy-item {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5.5rem;
+  gap: 3rem;
 }
 .contenedor main .section-perfil {
   display: flex;

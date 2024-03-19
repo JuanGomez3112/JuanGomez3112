@@ -209,6 +209,16 @@ header {
     }
 }
 
+.contenido {
+    h1 {
+        font-family: $tipografiaPrincipal;
+        text-align: center;
+        color: $blanco;
+        font-size: 2.5rem;
+        font-weight: 500;
+    }
+}
+
 // header {
 //     position: relative;
 //     width: 100%;
@@ -299,10 +309,6 @@ $border-width: 2px;
     overflow: hidden;
     color: $crema;
     transition: background .3s ease;
-
-
-
-
 }
 
 .btn-pq {
@@ -340,7 +346,7 @@ $border-width: 2px;
         mask-composite: exclude;
     }
 
-    
+
 
     &:hover {
         background: $blanco;

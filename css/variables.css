@@ -135,6 +135,14 @@ header .header-content .candy-box .candy-item {
   border-radius: 50%;
 }
 
+.contenido h1 {
+  font-family: "Winter Holidays";
+  text-align: center;
+  color: #FEFEFD;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
 .burbuja {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
   border-radius: 50%;
