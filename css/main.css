@@ -126,7 +126,7 @@ header .cont-olas .contenedor-olas.active {
 }
 header .cont-olas .wave-img {
   position: relative;
-  width: 100%;
+  width: 102%;
   animation: waves 4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -214,8 +214,10 @@ header .header-content .candy-box .candy-item {
   display: flex;
 }
 .footer .wave-footer img {
-  width: 100%;
+  position: relative;
+  width: 102%;
   height: 100%;
+  object-fit: cover;
 }
 .footer .cont-footer {
   width: 100%;
@@ -972,9 +974,10 @@ header .header-content .candy-box .candy-item {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
 }
 .contenedor main .cta-contacto img {
-  width: 100%;
-  height: auto;
+  width: 102%;
+  height: 100%;
   position: relative;
+  object-fit: cover;
 }
 .contenedor main .cta-contacto .waveup {
   box-shadow: drop-shadow(8px 8px 16px #B7B7B6);

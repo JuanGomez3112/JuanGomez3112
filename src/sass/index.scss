@@ -539,9 +539,10 @@
             }
 
             img {
-                width: 100%;
-                height: auto;
+                width: 102%;
+                height: 100%;
                 position: relative;
+                object-fit: cover;
             }
 
             .waveup {
