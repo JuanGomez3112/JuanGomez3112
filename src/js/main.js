@@ -3,7 +3,8 @@ import { iniciarDropdown } from './dropdown-menu.js';
 import { cargarYManejarProyectos } from './proyectos.js';
 import { cargarProyectos } from './proyectosRecientes.js';
 import { cargarYManejarCertificados } from './certificados.js';
-import { iniciarSeccionCurriculum } from './seccionCurriculum.js'; // Importar también la función de zoom
+import { iniciarSeccionCurriculum } from './seccionCurriculum.js';
+import { formulario } from './formulario.js';
 
 window.onload = function () {
     iniciarSlide();
@@ -12,4 +13,5 @@ window.onload = function () {
     cargarYManejarProyectos();
     cargarYManejarCertificados();
     iniciarSeccionCurriculum();
+    formulario();
 };

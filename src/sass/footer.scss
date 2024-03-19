@@ -52,7 +52,7 @@
                     font-weight: 500;
                     font-size: 1.5rem;
                 }
-                
+
                 .menu-footer {
                     display: flex;
                     flex-direction: column;
@@ -66,6 +66,11 @@
 
                         a {
                             color: $gris;
+                            transition: color .2s ease-in-out;
+
+                            &:hover{
+                                color: $crema;
+                            }
                         }
                     }
                 }
@@ -81,11 +86,25 @@
                     padding: 0.625rem 1rem;
                     border: 2px solid $gris;
                     border-radius: 1.5rem;
+                    background: transparent;
+                    transition: all 0.4s ease-in-out;
 
                     .ctn-btn {
                         font-family: $tipografiaSecundaria;
                         color: $gris;
                         font-weight: 600;
+                        transition: all 0.2s ease-in-out;
+
+                    }
+
+                    &:hover {
+                        border: 2px solid transparent;
+                        background: $degradadoPrincipal;
+
+                        .ctn-btn {
+                            color: $blanco;
+                            font-weight: 500;
+                        }
                     }
                 }
 
@@ -96,10 +115,16 @@
                     a {
                         font-size: 1.5rem;
                         color: $gris;
+                        transition: color .3s ease-in-out;
+
+                        &:hover {
+                            color: $crema;
+                        }
                     }
                 }
             }
         }
+
         .copyright {
             display: flex;
             flex-direction: column;

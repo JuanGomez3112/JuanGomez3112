@@ -51,6 +51,79 @@ body {
   font-weight: 500;
 }
 
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.input-group .input {
+  width: auto;
+  min-width: 280px;
+  padding: 1rem;
+  font-size: 0.875rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid #F8CF95;
+  border-radius: 1.5rem;
+  transition: color 0.4s ease-in-out;
+  color: #F8CF95;
+  font-family: "DM Sans";
+}
+.input-group .input::placeholder {
+  font-size: 0.875rem;
+  color: rgba(254, 254, 253, 0.32);
+}
+.input-group .input:focus {
+  color: #fefefd;
+}
+.input-group .textarea {
+  width: 100%;
+  min-width: 280px;
+  padding: 1rem;
+  font-size: 0.875rem;
+  background: transparent;
+  outline: none;
+  border: 2px solid #F8CF95;
+  border-radius: 1.5rem;
+  transition: color 0.4s ease-in-out;
+  color: #F8CF95;
+  max-height: 10rem;
+  font-family: "DM Sans";
+}
+.input-group .label {
+  position: absolute;
+  padding: 0 0.5rem;
+  margin-left: 1.5rem;
+  top: -0.5rem;
+  color: #F8CF95;
+  font-size: 0.875rem;
+  background-color: #171A2F;
+  font-family: "DM Sans";
+  font-weight: 500;
+}
+
+.boton-submit {
+  width: max-content;
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.625rem 1rem;
+  border: none;
+  outline: none;
+  background: #2C303E;
+  font-size: 1rem;
+  color: #FEFEFD;
+  font-weight: 600;
+  align-items: center;
+  border-radius: 1.5rem;
+}
+.boton-submit i {
+  font-size: 1rem;
+}
+.boton-submit:hover {
+  background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
+  color: #2C303E;
+}
+
 .burbuja {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
   border-radius: 50%;
@@ -269,6 +342,10 @@ header .header-content .candy-box .candy-item {
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a {
   color: #2C303E;
+  transition: color 0.2s ease-in-out;
+}
+.footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a:hover {
+  color: #F8CF95;
 }
 .footer .cont-footer .info-footer .extra-footer {
   display: flex;
@@ -280,11 +357,22 @@ header .header-content .candy-box .candy-item {
   padding: 0.625rem 1rem;
   border: 2px solid #2C303E;
   border-radius: 1.5rem;
+  background: transparent;
+  transition: all 0.4s ease-in-out;
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer .ctn-btn {
   font-family: "DM Sans";
   color: #2C303E;
   font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+.footer .cont-footer .info-footer .extra-footer .download-footer:hover {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #020320 0%, #2C303E 100%);
+}
+.footer .cont-footer .info-footer .extra-footer .download-footer:hover .ctn-btn {
+  color: #FEFEFD;
+  font-weight: 500;
 }
 .footer .cont-footer .info-footer .extra-footer .icon-footer {
   display: flex;
@@ -293,6 +381,10 @@ header .header-content .candy-box .candy-item {
 .footer .cont-footer .info-footer .extra-footer .icon-footer a {
   font-size: 1.5rem;
   color: #2C303E;
+  transition: color 0.3s ease-in-out;
+}
+.footer .cont-footer .info-footer .extra-footer .icon-footer a:hover {
+  color: #F8CF95;
 }
 .footer .cont-footer .copyright {
   display: flex;
@@ -990,6 +1082,38 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .cta-contacto .wavedown {
   box-shadow: drop-shadow(-8px -8px 16px #FFFFFF);
+}
+.contenedor main .formularios {
+  width: 100%;
+  height: max-content;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contenedor main .formularios .cont_form-proyect, .contenedor main .formularios .cont_form-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+.contenedor main .formularios .cont_form-proyect h4, .contenedor main .formularios .cont_form-contact h4 {
+  font-family: "DM Sans";
+  color: #F8CF95;
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+}
+.contenedor main .formularios .cont_form-proyect .form-proyect, .contenedor main .formularios .cont_form-proyect .form-contact, .contenedor main .formularios .cont_form-contact .form-proyect, .contenedor main .formularios .cont_form-contact .form-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  align-items: center;
+}
+.contenedor main .formularios .cont_form-contact {
+  display: none;
 }
 
 .seccion-formacion {
