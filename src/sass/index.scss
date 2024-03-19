@@ -473,10 +473,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow:
-                drop-shadow(8px 8px 16px #B7B7B6),
-                drop-shadow(-8px -8px 16px #FFFFFF);
-            ;
+            gap: -1px;
+
 
             .contenedor-cta {
                 width: 100%;
@@ -543,8 +541,21 @@
             }
 
             img {
-                width: 100%;
                 height: auto;
+                position: relative;
+            }
+
+            .waveup {
+                width: 100%;
+                box-shadow:
+                    drop-shadow(8px 8px 16px #B7B7B6);
+                ;
+            }
+
+            .wavedown {
+                box-shadow:
+                    drop-shadow(-8px -8px 16px #FFFFFF);
+                ;
             }
         }
     }

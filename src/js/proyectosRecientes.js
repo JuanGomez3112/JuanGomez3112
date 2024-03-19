@@ -52,7 +52,7 @@ export function cargarProyectos() {
             var cardMasProyectos = document.createElement('article');
             cardMasProyectos.classList.add('card-proyect', 'card-more');
             cardMasProyectos.innerHTML = `
-                <a href="/portafolio.html">
+                <a href="portafolio.html">
                     <i class="fa-solid fa-plus"></i>
                     Ver más proyectos
                 </a>
