@@ -211,6 +211,7 @@ header .header-content .candy-box .candy-item {
   display: flex;
   flex-direction: column;
   gap: 0;
+  overflow: hidden;
 }
 .footer .wave-footer {
   width: 100%;
