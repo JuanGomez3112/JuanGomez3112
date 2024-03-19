@@ -470,7 +470,6 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
             gap: 0;
 
@@ -540,12 +539,12 @@
             }
 
             img {
+                width: 100%;
                 height: auto;
                 position: relative;
             }
 
             .waveup {
-                width: 100%;
                 box-shadow:
                     drop-shadow(8px 8px 16px #B7B7B6);
                 ;

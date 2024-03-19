@@ -38,6 +38,70 @@ body {
   background: #171A2F;
 }
 
+.contenido h1 {
+  font-family: "Winter Holidays";
+  text-align: center;
+  color: #FEFEFD;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.burbuja {
+  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
+  border-radius: 50%;
+}
+
+.btn {
+  width: max-content;
+  font-family: "DM Sans";
+  font-weight: 500;
+  align-items: center;
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  color: #F8CF95;
+  transition: background 0.3s ease;
+}
+
+.btn-pq {
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+}
+
+.ctn-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-bd {
+  border: 2px solid transparent;
+}
+.btn-bd::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+.btn-bd:hover {
+  background: #FEFEFD;
+  color: #2C303E;
+  font-weight: 500;
+}
+
 header {
   width: 100%;
   height: max-content;
@@ -61,6 +125,8 @@ header .cont-olas .contenedor-olas.active {
   height: 400px;
 }
 header .cont-olas .wave-img {
+  position: relative;
+  width: 100%;
   animation: waves 4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -135,68 +201,102 @@ header .header-content .candy-box .candy-item {
   border-radius: 50%;
 }
 
-.contenido h1 {
-  font-family: "Winter Holidays";
-  text-align: center;
-  color: #FEFEFD;
-  font-size: 2.5rem;
-  font-weight: 500;
-}
-
-.burbuja {
-  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
-  border-radius: 50%;
-}
-
-.btn {
-  width: max-content;
-  font-family: "DM Sans";
-  font-weight: 500;
-  align-items: center;
-  display: inline-flex;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 30px;
-  position: relative;
-  overflow: hidden;
-  color: #F8CF95;
-  transition: background 0.3s ease;
-}
-
-.btn-pq {
-  padding: 0.25rem 0.75rem;
-  border-radius: 16px;
-}
-
-.ctn-btn {
+.footer {
+  width: 100vw;
   display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.footer .wave-footer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+.footer .wave-footer img {
+  width: 100%;
+  height: 100%;
+}
+.footer .cont-footer {
+  width: 100%;
+  height: max-content;
+  padding: 1.5rem;
+  background-color: #FEFEFD;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.footer .cont-footer .info-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+.footer .cont-footer .info-footer .logo {
+  font-family: "Winter Holidays";
+  font-size: 3rem;
+  color: #020320;
+}
+.footer .cont-footer .info-footer .contacto-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer .cont-footer .info-footer .contacto-footer h4 {
+  font-family: "Winter Holidays";
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.footer .cont-footer .info-footer .contacto-footer .menu-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer {
+  font-family: "DM Sans";
+  font-size: 1rem;
+  font-weight: bold;
+}
+.footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a {
+  color: #2C303E;
+}
+.footer .cont-footer .info-footer .extra-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.footer .cont-footer .info-footer .extra-footer .download-footer {
+  padding: 0.625rem 1rem;
+  border: 2px solid #2C303E;
+  border-radius: 1.5rem;
+}
+.footer .cont-footer .info-footer .extra-footer .download-footer .ctn-btn {
+  font-family: "DM Sans";
+  color: #2C303E;
+  font-weight: 600;
+}
+.footer .cont-footer .info-footer .extra-footer .icon-footer {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer .cont-footer .info-footer .extra-footer .icon-footer a {
+  font-size: 1.5rem;
+  color: #2C303E;
+}
+.footer .cont-footer .copyright {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 }
-
-.btn-bd {
-  border: 2px solid transparent;
-}
-.btn-bd::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-.btn-bd:hover {
-  background: #FEFEFD;
+.footer .cont-footer .copyright span {
+  font-family: "DM Sans";
+  font-weight: 600;
   color: #2C303E;
-  font-weight: 500;
+  text-align: center;
 }
 
 .vista-previa {
@@ -812,7 +912,6 @@ header .header-content .candy-box .candy-item {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   gap: 0;
 }
@@ -873,11 +972,11 @@ header .header-content .candy-box .candy-item {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
 }
 .contenedor main .cta-contacto img {
+  width: 100%;
   height: auto;
   position: relative;
 }
 .contenedor main .cta-contacto .waveup {
-  width: 100%;
   box-shadow: drop-shadow(8px 8px 16px #B7B7B6);
 }
 .contenedor main .cta-contacto .wavedown {
