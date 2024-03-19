@@ -42,7 +42,7 @@ function iniciarSlide() {
 
 function iniciarDropdown() {
     const boton = document.querySelector(".candy-box");
-    const circleBoton = boton.querySelector(".candy-item");
+    boton.querySelector(".candy-item");
     const contOlas = document.querySelector(".contenedor-olas");
     const menuCont = document.querySelector(".menu-container");
     const header = document.querySelector("header");
@@ -71,7 +71,7 @@ function iniciarDropdown() {
         }, 600);
     };
 
-    circleBoton.addEventListener("click", () => {
+    boton.addEventListener("click", () => {
         if (contOlas.classList.contains("active")) {
             dropUp();
         } else {
@@ -570,14 +570,14 @@ function iniciarSeccionCurriculum() {
 
     // Función para manejar el clic en el botón de zoom in
     zoomInBtn.addEventListener('click', function() {
-        scaleLevel += 0.2; // Aumentar el nivel de zoom
+        scaleLevel += 0.5; // Aumentar el nivel de zoom
         updateZoom();
     });
 
     // Función para manejar el clic en el botón de zoom out
     zoomOutBtn.addEventListener('click', function() {
-        if (scaleLevel > 0.2) { // Limitar el zoom mínimo
-            scaleLevel -= 0.2; // Disminuir el nivel de zoom
+        if (scaleLevel > 0.5) { // Limitar el zoom mínimo
+            scaleLevel -= 0.5; // Disminuir el nivel de zoom
             updateZoom();
         }
     });

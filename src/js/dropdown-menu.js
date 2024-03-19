@@ -31,7 +31,7 @@ function iniciarDropdown() {
         }, 600);
     };
 
-    circleBoton.addEventListener("click", () => {
+    boton.addEventListener("click", () => {
         if (contOlas.classList.contains("active")) {
             dropUp();
         } else {
