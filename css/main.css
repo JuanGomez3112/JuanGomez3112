@@ -38,6 +38,11 @@ body {
   background: #171A2F;
 }
 
+.contenido {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
 .contenido h1 {
   font-family: "Winter Holidays";
   text-align: center;

@@ -95,6 +95,10 @@ body {
 
 
 .contenido {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    
     h1 {
         font-family: $tipografiaPrincipal;
         text-align: center;
