@@ -90,6 +90,13 @@ body {
   max-height: 10rem;
   font-family: "DM Sans";
 }
+.input-group .textarea::placeholder {
+  font-size: 0.875rem;
+  color: rgba(254, 254, 253, 0.32);
+}
+.input-group .textarea:focus {
+  color: #fefefd;
+}
 .input-group .label {
   position: absolute;
   padding: 0 0.5rem;
@@ -1063,6 +1070,7 @@ header .header-content .candy-box .candy-item {
   border-radius: 2rem;
   transition: background 0.5s ease-in-out;
   width: max-content;
+  cursor: pointer;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a span {
   padding: 1rem;
@@ -1112,8 +1120,11 @@ header .header-content .candy-box .candy-item {
   position: relative;
   align-items: center;
 }
-.contenedor main .formularios .cont_form-contact {
-  display: none;
+.contenedor main .formularios .visible {
+  display: flex !important;
+}
+.contenedor main .formularios .invisible {
+  display: none !important;
 }
 
 .seccion-formacion {

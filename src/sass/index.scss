@@ -524,6 +524,7 @@
                             border-radius: 2rem;
                             transition: background .5s ease-in-out;
                             width: max-content;
+                            cursor: pointer;
 
                             span {
                                 padding: 1rem;
@@ -591,11 +592,19 @@
                     
                 }
             }
-            .cont_form-contact {
-                display: none;
+
+            // .cont_form-contact {
+            //     display: none;
+            // }
+
+
+            .visible {
+                display: flex !important;
             }
-
-
+            
+            .invisible {
+                display: none !important;
+            }
         }
     }
 

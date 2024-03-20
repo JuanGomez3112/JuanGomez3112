@@ -165,21 +165,20 @@
                             eres un
                             reclutador interesado en mi perfil profesional, ¡también te invito a contactarme! Elige una
                             opción a continuación para iniciar el proceso.</p>
-                        <div class="botones">
-                            <a class="btn-proyecto">
-                                <span class="ctn-btn">
-                                    <i class="fa-solid fa-rocket"></i>
-                                    Iniciar un Proyecto
-                                </span>
-                            </a>
-                            <a class="btn-contratacion">
-                                <span class="ctn-btn">
-                                    <i class="fa-solid fa-user-tie"></i>
-                                    Contactar para Contratación
-                                </span>
-                            </a>
-                            
-                        </div>
+                            <div class="botones">
+                                <a class="btn-proyecto active" data-target="form-proyecto">
+                                    <span class="ctn-btn">
+                                        <i class="fa-solid fa-rocket"></i>
+                                        Iniciar un Proyecto
+                                    </span>
+                                </a>
+                                <a class="btn-contratacion" data-target="form-contacto">
+                                    <span class="ctn-btn">
+                                        <i class="fa-solid fa-user-tie"></i>
+                                        Contactar para Contratación
+                                    </span>
+                                </a>
+                            </div>
                     </div>
                 </div>
 
@@ -189,35 +188,35 @@
 
             <!-- Formulario -->
             <section class="formularios">
-                <div class="cont_form-proyect">
+                <div class="cont_form-proyect visible" id="form-proyecto">
                     <h4>¡Empecemos a construir algo increíble juntos!</h4>
 
                     <form action="" class="form-proyect">
                         <div class="input-group">
-                            <input type="text" required class="input" placeholder="ej. Juan Gómez">
+                            <input type="text" required class="input" placeholder="Ej. Juan Gómez">
                             <span class="label">Nombre</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" required class="input" placeholder="ej. Juan Gómez">
+                            <input type="email" required class="input" placeholder="Ej. ejemplo@correo.com">
                             <span class="label">Correo</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" required class="input" placeholder="ej. Juan Gómez">
+                            <input type="tel" required class="input" placeholder="Ej. 123-456-7890">
                             <span class="label">Teléfono</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" required class="input" placeholder="ej. Juan Gómez">
+                            <input type="text" required class="input" placeholder="Ej. DD/MM/AAAA">
                             <span class="label">Fecha estimada</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" required class="input" placeholder="ej. Juan Gómez">
+                            <input type="text" required class="input" placeholder="Ej. $1000">
                             <span class="label">Presupuesto</span>
                         </div>
                         <div class="input-group">
-                            <textarea name="" id="" required cols="30" rows="10" placeholder="ej. Juan Gómez" class="textarea"></textarea>
+                            <textarea name="" id="" required cols="30" rows="10" placeholder="Detalles del proyecto..." class="textarea"></textarea>
                             <span class="label">Descripción</span>
                         </div>
-
+                        
                         <button type="submit" class="boton-submit">
                             <i class="fa-solid fa-rocket"></i>
                             ¡Empezar a crear!
@@ -225,7 +224,7 @@
                     </form>
                 </div>
 
-                <div class="cont_form-contact">
+                <div class="cont_form-contact invisible" id="form-contacto">
                     <h4>¿Listo para impulsar tu equipo? ¡Hablemos de oportunidades!</h4>
             
                     <form action="" class="form-contact">
