@@ -136,8 +136,10 @@ body {
             color: rgba($color: $blanco, $alpha: 1);
         }
 
-        
-        
+        &[type="date"]::-webkit-calendar-picker-indicator {
+            background-color: $crema;
+            border-radius: 50%;
+        }
     }
 
     .textarea {

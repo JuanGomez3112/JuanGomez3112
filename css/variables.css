@@ -76,6 +76,10 @@ body {
 .input-group .input:focus {
   color: #fefefd;
 }
+.input-group .input[type=date]::-webkit-calendar-picker-indicator {
+  background-color: #F8CF95;
+  border-radius: 50%;
+}
 .input-group .textarea {
   width: 100%;
   min-width: 280px;
