@@ -1,28 +1,24 @@
-export default function formulario() {
-    const tabs = document.querySelectorAll(".botones a");
+export function formulario() {
+    const proyecto = document.getElementById('btn-proyecto');
+    const contratacion = document.getElementById('btn-contratacion');
+    const formProyecto = document.getElementById('form-proyecto');
+    const formContacto = document.getElementById('form-contacto');
 
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function(event) {
-            event.preventDefault();
-            const target = this.dataset.target;
+    proyecto.addEventListener("click", () => {
+        if (!formProyecto.classList.contains('visible')) {
+            formProyecto.classList.add('visible');
+            formContacto.classList.remove('visible');
+            formProyecto.scrollIntoView({ behavior: "smooth" });
+            formProyecto.querySelector('input').focus();
+        }
+    });
 
-            // Ocultar todos los formularios
-            document.querySelectorAll(".cont_form-proyect, .cont_form-contact").forEach(form => {
-                form.classList.remove("visible");
-                form.classList.add("invisible");
-            });
-
-            // Mostrar el formulario correspondiente al botón clickeado
-            document.getElementById(target).classList.remove("invisible");
-            document.getElementById(target).classList.add("visible");
-
-            // Remover la clase "active" de todos los botones
-            tabs.forEach(tab => {
-                tab.classList.remove("active");
-            });
-
-            // Agregar la clase "active" al botón clickeado
-            this.classList.add("active");
-        });
+    contratacion.addEventListener("click", () => {
+        if (!formContacto.classList.contains('visible')) {
+            formContacto.classList.add('visible');
+            formProyecto.classList.remove('visible');
+            formContacto.scrollIntoView({ behavior: "smooth" });
+            formContacto.querySelector('input').focus();
+        }
     });
 }

@@ -653,6 +653,7 @@ header .header-content .candy-box .candy-item {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  scroll-snap-type: y mandatory;
 }
 .contenedor main .section-perfil {
   display: flex;
@@ -1055,28 +1056,30 @@ header .header-content .candy-box .candy-item {
   color: #2C303E;
   line-height: 1.25rem;
 }
-.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   margin-top: 1rem;
 }
-.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones a {
   background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);
-  font-size: 20px;
+  font-size: 1rem;
   color: #FEFEFD;
   font-family: "DM Sans";
   border-radius: 2rem;
   transition: background 0.5s ease-in-out;
   width: max-content;
   cursor: pointer;
-}
-.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   padding: 1rem;
-  font-size: 1rem;
+  outline: none;
+  border: none;
 }
-.contenedor main .cta-contacto .contenedor-cta .texto-cta .botones a:hover {
+.contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones a:hover {
   background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
 }
 .contenedor main .cta-contacto img {
@@ -1098,14 +1101,17 @@ header .header-content .candy-box .candy-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  scroll-snap-align: start;
 }
-.contenedor main .formularios .cont_form-proyect, .contenedor main .formularios .cont_form-contact {
-  display: flex;
+.contenedor main .formularios .cont_form-proyect,
+.contenedor main .formularios .cont_form-contact {
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
 }
-.contenedor main .formularios .cont_form-proyect h4, .contenedor main .formularios .cont_form-contact h4 {
+.contenedor main .formularios .cont_form-proyect h4,
+.contenedor main .formularios .cont_form-contact h4 {
   font-family: "DM Sans";
   color: #F8CF95;
   font-weight: 900;
@@ -1113,7 +1119,10 @@ header .header-content .candy-box .candy-item {
   text-align: center;
   line-height: 2rem;
 }
-.contenedor main .formularios .cont_form-proyect .form-proyect, .contenedor main .formularios .cont_form-proyect .form-contact, .contenedor main .formularios .cont_form-contact .form-proyect, .contenedor main .formularios .cont_form-contact .form-contact {
+.contenedor main .formularios .cont_form-proyect .form-proyect,
+.contenedor main .formularios .cont_form-proyect .form-contact,
+.contenedor main .formularios .cont_form-contact .form-proyect,
+.contenedor main .formularios .cont_form-contact .form-contact {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -1121,10 +1130,7 @@ header .header-content .candy-box .candy-item {
   align-items: center;
 }
 .contenedor main .formularios .visible {
-  display: flex !important;
-}
-.contenedor main .formularios .invisible {
-  display: none !important;
+  display: flex;
 }
 
 .seccion-formacion {
@@ -1412,6 +1418,7 @@ header .header-content .candy-box .candy-item {
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden .botones a {
   padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific:hover .info-certificado {
   bottom: 0;

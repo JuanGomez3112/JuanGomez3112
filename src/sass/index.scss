@@ -8,6 +8,7 @@
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        scroll-snap-type:  y mandatory;
 
         .section-perfil {
             display: flex;
@@ -509,7 +510,7 @@
                         line-height: 1.25rem;
                     }
 
-                    .botones {
+                    .tabs-botones {
                         display: flex;
                         flex-direction: column;
                         gap: 1rem;
@@ -518,18 +519,19 @@
 
                         a {
                             background: linear-gradient(45deg, $gris 0%, $gris 100%);
-                            font-size: 20px;
+                            font-size: 1rem;
                             color: $blanco;
                             font-family: $tipografiaSecundaria;
                             border-radius: 2rem;
                             transition: background .5s ease-in-out;
                             width: max-content;
                             cursor: pointer;
-
-                            span {
-                                padding: 1rem;
-                                font-size: 1rem;
-                            }
+                            display: flex;
+                            align-items: center;
+                            gap: 0.5rem;
+                            padding: 1rem;
+                            outline: none;
+                            border: none;
 
                             &:hover {
                                 background: linear-gradient(45deg, $gris 0%, $azul 100%);
@@ -565,11 +567,12 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            // justify-content: center;
             align-items: center;
+            scroll-snap-align: start;
 
-            .cont_form-proyect, .cont_form-contact {
-                display: flex;
+            .cont_form-proyect,
+            .cont_form-contact {
+                display: none;
                 flex-direction: column;
                 align-items: center;
                 gap: 2.5rem;
@@ -582,28 +585,20 @@
                     text-align: center;
                     line-height: 2rem;
                 }
-                
-                .form-proyect, .form-contact {
+
+                .form-proyect,
+                .form-contact {
                     display: flex;
                     flex-direction: column;
                     gap: 2rem;
                     position: relative;
                     align-items: center;
-                    
+
                 }
             }
 
-            // .cont_form-contact {
-            //     display: none;
-            // }
-
-
             .visible {
-                display: flex !important;
-            }
-            
-            .invisible {
-                display: none !important;
+                display: flex ;
             }
         }
     }
