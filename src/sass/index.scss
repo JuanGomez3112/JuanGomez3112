@@ -1,14 +1,15 @@
 .contenedor {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 4rem;
 
     main {
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        scroll-snap-type:  y mandatory;
+        gap: 4rem;
+        
+        
 
         .section-perfil {
             display: flex;
@@ -133,6 +134,73 @@
                     }
                 }
             }
+            @media (min-width: 570px) {
+
+                .info-perfil {
+                    .nombre-profesion {
+
+                        h1 {
+                            font-size: 5rem;
+                        }
+
+                        h2 {
+                            font-size: 2.2rem;
+                            top: -1.8rem;
+                            left: -1.8rem;
+                        }
+                    }
+                }
+            }
+
+            @media (min-width: 1024px){
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                padding: 0 4rem;
+                margin-bottom: 2rem;
+
+
+                .info-perfil {
+                    span{
+                        position: absolute;
+                        left: 6rem;
+                    }
+
+                    .nombre-profesion {
+                        top: 0;
+                        left: 0;
+                        margin-top: 0;
+                    }
+                }
+
+                .image-perfil {
+                    width: auto;
+
+                    .burbuja {
+                        &:nth-child(1) {
+                            bottom: 0;
+                        }
+    
+                        &:nth-child(2) {
+                            left: 5rem;
+                            width: 16rem;
+                            height: 16rem;
+                            top: 2rem;
+                        }
+    
+                        &:nth-child(3) {
+                            right: 0;
+                        }
+
+                        &.cont-imagen {
+                            .fondo-degradado {
+                                width: 12rem;
+                                height: 12rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .stack-slide {
@@ -165,6 +233,20 @@
                         }
                     }
 
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .slide-cont {
+                    margin: 0 4rem;
+
+                    .wrapper {
+                        img {
+                            width: 96px;
+                            height: 96px;
+                            margin: 0 3.75rem;
+                        }
+                    }
                 }
             }
         }
@@ -240,8 +322,6 @@
                 }
             }
 
-
-
             @media (min-width: 430px) {
 
                 .cta-curriculum_info {
@@ -258,8 +338,92 @@
             }
 
             @media (min-width: 500px) {
+                .cta-curriculum_info{
+                    .curriculum_info{
+                        h3 {
+                            text-align: center;
+                        }
+                    }
+                }
+
                 .cta-curriculum_img {
                     height: 30rem;
+                }
+            }
+
+            @media (min-width: 540px) {
+                .cta-curriculum_img {
+                    height: 34rem;
+                }
+            }
+
+            @media (min-width: 610px) {
+                .cta-curriculum_img {
+                    height: 39rem;
+                }
+            }
+            
+            @media (min-width: 703px) {
+                .cta-curriculum_info{
+                    .curriculum_info{
+                        h3 {
+                            text-align: center;
+                            max-width: 80%;
+                        }
+                        p {
+                            text-align: justify;
+                            max-width: 80%;
+
+                        }
+                    }
+                }
+
+                .cta-curriculum_img {
+                    height: max-content;
+                    img {
+                        width: 150%;
+                    }
+                }
+            }
+
+            @media (min-width: 1024px) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+
+                .cta-curriculum_info{
+                    padding: 4rem;
+                    padding-right: 0;
+                    height: max-content;
+
+                    .curriculum_info{
+                        align-items: start;
+
+
+                        h3 {
+                            text-align: justify;
+                            max-width: 100%;
+                        }
+                        p {
+                            text-align: justify;
+                            max-width: 100%;
+
+                        }
+
+                        .botones{
+                            flex-direction: row;
+                            gap: 1rem;
+                        }
+                    }
+                }
+
+                .cta-curriculum_img {
+                    height: 500px;
+
+                    img {
+                        width: 200%;
+                        height: auto;
+                    }
                 }
             }
         }
@@ -301,7 +465,7 @@
                         transition: box-shadow .4s ease-in-out;
                         height: auto;
                         overflow: hidden;
-
+                        max-width: 400px;
 
                         .imagen-card {
                             position: absolute;
@@ -457,11 +621,16 @@
 
                 .contenedor-proyectos {
                     .proyectos-card {
-                        .card-info {
-                            width: calc(100vw - 1.5rem);
+                        .card-proyect {
+                            width: calc(100vw - 3rem);
+                            height: 14rem;
                         }
                     }
                 }
+            }
+
+            @media (min-width: 1024px) {
+                padding: 0 4rem;
             }
 
         }
@@ -484,6 +653,7 @@
 
                 .texto-cta {
                     max-width: 1212px;
+                    width: 90%;
                     position: relative;
                     display: flex;
                     flex-direction: column;
@@ -559,6 +729,18 @@
                     drop-shadow(-8px -8px 16px #FFFFFF);
                 ;
             }
+
+
+            @media (min-width: 481px){
+                .contenedor-cta {
+                    .texto-cta {
+                        h3 {
+                            font-size: 2rem;
+                        }
+
+                    }
+                }
+            }
         }
 
         .formularios {
@@ -599,6 +781,11 @@
 
             .visible {
                 display: flex ;
+            }
+
+            @media (min-width: 475px){
+                padding: 1rem;
+
             }
         }
     }

@@ -289,6 +289,61 @@ header .header-content .candy-box .candy-item {
   background-color: #020320;
   border-radius: 50%;
 }
+@media (min-width: 769px) {
+  header .cont-olas .wave-img {
+    width: 102%;
+    height: 12rem;
+    object-fit: cover;
+  }
+  header .header-content {
+    padding: 2.5rem;
+  }
+  header .header-content .menu-container {
+    display: flex;
+    top: 0;
+    opacity: 1;
+    width: max-content;
+    position: relative;
+  }
+  header .header-content .menu-container .menu {
+    flex-direction: row;
+    align-items: start;
+  }
+  header .header-content .candy-box {
+    display: none;
+  }
+}
+@media (min-width: 1024px) {
+  header .cont-olas .wave-img {
+    position: relative;
+    width: 105%;
+    height: 16rem;
+    object-fit: cover;
+    top: -2rem;
+    left: 0;
+  }
+  header .header-content {
+    padding: 2.5rem 4rem;
+  }
+  header .header-content .logo {
+    font-size: 4rem;
+  }
+  header .header-content .menu-container {
+    display: flex;
+    top: 0;
+    opacity: 1;
+    width: max-content;
+    position: relative;
+  }
+  header .header-content .menu-container .menu {
+    flex-direction: row;
+    align-items: start;
+    gap: 56px;
+  }
+  header .header-content .candy-box {
+    display: none;
+  }
+}
 
 .footer {
   width: 100vw;
@@ -650,14 +705,13 @@ header .header-content .candy-box .candy-item {
 .contenedor {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
 }
 .contenedor main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  scroll-snap-type: y mandatory;
+  gap: 4rem;
 }
 .contenedor main .section-perfil {
   display: flex;
@@ -759,6 +813,53 @@ header .header-content .candy-box .candy-item {
     left: -1.5rem;
   }
 }
+@media (min-width: 570px) {
+  .contenedor main .section-perfil .info-perfil .nombre-profesion h1 {
+    font-size: 5rem;
+  }
+  .contenedor main .section-perfil .info-perfil .nombre-profesion h2 {
+    font-size: 2.2rem;
+    top: -1.8rem;
+    left: -1.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .contenedor main .section-perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 0 4rem;
+    margin-bottom: 2rem;
+  }
+  .contenedor main .section-perfil .info-perfil span {
+    position: absolute;
+    left: 6rem;
+  }
+  .contenedor main .section-perfil .info-perfil .nombre-profesion {
+    top: 0;
+    left: 0;
+    margin-top: 0;
+  }
+  .contenedor main .section-perfil .image-perfil {
+    width: auto;
+  }
+  .contenedor main .section-perfil .image-perfil .burbuja:nth-child(1) {
+    bottom: 0;
+  }
+  .contenedor main .section-perfil .image-perfil .burbuja:nth-child(2) {
+    left: 5rem;
+    width: 16rem;
+    height: 16rem;
+    top: 2rem;
+  }
+  .contenedor main .section-perfil .image-perfil .burbuja:nth-child(3) {
+    right: 0;
+  }
+  .contenedor main .section-perfil .image-perfil .burbuja.cont-imagen .fondo-degradado {
+    width: 12rem;
+    height: 12rem;
+  }
+}
 .contenedor main .stack-slide {
   width: 100%;
 }
@@ -785,6 +886,16 @@ header .header-content .candy-box .candy-item {
 .contenedor main .stack-slide .slide-cont .wrapper img:hover {
   opacity: 1;
   transform: scale(1.1);
+}
+@media (min-width: 1024px) {
+  .contenedor main .stack-slide .slide-cont {
+    margin: 0 4rem;
+  }
+  .contenedor main .stack-slide .slide-cont .wrapper img {
+    width: 96px;
+    height: 96px;
+    margin: 0 3.75rem;
+  }
 }
 .contenedor main .cta-curriculum {
   width: 100%;
@@ -855,8 +966,70 @@ header .header-content .candy-box .candy-item {
   }
 }
 @media (min-width: 500px) {
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
+    text-align: center;
+  }
   .contenedor main .cta-curriculum .cta-curriculum_img {
     height: 30rem;
+  }
+}
+@media (min-width: 540px) {
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: 34rem;
+  }
+}
+@media (min-width: 610px) {
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: 39rem;
+  }
+}
+@media (min-width: 703px) {
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
+    text-align: center;
+    max-width: 80%;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info p {
+    text-align: justify;
+    max-width: 80%;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: max-content;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_img img {
+    width: 150%;
+  }
+}
+@media (min-width: 1024px) {
+  .contenedor main .cta-curriculum {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info {
+    padding: 4rem;
+    padding-right: 0;
+    height: max-content;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info {
+    align-items: start;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
+    text-align: justify;
+    max-width: 100%;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info p {
+    text-align: justify;
+    max-width: 100%;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info .botones {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_img {
+    height: 500px;
+  }
+  .contenedor main .cta-curriculum .cta-curriculum_img img {
+    width: 200%;
+    height: auto;
   }
 }
 .contenedor main .proyectos {
@@ -894,6 +1067,7 @@ header .header-content .candy-box .candy-item {
   transition: box-shadow 0.4s ease-in-out;
   height: auto;
   overflow: hidden;
+  max-width: 400px;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .imagen-card {
   position: absolute;
@@ -1015,8 +1189,14 @@ header .header-content .candy-box .candy-item {
   .contenedor main .proyectos h3 {
     font-size: 1.5rem;
   }
-  .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-info {
-    width: calc(100vw - 1.5rem);
+  .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect {
+    width: calc(100vw - 3rem);
+    height: 14rem;
+  }
+}
+@media (min-width: 1024px) {
+  .contenedor main .proyectos {
+    padding: 0 4rem;
   }
 }
 .contenedor main .cta-contacto {
@@ -1036,6 +1216,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta {
   max-width: 1212px;
+  width: 90%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1098,6 +1279,11 @@ header .header-content .candy-box .candy-item {
 .contenedor main .cta-contacto .wavedown {
   box-shadow: drop-shadow(-8px -8px 16px #FFFFFF);
 }
+@media (min-width: 481px) {
+  .contenedor main .cta-contacto .contenedor-cta .texto-cta h3 {
+    font-size: 2rem;
+  }
+}
 .contenedor main .formularios {
   width: 100%;
   height: max-content;
@@ -1135,6 +1321,11 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .formularios .visible {
   display: flex;
+}
+@media (min-width: 475px) {
+  .contenedor main .formularios {
+    padding: 1rem;
+  }
 }
 
 .seccion-formacion {
