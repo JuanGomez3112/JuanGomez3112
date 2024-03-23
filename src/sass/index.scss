@@ -236,14 +236,14 @@
                 }
             }
 
-            @media (min-width: 1024px) {
+            @media (min-width: 769px) {
                 .slide-cont {
                     margin: 0 4rem;
 
                     .wrapper {
                         img {
-                            width: 96px;
-                            height: 96px;
+                            width: 80px;
+                            height: 80px;
                             margin: 0 3.75rem;
                         }
                     }
@@ -419,10 +419,14 @@
 
                 .cta-curriculum_img {
                     height: 500px;
+                    position: relative;
 
                     img {
-                        width: 200%;
+                        position: absolute;
+                        width: 180%;
                         height: auto;
+                        object-fit: cover;
+                        top: 0;
                     }
                 }
             }
@@ -739,6 +743,13 @@
                         }
 
                     }
+                }
+
+                img {
+                    width: 106%;
+                    height: 16rem;
+                    object-fit: cover;
+                    left: -1rem;
                 }
             }
         }

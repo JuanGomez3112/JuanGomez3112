@@ -887,13 +887,13 @@ header .header-content .candy-box .candy-item {
   opacity: 1;
   transform: scale(1.1);
 }
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
   .contenedor main .stack-slide .slide-cont {
     margin: 0 4rem;
   }
   .contenedor main .stack-slide .slide-cont .wrapper img {
-    width: 96px;
-    height: 96px;
+    width: 80px;
+    height: 80px;
     margin: 0 3.75rem;
   }
 }
@@ -1026,10 +1026,14 @@ header .header-content .candy-box .candy-item {
   }
   .contenedor main .cta-curriculum .cta-curriculum_img {
     height: 500px;
+    position: relative;
   }
   .contenedor main .cta-curriculum .cta-curriculum_img img {
-    width: 200%;
+    position: absolute;
+    width: 180%;
     height: auto;
+    object-fit: cover;
+    top: 0;
   }
 }
 .contenedor main .proyectos {
@@ -1282,6 +1286,12 @@ header .header-content .candy-box .candy-item {
 @media (min-width: 481px) {
   .contenedor main .cta-contacto .contenedor-cta .texto-cta h3 {
     font-size: 2rem;
+  }
+  .contenedor main .cta-contacto img {
+    width: 106%;
+    height: 16rem;
+    object-fit: cover;
+    left: -1rem;
   }
 }
 .contenedor main .formularios {
