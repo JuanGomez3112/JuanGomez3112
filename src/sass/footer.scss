@@ -7,16 +7,17 @@
 
 
     .wave-footer {
-        width: 100%;
+        width: 110%;
         height: 100%;
         position: relative;
         display: flex;
 
         img {
             position: relative;
-            width: 102%;
-            height: 100%;
+            width: 120%;
+            height: 12rem;
             object-fit: cover;
+            left: -0.5rem;
         }
     }
 

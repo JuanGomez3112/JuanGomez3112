@@ -175,17 +175,22 @@
 
                 .image-perfil {
                     width: auto;
+                    height: 22rem;
 
                     .burbuja {
+                        width: 6rem;
+                        height: 6rem;
+
+
                         &:nth-child(1) {
                             bottom: 0;
                         }
     
                         &:nth-child(2) {
-                            left: 5rem;
+                            left: 4rem;
                             width: 16rem;
                             height: 16rem;
-                            top: 2rem;
+                            top: 2.5rem;
                         }
     
                         &:nth-child(3) {
@@ -451,6 +456,21 @@
                 overflow-x: scroll;
                 overflow-y: hidden;
                 white-space: nowrap;
+
+                &::-webkit-scrollbar{
+                    width: 0.5rem;
+                    height: 4px;
+                    
+
+                    &-thumb {
+                        background: $blanco;
+                        border-radius: 4px;
+
+                        &:hover {
+                            background: $crema;
+                        }
+                    }
+                }
 
                 .proyectos-card {
                     flex: 0 0 auto;

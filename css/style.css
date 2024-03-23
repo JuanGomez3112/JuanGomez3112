@@ -353,16 +353,17 @@ header .header-content .candy-box .candy-item {
   overflow: hidden;
 }
 .footer .wave-footer {
-  width: 100%;
+  width: 110%;
   height: 100%;
   position: relative;
   display: flex;
 }
 .footer .wave-footer img {
   position: relative;
-  width: 102%;
-  height: 100%;
+  width: 120%;
+  height: 12rem;
   object-fit: cover;
+  left: -0.5rem;
 }
 .footer .cont-footer {
   width: 100%;
@@ -842,15 +843,20 @@ header .header-content .candy-box .candy-item {
   }
   .contenedor main .section-perfil .image-perfil {
     width: auto;
+    height: 22rem;
+  }
+  .contenedor main .section-perfil .image-perfil .burbuja {
+    width: 6rem;
+    height: 6rem;
   }
   .contenedor main .section-perfil .image-perfil .burbuja:nth-child(1) {
     bottom: 0;
   }
   .contenedor main .section-perfil .image-perfil .burbuja:nth-child(2) {
-    left: 5rem;
+    left: 4rem;
     width: 16rem;
     height: 16rem;
-    top: 2rem;
+    top: 2.5rem;
   }
   .contenedor main .section-perfil .image-perfil .burbuja:nth-child(3) {
     right: 0;
@@ -1053,6 +1059,17 @@ header .header-content .candy-box .candy-item {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+}
+.contenedor main .proyectos .contenedor-proyectos::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 4px;
+}
+.contenedor main .proyectos .contenedor-proyectos::-webkit-scrollbar-thumb {
+  background: #FEFEFD;
+  border-radius: 4px;
+}
+.contenedor main .proyectos .contenedor-proyectos::-webkit-scrollbar-thumb:hover {
+  background: #F8CF95;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card {
   flex: 0 0 auto;
