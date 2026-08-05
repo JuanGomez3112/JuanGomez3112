@@ -19,14 +19,14 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(0deg, rgba(23, 26, 47, 0) 80%, rgba(23, 26, 47, 1) 100%);
+            background: linear-gradient(0deg, rgba(12, 12, 12, 0) 80%, rgba(12, 12, 12, 1) 100%);
         }
 
         .degradado-down {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(0deg, rgba(23, 26, 47, 1) 0%, rgba(23, 26, 47, 0) 80%);
+            background: linear-gradient(0deg, rgba(12, 12, 12, 1) 0%, rgba(12, 12, 12, 0) 80%);
         }
 
         .info {
@@ -51,7 +51,7 @@
 
                 i {
                     font-size: 0.75rem;
-                    color: $crema;
+                    color: $oro;
                 }
             }
 
@@ -103,9 +103,9 @@
             gap: 0.5rem;
 
             &.active {
-                color: $crema;
+                color: $oro;
                 padding-bottom: 1rem;
-                border-bottom: 2px solid $crema;
+                border-bottom: 2px solid $oro;
                 font-weight: 600;
             }
         }
@@ -226,7 +226,7 @@
 
                             .btn-tags {
                                 font-size: 0.625rem;
-                                background: $degradadoClaro;
+                                background: $degradadoOro;
                                 color: $azul;
                                 font-weight: 800;
                             }
@@ -261,7 +261,7 @@
                 }
 
                 &.active {
-                    border: 2px solid $crema;
+                    border: 2px solid $oro;
                 }
 
             }

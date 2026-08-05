@@ -275,30 +275,10 @@ function iniciarRoles() {
     tick();
 }
 
-function iniciarHeaderScroll() {
-    const header = document.querySelector("header");
-    if (!header) return;
-    let lastY = window.scrollY;
-    const onScroll = () => {
-        const y = window.scrollY;
-        header.classList.toggle("scrolled", y > 20);
-        // Oculta al bajar (pasado un umbral), reaparece al subir o arriba del todo
-        if (y > 120 && y > lastY) {
-            header.classList.add("hidden");
-        } else {
-            header.classList.remove("hidden");
-        }
-        lastY = y;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-}
-
 window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
     cargarProyectos();
     formulario();
     iniciarRoles();
-    iniciarHeaderScroll();
 };

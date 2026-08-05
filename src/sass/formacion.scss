@@ -95,7 +95,7 @@
         gap: 1.5rem;
         width: 100%;
         height: max-content;
-        background: linear-gradient(0deg, rgba(23, 26, 47, 0) 80%, rgba(23, 26, 47, 1) 100%);
+        background: linear-gradient(0deg, rgba(12, 12, 12, 0) 80%, rgba(12, 12, 12, 1) 100%);
 
 
         .contain_line {
@@ -221,9 +221,9 @@
             gap: 0.5rem;
 
             &.active {
-                color: $crema;
+                color: $oro;
                 padding-bottom: 1rem;
-                border-bottom: 2px solid $crema;
+                border-bottom: 2px solid $oro;
                 font-weight: 600;
             }
         }
