@@ -102,6 +102,7 @@ body {
 }
 .input-group .input:focus {
   color: #f2f2f2;
+  border-color: #C9A24B;
 }
 .input-group .input[type=date]::-webkit-calendar-picker-indicator {
   background-color: #D9D9D9;
@@ -127,6 +128,7 @@ body {
 }
 .input-group .textarea:focus {
   color: #f2f2f2;
+  border-color: #C9A24B;
 }
 .input-group .label {
   position: absolute;
@@ -158,8 +160,8 @@ body {
   font-size: 1rem;
 }
 .boton-submit:hover {
-  background: linear-gradient(45deg, #F2F2F2 0%, #D9D9D9 100%);
-  color: #262626;
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
+  color: #0C0C0C;
 }
 
 .burbuja {
@@ -178,8 +180,8 @@ body {
   border-radius: 30px;
   position: relative;
   overflow: hidden;
-  color: #D9D9D9;
-  transition: background 0.3s ease;
+  color: #E4CC8A;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .btn-pq {
@@ -206,15 +208,15 @@ body {
   z-index: -1;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 .btn-bd:hover {
-  background: #F2F2F2;
-  color: #262626;
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
+  color: #0C0C0C;
   font-weight: 500;
 }
 
@@ -251,7 +253,7 @@ header .header-content .logo {
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: #D9D9D9;
+  color: #C9A24B;
 }
 header .header-content .menu-container {
   position: absolute;
@@ -285,10 +287,10 @@ header .header-content .menu-container .menu .item-menu a {
   transition: color 0.25s ease;
 }
 header .header-content .menu-container .menu .item-menu a:hover {
-  color: #D9D9D9;
+  color: #C9A24B;
 }
 header .header-content .menu-container .menu .item-menu.activo a {
-  color: #D9D9D9;
+  color: #C9A24B;
 }
 header .header-content .candy-box {
   width: 28px;
@@ -301,7 +303,7 @@ header .header-content .candy-box {
 header .header-content .candy-box .candy-item {
   width: 8px;
   height: 8px;
-  background-color: #D9D9D9;
+  background-color: #C9A24B;
   border-radius: 50%;
 }
 @media (min-width: 769px) {
@@ -323,7 +325,7 @@ header .header-content .candy-box .candy-item {
     padding: 0;
   }
   header .header-content .menu-container .menu .item-menu.activo {
-    border-bottom: 3px solid #D9D9D9;
+    border-bottom: 3px solid #C9A24B;
     padding-bottom: 0.25rem;
   }
   header .header-content .candy-box {
@@ -415,7 +417,7 @@ header .header-content .candy-box .candy-item {
   transition: color 0.2s ease-in-out;
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a:hover {
-  color: #F2F2F2;
+  color: #C9A24B;
 }
 .footer .cont-footer .info-footer .extra-footer {
   display: flex;
@@ -438,7 +440,7 @@ header .header-content .candy-box .candy-item {
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer:hover {
   border-color: transparent;
-  background: #D9D9D9;
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer:hover .ctn-btn {
   color: #0C0C0C;
@@ -454,7 +456,7 @@ header .header-content .candy-box .candy-item {
   transition: color 0.3s ease-in-out;
 }
 .footer .cont-footer .info-footer .extra-footer .icon-footer a:hover {
-  color: #F2F2F2;
+  color: #C9A24B;
 }
 .footer .cont-footer .copyright {
   display: flex;
@@ -760,14 +762,14 @@ header .header-content .candy-box .candy-item {
   transition: color 0.25s ease, transform 0.25s ease;
 }
 .contenedor main .hero .hero-social a:hover {
-  color: #F2F2F2;
+  color: #C9A24B;
   transform: translateY(-2px);
 }
 .contenedor main .hero .hero-social .hero-social-line {
   width: 1px;
   height: clamp(60px, 12vh, 110px);
   margin-top: 0.4rem;
-  background: linear-gradient(to bottom, rgba(217, 217, 217, 0.45), transparent);
+  background: linear-gradient(to bottom, #C9A24B, transparent);
 }
 .contenedor main .hero .hero-photo {
   position: absolute;
@@ -789,7 +791,7 @@ header .header-content .candy-box .candy-item {
   font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 300;
   letter-spacing: 1px;
-  color: rgba(217, 217, 217, 0.85);
+  color: #E4CC8A;
   font-size: clamp(1.2rem, 4vw, 2.4rem);
 }
 .contenedor main .hero .hero-name {
@@ -845,7 +847,7 @@ header .header-content .candy-box .candy-item {
 .contenedor main .hero .hero-roles .caret {
   font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 300;
-  color: rgba(217, 217, 217, 0.78);
+  color: #C9A24B;
   font-size: clamp(0.85rem, 2.5vw, 1.6rem);
   margin-left: 3px;
   animation: caretBlink 1s steps(1) infinite;
@@ -1326,7 +1328,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
   font-size: 0.75rem;
-  color: #D9D9D9;
+  color: #C9A24B;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect p {
   font-family: "Louis George Cafe", "Poppins", sans-serif;
@@ -1343,7 +1345,7 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
   font-size: 0.625rem;
-  background: linear-gradient(45deg, #F2F2F2 0%, #D9D9D9 100%);
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
   color: #0C0C0C;
   font-weight: 800;
 }
@@ -1362,7 +1364,7 @@ header .header-content .candy-box .candy-item {
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:nth-child(3) a {
   display: flex;
   flex-direction: column;
-  color: #D9D9D9;
+  color: #C9A24B;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
@@ -1462,11 +1464,12 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
   outline: none;
-  border: 1px solid rgba(217, 217, 217, 0.35);
+  border: 1px solid rgba(201, 162, 75, 0.5);
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones a:hover {
-  background: #D9D9D9;
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
   color: #0C0C0C;
+  border-color: transparent;
 }
 .contenedor main .cta-contacto img {
   width: 102%;

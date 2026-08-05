@@ -39,7 +39,7 @@ header {
             font-weight: 700;
             font-size: 2rem;
             letter-spacing: 1px;
-            color: $crema;
+            color: $oro;
         }
 
         // Menu: en movil es un panel desplegable sólido
@@ -75,12 +75,12 @@ header {
                         transition: color 0.25s ease;
 
                         &:hover {
-                            color: $crema;
+                            color: $oro;
                         }
                     }
 
                     &.activo a {
-                        color: $crema;
+                        color: $oro;
                     }
                 }
             }
@@ -98,7 +98,7 @@ header {
             .candy-item {
                 width: 8px;
                 height: 8px;
-                background-color: $crema;
+                background-color: $oro;
                 border-radius: 50%;
             }
         }
@@ -124,7 +124,7 @@ header {
                     padding: 0;
 
                     .item-menu.activo {
-                        border-bottom: 3px solid $crema;
+                        border-bottom: 3px solid $oro;
                         padding-bottom: 0.25rem;
                     }
                 }

@@ -57,6 +57,12 @@ $gris: #262626; // gris carbon (inicio del degradado / paneles)
 $crema: #D9D9D9; // claro (texto/acento; conserva el nombre por compatibilidad)
 $fondo: #171717; // fallback solido
 
+// Acento ORO (premium, uso con restriccion)
+$oro: #C9A24B;
+$oroClaro: #E4CC8A;
+$oroOscuro: #8A6D2E;
+$degradadoOro: linear-gradient(120deg, $oroClaro 0%, $oro 55%, $oroOscuro 100%);
+
 // Degradado de marca (invertido: oscuro a la derecha)
 $degradadoFondo: linear-gradient(24.46deg, #262626 0%, #0C0C0C 100%);
 
@@ -163,6 +169,7 @@ body {
 
         &:focus {
             color: rgba($color: $blanco, $alpha: 1);
+            border-color: $oro;
         }
 
         &[type="date"]::-webkit-calendar-picker-indicator {
@@ -192,6 +199,7 @@ body {
 
         &:focus {
             color: rgba($color: $blanco, $alpha: 1);
+            border-color: $oro;
         }
 
     }
@@ -230,10 +238,10 @@ body {
     }
 
     &:hover{
-        background: $degradadoClaro;
-        color: $gris;
+        background: $degradadoOro;
+        color: $azul;
 
-        
+
     }
 }
 
@@ -325,8 +333,8 @@ $border-width: 2px;
     border-radius: $border-radius;
     position: relative;
     overflow: hidden;
-    color: $crema;
-    transition: background .3s ease;
+    color: $oroClaro;
+    transition: background .3s ease, color .3s ease;
 }
 
 .btn-pq {
@@ -353,7 +361,7 @@ $border-width: 2px;
         z-index: -1;
         border-radius: inherit;
         padding: $border-width;
-        background: $degradadoVivo;
+        background: $degradadoOro;
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box,
             linear-gradient(#fff 0 0);
@@ -367,9 +375,8 @@ $border-width: 2px;
 
 
     &:hover {
-        background: $blanco;
-        // border-color: $blanco;
-        color: $gris;
+        background: $degradadoOro;
+        color: $azul;
         font-weight: 500;
     }
 }

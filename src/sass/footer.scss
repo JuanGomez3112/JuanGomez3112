@@ -76,7 +76,7 @@
                             transition: color .2s ease-in-out;
 
                             &:hover{
-                                color: $blanco;
+                                color: $oro;
                             }
                         }
                     }
@@ -105,7 +105,7 @@
 
                     &:hover {
                         border-color: transparent;
-                        background: $crema;
+                        background: $degradadoOro;
 
                         .ctn-btn {
                             color: $azul;
@@ -124,7 +124,7 @@
                         transition: color .3s ease-in-out;
 
                         &:hover {
-                            color: $blanco;
+                            color: $oro;
                         }
                     }
                 }
