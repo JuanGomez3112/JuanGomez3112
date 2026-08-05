@@ -13,6 +13,12 @@
     50%, 100% { opacity: 0; }
 }
 
+// Marquee infinito del stack (el JS duplica el set -> -50% = un set exacto)
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 // Candado anti-scroll horizontal (los offsets del hero no deben crear scroll lateral)
 html,
 body {
