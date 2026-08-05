@@ -723,12 +723,12 @@ header .header-content .candy-box .candy-item {
 .contenedor main .hero {
   --stage-h: clamp(380px, 74vh, 680px);
   --photo-h: 96%;
-  --name-top: 14%;
+  --name-top: 11%;
   --name-gap: 14%;
   --roles-top: 36%;
   --roles-right: -12%;
-  --name-shift: 12%;
-  --eyebrow-top: 12%;
+  --name-shift: 8%;
+  --eyebrow-top: 9%;
   --eyebrow-left: 20%;
   position: relative;
   display: flex;
@@ -742,6 +742,32 @@ header .header-content .candy-box .candy-item {
   position: relative;
   width: min(96%, 900px);
   height: var(--stage-h);
+}
+.contenedor main .hero .hero-social {
+  position: absolute;
+  left: clamp(1rem, 4vw, 3rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+}
+.contenedor main .hero .hero-social a {
+  color: rgba(217, 217, 217, 0.6);
+  font-size: 1.25rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.contenedor main .hero .hero-social a:hover {
+  color: #F2F2F2;
+  transform: translateY(-2px);
+}
+.contenedor main .hero .hero-social .hero-social-line {
+  width: 1px;
+  height: clamp(60px, 12vh, 110px);
+  margin-top: 0.4rem;
+  background: linear-gradient(to bottom, rgba(217, 217, 217, 0.45), transparent);
 }
 .contenedor main .hero .hero-photo {
   position: absolute;
@@ -790,6 +816,7 @@ header .header-content .candy-box .candy-item {
   font-weight: 700;
   color: #d9d9d9;
   letter-spacing: -0.03em;
+  font-size: clamp(4.2rem, 18.5vw, 11.8rem);
 }
 .contenedor main .hero .hero-name .n-gomez {
   font-family: "Berlin Sans FB Demi", sans-serif;
@@ -824,6 +851,9 @@ header .header-content .candy-box .candy-item {
   animation: caretBlink 1s steps(1) infinite;
 }
 @media (max-width: 768px) {
+  .contenedor main .hero .hero-social {
+    display: none;
+  }
   .contenedor main .hero {
     --stage-h: clamp(300px, 58vh, 470px);
     --photo-h: 92%;
