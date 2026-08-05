@@ -876,59 +876,51 @@ header .header-content .candy-box .candy-item {
   animation: caretBlink 1s steps(1) infinite;
 }
 @media (max-width: 768px) {
-  .contenedor main .hero {
-    min-height: auto;
-    padding: 5rem 1rem 2rem;
-  }
   .contenedor main .hero .hero-social {
     display: none;
   }
-  .contenedor main .hero .hero-stage {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.3rem;
-  }
-  .contenedor main .hero .hero-eyebrow {
-    position: static;
-    transform: none;
-    order: 1;
-    font-size: clamp(1rem, 5vw, 1.5rem);
+  .contenedor main .hero {
+    --stage-h: clamp(460px, 80vh, 640px);
+    --photo-h: 78%;
+    --name-top: 5%;
+    --name-gap: 4%;
+    --name-shift: 0%;
+    --roles-top: 15%;
+    --roles-right: 4%;
+    --eyebrow-top: 3%;
+    --eyebrow-left: 21%;
+    --photo-bottom: 0%;
   }
   .contenedor main .hero .hero-name {
-    position: static;
-    transform: none;
-    width: auto;
-    order: 2;
-    justify-content: center;
-    gap: 0.25em;
-  }
-  .contenedor main .hero .hero-name .n-juan,
-  .contenedor main .hero .hero-name .n-gomez {
-    font-size: clamp(3rem, 17vw, 5.5rem);
-  }
-  .contenedor main .hero .hero-roles {
-    position: static;
-    transform: none;
-    right: auto;
-    order: 3;
-    justify-content: center;
-    margin-top: 0.2rem;
+    z-index: 3;
   }
   .contenedor main .hero .hero-photo {
-    position: static;
-    transform: none;
-    order: 4;
-    height: clamp(240px, 48vh, 400px);
-    margin-top: 1.3rem;
+    bottom: var(--photo-bottom);
+  }
+  .contenedor main .hero .hero-name .n-gomez {
+    font-size: clamp(2.6rem, 14vw, 5rem);
+  }
+  .contenedor main .hero .hero-name .n-juan {
+    font-size: clamp(3.3rem, 17.5vw, 6rem);
   }
 }
 @media (max-width: 480px) {
-  .contenedor main .hero .hero-name .n-juan,
+  .contenedor main .hero {
+    --name-gap: 3%;
+    --name-top: 5%;
+    --eyebrow-left: 19%;
+    --roles-top: 15%;
+    --roles-right: 5%;
+    --photo-bottom: 0%;
+  }
   .contenedor main .hero .hero-name .n-gomez {
-    font-size: clamp(2.6rem, 16vw, 4rem);
+    font-size: clamp(2.2rem, 14vw, 3.6rem);
+  }
+  .contenedor main .hero .hero-name .n-juan {
+    font-size: clamp(2.8rem, 17vw, 4.4rem);
+  }
+  .contenedor main .hero .hero-eyebrow {
+    font-size: clamp(1rem, 5vw, 1.4rem);
   }
   .contenedor main .hero .hero-roles .typed,
   .contenedor main .hero .hero-roles .caret {
