@@ -876,40 +876,59 @@ header .header-content .candy-box .candy-item {
   animation: caretBlink 1s steps(1) infinite;
 }
 @media (max-width: 768px) {
+  .contenedor main .hero {
+    min-height: auto;
+    padding: 5rem 1rem 2rem;
+  }
   .contenedor main .hero .hero-social {
     display: none;
   }
-  .contenedor main .hero {
-    --stage-h: clamp(300px, 58vh, 470px);
-    --photo-h: 92%;
-    --name-top: 15%;
-    --name-gap: 7%;
-    --name-shift: 6%;
-    --roles-top: 34%;
-    --roles-right: -2%;
-    --eyebrow-top: 11%;
-    --eyebrow-left: 14%;
+  .contenedor main .hero .hero-stage {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3rem;
+  }
+  .contenedor main .hero .hero-eyebrow {
+    position: static;
+    transform: none;
+    order: 1;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+  .contenedor main .hero .hero-name {
+    position: static;
+    transform: none;
+    width: auto;
+    order: 2;
+    justify-content: center;
+    gap: 0.25em;
   }
   .contenedor main .hero .hero-name .n-juan,
   .contenedor main .hero .hero-name .n-gomez {
-    font-size: clamp(2.8rem, 15vw, 5rem);
+    font-size: clamp(3rem, 17vw, 5.5rem);
+  }
+  .contenedor main .hero .hero-roles {
+    position: static;
+    transform: none;
+    right: auto;
+    order: 3;
+    justify-content: center;
+    margin-top: 0.2rem;
+  }
+  .contenedor main .hero .hero-photo {
+    position: static;
+    transform: none;
+    order: 4;
+    height: clamp(240px, 48vh, 400px);
+    margin-top: 1.3rem;
   }
 }
 @media (max-width: 480px) {
-  .contenedor main .hero {
-    --name-gap: 4%;
-    --name-shift: 3%;
-    --roles-top: 33%;
-    --roles-right: 2%;
-    --eyebrow-left: 9%;
-    --eyebrow-top: 12%;
-  }
   .contenedor main .hero .hero-name .n-juan,
   .contenedor main .hero .hero-name .n-gomez {
-    font-size: clamp(2.3rem, 16vw, 3.6rem);
-  }
-  .contenedor main .hero .hero-eyebrow {
-    font-size: clamp(1rem, 5vw, 1.4rem);
+    font-size: clamp(2.6rem, 16vw, 4rem);
   }
   .contenedor main .hero .hero-roles .typed,
   .contenedor main .hero .hero-roles .caret {

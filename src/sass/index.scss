@@ -191,41 +191,66 @@
                 }
             }
 
-            // ===== Responsive: escalas menores (redefine knobs) =====
+            // ===== Responsive: en movil se apila (texto arriba, foto abajo) =====
             @media (max-width: 768px) {
+                min-height: auto;
+                padding: 5rem 1rem 2rem;
+
                 .hero-social { display: none; }
 
-                --stage-h: clamp(300px, 58vh, 470px);
-                --photo-h: 92%;
-                --name-top: 15%;
-                --name-gap: 7%;
-                --name-shift: 6%;
-                --roles-top: 34%;
-                --roles-right: -2%;
-                --eyebrow-top: 11%;
-                --eyebrow-left: 14%;
+                .hero-stage {
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    gap: 0.3rem;
+                }
 
-                .hero-name .n-juan,
-                .hero-name .n-gomez {
-                    font-size: clamp(2.8rem, 15vw, 5rem);
+                // todo en flujo, ya no absoluto
+                .hero-eyebrow {
+                    position: static;
+                    transform: none;
+                    order: 1;
+                    font-size: clamp(1rem, 5vw, 1.5rem);
+                }
+
+                .hero-name {
+                    position: static;
+                    transform: none;
+                    width: auto;
+                    order: 2;
+                    justify-content: center;
+                    gap: 0.25em;
+
+                    .n-juan,
+                    .n-gomez {
+                        font-size: clamp(3rem, 17vw, 5.5rem);
+                    }
+                }
+
+                .hero-roles {
+                    position: static;
+                    transform: none;
+                    right: auto;
+                    order: 3;
+                    justify-content: center;
+                    margin-top: 0.2rem;
+                }
+
+                .hero-photo {
+                    position: static;
+                    transform: none;
+                    order: 4;
+                    height: clamp(240px, 48vh, 400px);
+                    margin-top: 1.3rem;
                 }
             }
 
             @media (max-width: 480px) {
-                --name-gap: 4%;
-                --name-shift: 3%;
-                --roles-top: 33%;
-                --roles-right: 2%;
-                --eyebrow-left: 9%;
-                --eyebrow-top: 12%;
-
                 .hero-name .n-juan,
                 .hero-name .n-gomez {
-                    font-size: clamp(2.3rem, 16vw, 3.6rem);
-                }
-
-                .hero-eyebrow {
-                    font-size: clamp(1rem, 5vw, 1.4rem);
+                    font-size: clamp(2.6rem, 16vw, 4rem);
                 }
 
                 .hero-roles .typed,
