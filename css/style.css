@@ -1,14 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @font-face {
-  font-family: "DM Sans";
-  src: url("../src/assets/fuentes/dmsans-variable-webfont.woff") format("woff"), url("../src/assets/fuentes/dmsans-variable-webfont.woff2") format("woff2");
+  font-family: "Louis George Cafe";
+  font-weight: 300;
+  font-style: normal;
+  src: url("../src/assets/fuentes/Louis%20George%20Cafe%20Light.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Winter Holidays";
-  src: url("../src/assets/fuentes/winterholidays-webfont.woff") format("woff"), url("../src/assets/fuentes/winterholidays-webfont.woff2") format("woff2");
+  font-family: "Louis George Cafe";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../src/assets/fuentes/Louis%20George%20Cafe.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Better Grade";
-  src: url("../src/assets/fuentes/bettergrade-webfont.woff") format("woff"), url("../src/assets/fuentes/bettergrade-webfont.woff2") format("woff2");
+  font-family: "Louis George Cafe";
+  font-weight: 700;
+  font-style: normal;
+  src: url("../src/assets/fuentes/Louis%20George%20Cafe%20Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Louis George Cafe";
+  font-weight: 300;
+  font-style: italic;
+  src: url("../src/assets/fuentes/Louis%20George%20Cafe%20Light%20Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Minion Cafe";
+  font-weight: 700;
+  src: url("../src/assets/fuentes/Minion-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Berlin Sans FB Demi";
+  font-weight: 400;
+  src: url("../src/assets/fuentes/BRLNSDB.TTF") format("truetype");
 }
 @keyframes scroll {
   0% {
@@ -34,8 +57,12 @@ a {
 
 body {
   width: 100%;
-  height: 100%;
-  background: #171A2F;
+  min-height: 100vh;
+  background: #171717;
+  background: linear-gradient(24.46deg, #262626 0%, #0C0C0C 100%) fixed;
+  color: #D9D9D9;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 .contenido {
@@ -44,9 +71,9 @@ body {
   overflow: hidden;
 }
 .contenido h1 {
-  font-family: "Winter Holidays";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   text-align: center;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-size: 2.5rem;
   font-weight: 500;
 }
@@ -63,21 +90,21 @@ body {
   font-size: 0.875rem;
   background: transparent;
   outline: none;
-  border: 2px solid #F8CF95;
+  border: 2px solid #D9D9D9;
   border-radius: 1.5rem;
   transition: color 0.4s ease-in-out;
-  color: #F8CF95;
-  font-family: "DM Sans";
+  color: #D9D9D9;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
 }
 .input-group .input::placeholder {
   font-size: 0.875rem;
-  color: rgba(254, 254, 253, 0.32);
+  color: rgba(242, 242, 242, 0.32);
 }
 .input-group .input:focus {
-  color: #fefefd;
+  color: #f2f2f2;
 }
 .input-group .input[type=date]::-webkit-calendar-picker-indicator {
-  background-color: #F8CF95;
+  background-color: #D9D9D9;
   border-radius: 50%;
 }
 .input-group .textarea {
@@ -87,29 +114,29 @@ body {
   font-size: 0.875rem;
   background: transparent;
   outline: none;
-  border: 2px solid #F8CF95;
+  border: 2px solid #D9D9D9;
   border-radius: 1.5rem;
   transition: color 0.4s ease-in-out;
-  color: #F8CF95;
+  color: #D9D9D9;
   max-height: 10rem;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
 }
 .input-group .textarea::placeholder {
   font-size: 0.875rem;
-  color: rgba(254, 254, 253, 0.32);
+  color: rgba(242, 242, 242, 0.32);
 }
 .input-group .textarea:focus {
-  color: #fefefd;
+  color: #f2f2f2;
 }
 .input-group .label {
   position: absolute;
   padding: 0 0.5rem;
   margin-left: 1.5rem;
   top: -0.5rem;
-  color: #F8CF95;
+  color: #D9D9D9;
   font-size: 0.875rem;
-  background-color: #171A2F;
-  font-family: "DM Sans";
+  background-color: #171717;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 500;
 }
 
@@ -120,9 +147,9 @@ body {
   padding: 0.625rem 1rem;
   border: none;
   outline: none;
-  background: #2C303E;
+  background: #262626;
   font-size: 1rem;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-weight: 600;
   align-items: center;
   border-radius: 1.5rem;
@@ -131,18 +158,18 @@ body {
   font-size: 1rem;
 }
 .boton-submit:hover {
-  background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
-  color: #2C303E;
+  background: linear-gradient(45deg, #F2F2F2 0%, #D9D9D9 100%);
+  color: #262626;
 }
 
 .burbuja {
-  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
+  background: linear-gradient(45deg, #262626 0%, #0C0C0C 100%);
   border-radius: 50%;
 }
 
 .btn {
   width: max-content;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 500;
   align-items: center;
   display: inline-flex;
@@ -151,7 +178,7 @@ body {
   border-radius: 30px;
   position: relative;
   overflow: hidden;
-  color: #F8CF95;
+  color: #D9D9D9;
   transition: background 0.3s ease;
 }
 
@@ -179,102 +206,89 @@ body {
   z-index: -1;
   border-radius: inherit;
   padding: 2px;
-  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
+  background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
 .btn-bd:hover {
-  background: #FEFEFD;
-  color: #2C303E;
+  background: #F2F2F2;
+  color: #262626;
   font-weight: 500;
 }
 
 header {
   width: 100%;
-  height: max-content;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
-  position: relative;
-  overflow: hidden;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+}
+header.scrolled {
+  background: linear-gradient(24.46deg, #262626 0%, #0C0C0C 100%) fixed;
+}
+header.hidden {
+  transform: translateY(-100%);
 }
 header .cont-olas {
-  width: 100vw;
-  position: relative;
-  z-index: 1;
-}
-header .cont-olas .contenedor-olas {
-  position: relative;
-  width: 100%;
-  height: 0px;
-  background-color: #FEFEFD;
-  transition: height 0.3s ease-in-out;
-}
-header .cont-olas .contenedor-olas.active {
-  height: 400px;
-}
-header .cont-olas .wave-img {
-  position: relative;
-  width: 102%;
-  animation: waves 4s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  display: none;
 }
 header .header-content {
   width: 100%;
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   z-index: 2;
-  height: max-content;
 }
 header .header-content .logo {
-  font-family: "Winter Holidays";
-  font-size: 2.5rem;
-  color: #020320;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: #D9D9D9;
 }
 header .header-content .menu-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 12rem;
-  display: none;
-  justify-content: center;
-  align-items: center;
+  top: 100%;
   left: 0;
+  width: 100%;
+  display: none;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  justify-content: center;
+  background: #262626;
+  border-bottom: 1px solid rgba(242, 246, 249, 0.08);
+  transition: opacity 0.3s ease-in-out;
 }
 header .header-content .menu-container .menu {
   width: 100%;
-  height: max-content;
   display: flex;
   flex-direction: column;
-  position: relative;
-  justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  padding: 2rem 0;
 }
 header .header-content .menu-container .menu .item-menu {
-  font-family: "DM Sans";
-  font-weight: 700;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 600;
   font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 header .header-content .menu-container .menu .item-menu a {
-  color: #2C303E;
+  color: #F2F2F2;
+  transition: color 0.25s ease;
 }
 header .header-content .menu-container .menu .item-menu a:hover {
-  color: #F8CF95;
-}
-header .header-content .menu-container .menu .item-menu.activo {
-  padding-bottom: 1rem;
-  border-bottom: 4px solid #020320;
-  font-weight: 900;
+  color: #D9D9D9;
 }
 header .header-content .menu-container .menu .item-menu.activo a {
-  color: #020320;
+  color: #D9D9D9;
 }
 header .header-content .candy-box {
   width: 28px;
@@ -282,66 +296,49 @@ header .header-content .candy-box {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
+  cursor: pointer;
 }
 header .header-content .candy-box .candy-item {
   width: 8px;
   height: 8px;
-  background-color: #020320;
+  background-color: #D9D9D9;
   border-radius: 50%;
 }
 @media (min-width: 769px) {
-  header .cont-olas .wave-img {
-    width: 102%;
-    height: 12rem;
-    object-fit: cover;
-  }
   header .header-content {
-    padding: 2.5rem;
+    padding: 1.25rem 2.5rem;
   }
   header .header-content .menu-container {
-    display: flex;
-    top: 0;
-    opacity: 1;
+    position: static !important;
     width: max-content;
-    position: relative;
+    background: transparent;
+    border: none;
+    display: flex !important;
+    opacity: 1 !important;
   }
   header .header-content .menu-container .menu {
     flex-direction: row;
-    align-items: start;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0;
+  }
+  header .header-content .menu-container .menu .item-menu.activo {
+    border-bottom: 3px solid #D9D9D9;
+    padding-bottom: 0.25rem;
   }
   header .header-content .candy-box {
     display: none;
   }
 }
 @media (min-width: 1024px) {
-  header .cont-olas .wave-img {
-    position: relative;
-    width: 105%;
-    height: 16rem;
-    object-fit: cover;
-    top: -2rem;
-    left: 0;
-  }
   header .header-content {
-    padding: 2.5rem 4rem;
+    padding: 1.25rem 4rem;
   }
   header .header-content .logo {
-    font-size: 4rem;
-  }
-  header .header-content .menu-container {
-    display: flex;
-    top: 0;
-    opacity: 1;
-    width: max-content;
-    position: relative;
+    font-size: 2.4rem;
   }
   header .header-content .menu-container .menu {
-    flex-direction: row;
-    align-items: start;
-    gap: 56px;
-  }
-  header .header-content .candy-box {
-    display: none;
+    gap: 3.5rem;
   }
 }
 
@@ -368,8 +365,9 @@ header .header-content .candy-box .candy-item {
 .footer .cont-footer {
   width: 100%;
   height: max-content;
-  padding: 1.5rem;
-  background-color: #FEFEFD;
+  padding: 3.5rem 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(242, 242, 242, 0.08);
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -377,13 +375,15 @@ header .header-content .candy-box .candy-item {
 .footer .cont-footer .info-footer {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
 }
 .footer .cont-footer .info-footer .logo {
-  font-family: "Winter Holidays";
-  font-size: 3rem;
-  color: #020320;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 2.6rem;
+  color: #D9D9D9;
 }
 .footer .cont-footer .info-footer .contacto-footer {
   display: flex;
@@ -392,27 +392,30 @@ header .header-content .candy-box .candy-item {
   gap: 1rem;
 }
 .footer .cont-footer .info-footer .contacto-footer h4 {
-  font-family: "Winter Holidays";
-  font-weight: 500;
-  font-size: 1.5rem;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: rgba(217, 217, 217, 0.55);
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a {
-  color: #2C303E;
+  color: rgba(217, 217, 217, 0.75);
   transition: color 0.2s ease-in-out;
 }
 .footer .cont-footer .info-footer .contacto-footer .menu-footer .item-menu-footer a:hover {
-  color: #F8CF95;
+  color: #F2F2F2;
 }
 .footer .cont-footer .info-footer .extra-footer {
   display: flex;
@@ -421,24 +424,24 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer {
-  padding: 0.625rem 1rem;
-  border: 2px solid #2C303E;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid rgba(217, 217, 217, 0.4);
   border-radius: 1.5rem;
   background: transparent;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer .ctn-btn {
-  font-family: "DM Sans";
-  color: #2C303E;
-  font-weight: 600;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
+  font-weight: 400;
   transition: all 0.2s ease-in-out;
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer:hover {
-  border: 2px solid transparent;
-  background: linear-gradient(45deg, #020320 0%, #2C303E 100%);
+  border-color: transparent;
+  background: #D9D9D9;
 }
 .footer .cont-footer .info-footer .extra-footer .download-footer:hover .ctn-btn {
-  color: #FEFEFD;
+  color: #0C0C0C;
   font-weight: 500;
 }
 .footer .cont-footer .info-footer .extra-footer .icon-footer {
@@ -446,24 +449,27 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .footer .cont-footer .info-footer .extra-footer .icon-footer a {
-  font-size: 1.5rem;
-  color: #2C303E;
+  font-size: 1.4rem;
+  color: rgba(217, 217, 217, 0.7);
   transition: color 0.3s ease-in-out;
 }
 .footer .cont-footer .info-footer .extra-footer .icon-footer a:hover {
-  color: #F8CF95;
+  color: #F2F2F2;
 }
 .footer .cont-footer .copyright {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(242, 242, 242, 0.06);
 }
 .footer .cont-footer .copyright span {
-  font-family: "DM Sans";
-  font-weight: 600;
-  color: #2C303E;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 300;
+  color: rgba(217, 217, 217, 0.45);
   text-align: center;
+  font-size: 0.85rem;
 }
 
 .vista-previa {
@@ -503,8 +509,8 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .vista-previa .img-previa .info h4 {
-  color: #FEFEFD;
-  font-family: "DM Sans";
+  color: #F2F2F2;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -515,7 +521,7 @@ header .header-content .candy-box .candy-item {
 }
 .vista-previa .img-previa .info .valoracion i {
   font-size: 0.75rem;
-  color: #F8CF95;
+  color: #D9D9D9;
 }
 .vista-previa .img-previa .info .tags {
   display: flex;
@@ -524,8 +530,8 @@ header .header-content .candy-box .candy-item {
   flex-wrap: wrap;
 }
 .vista-previa .img-previa .info .tags span {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -547,11 +553,11 @@ header .header-content .candy-box .candy-item {
   width: 100%;
 }
 .tabs-proyectos .tab .tablinks {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   padding: 0.5rem 1rem;
   background: none;
   border: none;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-size: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -560,9 +566,9 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .tabs-proyectos .tab .tablinks.active {
-  color: #F8CF95;
+  color: #D9D9D9;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #F8CF95;
+  border-bottom: 2px solid #D9D9D9;
   font-weight: 600;
 }
 .tabs-proyectos .tab::-webkit-scrollbar {
@@ -589,7 +595,7 @@ header .header-content .candy-box .candy-item {
   min-width: 320px;
   flex: 0 0 auto;
   position: relative;
-  box-shadow: 0px 2px 8px #020320;
+  box-shadow: 0px 2px 8px #0C0C0C;
   transition: box-shadow 0.4s ease-in-out;
   height: auto;
   overflow: hidden;
@@ -608,7 +614,7 @@ header .header-content .candy-box .candy-item {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #2C303E;
+  background-color: #262626;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 2;
@@ -643,8 +649,8 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect h4 {
-  font-family: "DM Sans";
-  color: #FEFEFD;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
   font-size: 1rem;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion {
@@ -653,11 +659,11 @@ header .header-content .candy-box .candy-item {
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
   font-size: 0.75rem;
-  color: #F8CF95;
+  color: #D9D9D9;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect p {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-size: 0.625rem;
   font-weight: 700;
 }
@@ -670,8 +676,8 @@ header .header-content .candy-box .candy-item {
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
   font-size: 0.625rem;
-  background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
-  color: #020320;
+  background: linear-gradient(45deg, #F2F2F2 0%, #D9D9D9 100%);
+  color: #0C0C0C;
   font-weight: 800;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect .card-info .botones {
@@ -682,7 +688,7 @@ header .header-content .candy-box .candy-item {
   border-radius: 2rem;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover {
-  box-shadow: 0px 7px 29px #020320;
+  box-shadow: 0px 7px 29px #0C0C0C;
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect:hover .card-info {
   opacity: 1;
@@ -694,7 +700,7 @@ header .header-content .candy-box .candy-item {
   filter: blur(16px);
 }
 .tabs-proyectos .tabcontent .proyectos-card .card-proyect.active {
-  border: 2px solid #F8CF95;
+  border: 2px solid #D9D9D9;
 }
 .tabs-proyectos .tabcontent::-webkit-scrollbar {
   width: 0;
@@ -713,6 +719,149 @@ header .header-content .candy-box .candy-item {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+}
+.contenedor main .hero {
+  --stage-h: clamp(380px, 74vh, 680px);
+  --photo-h: 96%;
+  --name-top: 14%;
+  --name-gap: 14%;
+  --roles-top: 36%;
+  --roles-right: -12%;
+  --name-shift: 12%;
+  --eyebrow-top: 12%;
+  --eyebrow-left: 20%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 2rem 1rem 1rem;
+  overflow: hidden;
+  background: transparent;
+}
+.contenedor main .hero .hero-stage {
+  position: relative;
+  width: min(96%, 900px);
+  height: var(--stage-h);
+}
+.contenedor main .hero .hero-photo {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: var(--photo-h);
+  width: auto;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.6));
+  -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+}
+.contenedor main .hero .hero-eyebrow {
+  position: absolute;
+  top: var(--eyebrow-top);
+  left: var(--eyebrow-left);
+  z-index: 3;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: rgba(217, 217, 217, 0.85);
+  font-size: clamp(1.2rem, 4vw, 2.4rem);
+}
+.contenedor main .hero .hero-name {
+  position: absolute;
+  top: var(--name-top);
+  left: 50%;
+  transform: translateX(calc(-50% + var(--name-shift)));
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--name-gap);
+  line-height: 0.9;
+  white-space: nowrap;
+}
+.contenedor main .hero .hero-name .n-juan,
+.contenedor main .hero .hero-name .n-gomez {
+  font-size: clamp(3.7rem, 16.5vw, 10.2rem);
+}
+.contenedor main .hero .hero-name .n-juan {
+  font-family: "Minion Cafe", serif;
+  font-weight: 700;
+  color: #d9d9d9;
+  letter-spacing: -0.03em;
+}
+.contenedor main .hero .hero-name .n-gomez {
+  font-family: "Berlin Sans FB Demi", sans-serif;
+  font-weight: 400;
+  color: #f4f2fa;
+}
+.contenedor main .hero .hero-roles {
+  position: absolute;
+  top: var(--roles-top);
+  right: var(--roles-right);
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.contenedor main .hero .hero-roles .typed {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(217, 217, 217, 0.78);
+  font-size: clamp(0.85rem, 2.5vw, 1.6rem);
+}
+.contenedor main .hero .hero-roles .caret {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-weight: 300;
+  color: rgba(217, 217, 217, 0.78);
+  font-size: clamp(0.85rem, 2.5vw, 1.6rem);
+  margin-left: 3px;
+  animation: caretBlink 1s steps(1) infinite;
+}
+@media (max-width: 768px) {
+  .contenedor main .hero {
+    --stage-h: clamp(300px, 58vh, 470px);
+    --photo-h: 92%;
+    --name-top: 15%;
+    --name-gap: 7%;
+    --name-shift: 6%;
+    --roles-top: 34%;
+    --roles-right: -2%;
+    --eyebrow-top: 11%;
+    --eyebrow-left: 14%;
+  }
+  .contenedor main .hero .hero-name .n-juan,
+  .contenedor main .hero .hero-name .n-gomez {
+    font-size: clamp(2.8rem, 15vw, 5rem);
+  }
+}
+@media (max-width: 480px) {
+  .contenedor main .hero {
+    --name-gap: 4%;
+    --name-shift: 3%;
+    --roles-top: 33%;
+    --roles-right: 2%;
+    --eyebrow-left: 9%;
+    --eyebrow-top: 12%;
+  }
+  .contenedor main .hero .hero-name .n-juan,
+  .contenedor main .hero .hero-name .n-gomez {
+    font-size: clamp(2.3rem, 16vw, 3.6rem);
+  }
+  .contenedor main .hero .hero-eyebrow {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+  }
+  .contenedor main .hero .hero-roles .typed,
+  .contenedor main .hero .hero-roles .caret {
+    font-size: clamp(0.72rem, 3.4vw, 1.05rem);
+    letter-spacing: 2px;
+  }
 }
 .contenedor main .section-perfil {
   display: flex;
@@ -751,7 +900,7 @@ header .header-content .candy-box .candy-item {
 .contenedor main .section-perfil .image-perfil .burbuja.cont-imagen .fondo-degradado {
   width: 10rem;
   height: 10rem;
-  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
+  background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
   border-radius: 50%;
   overflow: hidden;
   display: flex;
@@ -773,9 +922,9 @@ header .header-content .candy-box .candy-item {
   position: relative;
 }
 .contenedor main .section-perfil .info-perfil span {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1.25rem;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-weight: 500;
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion {
@@ -789,17 +938,17 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion h1 {
   position: relative;
-  font-family: "Winter Holidays";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 3.4rem;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-weight: 400;
   width: max-content;
 }
 .contenedor main .section-perfil .info-perfil .nombre-profesion h2 {
   position: relative;
-  font-family: "Better Grade";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1.5rem;
-  color: #F8CF95;
+  color: #D9D9D9;
   font-weight: 400;
   top: -1.2rem;
   left: -1.2rem;
@@ -919,17 +1068,17 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-size: 1.25rem;
   text-align: justify;
   line-height: 1.8rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info p {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   line-height: 1.5rem;
   text-align: justify;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-size: 1rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info .botones {
@@ -1049,8 +1198,8 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .contenedor main .proyectos h3 {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-size: 1.25rem;
 }
 .contenedor main .proyectos .contenedor-proyectos {
@@ -1065,11 +1214,11 @@ header .header-content .candy-box .candy-item {
   height: 4px;
 }
 .contenedor main .proyectos .contenedor-proyectos::-webkit-scrollbar-thumb {
-  background: #FEFEFD;
+  background: #F2F2F2;
   border-radius: 4px;
 }
 .contenedor main .proyectos .contenedor-proyectos::-webkit-scrollbar-thumb:hover {
-  background: #F8CF95;
+  background: #D9D9D9;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card {
   flex: 0 0 auto;
@@ -1084,7 +1233,7 @@ header .header-content .candy-box .candy-item {
   min-height: max-content;
   display: flex;
   position: relative;
-  box-shadow: 0px 2px 8px #020320;
+  box-shadow: 0px 2px 8px #0C0C0C;
   transition: box-shadow 0.4s ease-in-out;
   height: auto;
   overflow: hidden;
@@ -1103,7 +1252,7 @@ header .header-content .candy-box .candy-item {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #2C303E;
+  background-color: #262626;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 2;
@@ -1138,8 +1287,8 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect h4 {
-  font-family: "DM Sans";
-  color: #FEFEFD;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
   font-size: 1rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect .valoracion {
@@ -1148,11 +1297,11 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect .valoracion i {
   font-size: 0.75rem;
-  color: #F8CF95;
+  color: #D9D9D9;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect p {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-size: 0.625rem;
   font-weight: 700;
 }
@@ -1165,8 +1314,8 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .info-proyect .tags .btn-tags {
   font-size: 0.625rem;
-  background: linear-gradient(45deg, #FEFEFD 0%, #F8CF95 100%);
-  color: #020320;
+  background: linear-gradient(45deg, #F2F2F2 0%, #D9D9D9 100%);
+  color: #0C0C0C;
   font-weight: 800;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect .card-info .botones {
@@ -1177,25 +1326,25 @@ header .header-content .candy-box .candy-item {
   border-radius: 2rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:nth-child(3) {
-  background-color: #2C303E;
+  background-color: #262626;
   display: flex;
   justify-content: center;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:nth-child(3) a {
   display: flex;
   flex-direction: column;
-  color: #F8CF95;
+  color: #D9D9D9;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   gap: 2rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:nth-child(3) a i {
   font-size: 5rem;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:hover {
-  box-shadow: 0px 7px 29px #020320;
+  box-shadow: 0px 7px 29px #0C0C0C;
 }
 .contenedor main .proyectos .contenedor-proyectos .proyectos-card .card-proyect:hover .card-info {
   opacity: 1;
@@ -1232,7 +1381,8 @@ header .header-content .candy-box .candy-item {
   width: 100%;
   height: 100%;
   display: flex;
-  background-color: #FEFEFD;
+  background: rgba(0, 0, 0, 0.22);
+  border-block: 1px solid rgba(242, 242, 242, 0.07);
   justify-content: center;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta {
@@ -1248,18 +1398,18 @@ header .header-content .candy-box .candy-item {
   padding: 1.5rem;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta h3 {
-  font-family: "Winter Holidays";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1.6rem;
-  color: #2C303E;
-  font-weight: 500;
+  color: #D9D9D9;
+  font-weight: 400;
   text-align: center;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta p {
   text-align: justify;
   font-size: 1rem;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 300;
-  color: #2C303E;
+  color: rgba(217, 217, 217, 0.78);
   line-height: 1.25rem;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones {
@@ -1270,23 +1420,24 @@ header .header-content .candy-box .candy-item {
   margin-top: 1rem;
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones a {
-  background: linear-gradient(45deg, #2C303E 0%, #2C303E 100%);
+  background: transparent;
   font-size: 1rem;
-  color: #FEFEFD;
-  font-family: "DM Sans";
+  color: #D9D9D9;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   border-radius: 2rem;
-  transition: background 0.5s ease-in-out;
+  transition: background 0.35s ease, color 0.35s ease;
   width: max-content;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem;
+  padding: 0.85rem 1.4rem;
   outline: none;
-  border: none;
+  border: 1px solid rgba(217, 217, 217, 0.35);
 }
 .contenedor main .cta-contacto .contenedor-cta .texto-cta .tabs-botones a:hover {
-  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
+  background: #D9D9D9;
+  color: #0C0C0C;
 }
 .contenedor main .cta-contacto img {
   width: 102%;
@@ -1329,8 +1480,8 @@ header .header-content .candy-box .candy-item {
 }
 .contenedor main .formularios .cont_form-proyect h4,
 .contenedor main .formularios .cont_form-contact h4 {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
   font-weight: 900;
   font-size: 1.5rem;
   text-align: center;
@@ -1365,7 +1516,7 @@ header .header-content .candy-box .candy-item {
   width: 100%;
   height: max-content;
   padding: 1.5rem;
-  background-color: #2C303E;
+  background-color: #262626;
 }
 .seccion-formacion .cuadro-de-informacion .informacion {
   display: flex;
@@ -1384,7 +1535,7 @@ header .header-content .candy-box .candy-item {
 .seccion-formacion .cuadro-de-informacion .informacion .cont-imagen .fondo-degradado {
   width: 6rem;
   height: 6rem;
-  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
+  background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -1404,9 +1555,9 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 .seccion-formacion .cuadro-de-informacion .informacion .info-formacion h3 {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1.5rem;
-  color: #F8CF95;
+  color: #D9D9D9;
   font-weight: 600;
 }
 .seccion-formacion .cuadro-de-informacion .informacion .info-formacion .proyecto {
@@ -1421,8 +1572,8 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .seccion-formacion .cuadro-de-informacion .informacion .info-formacion .proyecto .proyec-destacado h4 {
-  font-family: "DM Sans";
-  color: #FEFEFD;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
   font-weight: 500;
   text-align: center;
 }
@@ -1431,7 +1582,7 @@ header .header-content .candy-box .candy-item {
   gap: 1rem;
 }
 .seccion-formacion .cuadro-de-informacion .informacion .info-formacion .proyecto .proyec-destacado .icon-proyectos-principales a {
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-size: 1rem;
 }
 .seccion-formacion .line-time {
@@ -1448,8 +1599,8 @@ header .header-content .candy-box .candy-item {
   position: relative;
 }
 .seccion-formacion .line-time .contain_line span {
-  color: #FEFEFD;
-  font-family: "DM Sans";
+  color: #F2F2F2;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 0.75rem;
   font-weight: bold;
   position: relative;
@@ -1463,9 +1614,9 @@ header .header-content .candy-box .candy-item {
   align-items: start;
 }
 .seccion-formacion .line-time .contain_line .info_line h3 {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 1rem;
-  color: #F8CF95;
+  color: #D9D9D9;
   font-weight: 600;
   line-height: 1.125rem;
 }
@@ -1478,9 +1629,9 @@ header .header-content .candy-box .candy-item {
 }
 .seccion-formacion .line-time .contain_line .info_line .list_line .item_list {
   position: relative;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-size: 0.875rem;
-  color: #FEFEFD;
+  color: #F2F2F2;
   line-height: 1.125rem;
   font-weight: 300;
   text-align: justify;
@@ -1495,7 +1646,7 @@ header .header-content .candy-box .candy-item {
   content: "";
   width: 2px;
   height: 128%;
-  background: #2C303E;
+  background: #262626;
   left: 4.5rem;
 }
 .seccion-formacion .line-time .contain_line::after {
@@ -1504,7 +1655,7 @@ header .header-content .candy-box .candy-item {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background: linear-gradient(45deg, #2C303E 0%, #F8CF95 100%);
+  background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
   left: 3.5rem;
 }
 .seccion-formacion .line-time .contain_line:last-child::before {
@@ -1532,11 +1683,11 @@ header .header-content .candy-box .candy-item {
   width: 100%;
 }
 .tabs-certificados .tab .tablinks {
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   padding: 0.5rem 1rem;
   background: none;
   border: none;
-  color: #FEFEFD;
+  color: #F2F2F2;
   font-size: 1rem;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -1545,9 +1696,9 @@ header .header-content .candy-box .candy-item {
   gap: 0.5rem;
 }
 .tabs-certificados .tab .tablinks.active {
-  color: #F8CF95;
+  color: #D9D9D9;
   padding-bottom: 1rem;
-  border-bottom: 2px solid #F8CF95;
+  border-bottom: 2px solid #D9D9D9;
   font-weight: 600;
 }
 .tabs-certificados .tab::-webkit-scrollbar {
@@ -1589,10 +1740,10 @@ header .header-content .candy-box .candy-item {
   right: 0;
   margin: 1.5rem;
   padding: 0.5rem 1rem;
-  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
-  color: #F8CF95;
+  background: linear-gradient(45deg, #262626 0%, #0C0C0C 100%);
+  color: #D9D9D9;
   font-size: 0.75rem;
-  font-family: "DM Sans";
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 700;
   border-radius: 1rem;
 }
@@ -1601,7 +1752,7 @@ header .header-content .candy-box .candy-item {
   height: auto;
   position: absolute;
   bottom: -88px;
-  background: linear-gradient(45deg, #2C303E 0%, #020320 100%);
+  background: linear-gradient(45deg, #262626 0%, #0C0C0C 100%);
   border-radius: 1rem 1rem 0 0;
   padding: 1.5rem;
   display: flex;
@@ -1610,8 +1761,8 @@ header .header-content .candy-box .candy-item {
   transition: bottom 1s ease;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado h3 {
-  color: #FEFEFD;
-  font-family: "DM Sans";
+  color: #F2F2F2;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
   width: 100%;
   font-size: 1rem;
   position: relative;
@@ -1629,8 +1780,8 @@ header .header-content .candy-box .candy-item {
   position: relative;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden span {
-  font-family: "DM Sans";
-  color: #F8CF95;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #D9D9D9;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden .botones {
   position: relative;
@@ -1656,7 +1807,7 @@ header .header-content .candy-box .candy-item {
 }
 
 .page-curriculum {
-  background-color: #2C303E;
+  background-color: #262626;
   height: max-content;
   width: 100vw;
   position: relative;
@@ -1699,7 +1850,7 @@ header .header-content .candy-box .candy-item {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #2C303E;
+  border: 1px solid #262626;
   cursor: grab;
   margin-top: auto;
   margin-bottom: auto;
@@ -1828,13 +1979,13 @@ header .header-content .candy-box .candy-item {
 .page-curriculum .curriculum_content .control-button .botones .btn-control {
   background: transparent;
   border: none;
-  color: rgba(254, 254, 253, 0.32);
+  color: rgba(242, 242, 242, 0.32);
 }
 .page-curriculum .curriculum_content .control-button .botones .btn-control i {
   font-size: 1.75rem;
 }
 .page-curriculum .curriculum_content .control-button .botones .btn-control:focus {
-  color: #fefefd;
+  color: #f2f2f2;
 }
 
 .botones-cv {
@@ -1845,4 +1996,28 @@ header .header-content .candy-box .candy-item {
   gap: 1.5rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+.wave-img,
+.waveup,
+.wavedown,
+.wave-footer {
+  display: none !important;
+}
+
+@keyframes caretBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.cta-contacto .waveup,
+.cta-contacto .wavedown {
+  display: none !important;
+}

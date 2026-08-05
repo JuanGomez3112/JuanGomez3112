@@ -235,9 +235,70 @@ function formulario() {
     });
 }
 
+function iniciarRoles() {
+    const el = document.querySelector(".hero-roles .typed");
+    if (!el) return;
+
+    const palabras = ["Brander", "Frontend", "Diseñador Gráfico", "Técnico de TI"];
+    const velEscribe = 95;   // ms por letra al escribir
+    const velBorra = 45;     // ms por letra al borrar
+    const pausaLlena = 1700; // ms con la palabra completa
+    const pausaVacia = 400;  // ms antes de la siguiente palabra
+
+    let iPalabra = 0;
+    let nChars = 0;
+    let borrando = false;
+
+    function tick() {
+        const palabra = palabras[iPalabra];
+
+        if (!borrando) {
+            nChars++;
+            el.textContent = palabra.slice(0, nChars);
+            if (nChars === palabra.length) {
+                borrando = true;
+                return setTimeout(tick, pausaLlena);
+            }
+            return setTimeout(tick, velEscribe);
+        } else {
+            nChars--;
+            el.textContent = palabra.slice(0, nChars);
+            if (nChars === 0) {
+                borrando = false;
+                iPalabra = (iPalabra + 1) % palabras.length;
+                return setTimeout(tick, pausaVacia);
+            }
+            return setTimeout(tick, velBorra);
+        }
+    }
+
+    tick();
+}
+
+function iniciarHeaderScroll() {
+    const header = document.querySelector("header");
+    if (!header) return;
+    let lastY = window.scrollY;
+    const onScroll = () => {
+        const y = window.scrollY;
+        header.classList.toggle("scrolled", y > 20);
+        // Oculta al bajar (pasado un umbral), reaparece al subir o arriba del todo
+        if (y > 120 && y > lastY) {
+            header.classList.add("hidden");
+        } else {
+            header.classList.remove("hidden");
+        }
+        lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+}
+
 window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
     cargarProyectos();
     formulario();
+    iniciarRoles();
+    iniciarHeaderScroll();
 };

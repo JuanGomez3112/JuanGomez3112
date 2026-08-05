@@ -58,30 +58,30 @@
 
         <!-- Main -->
         <main class="contenido">
-            <!-- Sección Perfil -->
-            <section class="section-perfil">
+            <!-- Sección Perfil (Hero: retrato rompe la tipografía) -->
+            <section class="hero">
+                <div class="hero-stage">
+                    <!-- Eyebrow -->
+                    <span class="hero-eyebrow">Hola! soy</span>
 
-                <article class="info-perfil">
-                    <span>Hola! Soy</span>
-                    <div class="nombre-profesion">
-                        <h1>Juan Gómez</h1>
-                        <h2>Desarrollador Frontend, Diseñador Grafico & Brander</h2>
+                    <!-- Nombre a la altura de la cabeza: Juan | cabeza | Gómez -->
+                    <h1 class="hero-name">
+                        <span class="n-juan">Juan</span>
+                        <span class="n-gomez">Gómez</span>
+                    </h1>
+
+                    <!-- Retrato (ancla central) -->
+                    <img class="hero-photo" src="src/assets/img/foto-perfil.png"
+                         onerror="this.onerror=null;this.src='src/assets/img/perfil.png'"
+                         alt="Juan Gómez" />
+
+                    <!-- Ocupacion: efecto maquina de escribir, crece de derecha a izquierda bajo "Gomez" -->
+                    <div class="hero-roles" aria-label="Lo que hago">
+                        <span class="typed"></span><span class="caret">|</span>
                     </div>
-                </article>
-
-                <article class="image-perfil">
-                    <div class="burbuja"></div>
-
-                    <div class="burbuja cont-imagen">
-                        <div class="fondo-degradado">
-                            <img src="src/assets/img/perfil.png" alt="" />
-                        </div>
-                    </div>
-
-                    <div class="burbuja"></div>
-                </article>
+                </div>
             </section>
-            <!-- Fin Sección Perfil -->
+            <!-- Fin Hero -->
 
             <!-- Slide Stack -->
             <section class="stack-slide">

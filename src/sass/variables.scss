@@ -1,39 +1,64 @@
 // Tipografia
 // =================================
-@font-face {
-    font-family: 'DM Sans';
-    src:
-        url('../src/assets/fuentes/dmsans-variable-webfont.woff') format('woff'),
-        url('../src/assets/fuentes/dmsans-variable-webfont.woff2') format('woff2');
-}
+// Louis George Cafe (Light) — geometrica humanista. Poppins como fallback web.
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 @font-face {
-    font-family: 'Winter Holidays';
-    src:
-        url('../src/assets/fuentes/winterholidays-webfont.woff') format('woff'),
-        url('../src/assets/fuentes/winterholidays-webfont.woff2') format('woff2');
+    font-family: 'Louis George Cafe';
+    font-weight: 300;
+    font-style: normal;
+    src: url('../src/assets/fuentes/Louis%20George%20Cafe%20Light.ttf') format('truetype');
 }
-
 @font-face {
-    font-family: 'Better Grade';
-    src:
-        url('../src/assets/fuentes/bettergrade-webfont.woff') format('woff'),
-        url('../src/assets/fuentes/bettergrade-webfont.woff2') format('woff2');
+    font-family: 'Louis George Cafe';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../src/assets/fuentes/Louis%20George%20Cafe.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Louis George Cafe';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../src/assets/fuentes/Louis%20George%20Cafe%20Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Louis George Cafe';
+    font-weight: 300;
+    font-style: italic;
+    src: url('../src/assets/fuentes/Louis%20George%20Cafe%20Light%20Italic.ttf') format('truetype');
 }
 
+// Nombre del hero
+@font-face {
+    font-family: 'Minion Cafe'; // "Juan"
+    font-weight: 700;
+    src: url('../src/assets/fuentes/Minion-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Berlin Sans FB Demi'; // "Gomez"
+    font-weight: 400;
+    src: url('../src/assets/fuentes/BRLNSDB.TTF') format('truetype');
+}
 
-$tipografiaPrincipal: 'Winter Holidays';
-$tipografiaSecundaria: 'DM Sans';
-$tipografiaTerciaria: 'Better Grade';
+$fuenteJuan: 'Minion Cafe', serif;
+$fuenteGomez: 'Berlin Sans FB Demi', sans-serif;
 
-// Colores
+
+$tipografiaPrincipal: 'Louis George Cafe', 'Poppins', sans-serif; // display / titulos
+$tipografiaSecundaria: 'Louis George Cafe', 'Poppins', sans-serif; // cuerpo
+$tipografiaTerciaria: 'Louis George Cafe', 'Poppins', sans-serif; // rol / acentos
+
+// Colores — Monocromo profesional
 // =================================
 
-$blanco: #FEFEFD;
-$azul: #020320;
-$gris: #2C303E;
-$crema: #F8CF95;
-$fondo: #171A2F;
+$blanco: #F2F2F2;
+$azul: #0C0C0C; // negro profundo (fin del degradado)
+$gris: #262626; // gris carbon (inicio del degradado / paneles)
+$crema: #D9D9D9; // claro (texto/acento; conserva el nombre por compatibilidad)
+$fondo: #171717; // fallback solido
+
+// Degradado de marca (invertido: oscuro a la derecha)
+$degradadoFondo: linear-gradient(24.46deg, #262626 0%, #0C0C0C 100%);
 
 $degradadoPrincipal: linear-gradient(45deg, $azul 0%, $gris 100%);
 $degradadoSecundario: linear-gradient(45deg, $gris 0%, $azul 100%);
@@ -88,8 +113,12 @@ a {
 
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: $fondo;
+    background: $degradadoFondo fixed;
+    color: $crema;
+    font-family: $tipografiaSecundaria;
+    font-weight: 300;
 }
 
 

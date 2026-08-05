@@ -1,0 +1,29 @@
+// Limpieza tono profesional — oculta motivos juguetones (olas)
+// Importado al final para sobrescribir.
+
+.wave-img,
+.waveup,
+.wavedown,
+.wave-footer {
+    display: none !important;
+}
+
+@keyframes caretBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+// Candado anti-scroll horizontal (los offsets del hero no deben crear scroll lateral)
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+// La franja de contacto ya no necesita las olas: bordes limpios
+.cta-contacto {
+    .waveup,
+    .wavedown {
+        display: none !important;
+    }
+}

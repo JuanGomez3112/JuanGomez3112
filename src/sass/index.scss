@@ -8,8 +8,174 @@
         display: flex;
         flex-direction: column;
         gap: 4rem;
-        
-        
+
+        // ===== HERO: retrato rompe la tipografia =====
+        .hero {
+            // ==== knobs (afinables) ====
+            --stage-h: clamp(380px, 74vh, 680px); // alto del escenario / foto
+            --photo-h: 96%; // tamano del retrato (relativo al stage)
+            --name-top: 14%; // altura del nombre (cabeza)
+            --name-gap: 14%; // hueco central entre Juan y Gomez
+            --roles-top: 36%; // altura del rol (bajo Gomez)
+            --roles-right: -12%; // ancla derecha (final de la "z"; negativo = mas a la derecha)
+            --name-shift: 12%; // corrimiento horizontal del nombre (derecha +)
+            --eyebrow-top: 12%; // altura del "Hola! soy"
+            --eyebrow-left: 20%; // sobre la "u" de Juan
+            // ===========================
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 2rem 1rem 1rem;
+            overflow: hidden;
+            background: transparent; // deja ver el degradado del body
+
+            .hero-stage {
+                position: relative;
+                width: min(96%, 900px);
+                height: var(--stage-h);
+            }
+
+            // Retrato: ancla central, apoyado abajo
+            .hero-photo {
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                height: var(--photo-h);
+                width: auto;
+                z-index: 2;
+                pointer-events: none;
+                filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.6));
+                // Funde la base del retrato con el fondo (evita el corte recto)
+                -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+                mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+            }
+
+            // "Hola! soy" — sobre la "u" de Juan, mas grande
+            .hero-eyebrow {
+                position: absolute;
+                top: var(--eyebrow-top);
+                left: var(--eyebrow-left);
+                z-index: 3;
+                font-family: $tipografiaSecundaria;
+                font-weight: 300;
+                letter-spacing: 1px;
+                color: rgba(217, 217, 217, 0.85);
+                font-size: clamp(1.2rem, 4vw, 2.4rem);
+            }
+
+            // Nombre: Juan | (cabeza) | Gomez, a la altura de la cabeza, detras del retrato
+            .hero-name {
+                position: absolute;
+                top: var(--name-top);
+                left: 50%;
+                transform: translateX(calc(-50% + var(--name-shift)));
+                width: 100%;
+                max-width: 1000px;
+                z-index: 1;
+                display: flex;
+                align-items: baseline;
+                justify-content: center;
+                gap: var(--name-gap);
+                line-height: 0.9;
+                white-space: nowrap;
+
+                .n-juan,
+                .n-gomez {
+                    font-size: clamp(3.7rem, 16.5vw, 10.2rem);
+                }
+
+                .n-juan {
+                    font-family: $fuenteJuan;
+                    font-weight: 700;
+                    color: #d9d9d9;
+                    letter-spacing: -0.03em;
+                }
+
+                .n-gomez {
+                    font-family: $fuenteGomez;
+                    font-weight: 400;
+                    color: #f4f2fa;
+                }
+            }
+
+            // Ocupacion: maquina de escribir, anclada a la derecha (final de la "z"),
+            // el texto crece hacia la izquierda. Cursor parpadea en el ancla.
+            .hero-roles {
+                position: absolute;
+                top: var(--roles-top);
+                right: var(--roles-right);
+                z-index: 3;
+                display: flex;
+                justify-content: flex-end;
+                align-items: baseline;
+                white-space: nowrap;
+                pointer-events: none;
+
+                .typed {
+                    font-family: $tipografiaTerciaria;
+                    font-weight: 300;
+                    letter-spacing: 4px;
+                    text-transform: uppercase;
+                    color: rgba(217, 217, 217, 0.78);
+                    font-size: clamp(0.85rem, 2.5vw, 1.6rem);
+                }
+
+                .caret {
+                    font-family: $tipografiaTerciaria;
+                    font-weight: 300;
+                    color: rgba(217, 217, 217, 0.78);
+                    font-size: clamp(0.85rem, 2.5vw, 1.6rem);
+                    margin-left: 3px;
+                    animation: caretBlink 1s steps(1) infinite;
+                }
+            }
+
+            // ===== Responsive: escalas menores (redefine knobs) =====
+            @media (max-width: 768px) {
+                --stage-h: clamp(300px, 58vh, 470px);
+                --photo-h: 92%;
+                --name-top: 15%;
+                --name-gap: 7%;
+                --name-shift: 6%;
+                --roles-top: 34%;
+                --roles-right: -2%;
+                --eyebrow-top: 11%;
+                --eyebrow-left: 14%;
+
+                .hero-name .n-juan,
+                .hero-name .n-gomez {
+                    font-size: clamp(2.8rem, 15vw, 5rem);
+                }
+            }
+
+            @media (max-width: 480px) {
+                --name-gap: 4%;
+                --name-shift: 3%;
+                --roles-top: 33%;
+                --roles-right: 2%;
+                --eyebrow-left: 9%;
+                --eyebrow-top: 12%;
+
+                .hero-name .n-juan,
+                .hero-name .n-gomez {
+                    font-size: clamp(2.3rem, 16vw, 3.6rem);
+                }
+
+                .hero-eyebrow {
+                    font-size: clamp(1rem, 5vw, 1.4rem);
+                }
+
+                .hero-roles .typed,
+                .hero-roles .caret {
+                    font-size: clamp(0.72rem, 3.4vw, 1.05rem);
+                    letter-spacing: 2px;
+                }
+            }
+        }
+        // ===== /HERO =====
 
         .section-perfil {
             display: flex;
@@ -672,7 +838,8 @@
                 width: 100%;
                 height: 100%;
                 display: flex;
-                background-color: $blanco;
+                background: rgba(0, 0, 0, 0.22);
+                border-block: 1px solid rgba(242, 242, 242, 0.07);
                 justify-content: center;
 
                 .texto-cta {
@@ -690,8 +857,8 @@
                     h3 {
                         font-family: $tipografiaPrincipal;
                         font-size: 1.6rem;
-                        color: $gris;
-                        font-weight: 500;
+                        color: $crema;
+                        font-weight: 400;
                         text-align: center;
                     }
 
@@ -700,7 +867,7 @@
                         font-size: 1rem;
                         font-family: $tipografiaSecundaria;
                         font-weight: 300;
-                        color: $gris;
+                        color: rgba(217, 217, 217, 0.78);
                         line-height: 1.25rem;
                     }
 
@@ -712,23 +879,24 @@
                         margin-top: 1rem;
 
                         a {
-                            background: linear-gradient(45deg, $gris 0%, $gris 100%);
+                            background: transparent;
                             font-size: 1rem;
-                            color: $blanco;
+                            color: $crema;
                             font-family: $tipografiaSecundaria;
                             border-radius: 2rem;
-                            transition: background .5s ease-in-out;
+                            transition: background .35s ease, color .35s ease;
                             width: max-content;
                             cursor: pointer;
                             display: flex;
                             align-items: center;
                             gap: 0.5rem;
-                            padding: 1rem;
+                            padding: 0.85rem 1.4rem;
                             outline: none;
-                            border: none;
+                            border: 1px solid rgba(217, 217, 217, 0.35);
 
                             &:hover {
-                                background: linear-gradient(45deg, $gris 0%, $azul 100%);
+                                background: $crema;
+                                color: $azul;
                             }
                         }
                     }
