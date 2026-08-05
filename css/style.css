@@ -752,7 +752,6 @@ header .header-content .candy-box .candy-item {
   width: auto;
   z-index: 2;
   pointer-events: none;
-  filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.6));
   -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
   mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
 }

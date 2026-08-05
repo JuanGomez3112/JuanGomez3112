@@ -47,7 +47,6 @@
                 width: auto;
                 z-index: 2;
                 pointer-events: none;
-                filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.6));
                 // Funde la base del retrato con el fondo (evita el corte recto)
                 -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
                 mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
