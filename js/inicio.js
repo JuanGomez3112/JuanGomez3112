@@ -110,7 +110,7 @@ function cargarProyectos() {
                 // Contenido del proyecto
                 var contenidoProyecto = `
                     <div class="imagen-card">
-                        <img src="${proyecto.imagen}" alt="${proyecto.nombre}">
+                        <img src="${proyecto.imagen}" alt="${proyecto.nombre}" loading="lazy">
                     </div>
                     <div class="card-info">
                         <div class="info-proyect">
