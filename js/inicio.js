@@ -254,6 +254,37 @@ function iniciarReveal() {
     els.forEach(e => obs.observe(e));
 }
 
+function iniciarCvZoom() {
+    const cont = document.querySelector('.cta-curriculum_img');
+    const img = cont && cont.querySelector('.cv-zoom');
+    if (!img) return;
+
+    const minS = 0.82;
+    const maxS = 1.12;
+    let ticking = false;
+
+    const update = () => {
+        ticking = false;
+        const r = cont.getBoundingClientRect(); // contenedor no escala -> estable
+        const vh = window.innerHeight;
+        const elCenter = r.top + r.height / 2;
+        const dist = Math.abs(elCenter - vh / 2);
+        const maxDist = vh / 2 + r.height / 2;
+        let prog = 1 - dist / maxDist; // 1 = centrado, 0 = en los bordes
+        prog = Math.max(0, Math.min(1, prog));
+        const scale = minS + (maxS - minS) * prog;
+        img.style.transform = `scale(${scale.toFixed(3)})`;
+    };
+
+    const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+}
+
 window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
@@ -261,4 +292,5 @@ window.onload = function () {
     iniciarContacto();
     iniciarRoles();
     iniciarReveal();
+    iniciarCvZoom();
 };
