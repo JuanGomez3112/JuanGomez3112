@@ -263,7 +263,7 @@ function iniciarCvZoom() {
     const img = frame && frame.querySelector('img');
     if (!img) return;
 
-    const FILL = 0.82;    // zoom un poco menor (llena menos ancho, sin recorte)
+    const FILL = 0.80;    // zoom (llena 80% del ancho, sin recorte)
     const HOJAS = 3;      // PERFIL / EXPERIENCIA / FORMACION
     const REST_IN = 0.07; // reposo inicial: el CV se queda en su lugar
     const IN_END = 0.28;  // fin del "sale al centro"
