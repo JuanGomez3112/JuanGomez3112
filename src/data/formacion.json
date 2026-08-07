@@ -7,7 +7,7 @@
         "certificadoLink": "src/data/certificados/Branding desde cero. Crea la identidad visual de una marca.pdf",
         "cursoLink": "enlace-curso1.html",
         "categorias": [
-            "Diseño Grafico",
+            "Diseño Gráfico",
             "Brander"
         ]
     },
@@ -19,7 +19,7 @@
         "certificadoLink": "src/data/certificados/Adobe Photoshop CC desde cero. Experto en diseño gráfico.pdf",
         "cursoLink": "enlace-curso2.html",
         "categorias": 
-            "Diseño Grafico"
+            "Diseño Gráfico"
         
     },
     {
@@ -30,7 +30,7 @@
         "certificadoLink": "src/data/certificados/Retoque Avanzado para Retratos.pdf",
         "cursoLink": "enlace-curso3.html",
         "categorias": 
-            "Diseño Grafico"
+            "Diseño Gráfico"
         
     },
     {
@@ -41,7 +41,7 @@
         "certificadoLink": "src/data/certificados/Introducción a Adobe Photoshop CC2020.pdf",
         "cursoLink": "enlace-curso2.html",
         "categorias": 
-            "Diseño Grafico"
+            "Diseño Gráfico"
         
     },
     {
@@ -63,7 +63,7 @@
         "certificadoLink": "src/data/certificados/Diseño de logotipos desde cero.pdf",
         "cursoLink": "enlace-curso2.html",
         "categorias": [
-            "Diseño Grafico",
+            "Diseño Gráfico",
             "Brander"
         ]
         
@@ -86,7 +86,7 @@
         "certificadoLink": "src/data/certificados/Creación de una identidad visual desde cero.pdf",
         "cursoLink": "enlace-curso2.html",
         "categorias": [
-            "Diseño Grafico",
+            "Diseño Gráfico",
             "Brander"
         ]
         
@@ -99,7 +99,7 @@
         "certificadoLink": "src/data/certificados/Ideación y creatividad desde cero.pdf",
         "cursoLink": "enlace-curso3.html",
         "categorias": [
-            "Diseño Grafico",
+            "Diseño Gráfico",
             "Brander", "Extras"
         ]
     },
@@ -137,6 +137,6 @@
         "proveedor": "Crehana",
         "certificadoLink": "src/data/certificados/Branding emocional. crea una marca inspiradora.pdf",
         "cursoLink": "enlace-curso2.html",
-        "categorias": ["Brander", "Diseño Grafico"]
+        "categorias": ["Brander", "Diseño Gráfico"]
     }
 ]

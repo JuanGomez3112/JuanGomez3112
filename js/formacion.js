@@ -178,8 +178,17 @@ function manejarTabs(data) {
     function crearCardCertificado(certificado) {
         const cardCertific = document.createElement("div");
         cardCertific.classList.add("card-certific");
+        // "Ir al Curso" solo si hay link real (los placeholders enlace-cursoN.html dan 404)
+        const cursoValido = certificado.cursoLink &&
+            !/^enlace-curso/i.test(certificado.cursoLink) &&
+            certificado.cursoLink !== '#';
+        const btnCurso = cursoValido ? `
+                        <a href="${certificado.cursoLink}" class="btn btn-pq btn-bd bd-gradient" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Ir al Curso
+                        </a>` : '';
         const contenidoCertificado = `
-            <img src="${certificado.imagen}" alt="${certificado.nombre}">
+            <img src="${certificado.imagen}" alt="${certificado.nombre}" loading="lazy">
             <span class="tipo-certificado">${certificado.tipo}</span>
             <div class="info-certificado">
                 <h3>${certificado.nombre}</h3>
@@ -189,11 +198,7 @@ function manejarTabs(data) {
                         <a href="${certificado.certificadoLink}" class="btn btn-pq btn-bd bd-gradient" download>
                             <i class="fa-solid fa-certificate"></i>
                             Certificado
-                        </a>
-                        <a href="${certificado.cursoLink}" class="btn btn-pq btn-bd bd-gradient">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                            Ir al Curso
-                        </a>
+                        </a>${btnCurso}
                     </div>
                 </div>
             </div>
