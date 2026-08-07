@@ -261,9 +261,10 @@ function iniciarCvZoom() {
     const track = document.querySelector('.cta-curriculum');
     const frame = track && track.querySelector('.cv-frame');
     const img = frame && frame.querySelector('img');
+    const backdrop = track && track.querySelector('.cv-backdrop');
     if (!img) return;
 
-    const FILL = 0.80;    // zoom (llena 80% del ancho, sin recorte)
+    const FILL = 0.72;    // zoom (llena 72% del ancho, sin recorte)
     const HOJAS = 3;      // PERFIL / EXPERIENCIA / FORMACION
     const REST_IN = 0.07; // reposo inicial: el CV se queda en su lugar
     const IN_END = 0.28;  // fin del "sale al centro"
@@ -333,10 +334,6 @@ function iniciarCvZoom() {
                 scale = 1; ty = 0;                       // reposo final
             }
 
-            // tx: según cuánto salió, lo lleva de su columna al centro del viewport.
-            // restCenterX está cacheado (medido en reposo) -> sin temblor.
-            const rr = GRANDE > 1 ? (scale - 1) / (GRANDE - 1) : 0;
-            tx = (vw / 2 - restCenterX) * rr;
         } else {
             // Móvil: proximidad. Al centrarse la sección, crece para verse grande.
             const r = track.getBoundingClientRect();
@@ -344,8 +341,13 @@ function iniciarCvZoom() {
             const d = Math.abs(elCenter - vh / 2) / (vh / 2 + r.height / 2);
             const c = clamp01(1 - d);                    // 1 = centrado
             scale = 1 + (GRANDE - 1) * easeInOut(c);
-            ty = 0; tx = 0;
+            ty = 0;
         }
+
+        // pop: 0 en reposo -> 1 a tamaño completo. Maneja tx (desktop) y el fondo.
+        const pop = GRANDE > 1 ? clamp01((scale - 1) / (GRANDE - 1)) : 0;
+        if (esDesktop()) tx = (vw / 2 - restCenterX) * pop; // de la columna al centro
+        if (backdrop) backdrop.style.opacity = pop.toFixed(3);
 
         frame.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
     };

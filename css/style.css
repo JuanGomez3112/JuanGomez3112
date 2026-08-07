@@ -1373,6 +1373,16 @@ html.js .reveal:not(.is-visible) {
   align-items: center;
   gap: 1.5rem;
 }
+.contenedor main .cta-curriculum .cv-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 .contenedor main .cta-curriculum .cv-frame {
   display: block;
   line-height: 0;
@@ -1380,7 +1390,7 @@ html.js .reveal:not(.is-visible) {
   align-self: center;
   transform-origin: center center;
   will-change: transform;
-  z-index: 5;
+  z-index: 50;
   position: relative;
 }
 .contenedor main .cta-curriculum .cv-frame img {

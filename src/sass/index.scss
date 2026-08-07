@@ -751,6 +751,19 @@ html.js .reveal:not(.is-visible) {
                 }
             }
 
+            // Fondo borroso + oscuro que aparece durante el efecto (opacidad la
+            // maneja el JS). Fixed = cubre el viewport; debajo del CV, sobre el resto.
+            .cv-backdrop {
+                position: fixed;
+                inset: 0;
+                z-index: 40;
+                opacity: 0;
+                pointer-events: none;
+                background: rgba(0, 0, 0, 0.55);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+            }
+
             // El CV: descansa en su lugar; el JS lo escala/panea (efecto cámara).
             .cv-frame {
                 display: block;
@@ -761,7 +774,7 @@ html.js .reveal:not(.is-visible) {
                 will-change: transform;
                 // sin transition: el scroll (rAF + easeInOut) ya da la suavidad;
                 // una transition aquí pelea con el scroll y hace rubber-band.
-                z-index: 5;
+                z-index: 50; // sobre el backdrop
                 position: relative;
 
                 img {
