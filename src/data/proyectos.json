@@ -2,7 +2,7 @@
   {
     "nombre": "Portafolio Web Personal",
     "categoria": "front-end",
-    "imagen": "src/assets/img/proyectos/web personal.png",
+    "imagen": "src/assets/img/proyectos/web-personal.webp",
     "valoracion": 5,
     "tecnologias": "HTML • CSS • SASS • JavaScript",
     "tags": [
@@ -23,13 +23,13 @@
     ],
     "anio": "2026",
     "mockups": [
-      "src/assets/img/proyectos/web personal.png"
+      "src/assets/img/proyectos/web-personal.webp"
     ]
   },
   {
     "nombre": "Plantilla Oficial Gubernamental",
     "categoria": "front-end",
-    "imagen": "src/assets/img/proyectos/plantilla gubernamental.jpg",
+    "imagen": "src/assets/img/proyectos/plantilla-gubernamental.webp",
     "valoracion": 5,
     "tecnologias": "HTML • CSS • SASS • JavaScript • PHP • WordPress",
     "tags": [
@@ -49,13 +49,13 @@
     ],
     "anio": "2024",
     "mockups": [
-      "src/assets/img/proyectos/plantilla gubernamental.jpg"
+      "src/assets/img/proyectos/plantilla-gubernamental.webp"
     ]
   },
   {
     "nombre": "Implementech",
     "categoria": "front-end",
-    "imagen": "src/assets/img/proyectos/implementech.jpg",
+    "imagen": "src/assets/img/proyectos/implementech.webp",
     "valoracion": 4,
     "tecnologias": "HTML • CSS • SASS • JavaScript",
     "tags": [
@@ -74,7 +74,7 @@
     ],
     "anio": "2024",
     "mockups": [
-      "src/assets/img/proyectos/implementech.jpg"
+      "src/assets/img/proyectos/implementech.webp"
     ]
   }
 ]
