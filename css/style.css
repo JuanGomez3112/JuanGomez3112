@@ -1937,7 +1937,6 @@ html.js .reveal:not(.is-visible) {
   gap: 1.5rem;
   width: 100%;
   height: max-content;
-  background: linear-gradient(0deg, rgba(12, 12, 12, 0) 80%, rgb(12, 12, 12) 100%);
 }
 .seccion-formacion .line-time .contain_line {
   display: flex;
@@ -1951,6 +1950,7 @@ html.js .reveal:not(.is-visible) {
   font-weight: bold;
   position: relative;
   margin-top: 0.75rem;
+  transition: color 0.25s ease;
 }
 .seccion-formacion .line-time .contain_line .info_line {
   display: flex;
@@ -1965,6 +1965,7 @@ html.js .reveal:not(.is-visible) {
   color: #D9D9D9;
   font-weight: 600;
   line-height: 1.125rem;
+  transition: color 0.25s ease;
 }
 .seccion-formacion .line-time .contain_line .info_line .list_line {
   list-style: initial;
@@ -1981,11 +1982,23 @@ html.js .reveal:not(.is-visible) {
   line-height: 1.125rem;
   font-weight: 300;
   text-align: justify;
+  transition: color 0.25s ease;
 }
 .seccion-formacion .line-time .contain_line .info_line .list_line .item_list::marker {
   display: flex;
   position: absolute;
   top: 2rem;
+}
+.seccion-formacion .line-time .contain_line .info_line .list_line .item_list:hover {
+  color: #C9A24B;
+}
+.seccion-formacion .line-time .contain_line:has(> span:hover) span,
+.seccion-formacion .line-time .contain_line:has(> span:hover) .info_line h3,
+.seccion-formacion .line-time .contain_line:has(> span:hover) .info_line .item_list {
+  color: #C9A24B;
+}
+.seccion-formacion .line-time .contain_line:has(> span:hover)::after {
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
 }
 .seccion-formacion .line-time .contain_line::before {
   position: absolute;

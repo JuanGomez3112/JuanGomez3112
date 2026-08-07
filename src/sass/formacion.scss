@@ -95,7 +95,6 @@
         gap: 1.5rem;
         width: 100%;
         height: max-content;
-        background: linear-gradient(0deg, rgba(12, 12, 12, 0) 80%, rgba(12, 12, 12, 1) 100%);
 
 
         .contain_line {
@@ -110,6 +109,7 @@
                 font-weight: bold;
                 position: relative;
                 margin-top: 0.75rem;
+                transition: color 0.25s ease;
             }
 
             .info_line {
@@ -127,6 +127,7 @@
                     color: $crema;
                     font-weight: 600;
                     line-height: 1.125rem;
+                    transition: color 0.25s ease;
                 }
 
                 .list_line {
@@ -145,16 +146,35 @@
                         line-height: 1.125rem;
                         font-weight: 300;
                         text-align: justify;
+                        transition: color 0.25s ease;
 
                         &::marker {
                             display: flex;
                             position: absolute;
                             top: 2rem;
                         }
+
+                        // hover sobre un item de la lista -> solo ese item toma color
+                        &:hover {
+                            color: $oro;
+                        }
                     }
                 }
 
 
+            }
+
+            // hover sobre el AÑO -> todo el bloque de ese año toma color (incl. el punto)
+            &:has(> span:hover) {
+                span,
+                .info_line h3,
+                .info_line .item_list {
+                    color: $oro;
+                }
+
+                &::after {
+                    background: $degradadoOro;
+                }
             }
 
             &::before {
