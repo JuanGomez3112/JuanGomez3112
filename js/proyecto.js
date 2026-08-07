@@ -41,6 +41,9 @@
                 ? `<a href="${esc(p.verProyecto)}" target="_blank" class="btn btn-bd"><span class="ctn-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver en vivo</span></a>` : '';
             const repo = p.repositorio && p.repositorio !== '#'
                 ? `<a href="${esc(p.repositorio)}" target="_blank" class="btn btn-bd"><span class="ctn-btn"><i class="fa-brands fa-github"></i> Repositorio</span></a>` : '';
+            // Si no hay live ni repo, deja al menos un CTA para no quedar vacío.
+            const volver = (!live && !repo)
+                ? `<a href="portafolio.html" class="btn btn-bd"><span class="ctn-btn"><i class="fa-solid fa-arrow-left"></i> Ver más proyectos</span></a>` : '';
 
             cont.innerHTML = `
                 <a href="portafolio.html" class="pd-volver"><i class="fa-solid fa-arrow-left"></i> Portafolio</a>
@@ -66,7 +69,7 @@
                     </div>
                 </section>
 
-                <div class="pd-acciones">${live}${repo}</div>
+                <div class="pd-acciones">${live}${repo}${volver}</div>
             `;
         })
         .catch(() => {
