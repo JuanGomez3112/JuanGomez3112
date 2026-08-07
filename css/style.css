@@ -886,7 +886,7 @@ header .header-content .candy-box .candy-item {
     --name-gap: 2%;
     --name-shift: 0%;
     --roles-top: 18%;
-    --roles-right: 26%;
+    --roles-right: 28%;
     --eyebrow-top: 2%;
     --eyebrow-left: 30%;
     --photo-bottom: 0%;
@@ -904,13 +904,30 @@ header .header-content .candy-box .candy-item {
     font-size: clamp(3.3rem, 17.5vw, 6rem);
   }
 }
+@media (min-width: 481px) and (max-width: 900px) {
+  .contenedor main .hero {
+    --eyebrow-left: 27%;
+    --eyebrow-top: 2%;
+    --roles-right: 20%;
+    --roles-top: 18%;
+  }
+}
+@media (min-width: 901px) and (max-width: 1024px) {
+  .contenedor main .hero {
+    --eyebrow-left: 31%;
+    --eyebrow-top: 2%;
+    --roles-right: 26%;
+    --roles-top: 18%;
+  }
+}
 @media (max-width: 480px) {
   .contenedor main .hero {
     --name-gap: 1%;
     --name-top: 5%;
-    --eyebrow-left: 27%;
-    --roles-top: 18%;
-    --roles-right: 26%;
+    --eyebrow-left: 18%;
+    --eyebrow-top: 4%;
+    --roles-top: 14%;
+    --roles-right: 6%;
     --photo-bottom: 0%;
   }
   .contenedor main .hero .hero-name .n-gomez {
@@ -926,6 +943,20 @@ header .header-content .candy-box .candy-item {
   .contenedor main .hero .hero-roles .caret {
     font-size: clamp(0.72rem, 3.4vw, 1.05rem);
     letter-spacing: 2px;
+  }
+}
+@media (min-width: 401px) and (max-width: 480px) {
+  .contenedor main .hero {
+    --eyebrow-left: 20%;
+    --eyebrow-top: 4%;
+    --roles-top: 15%;
+    --roles-right: 8%;
+  }
+}
+@media (max-width: 360px) {
+  .contenedor main .hero {
+    --roles-top: 14%;
+    --photo-h: 72%;
   }
 }
 .contenedor main .section-perfil {

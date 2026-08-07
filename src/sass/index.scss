@@ -202,7 +202,7 @@
                 --name-gap: 2%;    // sin hueco: nombre compacto
                 --name-shift: 0%;
                 --roles-top: 18%;
-                --roles-right: 26%; // ancla en la "z" (typewriter va z -> j)
+                --roles-right: 28%; // ancla en la "z" (typewriter va z -> j)
                 --eyebrow-top: 2%;
                 --eyebrow-left: 30%; // sobre la "u" de Juan
                 --photo-bottom: 0%; // baja la foto (se aleja del texto)
@@ -226,12 +226,29 @@
                 // Typewriter anclado a la derecha: teclea derecha -> izquierda
             }
 
+            // Tablet chico (~768)
+            @media (min-width: 481px) and (max-width: 900px) {
+                --eyebrow-left: 27%;
+                --eyebrow-top: 2%;
+                --roles-right: 20%;
+                --roles-top: 18%;
+            }
+
+            // Tablet grande (~1024)
+            @media (min-width: 901px) and (max-width: 1024px) {
+                --eyebrow-left: 31%;
+                --eyebrow-top: 2%;
+                --roles-right: 26%;
+                --roles-top: 18%;
+            }
+
             @media (max-width: 480px) {
                 --name-gap: 1%;
                 --name-top: 5%;
-                --eyebrow-left: 27%;
-                --roles-top: 18%;
-                --roles-right: 26%;
+                --eyebrow-left: 18%;
+                --eyebrow-top: 4%;
+                --roles-top: 14%;
+                --roles-right: 6%;
                 --photo-bottom: 0%;
 
                 .hero-name .n-gomez {
@@ -251,6 +268,20 @@
                     font-size: clamp(0.72rem, 3.4vw, 1.05rem);
                     letter-spacing: 2px;
                 }
+            }
+
+            // Movil-L (~425): reposiciona hola/maquina (los % de 375 caen distinto)
+            @media (min-width: 401px) and (max-width: 480px) {
+                --eyebrow-left: 20%;
+                --eyebrow-top: 4%;
+                --roles-top: 15%;
+                --roles-right: 8%;
+            }
+
+            // Movil chico (~320): sube la maquina, foto un poco mas pequena
+            @media (max-width: 360px) {
+                --roles-top: 14%;
+                --photo-h: 72%;
             }
         }
         // ===== /HERO =====
