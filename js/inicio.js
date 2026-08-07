@@ -259,8 +259,6 @@ function iniciarCvZoom() {
     const img = cont && cont.querySelector('.cv-zoom');
     if (!img) return;
 
-    const minS = 0.78;
-    const maxS = 1.6;
     let ticking = false;
 
     const update = () => {
@@ -268,12 +266,22 @@ function iniciarCvZoom() {
         const r = cont.getBoundingClientRect(); // contenedor no escala -> estable
         const vh = window.innerHeight;
         const elCenter = r.top + r.height / 2;
-        const dist = Math.abs(elCenter - vh / 2);
         const maxDist = vh / 2 + r.height / 2;
-        let prog = 1 - dist / maxDist; // 1 = centrado, 0 = en los bordes
-        prog = Math.max(0, Math.min(1, prog));
-        const scale = minS + (maxS - minS) * prog;
-        img.style.transform = `scale(${scale.toFixed(3)})`;
+        // p: +1 entrando (abajo) · 0 centrado · -1 saliendo (arriba)
+        let p = (elCenter - vh / 2) / maxDist;
+        p = Math.max(-1, Math.min(1, p));
+        const c = 1 - Math.abs(p); // 1 = centrado
+
+        if (window.innerWidth <= 768) {
+            // Movil: entra rotado desde la derecha, se centra y crece grande
+            const scale = (0.7 + 1.0 * c).toFixed(3);   // 0.7 -> 1.7
+            const rotY = (-42 * p).toFixed(1);          // rota como si viniera de la derecha
+            const tx = (38 * p).toFixed(1);             // % derecha al entrar, izq al salir
+            img.style.transform = `translateX(${tx}%) rotateY(${rotY}deg) scale(${scale})`;
+        } else {
+            const scale = (0.82 + 0.78 * c).toFixed(3); // 0.82 -> 1.6
+            img.style.transform = `scale(${scale})`;
+        }
     };
 
     const onScroll = () => {

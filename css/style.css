@@ -1341,6 +1341,9 @@ html.js .reveal:not(.is-visible) {
   justify-content: center;
   align-items: flex-start;
   overflow: visible;
+  perspective: 1200px;
+  position: relative;
+  z-index: 5;
 }
 .contenedor main .cta-curriculum .cta-curriculum_img img {
   position: static !important;

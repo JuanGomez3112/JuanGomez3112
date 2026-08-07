@@ -710,6 +710,9 @@ html.js .reveal:not(.is-visible) {
                 justify-content: center;
                 align-items: flex-start;
                 overflow: visible;
+                perspective: 1200px; // para el rotateY 3D (movil)
+                position: relative;
+                z-index: 5; // el CV puede taparse por encima del texto al crecer
 
                 img {
                     position: static !important;
