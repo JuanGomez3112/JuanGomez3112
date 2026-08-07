@@ -270,6 +270,10 @@
             display: flex;
             gap: 0.5rem;
 
+            &:hover {
+                color: $oroClaro;
+            }
+
             &.active {
                 color: $oro;
                 padding-bottom: 1rem;
@@ -298,98 +302,120 @@
             gap: 1.5rem;
             overflow-x: auto;
             flex-wrap: nowrap;
-            padding: 1rem;
+            padding: 1rem 1rem 1.5rem;
             position: relative;
+            scroll-snap-type: x proximity;
 
             .card-certific {
-                min-width: 350px;
-                height: 300px;
+                min-width: 300px;
+                width: 300px;
+                height: 380px;
                 position: relative;
-                display: flex;
+                display: block;
                 overflow: hidden;
+                border-radius: 16px;
+                white-space: normal; // el contenedor tiene nowrap; el texto adentro sí envuelve
+                background: #141414;
+                border: 1px solid rgba($oro, 0.16);
+                scroll-snap-align: start;
+                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 
+                // La imagen del diploma alineada arriba (donde está el título del cert)
                 img {
+                    position: absolute;
+                    inset: 0;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    position: relative;
+                    object-position: top center;
+                    transition: transform 0.5s ease;
+                }
+
+                // Velo oscuro para que el texto se lea sobre cualquier diploma
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to top,
+                        rgba(8, 8, 8, 0.97) 0%,
+                        rgba(8, 8, 8, 0.75) 34%,
+                        rgba(8, 8, 8, 0) 68%);
+                    pointer-events: none;
                 }
 
                 .tipo-certificado {
                     position: absolute;
+                    top: 0;
                     right: 0;
-                    margin: 1.5rem;
-                    padding: 0.5rem 1rem;
-                    background: $degradadoSecundario;
-                    color: $crema;
-                    font-size: 0.75rem;
+                    z-index: 2;
+                    margin: 1rem;
+                    padding: 0.35rem 0.85rem;
+                    background: $degradadoOro;
+                    color: $azul;
+                    font-size: 0.7rem;
                     font-family: $tipografiaSecundaria;
                     font-weight: 700;
+                    letter-spacing: 0.03em;
                     border-radius: 1rem;
                 }
 
                 .info-certificado {
-                    width: 100%;
-                    height: auto;
                     position: absolute;
-                    bottom: -88px;
-                    background: $degradadoSecundario;
-                    border-radius: 1rem 1rem 0 0;
-                    padding: 1.5rem;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 2;
+                    padding: 1.25rem;
                     display: flex;
                     flex-direction: column;
-                    gap: 0.75rem;
-                    transition: bottom 1s ease;
+                    gap: 0.7rem;
 
                     h3 {
                         color: $blanco;
                         font-family: $tipografiaSecundaria;
-                        width: 100%;
-                        font-size: 1rem;
-                        position: relative;
+                        font-size: 0.95rem;
                         font-weight: 600;
                         word-break: break-word;
-                        white-space: break-spaces;
                         line-height: 1.25rem;
                     }
 
+                    // Proveedor + botones: siempre visibles (accesible en todo
+                    // dispositivo; el botón de descarga no debe esconderse).
                     .info-hidden {
                         display: flex;
                         flex-direction: column;
-                        gap: 2.5rem;
-                        opacity: 0;
-                        transition: opacity 1s ease;
-                        position: relative;
-
-
+                        gap: 0.85rem;
 
                         span {
                             font-family: $tipografiaSecundaria;
-                            color: $crema;
+                            font-size: 0.72rem;
+                            letter-spacing: 0.08em;
+                            text-transform: uppercase;
+                            color: $oroClaro;
                         }
 
                         .botones {
-                            position: relative;
-                            margin: 0 auto;
                             display: flex;
                             gap: 0.5rem;
+                            flex-wrap: wrap;
 
                             a {
-                                padding: 0.5rem 1rem;
+                                padding: 0.45rem 0.9rem;
                                 border-radius: 1.5rem;
+                                font-size: 0.8rem;
                             }
                         }
                     }
                 }
 
-                &:hover {
-                    .info-certificado {
-                        bottom: 0;
+                // Realce en hover / foco de teclado (lift + zoom + borde oro)
+                &:hover,
+                &:focus-within {
+                    transform: translateY(-4px);
+                    border-color: rgba($oro, 0.55);
+                    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
 
-                        .info-hidden {
-                            opacity: 1;
-                        }
-                    }
+                    img { transform: scale(1.05); }
                 }
             }
 

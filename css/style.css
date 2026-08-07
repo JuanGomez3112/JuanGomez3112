@@ -2077,6 +2077,9 @@ html.js .reveal:not(.is-visible) {
   display: flex;
   gap: 0.5rem;
 }
+.tabs-certificados .tab .tablinks:hover {
+  color: #E4CC8A;
+}
 .tabs-certificados .tab .tablinks.active {
   color: #C9A24B;
   padding-bottom: 1rem;
@@ -2101,85 +2104,103 @@ html.js .reveal:not(.is-visible) {
   gap: 1.5rem;
   overflow-x: auto;
   flex-wrap: nowrap;
-  padding: 1rem;
+  padding: 1rem 1rem 1.5rem;
   position: relative;
+  scroll-snap-type: x proximity;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific {
-  min-width: 350px;
-  height: 300px;
+  min-width: 300px;
+  width: 300px;
+  height: 380px;
   position: relative;
-  display: flex;
+  display: block;
   overflow: hidden;
+  border-radius: 16px;
+  white-space: normal;
+  background: #141414;
+  border: 1px solid rgba(201, 162, 75, 0.16);
+  scroll-snap-align: start;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: relative;
+  object-position: top center;
+  transition: transform 0.5s ease;
+}
+.tabs-certificados .content-certific .certificado-card .card-certific::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 8, 8, 0.97) 0%, rgba(8, 8, 8, 0.75) 34%, rgba(8, 8, 8, 0) 68%);
+  pointer-events: none;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .tipo-certificado {
   position: absolute;
+  top: 0;
   right: 0;
-  margin: 1.5rem;
-  padding: 0.5rem 1rem;
-  background: linear-gradient(45deg, #262626 0%, #0C0C0C 100%);
-  color: #D9D9D9;
-  font-size: 0.75rem;
+  z-index: 2;
+  margin: 1rem;
+  padding: 0.35rem 0.85rem;
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
+  color: #0C0C0C;
+  font-size: 0.7rem;
   font-family: "Louis George Cafe", "Poppins", sans-serif;
   font-weight: 700;
+  letter-spacing: 0.03em;
   border-radius: 1rem;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado {
-  width: 100%;
-  height: auto;
   position: absolute;
-  bottom: -88px;
-  background: linear-gradient(45deg, #262626 0%, #0C0C0C 100%);
-  border-radius: 1rem 1rem 0 0;
-  padding: 1.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: bottom 1s ease;
+  gap: 0.7rem;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado h3 {
   color: #F2F2F2;
   font-family: "Louis George Cafe", "Poppins", sans-serif;
-  width: 100%;
-  font-size: 1rem;
-  position: relative;
+  font-size: 0.95rem;
   font-weight: 600;
   word-break: break-word;
-  white-space: break-spaces;
   line-height: 1.25rem;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  opacity: 0;
-  transition: opacity 1s ease;
-  position: relative;
+  gap: 0.85rem;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden span {
   font-family: "Louis George Cafe", "Poppins", sans-serif;
-  color: #D9D9D9;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E4CC8A;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden .botones {
-  position: relative;
-  margin: 0 auto;
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 .tabs-certificados .content-certific .certificado-card .card-certific .info-certificado .info-hidden .botones a {
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 1.5rem;
+  font-size: 0.8rem;
 }
-.tabs-certificados .content-certific .certificado-card .card-certific:hover .info-certificado {
-  bottom: 0;
+.tabs-certificados .content-certific .certificado-card .card-certific:hover, .tabs-certificados .content-certific .certificado-card .card-certific:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(201, 162, 75, 0.55);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
 }
-.tabs-certificados .content-certific .certificado-card .card-certific:hover .info-certificado .info-hidden {
-  opacity: 1;
+.tabs-certificados .content-certific .certificado-card .card-certific:hover img, .tabs-certificados .content-certific .certificado-card .card-certific:focus-within img {
+  transform: scale(1.05);
 }
 .tabs-certificados .content-certific::-webkit-scrollbar {
   width: 0;
