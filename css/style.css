@@ -2341,6 +2341,160 @@ header .header-content .candy-box .candy-item {
   }
 }
 
+.sobre-mi {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+}
+.sobre-mi .section-eyebrow {
+  justify-content: flex-start;
+}
+.sobre-mi .section-eyebrow::before {
+  display: none;
+}
+.sobre-mi .sm-intro {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  align-items: center;
+}
+.sobre-mi .sm-intro .sm-intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+.sobre-mi .sm-intro .sm-titulo {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  color: #F2F2F2;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.sobre-mi .sm-intro .sm-lead {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.75);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+.sobre-mi .sm-intro .sm-cta-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.sobre-mi .sm-intro .sm-foto {
+  flex: none;
+}
+.sobre-mi .sm-intro .sm-foto img {
+  width: clamp(180px, 55vw, 280px);
+  height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+}
+.sobre-mi .sm-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.sobre-mi .sm-highlights .sm-hl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(217, 217, 217, 0.08);
+  border-radius: 12px;
+}
+.sobre-mi .sm-highlights .sm-hl .sm-num {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-size: 1.8rem;
+  color: #C9A24B;
+  font-weight: 700;
+  line-height: 1;
+}
+.sobre-mi .sm-highlights .sm-hl .sm-hl-label {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.7);
+  font-size: 0.85rem;
+}
+.sobre-mi .sm-historia .sm-parrafos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1rem;
+}
+.sobre-mi .sm-historia .sm-parrafos p {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.82);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.sobre-mi .sm-historia .sm-parrafos p strong {
+  color: #E4CC8A;
+  font-weight: 600;
+}
+.sobre-mi .sm-valores .sm-valores-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.sobre-mi .sm-valores .sm-valores-grid .sm-valor {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(217, 217, 217, 0.08);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sobre-mi .sm-valores .sm-valores-grid .sm-valor i {
+  color: #C9A24B;
+  font-size: 1.6rem;
+}
+.sobre-mi .sm-valores .sm-valores-grid .sm-valor h4 {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.sobre-mi .sm-valores .sm-valores-grid .sm-valor p {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.7);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+@media (min-width: 768px) {
+  .sobre-mi {
+    gap: 4.5rem;
+    padding: 3rem 2rem 5rem;
+  }
+  .sobre-mi .sm-intro {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+  .sobre-mi .sm-intro .sm-intro-text {
+    text-align: left;
+  }
+  .sobre-mi .sm-intro .sm-cta-botones {
+    justify-content: flex-start;
+  }
+  .sobre-mi .sm-highlights {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .sobre-mi .sm-valores-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .wave-img,
 .waveup,
 .wavedown,

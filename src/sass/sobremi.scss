@@ -1,0 +1,176 @@
+// Pagina Sobre mi
+.sobre-mi {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+
+    // eyebrow alineado a la izquierda en esta pagina
+    .section-eyebrow {
+        justify-content: flex-start;
+        &::before { display: none; }
+    }
+
+    // ===== Intro =====
+    .sm-intro {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 2rem;
+        align-items: center;
+
+        .sm-intro-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .sm-titulo {
+            font-family: $tipografiaPrincipal;
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            color: $blanco;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .sm-lead {
+            font-family: $tipografiaSecundaria;
+            color: rgba(217, 217, 217, 0.75);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .sm-cta-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .sm-foto {
+            flex: none;
+
+            img {
+                width: clamp(180px, 55vw, 280px);
+                height: auto;
+                -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+                mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+            }
+        }
+    }
+
+    // ===== Highlights =====
+    .sm-highlights {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        .sm-hl {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(217, 217, 217, 0.08);
+            border-radius: 12px;
+
+            .sm-num {
+                font-family: $tipografiaPrincipal;
+                font-size: 1.8rem;
+                color: $oro;
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            .sm-hl-label {
+                font-family: $tipografiaSecundaria;
+                color: rgba(217, 217, 217, 0.7);
+                font-size: 0.85rem;
+            }
+        }
+    }
+
+    // ===== Historia =====
+    .sm-historia {
+        .sm-parrafos {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            margin-top: 1rem;
+
+            p {
+                font-family: $tipografiaSecundaria;
+                color: rgba(217, 217, 217, 0.82);
+                line-height: 1.8;
+                font-size: 1rem;
+
+                strong {
+                    color: $oroClaro;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    // ===== Como trabajo =====
+    .sm-valores {
+        .sm-valores-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1rem;
+
+            .sm-valor {
+                padding: 1.5rem;
+                background: rgba(255, 255, 255, 0.03);
+                border: 1px solid rgba(217, 217, 217, 0.08);
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+
+                i {
+                    color: $oro;
+                    font-size: 1.6rem;
+                }
+
+                h4 {
+                    font-family: $tipografiaPrincipal;
+                    color: $blanco;
+                    font-size: 1.2rem;
+                    font-weight: 400;
+                }
+
+                p {
+                    font-family: $tipografiaSecundaria;
+                    color: rgba(217, 217, 217, 0.7);
+                    line-height: 1.6;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        gap: 4.5rem;
+        padding: 3rem 2rem 5rem;
+
+        .sm-intro {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+
+            .sm-intro-text { text-align: left; }
+            .sm-cta-botones { justify-content: flex-start; }
+        }
+
+        .sm-highlights { grid-template-columns: repeat(4, 1fr); }
+
+        .sm-valores-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+}
