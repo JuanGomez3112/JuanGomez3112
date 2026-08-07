@@ -22,7 +22,7 @@
 // Candado anti-scroll horizontal (los offsets del hero no deben crear scroll lateral)
 html,
 body {
-    overflow-x: hidden;
+    overflow-x: clip; // clip (no hidden) para no romper position:sticky
     max-width: 100%;
 }
 

@@ -68,7 +68,7 @@ body {
 .contenido {
   width: 100%;
   display: flex;
-  overflow: hidden;
+  overflow: visible;
 }
 .contenido h1 {
   font-family: "Louis George Cafe", "Poppins", sans-serif;
@@ -903,6 +903,54 @@ html.js .reveal:not(.is-visible) {
   .experiencia .exp-logros {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+@media (min-width: 1024px) {
+  .cta-curriculum {
+    grid-template-columns: 1fr !important;
+  }
+  .cta-curriculum .cta-curriculum_info {
+    padding: 3rem 1.5rem !important;
+  }
+  .cta-curriculum .cta-curriculum_info .curriculum_info {
+    align-items: center !important;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .cta-curriculum .cta-curriculum_info .curriculum_info h3, .cta-curriculum .cta-curriculum_info .curriculum_info p {
+    text-align: center !important;
+  }
+  .cta-curriculum .cta-curriculum_info .curriculum_info .botones {
+    justify-content: center;
+  }
+}
+
+.cv-scroll {
+  position: relative;
+  height: 320vh;
+}
+.cv-scroll .cv-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cv-scroll .cv-frame {
+  display: block;
+  will-change: transform;
+  transform-origin: center center;
+  transform: scale(0.45);
+}
+.cv-scroll .cv-frame img {
+  display: block;
+  height: 80vh;
+  width: auto;
+  max-width: none;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.55));
 }
 
 .contenedor {
@@ -2770,7 +2818,7 @@ html.js .reveal:not(.is-visible) {
 }
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 

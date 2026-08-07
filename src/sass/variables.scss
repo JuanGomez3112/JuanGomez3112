@@ -132,7 +132,7 @@ body {
 .contenido {
     width: 100%;
     display: flex;
-    overflow: hidden;
+    overflow: visible; // permite position:sticky del CV showcase
     
     h1 {
         font-family: $tipografiaPrincipal;
