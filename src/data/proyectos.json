@@ -12,7 +12,7 @@
       "Marca Personal"
     ],
     "repositorio": "https://github.com/JuanGomez3112/JuanGomez3112/tree/master",
-    "verProyecto": "https://juangomez3112.github.io/JuanGomez3112/",
+    "verProyecto": "#",
     "slug": "portafolio-web-personal",
     "descripcion": "Mi sitio personal: portafolio y carta de presentación como Técnico de Tecnología y desarrollador. Diseño monocromo con acento dorado, construido desde cero sin frameworks. Reúne experiencia, proyectos, formación y contacto en un solo lugar, pensado para reclutadores.",
     "rol": "Diseño y desarrollo completo (front-end): maquetación responsive, animaciones con JavaScript, arquitectura de estilos con SASS y despliegue en GitHub Pages.",
@@ -39,7 +39,7 @@
       "Institucional"
     ],
     "repositorio": "#",
-    "verProyecto": "https://test.c5iffaa.gob.do/",
+    "verProyecto": "#",
     "slug": "plantilla-oficial-gubernamental",
     "descripcion": "Plantilla web institucional para una entidad gubernamental (C5i, Fuerzas Armadas). Base reutilizable con identidad oficial, estructura de secciones y componentes para publicar contenido de forma consistente.",
     "rol": "Desarrollo front-end y maquetación responsive de la plantilla, con integración en WordPress/PHP para la gestión de contenido.",
@@ -64,12 +64,12 @@
       "Sitio Corporativo"
     ],
     "repositorio": "https://github.com/JuanGomez3112/DarkTech.git",
-    "verProyecto": "https://implementech.net/",
+    "verProyecto": "#",
     "slug": "implementech",
     "descripcion": "Sitio web corporativo para Implementech, empresa de servicios tecnológicos. Presenta sus servicios, propuesta de valor y contacto con un diseño oscuro y moderno.",
     "rol": "Desarrollo front-end y maquetación responsive del sitio.",
     "resultados": [
-      "Sitio en producción (implementech.net).",
+      "Sitio corporativo entregado y desplegado.",
       "Diseño responsive y navegación clara de servicios."
     ],
     "anio": "2024",

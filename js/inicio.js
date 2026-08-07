@@ -124,10 +124,11 @@ function cargarProyectos() {
                             </div>
                         </div>
                         <div class="botones">
+                            ${proyecto.repositorio && proyecto.repositorio !== '#' ? `
                             <a href="${proyecto.repositorio}" class="btn btn-bd" target="_blank">
                                 <i class="fa-brands fa-github"></i>
                                 Repositorio
-                            </a>
+                            </a>` : ''}
                             <a href="proyecto.html?id=${proyecto.slug}" class="btn btn-pq btn-bd">
                                 <i class="fa-solid fa-eye"></i>
                                 Ver Proyecto
