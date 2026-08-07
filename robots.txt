@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://juangomez3112.github.io/JuanGomez3112/sitemap.xml
