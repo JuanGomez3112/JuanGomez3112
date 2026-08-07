@@ -318,7 +318,7 @@ function iniciarCvZoom() {
             } else if (prog < REST_OUT) {
                 const t = easeInOut((prog - OUT_START) / (REST_OUT - OUT_START));
                 scale = GRANDE - (GRANDE - 1) * t;       // vuelve
-                ty = topAlign(scale);
+                ty = -topAlign(scale);                   // desde ABAJO (sin salto)
             } else {
                 scale = 1; ty = 0;                       // reposo final
             }
