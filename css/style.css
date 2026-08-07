@@ -1380,7 +1380,6 @@ html.js .reveal:not(.is-visible) {
   align-self: center;
   transform-origin: center center;
   will-change: transform;
-  transition: transform 0.12s ease-out;
   z-index: 5;
   position: relative;
 }

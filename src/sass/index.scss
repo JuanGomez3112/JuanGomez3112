@@ -759,7 +759,8 @@ html.js .reveal:not(.is-visible) {
                 align-self: center;
                 transform-origin: center center;
                 will-change: transform;
-                transition: transform 0.12s ease-out; // suaviza el "sale" y el pan
+                // sin transition: el scroll (rAF + easeInOut) ya da la suavidad;
+                // una transition aquí pelea con el scroll y hace rubber-band.
                 z-index: 5;
                 position: relative;
 

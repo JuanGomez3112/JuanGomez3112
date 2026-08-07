@@ -280,13 +280,22 @@ function iniciarCvZoom() {
         const seg = 1 / stops;
         const idx = Math.min(stops - 1, Math.floor(f / seg));
         const local = (f - idx * seg) / seg;
-        const dwell = 0.45;
+        const dwell = 0.22; // pausa corta en cada hoja (más fluido)
         const posDentro = local < dwell ? 0 : easeInOut((local - dwell) / (1 - dwell));
         return (idx + posDentro) / (stops - 1);
     };
 
     let ticking = false;
-    let lastTx = 0;
+    let restCenterX = 0; // centro horizontal del CV en reposo (viewport), cacheado
+
+    // Mide el centro en reposo sin transform (evita el temblor de leer el rect animado)
+    const medir = () => {
+        const prev = frame.style.transform;
+        frame.style.transform = 'none';
+        const rect = frame.getBoundingClientRect();
+        restCenterX = rect.left + rect.width / 2;
+        frame.style.transform = prev;
+    };
 
     const update = () => {
         ticking = false;
@@ -323,12 +332,10 @@ function iniciarCvZoom() {
                 scale = 1; ty = 0;                       // reposo final
             }
 
-            // tx: según cuánto salió, lo lleva de su columna al centro del viewport
+            // tx: según cuánto salió, lo lleva de su columna al centro del viewport.
+            // restCenterX está cacheado (medido en reposo) -> sin temblor.
             const rr = GRANDE > 1 ? (scale - 1) / (GRANDE - 1) : 0;
-            const rect = frame.getBoundingClientRect();
-            const restCenterX = (rect.left + rect.width / 2) - lastTx; // centro en reposo
             tx = (vw / 2 - restCenterX) * rr;
-            lastTx = tx;
         } else {
             // Móvil: proximidad. Al centrarse la sección, crece para verse grande.
             const r = track.getBoundingClientRect();
@@ -336,7 +343,7 @@ function iniciarCvZoom() {
             const d = Math.abs(elCenter - vh / 2) / (vh / 2 + r.height / 2);
             const c = clamp01(1 - d);                    // 1 = centrado
             scale = 1 + (GRANDE - 1) * easeInOut(c);
-            ty = 0; tx = 0; lastTx = 0;
+            ty = 0; tx = 0;
         }
 
         frame.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
@@ -346,8 +353,13 @@ function iniciarCvZoom() {
         if (!ticking) { ticking = true; requestAnimationFrame(update); }
     };
 
+    const onResize = () => { medir(); onScroll(); };
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
+    // mide tras cargar imagen/layout
+    if (img.complete) medir(); else img.addEventListener('load', () => { medir(); update(); });
+    medir();
     update();
 }
 
