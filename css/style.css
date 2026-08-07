@@ -883,12 +883,12 @@ header .header-content .candy-box .candy-item {
     --stage-h: clamp(460px, 80vh, 640px);
     --photo-h: 78%;
     --name-top: 5%;
-    --name-gap: 4%;
+    --name-gap: 2%;
     --name-shift: 0%;
-    --roles-top: 15%;
-    --roles-right: 4%;
-    --eyebrow-top: 3%;
-    --eyebrow-left: 21%;
+    --roles-top: 18%;
+    --roles-right: 26%;
+    --eyebrow-top: 2%;
+    --eyebrow-left: 30%;
     --photo-bottom: 0%;
   }
   .contenedor main .hero .hero-name {
@@ -906,11 +906,11 @@ header .header-content .candy-box .candy-item {
 }
 @media (max-width: 480px) {
   .contenedor main .hero {
-    --name-gap: 3%;
+    --name-gap: 1%;
     --name-top: 5%;
-    --eyebrow-left: 19%;
-    --roles-top: 15%;
-    --roles-right: 5%;
+    --eyebrow-left: 27%;
+    --roles-top: 18%;
+    --roles-right: 26%;
     --photo-bottom: 0%;
   }
   .contenedor main .hero .hero-name .n-gomez {

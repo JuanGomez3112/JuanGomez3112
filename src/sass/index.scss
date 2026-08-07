@@ -199,12 +199,12 @@
                 --stage-h: clamp(460px, 80vh, 640px);
                 --photo-h: 78%;
                 --name-top: 5%;
-                --name-gap: 4%;    // sin hueco: nombre compacto
+                --name-gap: 2%;    // sin hueco: nombre compacto
                 --name-shift: 0%;
-                --roles-top: 15%;
-                --roles-right: 4%; // ancla en la "z" (typewriter va z -> j)
-                --eyebrow-top: 3%;
-                --eyebrow-left: 21%; // sobre la "u" de Juan
+                --roles-top: 18%;
+                --roles-right: 26%; // ancla en la "z" (typewriter va z -> j)
+                --eyebrow-top: 2%;
+                --eyebrow-left: 30%; // sobre la "u" de Juan
                 --photo-bottom: 0%; // baja la foto (se aleja del texto)
 
                 .hero-name {
@@ -222,14 +222,16 @@
                 .hero-name .n-juan {
                     font-size: clamp(3.3rem, 17.5vw, 6rem); // Juan mas grande
                 }
+
+                // Typewriter anclado a la derecha: teclea derecha -> izquierda
             }
 
             @media (max-width: 480px) {
-                --name-gap: 3%;
+                --name-gap: 1%;
                 --name-top: 5%;
-                --eyebrow-left: 19%;
-                --roles-top: 15%;
-                --roles-right: 5%;
+                --eyebrow-left: 27%;
+                --roles-top: 18%;
+                --roles-right: 26%;
                 --photo-bottom: 0%;
 
                 .hero-name .n-gomez {
