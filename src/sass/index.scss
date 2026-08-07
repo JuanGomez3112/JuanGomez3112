@@ -717,8 +717,8 @@ html.js .reveal:not(.is-visible) {
                     max-width: 100% !important;
                     max-height: 560px;
                     height: auto !important;
-                    border-radius: 6px;
-                    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
+                    // drop-shadow sigue la forma del CV (no un rectangulo del contenedor)
+                    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
                 }
             }
 

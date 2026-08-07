@@ -354,3 +354,52 @@
     }
 
 }
+// ===== Educación técnica (rebalance hacia lo formal/técnico) =====
+.educacion-tecnica {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    .et-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        width: 100%;
+    }
+
+    .et-card {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+        padding: 1.4rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(217, 217, 217, 0.08);
+        border-radius: 12px;
+
+        > i { color: $oro; font-size: 1.6rem; margin-top: 0.2rem; }
+
+        .et-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+
+            h3 { font-family: $tipografiaPrincipal; color: $blanco; font-size: 1.2rem; font-weight: 400; }
+            .et-sub { color: rgba(217, 217, 217, 0.65); font-size: 0.85rem; font-family: $tipografiaSecundaria; }
+            .et-nota { color: rgba(217, 217, 217, 0.55); font-size: 0.82rem; font-family: $tipografiaSecundaria; line-height: 1.5; }
+        }
+
+        &.et-destacado {
+            background: rgba(201, 162, 75, 0.06);
+            border-color: rgba(201, 162, 75, 0.4);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .et-grid { grid-template-columns: 1fr 1fr; }
+    }
+}

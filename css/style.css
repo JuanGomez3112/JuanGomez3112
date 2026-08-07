@@ -1348,8 +1348,7 @@ html.js .reveal:not(.is-visible) {
   max-width: 100% !important;
   max-height: 560px;
   height: auto !important;
-  border-radius: 6px;
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
 }
 .contenedor main .cta-curriculum .cta-curriculum_info {
   padding: 1.5rem;
@@ -2176,6 +2175,68 @@ html.js .reveal:not(.is-visible) {
   height: 0;
   display: none;
   visibility: hidden;
+}
+
+.educacion-tecnica {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.educacion-tecnica .et-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  width: 100%;
+}
+.educacion-tecnica .et-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(217, 217, 217, 0.08);
+  border-radius: 12px;
+}
+.educacion-tecnica .et-card > i {
+  color: #C9A24B;
+  font-size: 1.6rem;
+  margin-top: 0.2rem;
+}
+.educacion-tecnica .et-card .et-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.educacion-tecnica .et-card .et-info h3 {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.educacion-tecnica .et-card .et-info .et-sub {
+  color: rgba(217, 217, 217, 0.65);
+  font-size: 0.85rem;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+}
+.educacion-tecnica .et-card .et-info .et-nota {
+  color: rgba(217, 217, 217, 0.55);
+  font-size: 0.82rem;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  line-height: 1.5;
+}
+.educacion-tecnica .et-card.et-destacado {
+  background: rgba(201, 162, 75, 0.06);
+  border-color: rgba(201, 162, 75, 0.4);
+}
+@media (min-width: 768px) {
+  .educacion-tecnica .et-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .page-curriculum {
