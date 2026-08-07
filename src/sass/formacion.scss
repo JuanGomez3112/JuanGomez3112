@@ -169,11 +169,12 @@
 
             }
 
-            // === Hover del timeline (bola / año / título / item) ===
-            // hover en el AÑO -> todo (bola, año, título y todos los items)
+            // === Hover del timeline ===
+            // El año y el título SIEMPRE quedan blancos. El oro va en la bola
+            // y (según el caso) en los items de la lista.
+
+            // hover en el AÑO -> bola + todos los items
             &:has(> span:hover) {
-                span,
-                .info_line h3,
                 .info_line .item_list {
                     color: $oro;
                 }
@@ -182,24 +183,16 @@
                 }
             }
 
-            // hover en el TÍTULO -> bola + año + título (no los items)
+            // hover en el TÍTULO -> solo la bola
             &:has(.info_line > h3:hover) {
-                span,
-                .info_line h3 {
-                    color: $oro;
-                }
                 .tl-dot {
                     background: $degradadoOro;
                 }
             }
 
-            // hover en un ITEM -> bola + año + título (el item concreto se colorea
-            // con .item_list:hover de arriba)
+            // hover en un ITEM -> bola + solo ese item (el item se colorea con
+            // .item_list:hover de arriba)
             &:has(.item_list:hover) {
-                span,
-                .info_line h3 {
-                    color: $oro;
-                }
                 .tl-dot {
                     background: $degradadoOro;
                 }

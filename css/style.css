@@ -2006,24 +2006,14 @@ html.js .reveal:not(.is-visible) {
 .seccion-formacion .line-time .contain_line .info_line .list_line .item_list:hover {
   color: #C9A24B;
 }
-.seccion-formacion .line-time .contain_line:has(> span:hover) span,
-.seccion-formacion .line-time .contain_line:has(> span:hover) .info_line h3,
 .seccion-formacion .line-time .contain_line:has(> span:hover) .info_line .item_list {
   color: #C9A24B;
 }
 .seccion-formacion .line-time .contain_line:has(> span:hover) .tl-dot {
   background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
 }
-.seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) span,
-.seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) .info_line h3 {
-  color: #C9A24B;
-}
 .seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) .tl-dot {
   background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
-}
-.seccion-formacion .line-time .contain_line:has(.item_list:hover) span,
-.seccion-formacion .line-time .contain_line:has(.item_list:hover) .info_line h3 {
-  color: #C9A24B;
 }
 .seccion-formacion .line-time .contain_line:has(.item_list:hover) .tl-dot {
   background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
