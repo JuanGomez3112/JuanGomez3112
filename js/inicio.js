@@ -259,8 +259,8 @@ function iniciarCvZoom() {
     const img = cont && cont.querySelector('.cv-zoom');
     if (!img) return;
 
-    const minS = 0.82;
-    const maxS = 1.12;
+    const minS = 0.78;
+    const maxS = 1.6;
     let ticking = false;
 
     const update = () => {

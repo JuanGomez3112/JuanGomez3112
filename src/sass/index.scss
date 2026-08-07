@@ -715,13 +715,13 @@ html.js .reveal:not(.is-visible) {
                     position: static !important;
                     width: auto !important;
                     max-width: 100% !important;
-                    max-height: 480px;
+                    max-height: 560px;
                     height: auto !important;
                     // drop-shadow sigue la forma del CV (no un rectangulo del contenedor)
                     filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
                     // scroll-zoom (parallax): el JS ajusta el scale segun centrado
                     transform-origin: center center;
-                    transform: scale(0.82);
+                    transform: scale(0.78);
                     will-change: transform;
                 }
             }
