@@ -274,15 +274,16 @@ function iniciarCvZoom() {
     const clamp01 = (v) => Math.max(0, Math.min(1, v));
     const esDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
 
-    // Pan con paradas: recorre las hojas 1 a 1 (viaje + dwell en cada una)
+    // Pan con paradas: recorre las hojas 1 a 1. Devuelve 0..1 exacto (0=arriba,
+    // 1=abajo). Hay HOJAS paradas => HOJAS-1 viajes entre ellas.
     const panEscalonado = (f) => {
-        const stops = HOJAS;
-        const seg = 1 / stops;
-        const idx = Math.min(stops - 1, Math.floor(f / seg));
-        const local = (f - idx * seg) / seg;
-        const dwell = 0.22; // pausa corta en cada hoja (más fluido)
-        const posDentro = local < dwell ? 0 : easeInOut((local - dwell) / (1 - dwell));
-        return (idx + posDentro) / (stops - 1);
+        const cells = HOJAS - 1;            // viajes entre hojas
+        const cellW = 1 / cells;
+        const idx = Math.min(cells - 1, Math.floor(f / cellW));
+        const local = (f - idx * cellW) / cellW; // 0..1 dentro del viaje
+        const dwell = 0.22;                 // pausa corta en la hoja antes de viajar
+        const viaje = local < dwell ? 0 : easeInOut((local - dwell) / (1 - dwell));
+        return (idx + viaje) / cells;       // 0..1
     };
 
     let ticking = false;
