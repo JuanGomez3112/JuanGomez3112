@@ -76,33 +76,5 @@
     "mockups": [
       "src/assets/img/proyectos/implementech.jpg"
     ]
-  },
-  {
-    "nombre": "Mercury",
-    "categoria": [
-      "diseño grafico",
-      "front-end",
-      "Branding"
-    ],
-    "imagen": "src/assets/img/proyectos/mercury.jpg",
-    "valoracion": 5,
-    "tecnologias": "HTML • CSS • SASS • JavaScript • PHP • WordPress",
-    "tags": [
-      "Front-end",
-      "Branding",
-      "Plataforma"
-    ],
-    "repositorio": "https://github.com/JuanGomez3112/Mercury.git",
-    "verProyecto": "#",
-    "slug": "mercury",
-    "descripcion": "Plataforma social y de contenido con módulos de e-commerce y pagos. Proyecto propio en desarrollo (branding, front-end e integración).",
-    "rol": "Diseño, branding y desarrollo front-end de la plataforma.",
-    "resultados": [
-      "En desarrollo."
-    ],
-    "anio": "2024",
-    "mockups": [
-      "src/assets/img/proyectos/mercury.jpg"
-    ]
   }
 ]
