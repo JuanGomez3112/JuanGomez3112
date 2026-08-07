@@ -191,9 +191,9 @@
                 }
             }
 
-            // ===== Responsive: mismo estilo overlap, hueco mas ancho para
-            // que la cabeza quepa entre Juan y Gomez sin tapar el texto =====
-            @media (max-width: 768px) {
+            // ===== Responsive: hasta 1024px (movil + tablet) layout compacto:
+            // texto arriba, foto abajo. El overlap de desktop solo >1024. =====
+            @media (max-width: 1024px) {
                 .hero-social { display: none; }
 
                 --stage-h: clamp(460px, 80vh, 640px);
@@ -514,8 +514,18 @@
             flex-direction: column;
             gap: 3rem;
 
+            // marco oro sutil en la imagen del CV
+            .cta-curriculum_img img {
+                border: 1px solid rgba(201, 162, 75, 0.35);
+                border-radius: 6px;
+            }
+
             .cta-curriculum_info {
                 padding: 1.5rem;
+
+                .section-eyebrow {
+                    margin-bottom: 1.2rem;
+                }
 
                 .curriculum_info {
                     display: flex;

@@ -875,7 +875,7 @@ header .header-content .candy-box .candy-item {
   margin-left: 3px;
   animation: caretBlink 1s steps(1) infinite;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .contenedor main .hero .hero-social {
     display: none;
   }
@@ -1133,8 +1133,15 @@ header .header-content .candy-box .candy-item {
   flex-direction: column;
   gap: 3rem;
 }
+.contenedor main .cta-curriculum .cta-curriculum_img img {
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  border-radius: 6px;
+}
 .contenedor main .cta-curriculum .cta-curriculum_info {
   padding: 1.5rem;
+}
+.contenedor main .cta-curriculum .cta-curriculum_info .section-eyebrow {
+  margin-bottom: 1.2rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info {
   display: flex;
