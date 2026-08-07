@@ -547,10 +547,10 @@
             flex-direction: column;
             gap: 3rem;
 
-            // marco oro sutil en la imagen del CV
+            // imagen del CV: sin borde, sombra suave (se ve flotando)
             .cta-curriculum_img img {
-                border: 1px solid rgba(201, 162, 75, 0.35);
                 border-radius: 6px;
+                box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
             }
 
             .cta-curriculum_info {

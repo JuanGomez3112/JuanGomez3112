@@ -1165,8 +1165,8 @@ header .header-content .candy-box .candy-item {
   gap: 3rem;
 }
 .contenedor main .cta-curriculum .cta-curriculum_img img {
-  border: 1px solid rgba(201, 162, 75, 0.35);
   border-radius: 6px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
 }
 .contenedor main .cta-curriculum .cta-curriculum_info {
   padding: 1.5rem;
