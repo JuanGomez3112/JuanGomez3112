@@ -4,26 +4,26 @@
     "categoria": "front-end",
     "imagen": "src/assets/img/proyectos/web personal.png",
     "valoracion": 5,
-    "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS",
+    "tecnologias": "HTML • CSS • SASS • JavaScript",
     "tags": [
-      "Diseño Web",
+      "Front-end",
       "Responsive",
-      "Desarrollo Web",
+      "SEO",
       "Marca Personal"
     ],
     "repositorio": "https://github.com/JuanGomez3112/JuanGomez3112/tree/master",
     "verProyecto": "https://juangomez3112.github.io/JuanGomez3112/",
     "slug": "portafolio-web-personal",
-    "descripcion": "Descripción del proyecto (placeholder). Explica qué es, el problema que resuelve y el contexto.",
-    "rol": "Mi rol / aporte (placeholder): diseño, desarrollo, soporte, etc.",
+    "descripcion": "Mi sitio personal: portafolio y carta de presentación como Técnico de Tecnología y desarrollador. Diseño monocromo con acento dorado, construido desde cero sin frameworks. Reúne experiencia, proyectos, formación y contacto en un solo lugar, pensado para reclutadores.",
+    "rol": "Diseño y desarrollo completo (front-end): maquetación responsive, animaciones con JavaScript, arquitectura de estilos con SASS y despliegue en GitHub Pages.",
     "resultados": [
-      "Resultado o logro 1 (placeholder)",
-      "Resultado o logro 2 (placeholder)"
+      "Responsive de móvil a escritorio, con hero tipográfico animado y efecto de cámara sobre el CV.",
+      "SEO por página (meta + Open Graph + favicon) y formulario de contacto real (Formspree) con respaldo por correo.",
+      "100% estático: carga rápida, sin dependencias de backend."
     ],
-    "anio": "2024",
+    "anio": "2026",
     "mockups": [
-      "src/assets/img/proyectos/web personal.png",
-      "src/assets/img/proyectos/placeholder.jpg"
+      "src/assets/img/proyectos/web personal.png"
     ]
   },
   {
@@ -31,25 +31,25 @@
     "categoria": "front-end",
     "imagen": "src/assets/img/proyectos/plantilla gubernamental.jpg",
     "valoracion": 5,
-    "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS • PHP • WordPress",
+    "tecnologias": "HTML • CSS • SASS • JavaScript • PHP • WordPress",
     "tags": [
-      "Diseño Web",
+      "Front-end",
       "Responsive",
-      "Desarrollo Web"
+      "WordPress",
+      "Institucional"
     ],
     "repositorio": "#",
     "verProyecto": "https://test.c5iffaa.gob.do/",
     "slug": "plantilla-oficial-gubernamental",
-    "descripcion": "Descripción del proyecto (placeholder). Explica qué es, el problema que resuelve y el contexto.",
-    "rol": "Mi rol / aporte (placeholder): diseño, desarrollo, soporte, etc.",
+    "descripcion": "Plantilla web institucional para una entidad gubernamental (C5i, Fuerzas Armadas). Base reutilizable con identidad oficial, estructura de secciones y componentes para publicar contenido de forma consistente.",
+    "rol": "Desarrollo front-end y maquetación responsive de la plantilla, con integración en WordPress/PHP para la gestión de contenido.",
     "resultados": [
-      "Resultado o logro 1 (placeholder)",
-      "Resultado o logro 2 (placeholder)"
+      "Plantilla base lista para desplegar secciones institucionales.",
+      "Diseño responsive alineado a la identidad oficial."
     ],
     "anio": "2024",
     "mockups": [
-      "src/assets/img/proyectos/plantilla gubernamental.jpg",
-      "src/assets/img/proyectos/placeholder.jpg"
+      "src/assets/img/proyectos/plantilla gubernamental.jpg"
     ]
   },
   {
@@ -57,26 +57,24 @@
     "categoria": "front-end",
     "imagen": "src/assets/img/proyectos/implementech.jpg",
     "valoracion": 4,
-    "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS",
+    "tecnologias": "HTML • CSS • SASS • JavaScript",
     "tags": [
-      "Diseño Web",
+      "Front-end",
       "Responsive",
-      "Desarrollo Web",
-      "Marca Personal"
+      "Sitio Corporativo"
     ],
     "repositorio": "https://github.com/JuanGomez3112/DarkTech.git",
     "verProyecto": "https://implementech.net/",
     "slug": "implementech",
-    "descripcion": "Descripción del proyecto (placeholder). Explica qué es, el problema que resuelve y el contexto.",
-    "rol": "Mi rol / aporte (placeholder): diseño, desarrollo, soporte, etc.",
+    "descripcion": "Sitio web corporativo para Implementech, empresa de servicios tecnológicos. Presenta sus servicios, propuesta de valor y contacto con un diseño oscuro y moderno.",
+    "rol": "Desarrollo front-end y maquetación responsive del sitio.",
     "resultados": [
-      "Resultado o logro 1 (placeholder)",
-      "Resultado o logro 2 (placeholder)"
+      "Sitio en producción (implementech.net).",
+      "Diseño responsive y navegación clara de servicios."
     ],
     "anio": "2024",
     "mockups": [
-      "src/assets/img/proyectos/implementech.jpg",
-      "src/assets/img/proyectos/placeholder.jpg"
+      "src/assets/img/proyectos/implementech.jpg"
     ]
   },
   {
@@ -88,25 +86,23 @@
     ],
     "imagen": "src/assets/img/proyectos/mercury.jpg",
     "valoracion": 5,
-    "tecnologias": "HTML • CSS • SASS • JAVASCRIPTS • PHP • WordPress",
+    "tecnologias": "HTML • CSS • SASS • JavaScript • PHP • WordPress",
     "tags": [
-      "Diseño Web",
-      "Responsive",
-      "Desarrollo Web"
+      "Front-end",
+      "Branding",
+      "Plataforma"
     ],
     "repositorio": "https://github.com/JuanGomez3112/Mercury.git",
-    "verProyecto": "https://test.c5iffaa.gob.do/",
+    "verProyecto": "#",
     "slug": "mercury",
-    "descripcion": "Descripción del proyecto (placeholder). Explica qué es, el problema que resuelve y el contexto.",
-    "rol": "Mi rol / aporte (placeholder): diseño, desarrollo, soporte, etc.",
+    "descripcion": "Plataforma social y de contenido con módulos de e-commerce y pagos. Proyecto propio en desarrollo (branding, front-end e integración).",
+    "rol": "Diseño, branding y desarrollo front-end de la plataforma.",
     "resultados": [
-      "Resultado o logro 1 (placeholder)",
-      "Resultado o logro 2 (placeholder)"
+      "En desarrollo."
     ],
     "anio": "2024",
     "mockups": [
-      "src/assets/img/proyectos/mercury.jpg",
-      "src/assets/img/proyectos/placeholder.jpg"
+      "src/assets/img/proyectos/mercury.jpg"
     ]
   }
 ]
