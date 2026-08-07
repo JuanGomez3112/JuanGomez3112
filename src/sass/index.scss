@@ -913,7 +913,7 @@ html.js .reveal:not(.is-visible) {
         .cv-scroll {
             position: relative;
             width: 100%;
-            height: 340vh; // presupuesto para zoom-in / pan hoja x hoja / zoom-out
+            height: 300vh; // presupuesto: reposo / sale / pan hoja x hoja / vuelve
 
             .cv-sticky {
                 position: sticky;
@@ -930,6 +930,7 @@ html.js .reveal:not(.is-visible) {
                 line-height: 0;
                 transform-origin: center center;
                 will-change: transform;
+                transition: transform 0.12s ease-out; // suaviza el "sale" y el pan
 
                 img {
                     display: block;

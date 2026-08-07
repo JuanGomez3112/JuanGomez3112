@@ -262,11 +262,13 @@ function iniciarCvZoom() {
     const img = frame && frame.querySelector('img');
     if (!img) return;
 
-    const CHICO = 0.34;  // preview pequeño (cámara lejos)
-    const ZOOM = 1.22;   // llena el ancho y come los márgenes grises del mockup
-    const HOJAS = 3;     // PERFIL / EXPERIENCIA / FORMACION
-    const IN_END = 0.14; // fin del zoom in
-    const OUT_START = 0.86; // inicio del zoom out
+    const CHICO = 0.42;   // preview en reposo (en su posición)
+    const FILL = 0.96;    // llena el ancho SIN cortar los lados (<= 1 = sin recorte)
+    const HOJAS = 3;      // PERFIL / EXPERIENCIA / FORMACION
+    const REST_IN = 0.07; // reposo inicial: el CV se queda en su lugar
+    const IN_END = 0.26;  // fin del "sale" suave (pop out)
+    const OUT_START = 0.80; // inicio del "vuelve"
+    const REST_OUT = 0.95;  // reposo final
 
     const easeInOut = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
@@ -296,22 +298,28 @@ function iniciarCvZoom() {
         const W0 = img.offsetWidth;   // tamaño de layout (sin escalar)
         const H0 = img.offsetHeight;
         const vw = window.innerWidth;
-        const GRANDE = W0 > 0 ? (ZOOM * vw) / W0 : 1; // escala para llenar el ancho
+        // llena el ancho sin recorte (FILL <= 1). Nunca menos que el preview.
+        const GRANDE = W0 > 0 ? Math.max(CHICO, (FILL * vw) / W0) : 1;
+        const topAlign = (s) => Math.max(0, (H0 * s - vh) / 2);
 
         let scale, ty;
-        if (prog <= IN_END) {
-            const t = easeInOut(prog / IN_END);
-            scale = CHICO + (GRANDE - CHICO) * t;
-            ty = Math.max(0, (H0 * scale - vh) / 2); // alineado arriba (empieza PERFIL)
-        } else if (prog >= OUT_START) {
-            const t = easeInOut((prog - OUT_START) / (1 - OUT_START));
-            scale = GRANDE - (GRANDE - CHICO) * t;
-            ty = Math.max(0, (H0 * scale - vh) / 2);
-        } else {
-            scale = GRANDE;
-            const O = H0 * GRANDE - vh;      // sobrante vertical a panear
+        if (prog < REST_IN) {
+            scale = CHICO; ty = 0;                 // en su posición, quieto
+        } else if (prog < IN_END) {
+            const t = easeInOut((prog - REST_IN) / (IN_END - REST_IN));
+            scale = CHICO + (GRANDE - CHICO) * t;  // sale suave (pop out)
+            ty = topAlign(scale);
+        } else if (prog < OUT_START) {
+            scale = GRANDE;                         // pan hoja por hoja
+            const O = H0 * GRANDE - vh;
             const f = (prog - IN_END) / (OUT_START - IN_END);
-            ty = O > 0 ? (O / 2) - panEscalonado(f) * O : 0; // +arriba .. -abajo
+            ty = O > 0 ? (O / 2) - panEscalonado(f) * O : 0;
+        } else if (prog < REST_OUT) {
+            const t = easeInOut((prog - OUT_START) / (REST_OUT - OUT_START));
+            scale = GRANDE - (GRANDE - CHICO) * t;  // vuelve suave
+            ty = topAlign(scale);
+        } else {
+            scale = CHICO; ty = 0;                  // reposo final
         }
         frame.style.transform = `translateY(${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
     };

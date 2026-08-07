@@ -1495,7 +1495,7 @@ html.js .reveal:not(.is-visible) {
 .contenedor main .cv-scroll {
   position: relative;
   width: 100%;
-  height: 340vh;
+  height: 300vh;
 }
 .contenedor main .cv-scroll .cv-sticky {
   position: sticky;
@@ -1511,6 +1511,7 @@ html.js .reveal:not(.is-visible) {
   line-height: 0;
   transform-origin: center center;
   will-change: transform;
+  transition: transform 0.12s ease-out;
 }
 .contenedor main .cv-scroll .cv-frame img {
   display: block;
