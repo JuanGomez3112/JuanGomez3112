@@ -1492,6 +1492,34 @@ html.js .reveal:not(.is-visible) {
     top: 0;
   }
 }
+.contenedor main .cv-scroll {
+  position: relative;
+  width: 100%;
+  height: 220vh;
+}
+.contenedor main .cv-scroll .cv-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+.contenedor main .cv-scroll .cv-frame {
+  display: block;
+  line-height: 0;
+  transform-origin: center center;
+  will-change: transform;
+}
+.contenedor main .cv-scroll .cv-frame img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 90vh;
+  max-width: 92vw;
+  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
+}
 .contenedor main .proyectos {
   padding: 1.5rem;
   display: flex;

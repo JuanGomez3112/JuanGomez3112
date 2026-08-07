@@ -254,24 +254,42 @@ function iniciarReveal() {
     els.forEach(e => obs.observe(e));
 }
 
+// Efecto "cámara": el CV se fija en su lugar (sticky) y, según el scroll dentro
+// de su pista, hace zoom in -> se ve completo -> zoom out. No cambia de posición.
 function iniciarCvZoom() {
-    const cont = document.querySelector('.cta-curriculum_img');
-    const img = cont && cont.querySelector('.cv-zoom');
-    if (!img) return;
+    const track = document.querySelector('.cv-scroll');
+    const frame = track && track.querySelector('.cv-frame');
+    if (!frame) return;
+
+    const CHICO = 0.34;  // preview pequeño (cámara lejos)
+    const GRANDE = 1.0;  // CV completo en pantalla (cámara cerca)
+    const IN_END = 0.30; // % de la pista donde termina el zoom in
+    const OUT_START = 0.70; // % donde empieza el zoom out
+
+    const easeInOut = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
     let ticking = false;
 
     const update = () => {
         ticking = false;
-        const r = cont.getBoundingClientRect(); // contenedor no escala -> estable
+        const r = track.getBoundingClientRect();
         const vh = window.innerHeight;
-        const elCenter = r.top + r.height / 2;
-        const maxDist = vh / 2 + r.height / 2;
-        let p = (elCenter - vh / 2) / maxDist; // 0 = centrado
-        p = Math.max(-1, Math.min(1, p));
-        const c = 1 - Math.abs(p); // 1 centrado
-        const scale = (0.8 + 0.7 * c).toFixed(3); // 0.8 -> 1.5 en su lugar
-        img.style.transform = `scale(${scale})`;
+        // prog 0..1: 0 = pista recién entra (sticky empieza), 1 = pista por salir
+        const total = r.height - vh;
+        let prog = total > 0 ? (-r.top) / total : 0;
+        prog = Math.max(0, Math.min(1, prog));
+
+        let scale;
+        if (prog <= IN_END) {
+            const t = easeInOut(prog / IN_END);
+            scale = CHICO + (GRANDE - CHICO) * t;
+        } else if (prog >= OUT_START) {
+            const t = easeInOut((prog - OUT_START) / (1 - OUT_START));
+            scale = GRANDE - (GRANDE - CHICO) * t;
+        } else {
+            scale = GRANDE; // hold: CV completo, la cámara lo mira fijo
+        }
+        frame.style.transform = `scale(${scale.toFixed(3)})`;
     };
 
     const onScroll = () => {

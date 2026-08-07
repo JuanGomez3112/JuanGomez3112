@@ -908,6 +908,40 @@ html.js .reveal:not(.is-visible) {
             }
         }
 
+        // ── CV Showcase "cámara": pista alta = presupuesto de scroll.
+        // El CV se fija (sticky) en su lugar y el JS hace zoom in → ver completo → zoom out.
+        .cv-scroll {
+            position: relative;
+            width: 100%;
+            height: 220vh; // presupuesto para zoom-in / hold / zoom-out
+
+            .cv-sticky {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: visible;
+            }
+
+            .cv-frame {
+                display: block;
+                line-height: 0;
+                transform-origin: center center;
+                will-change: transform;
+
+                img {
+                    display: block;
+                    width: auto;
+                    height: auto;
+                    max-height: 90vh;   // a scale 1 = CV completo en pantalla
+                    max-width: 92vw;
+                    filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
+                }
+            }
+        }
+
         .proyectos {
             padding: 1.5rem;
             display: flex;
