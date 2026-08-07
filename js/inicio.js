@@ -200,7 +200,7 @@ function iniciarRoles() {
     const el = document.querySelector(".hero-roles .typed");
     if (!el) return;
 
-    const palabras = ["Brander", "Frontend", "Diseñador Gráfico", "Técnico de TI"];
+    const palabras = ["Técnico de Soporte", "Redes & TI", "Videovigilancia CCTV", "Desarrollador Web"];
     const velEscribe = 95;   // ms por letra al escribir
     const velBorra = 45;     // ms por letra al borrar
     const pausaLlena = 1700; // ms con la palabra completa
@@ -236,10 +236,29 @@ function iniciarRoles() {
     tick();
 }
 
+function iniciarReveal() {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window)) {
+        els.forEach(e => e.classList.add('is-visible'));
+        return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    els.forEach(e => obs.observe(e));
+}
+
 window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
     cargarProyectos();
     iniciarContacto();
     iniciarRoles();
+    iniciarReveal();
 };

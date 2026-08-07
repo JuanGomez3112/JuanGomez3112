@@ -25,6 +25,162 @@
     }
 }
 
+// Reveal al hacer scroll. Solo se oculta si hay JS (html.js) para que,
+// si el JS falla, el contenido siga visible.
+.reveal {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+html.js .reveal:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+// ===== Lo que hago =====
+.lo-que-hago {
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+
+    .lqh-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        width: 100%;
+        max-width: 1000px;
+
+        .lqh-card {
+            padding: 1.6rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(217, 217, 217, 0.08);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+
+            i { color: $oro; font-size: 1.8rem; }
+            h3 { font-family: $tipografiaPrincipal; color: $blanco; font-size: 1.25rem; font-weight: 400; }
+            p { font-family: $tipografiaSecundaria; color: rgba(217, 217, 217, 0.7); line-height: 1.6; font-size: 0.9rem; }
+
+            &:hover { border-color: rgba(201, 162, 75, 0.35); transform: translateY(-4px); }
+        }
+    }
+
+    .lqh-nota {
+        font-family: $tipografiaSecundaria;
+        color: rgba(217, 217, 217, 0.55);
+        font-size: 0.9rem;
+        strong { color: $oroClaro; font-weight: 600; }
+    }
+
+    @media (min-width: 768px) {
+        .lqh-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+}
+
+// ===== Experiencia & logros =====
+.experiencia {
+    padding: 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+
+    .exp-logros {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+
+        .exp-logro {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.2rem;
+            background: rgba(201, 162, 75, 0.06);
+            border: 1px solid rgba(201, 162, 75, 0.25);
+            border-radius: 12px;
+
+            .exp-num {
+                font-family: $tipografiaPrincipal;
+                color: $oro;
+                font-size: 1.6rem;
+                font-weight: 700;
+                min-width: 3ch;
+                text-align: center;
+            }
+
+            .exp-logro-label {
+                color: rgba(217, 217, 217, 0.8);
+                font-size: 0.9rem;
+                font-family: $tipografiaSecundaria;
+            }
+        }
+    }
+
+    .exp-timeline {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        border-left: 1px solid rgba(217, 217, 217, 0.12);
+        padding-left: 1.5rem;
+
+        .exp-item {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: calc(-1.5rem - 5px);
+                top: 0.4em;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background: $oro;
+            }
+
+            .exp-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 0.3rem;
+
+                h4 { font-family: $tipografiaPrincipal; color: $blanco; font-size: 1.15rem; font-weight: 400; }
+                .exp-fecha { color: $oro; font-family: $tipografiaTerciaria; font-size: 0.85rem; letter-spacing: 1px; }
+            }
+
+            .exp-org {
+                color: rgba(217, 217, 217, 0.6);
+                font-size: 0.85rem;
+                margin: 0.15rem 0 0.5rem;
+                font-family: $tipografiaSecundaria;
+            }
+
+            .exp-desc {
+                color: rgba(217, 217, 217, 0.8);
+                font-size: 0.92rem;
+                line-height: 1.6;
+                font-family: $tipografiaSecundaria;
+                strong { color: $oroClaro; font-weight: 600; }
+            }
+        }
+    }
+
+    .exp-vercv { align-self: center; }
+
+    @media (min-width: 768px) {
+        .exp-logros { grid-template-columns: repeat(3, 1fr); }
+    }
+}
+
 .contenedor {
     display: flex;
     flex-direction: column;
@@ -547,10 +703,23 @@
             flex-direction: column;
             gap: 3rem;
 
-            // imagen del CV: sin borde, sombra suave (se ve flotando)
-            .cta-curriculum_img img {
-                border-radius: 6px;
-                box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
+            // imagen del CV: contenida y centrada (mas pequena), sombra suave
+            .cta-curriculum_img {
+                height: auto !important;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                overflow: visible;
+
+                img {
+                    position: static !important;
+                    width: auto !important;
+                    max-width: 100% !important;
+                    max-height: 560px;
+                    height: auto !important;
+                    border-radius: 6px;
+                    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
+                }
             }
 
             .cta-curriculum_info {

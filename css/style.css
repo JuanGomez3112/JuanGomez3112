@@ -734,6 +734,177 @@ header .header-content .candy-box .candy-item {
   background: linear-gradient(to left, transparent, #C9A24B);
 }
 
+.reveal {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+html.js .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.lo-que-hago {
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+.lo-que-hago .lqh-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+.lo-que-hago .lqh-grid .lqh-card {
+  padding: 1.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(217, 217, 217, 0.08);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.lo-que-hago .lqh-grid .lqh-card i {
+  color: #C9A24B;
+  font-size: 1.8rem;
+}
+.lo-que-hago .lqh-grid .lqh-card h3 {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.lo-que-hago .lqh-grid .lqh-card p {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.7);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+.lo-que-hago .lqh-grid .lqh-card:hover {
+  border-color: rgba(201, 162, 75, 0.35);
+  transform: translateY(-4px);
+}
+.lo-que-hago .lqh-nota {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: rgba(217, 217, 217, 0.55);
+  font-size: 0.9rem;
+}
+.lo-que-hago .lqh-nota strong {
+  color: #E4CC8A;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .lo-que-hago .lqh-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.experiencia {
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.experiencia .exp-logros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+.experiencia .exp-logros .exp-logro {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  background: rgba(201, 162, 75, 0.06);
+  border: 1px solid rgba(201, 162, 75, 0.25);
+  border-radius: 12px;
+}
+.experiencia .exp-logros .exp-logro .exp-num {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #C9A24B;
+  font-size: 1.6rem;
+  font-weight: 700;
+  min-width: 3ch;
+  text-align: center;
+}
+.experiencia .exp-logros .exp-logro .exp-logro-label {
+  color: rgba(217, 217, 217, 0.8);
+  font-size: 0.9rem;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+}
+.experiencia .exp-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-left: 1px solid rgba(217, 217, 217, 0.12);
+  padding-left: 1.5rem;
+}
+.experiencia .exp-timeline .exp-item {
+  position: relative;
+}
+.experiencia .exp-timeline .exp-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 5px);
+  top: 0.4em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #C9A24B;
+}
+.experiencia .exp-timeline .exp-item .exp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.experiencia .exp-timeline .exp-item .exp-head h4 {
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  color: #F2F2F2;
+  font-size: 1.15rem;
+  font-weight: 400;
+}
+.experiencia .exp-timeline .exp-item .exp-head .exp-fecha {
+  color: #C9A24B;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+.experiencia .exp-timeline .exp-item .exp-org {
+  color: rgba(217, 217, 217, 0.6);
+  font-size: 0.85rem;
+  margin: 0.15rem 0 0.5rem;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+}
+.experiencia .exp-timeline .exp-item .exp-desc {
+  color: rgba(217, 217, 217, 0.8);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-family: "Louis George Cafe", "Poppins", sans-serif;
+}
+.experiencia .exp-timeline .exp-item .exp-desc strong {
+  color: #E4CC8A;
+  font-weight: 600;
+}
+.experiencia .exp-vercv {
+  align-self: center;
+}
+@media (min-width: 768px) {
+  .experiencia .exp-logros {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -1164,7 +1335,19 @@ header .header-content .candy-box .candy-item {
   flex-direction: column;
   gap: 3rem;
 }
+.contenedor main .cta-curriculum .cta-curriculum_img {
+  height: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+}
 .contenedor main .cta-curriculum .cta-curriculum_img img {
+  position: static !important;
+  width: auto !important;
+  max-width: 100% !important;
+  max-height: 560px;
+  height: auto !important;
   border-radius: 6px;
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.5);
 }
