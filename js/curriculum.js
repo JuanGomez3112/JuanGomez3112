@@ -133,6 +133,6 @@ function iniciarSeccionCurriculum() {
 }
 
 window.onload = function () {
-    iniciarDropdown();
+    // iniciarDropdown(); // ahora en menu.js (accesible)
     iniciarSeccionCurriculum();
 };

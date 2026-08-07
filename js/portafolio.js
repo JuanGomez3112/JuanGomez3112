@@ -335,6 +335,6 @@ window.onload = function () {
 };
 
 window.onload = function () {
-    iniciarDropdown();
+    // iniciarDropdown(); // ahora en menu.js (accesible)
     cargarYManejarProyectos();
 };

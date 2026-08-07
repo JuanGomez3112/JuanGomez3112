@@ -369,7 +369,7 @@ function iniciarCvZoom() {
 
 window.onload = function () {
     iniciarSlide();
-    iniciarDropdown();
+    // iniciarDropdown(); // ahora en menu.js (accesible)
     cargarProyectos();
     iniciarContacto();
     iniciarRoles();

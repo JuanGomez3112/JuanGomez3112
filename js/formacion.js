@@ -205,6 +205,6 @@ function manejarTabs(data) {
 
 window.onload = function () {
     iniciarSlide();
-    iniciarDropdown();
+    // iniciarDropdown(); // ahora en menu.js (accesible)
     cargarYManejarCertificados();
 };
