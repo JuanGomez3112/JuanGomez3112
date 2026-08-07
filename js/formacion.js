@@ -54,40 +54,39 @@ function iniciarDropdown() {
 
 function iniciarSlide() {
     const wrapper = document.querySelector(".wrapper");
-
-    if (wrapper) {
-        let intervalo = null;
-        let step = 1;
-        let maxScrollLeft = wrapper.scrollWidth - wrapper.clientWidth;
-
-        const start = () => {
-            intervalo = setInterval(() => {
-                wrapper.scrollLeft = wrapper.scrollLeft + step;
-
-                if (wrapper.scrollLeft === maxScrollLeft) {
-                    step = step * -1;
-                } else if (wrapper.scrollLeft === 0) {
-                    step = step * -1;
-                }
-            }, 10);
-        };
-
-        const stop = () => {
-            clearInterval(intervalo);
-        };
-
-        wrapper.addEventListener("mouseover", () => {
-            stop();
-        });
-
-        wrapper.addEventListener("mouseout", () => {
-            start();
-        });
-
-        start();
-    } else {
+    if (!wrapper) {
         console.error("No se encontró ningún elemento con la clase '.wrapper'");
+        return;
     }
+
+    // Carrusel infinito por banda transportadora (translateX + reciclado):
+    // el elemento que sale por la izquierda se manda al final, sin salto.
+    const speed = 0.8; // px por frame
+    let offset = 0;
+    let paused = false;
+
+    wrapper.addEventListener("mouseenter", () => (paused = true));
+    wrapper.addEventListener("mouseleave", () => (paused = false));
+
+    const anchoDe = (el) => {
+        const cs = getComputedStyle(el);
+        return el.getBoundingClientRect().width +
+            parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
+    };
+
+    const step = () => {
+        if (!paused) {
+            offset -= speed;
+            const first = wrapper.firstElementChild;
+            if (first && -offset >= anchoDe(first)) {
+                offset += anchoDe(first);
+                wrapper.appendChild(first); // recicla al final
+            }
+            wrapper.style.transform = `translateX(${offset}px)`;
+        }
+        requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
 }
 
 // cargarCertificados.js

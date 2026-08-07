@@ -679,6 +679,20 @@ html.js .reveal:not(.is-visible) {
                             transform: scale(1.12);
                         }
                     }
+
+                    // Formación usa <img> (logos SVG a color) en vez de .stack-ico
+                    img {
+                        width: 4rem;
+                        height: 4rem;
+                        margin: 0 2rem;
+                        flex: 0 0 auto;
+                        object-fit: contain;
+                        transition: transform .3s ease;
+
+                        &:hover {
+                            transform: scale(1.12);
+                        }
+                    }
                 }
             }
 
@@ -687,7 +701,8 @@ html.js .reveal:not(.is-visible) {
                     margin: 0 4rem;
 
                     .wrapper {
-                        .stack-ico {
+                        .stack-ico,
+                        img {
                             width: 80px;
                             height: 80px;
                             margin: 0 3.75rem;

@@ -1319,11 +1319,23 @@ html.js .reveal:not(.is-visible) {
   background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
   transform: scale(1.12);
 }
+.contenedor main .stack-slide .slide-cont .wrapper img {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 2rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.contenedor main .stack-slide .slide-cont .wrapper img:hover {
+  transform: scale(1.12);
+}
 @media (min-width: 769px) {
   .contenedor main .stack-slide .slide-cont {
     margin: 0 4rem;
   }
-  .contenedor main .stack-slide .slide-cont .wrapper .stack-ico {
+  .contenedor main .stack-slide .slide-cont .wrapper .stack-ico,
+  .contenedor main .stack-slide .slide-cont .wrapper img {
     width: 80px;
     height: 80px;
     margin: 0 3.75rem;
