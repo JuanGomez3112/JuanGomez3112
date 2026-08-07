@@ -2009,7 +2009,21 @@ html.js .reveal:not(.is-visible) {
 .seccion-formacion .line-time .contain_line:has(> span:hover) .info_line .item_list {
   color: #C9A24B;
 }
-.seccion-formacion .line-time .contain_line:has(> span:hover)::after {
+.seccion-formacion .line-time .contain_line:has(> span:hover) .tl-dot {
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
+}
+.seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) span,
+.seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) .info_line h3 {
+  color: #C9A24B;
+}
+.seccion-formacion .line-time .contain_line:has(.info_line > h3:hover) .tl-dot {
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
+}
+.seccion-formacion .line-time .contain_line:has(.item_list:hover) span,
+.seccion-formacion .line-time .contain_line:has(.item_list:hover) .info_line h3 {
+  color: #C9A24B;
+}
+.seccion-formacion .line-time .contain_line:has(.item_list:hover) .tl-dot {
   background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
 }
 .seccion-formacion .line-time .contain_line::before {
@@ -2020,14 +2034,18 @@ html.js .reveal:not(.is-visible) {
   background: #262626;
   left: 4.5rem;
 }
-.seccion-formacion .line-time .contain_line::after {
+.seccion-formacion .line-time .contain_line .tl-dot {
   position: absolute;
-  content: "";
+  top: 0.15rem;
+  left: 3.5rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
   background: linear-gradient(45deg, #262626 0%, #D9D9D9 100%);
-  left: 3.5rem;
+  transition: background 0.25s ease;
+}
+.seccion-formacion .line-time .contain_line .tl-dot:hover {
+  background: linear-gradient(120deg, #E4CC8A 0%, #C9A24B 55%, #8A6D2E 100%);
 }
 .seccion-formacion .line-time .contain_line:last-child::before {
   position: absolute;

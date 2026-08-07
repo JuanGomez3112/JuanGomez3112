@@ -164,15 +164,38 @@
 
             }
 
-            // hover sobre el AÑO -> todo el bloque de ese año toma color (incl. el punto)
+            // === Hover del timeline (bola / año / título / item) ===
+            // hover en el AÑO -> todo (bola, año, título y todos los items)
             &:has(> span:hover) {
                 span,
                 .info_line h3,
                 .info_line .item_list {
                     color: $oro;
                 }
+                .tl-dot {
+                    background: $degradadoOro;
+                }
+            }
 
-                &::after {
+            // hover en el TÍTULO -> bola + año + título (no los items)
+            &:has(.info_line > h3:hover) {
+                span,
+                .info_line h3 {
+                    color: $oro;
+                }
+                .tl-dot {
+                    background: $degradadoOro;
+                }
+            }
+
+            // hover en un ITEM -> bola + año + título (el item concreto se colorea
+            // con .item_list:hover de arriba)
+            &:has(.item_list:hover) {
+                span,
+                .info_line h3 {
+                    color: $oro;
+                }
+                .tl-dot {
                     background: $degradadoOro;
                 }
             }
@@ -186,14 +209,21 @@
                 left: 4.5rem;
             }
 
-            &::after {
+            // La bola del timeline (elemento real para poder detectar su hover)
+            .tl-dot {
                 position: absolute;
-                content: '';
+                top: 0.15rem;
+                left: 3.5rem;
                 width: 2rem;
                 height: 2rem;
                 border-radius: 50%;
                 background: $degradadoVivo;
-                left: 3.5rem;
+                transition: background 0.25s ease;
+
+                // hover en la BOLA -> solo la bola se pone amarilla
+                &:hover {
+                    background: $degradadoOro;
+                }
             }
 
 
