@@ -93,7 +93,7 @@ function iniciarSlide() {
 // cargarCertificados.js
 
 function cargarCertificados(callback) {
-    fetch('src/data/formacion.json')
+    fetch('src/data/formacion.json?_=' + Date.now())
         .then(response => response.json())
         .then(data => {
             callback(data);
