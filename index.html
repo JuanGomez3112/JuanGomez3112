@@ -16,10 +16,10 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/">
     <meta name="twitter:card" content="summary_large_image">
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="css/style.css?v=18" />
+    <link rel="stylesheet" href="css/style.css?v=19" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=18" defer></script>
-    <script src="js/inicio.js?v=18" defer></script>
+    <script src="js/header.js?v=19" defer></script>
+    <script src="js/inicio.js?v=19" defer></script>
 </head>
 
 <body>
@@ -211,45 +211,42 @@
             </section>
             <!-- Fin Slide Stack -->
 
-            <!-- Cta Curriculum -->
-            <section class="cta-curriculum">
-                <article class="cta-curriculum_info">
-                    <div class="curriculum_info">
-                        <p class="section-eyebrow">Currículum</p>
-                        <h3>Mi trayectoria, experiencia y proyectos en un solo documento.</h3>
-                        <p>Descarga mi currículum para ver mi recorrido completo: soporte técnico, desarrollo web
-                            y diseño, con proyectos reales desplegados y formación continua. Todo lo que aporto, en
-                            un vistazo.</p>
-                        <div class="botones">
-                            <a href="src/data/curriculum/Curriculum Vitae - Juan L. Gomez.pdf"
-                                download="Curriculum Vitae - Juan L. Gomez.pdf" class="btn btn-bd bd-gradient">
-                                <span class="ctn-btn">
-                                    <i class="fa-solid fa-file-arrow-down"></i>
-                                    Descargar CV
-                                </span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/juangomez3112/" class="btn btn-bd bd-gradient"
-                                target="_blank">
-                                <span class="ctn-btn">
-                                    <i class="fa-brands fa-linkedin"></i>
-                                    Conectar en LinkedIn
-                                </span>
-                            </a>
+            <!-- Cta Curriculum: info al lado + CV que sale desde su columna (efecto cámara) -->
+            <section class="cta-curriculum" id="cv-scroll">
+                <div class="cta-sticky">
+                    <article class="cta-curriculum_info">
+                        <div class="curriculum_info">
+                            <p class="section-eyebrow">Currículum</p>
+                            <h3>Mi trayectoria, experiencia y proyectos en un solo documento.</h3>
+                            <p>Descarga mi currículum para ver mi recorrido completo: soporte técnico, desarrollo web
+                                y diseño, con proyectos reales desplegados y formación continua. Todo lo que aporto, en
+                                un vistazo.</p>
+                            <div class="botones">
+                                <a href="src/data/curriculum/Curriculum Vitae - Juan L. Gomez.pdf"
+                                    download="Curriculum Vitae - Juan L. Gomez.pdf" class="btn btn-bd bd-gradient">
+                                    <span class="ctn-btn">
+                                        <i class="fa-solid fa-file-arrow-down"></i>
+                                        Descargar CV
+                                    </span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/juangomez3112/" class="btn btn-bd bd-gradient"
+                                    target="_blank">
+                                    <span class="ctn-btn">
+                                        <i class="fa-brands fa-linkedin"></i>
+                                        Conectar en LinkedIn
+                                    </span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </section>
-            <!-- Cta Curriculum -->
+                    </article>
 
-            <!-- CV Showcase: la "cámara" se fija en el CV y hace zoom para verlo completo -->
-            <section class="cv-scroll" id="cv-scroll">
-                <div class="cv-sticky">
                     <a href="curriculum.html" class="cv-frame" aria-label="Ver currículum completo">
                         <img src="src/assets/img/cv.png" alt="Currículum de Juan Gómez" class="cv-zoom">
                     </a>
                 </div>
             </section>
-            <!-- Fin CV Showcase -->
+            <!-- Fin Cta Curriculum -->
+
 
             <!-- Proyectos -->
             <section class="proyectos" id="proyectos-recientes-section">

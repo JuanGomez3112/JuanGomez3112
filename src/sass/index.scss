@@ -697,40 +697,23 @@ html.js .reveal:not(.is-visible) {
             }
         }
 
+        // ── CTA Currículum: info al lado + CV que SALE desde su columna (efecto cámara).
+        // Móvil: apilado, el CV sale hacia el centro. Desktop: 2 columnas; la sección
+        // es una pista alta y .cta-sticky fija la fila mientras el CV hace zoom/pan.
         .cta-curriculum {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
+            position: relative;
 
-            // imagen del CV: contenida y centrada (mas pequena), sombra suave
-            .cta-curriculum_img {
-                height: auto !important;
+            .cta-sticky {
                 display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                overflow: visible;
-                perspective: 1200px; // para el rotateY 3D (movil)
-                position: relative;
-                z-index: 5; // el CV puede taparse por encima del texto al crecer
-
-                img {
-                    position: static !important;
-                    width: auto !important;
-                    max-width: 100% !important;
-                    max-height: 560px;
-                    height: auto !important;
-                    // drop-shadow sigue la forma del CV (no un rectangulo del contenedor)
-                    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
-                    // scroll-zoom (parallax): el JS ajusta el scale segun centrado
-                    transform-origin: center center;
-                    transform: scale(0.78);
-                    will-change: transform;
-                }
+                flex-direction: column;
+                gap: 3rem;
             }
 
             .cta-curriculum_info {
                 padding: 1.5rem;
+                position: relative;
+                z-index: 1; // el CV (z alto) lo tapa al salir
 
                 .section-eyebrow {
                     margin-bottom: 1.2rem;
@@ -768,178 +751,75 @@ html.js .reveal:not(.is-visible) {
                 }
             }
 
-            .cta-curriculum_img {
-                width: 100%;
-                height: 18.75rem;
-                overflow: hidden;
-
-
-                img {
-                    width: 200%;
-                    height: auto;
-                }
-            }
-
-            @media (min-width: 330px) {
-                .cta-curriculum_img {
-                    height: 20rem;
-                }
-            }
-
-            @media (min-width: 356px) {
-                .cta-curriculum_img {
-                    height: 22rem;
-                }
-            }
-
-            @media (min-width: 399px) {
-                .cta-curriculum_img {
-                    height: 24rem;
-                }
-            }
-
-            @media (min-width: 430px) {
-
-                .cta-curriculum_info {
-                    .curriculum_info {
-                        h3 {
-                            font-size: 1.5rem;
-                        }
-                    }
-                }
-
-                .cta-curriculum_img {
-                    height: 28rem;
-                }
-            }
-
-            @media (min-width: 500px) {
-                .cta-curriculum_info{
-                    .curriculum_info{
-                        h3 {
-                            text-align: center;
-                        }
-                    }
-                }
-
-                .cta-curriculum_img {
-                    height: 30rem;
-                }
-            }
-
-            @media (min-width: 540px) {
-                .cta-curriculum_img {
-                    height: 34rem;
-                }
-            }
-
-            @media (min-width: 610px) {
-                .cta-curriculum_img {
-                    height: 39rem;
-                }
-            }
-            
-            @media (min-width: 703px) {
-                .cta-curriculum_info{
-                    .curriculum_info{
-                        h3 {
-                            text-align: center;
-                            max-width: 80%;
-                        }
-                        p {
-                            text-align: justify;
-                            max-width: 80%;
-
-                        }
-                    }
-                }
-
-                .cta-curriculum_img {
-                    height: max-content;
-                    img {
-                        width: 150%;
-                    }
-                }
-            }
-
-            @media (min-width: 1024px) {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-
-
-                .cta-curriculum_info{
-                    padding: 4rem;
-                    padding-right: 0;
-                    height: max-content;
-
-                    .curriculum_info{
-                        align-items: start;
-
-
-                        h3 {
-                            text-align: justify;
-                            max-width: 100%;
-                        }
-                        p {
-                            text-align: justify;
-                            max-width: 100%;
-
-                        }
-
-                        .botones{
-                            flex-direction: row;
-                            gap: 1rem;
-                        }
-                    }
-                }
-
-                .cta-curriculum_img {
-                    height: 500px;
-                    position: relative;
-
-                    img {
-                        position: absolute;
-                        width: 180%;
-                        height: auto;
-                        object-fit: cover;
-                        top: 0;
-                    }
-                }
-            }
-        }
-
-        // ── CV Showcase "cámara": pista alta = presupuesto de scroll.
-        // El CV se fija (sticky) en su lugar y el JS hace zoom in → ver completo → zoom out.
-        .cv-scroll {
-            position: relative;
-            width: 100%;
-            height: 300vh; // presupuesto: reposo / sale / pan hoja x hoja / vuelve
-
-            .cv-sticky {
-                position: sticky;
-                top: 0;
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                overflow: visible;
-            }
-
+            // El CV: descansa en su lugar; el JS lo escala/panea (efecto cámara).
             .cv-frame {
                 display: block;
                 line-height: 0;
+                justify-self: center;
+                align-self: center;
                 transform-origin: center center;
                 will-change: transform;
                 transition: transform 0.12s ease-out; // suaviza el "sale" y el pan
+                z-index: 5;
+                position: relative;
 
                 img {
                     display: block;
                     height: auto;
                     // Base por ANCHO: el JS lo escala para llenar el viewport y panear
                     // vertical. Ancho lleno = texto legible sin recorte lateral.
-                    width: min(96vw, 900px);
+                    width: min(80vw, 440px);
                     max-width: none;
                     filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
+                }
+            }
+
+            @media (min-width: 430px) {
+                .cta-curriculum_info .curriculum_info h3 { font-size: 1.5rem; }
+            }
+
+            @media (min-width: 500px) {
+                .cta-curriculum_info .curriculum_info h3 { text-align: center; }
+            }
+
+            @media (min-width: 703px) {
+                .cta-curriculum_info .curriculum_info {
+                    h3 { text-align: center; max-width: 80%; }
+                    p { text-align: justify; max-width: 80%; }
+                }
+            }
+
+            // Desktop: pista alta + fila fija (sticky). CV a la DERECHA, sale desde ahí.
+            @media (min-width: 1024px) {
+                height: 300vh; // presupuesto: reposo / sale / pan hoja x hoja / vuelve
+
+                .cta-sticky {
+                    position: sticky;
+                    top: 0;
+                    height: 100vh;
+                    flex-direction: row;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-items: center;
+                    gap: 2rem;
+                    overflow: visible;
+                }
+
+                .cta-curriculum_info {
+                    padding: 4rem;
+                    padding-right: 0;
+
+                    .curriculum_info {
+                        align-items: start;
+                        h3 { text-align: justify; max-width: 100%; }
+                        p { text-align: justify; max-width: 100%; }
+                        .botones { flex-direction: row; gap: 1rem; }
+                    }
+                }
+
+                .cv-frame {
+                    grid-column: 2;
+                    img { width: min(42vw, 900px); } // base en la columna derecha
                 }
             }
         }

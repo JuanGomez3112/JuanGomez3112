@@ -1331,33 +1331,17 @@ html.js .reveal:not(.is-visible) {
 }
 .contenedor main .cta-curriculum {
   width: 100%;
+  position: relative;
+}
+.contenedor main .cta-curriculum .cta-sticky {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
-.contenedor main .cta-curriculum .cta-curriculum_img {
-  height: auto !important;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  overflow: visible;
-  perspective: 1200px;
-  position: relative;
-  z-index: 5;
-}
-.contenedor main .cta-curriculum .cta-curriculum_img img {
-  position: static !important;
-  width: auto !important;
-  max-width: 100% !important;
-  max-height: 560px;
-  height: auto !important;
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.55));
-  transform-origin: center center;
-  transform: scale(0.78);
-  will-change: transform;
-}
 .contenedor main .cta-curriculum .cta-curriculum_info {
   padding: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 .contenedor main .cta-curriculum .cta-curriculum_info .section-eyebrow {
   margin-bottom: 1.2rem;
@@ -1389,54 +1373,32 @@ html.js .reveal:not(.is-visible) {
   align-items: center;
   gap: 1.5rem;
 }
-.contenedor main .cta-curriculum .cta-curriculum_img {
-  width: 100%;
-  height: 18.75rem;
-  overflow: hidden;
+.contenedor main .cta-curriculum .cv-frame {
+  display: block;
+  line-height: 0;
+  justify-self: center;
+  align-self: center;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+  z-index: 5;
+  position: relative;
 }
-.contenedor main .cta-curriculum .cta-curriculum_img img {
-  width: 200%;
+.contenedor main .cta-curriculum .cv-frame img {
+  display: block;
   height: auto;
-}
-@media (min-width: 330px) {
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 20rem;
-  }
-}
-@media (min-width: 356px) {
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 22rem;
-  }
-}
-@media (min-width: 399px) {
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 24rem;
-  }
+  width: min(80vw, 440px);
+  max-width: none;
+  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
 }
 @media (min-width: 430px) {
   .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
     font-size: 1.5rem;
   }
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 28rem;
-  }
 }
 @media (min-width: 500px) {
   .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
     text-align: center;
-  }
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 30rem;
-  }
-}
-@media (min-width: 540px) {
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 34rem;
-  }
-}
-@media (min-width: 610px) {
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 39rem;
   }
 }
 @media (min-width: 703px) {
@@ -1448,22 +1410,25 @@ html.js .reveal:not(.is-visible) {
     text-align: justify;
     max-width: 80%;
   }
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: max-content;
-  }
-  .contenedor main .cta-curriculum .cta-curriculum_img img {
-    width: 150%;
-  }
 }
 @media (min-width: 1024px) {
   .contenedor main .cta-curriculum {
+    height: 300vh;
+  }
+  .contenedor main .cta-curriculum .cta-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-direction: row;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    overflow: visible;
   }
   .contenedor main .cta-curriculum .cta-curriculum_info {
     padding: 4rem;
     padding-right: 0;
-    height: max-content;
   }
   .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info {
     align-items: start;
@@ -1480,45 +1445,12 @@ html.js .reveal:not(.is-visible) {
     flex-direction: row;
     gap: 1rem;
   }
-  .contenedor main .cta-curriculum .cta-curriculum_img {
-    height: 500px;
-    position: relative;
+  .contenedor main .cta-curriculum .cv-frame {
+    grid-column: 2;
   }
-  .contenedor main .cta-curriculum .cta-curriculum_img img {
-    position: absolute;
-    width: 180%;
-    height: auto;
-    object-fit: cover;
-    top: 0;
+  .contenedor main .cta-curriculum .cv-frame img {
+    width: min(42vw, 900px);
   }
-}
-.contenedor main .cv-scroll {
-  position: relative;
-  width: 100%;
-  height: 300vh;
-}
-.contenedor main .cv-scroll .cv-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-}
-.contenedor main .cv-scroll .cv-frame {
-  display: block;
-  line-height: 0;
-  transform-origin: center center;
-  will-change: transform;
-  transition: transform 0.12s ease-out;
-}
-.contenedor main .cv-scroll .cv-frame img {
-  display: block;
-  height: auto;
-  width: min(96vw, 900px);
-  max-width: none;
-  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
 }
 .contenedor main .proyectos {
   padding: 1.5rem;
