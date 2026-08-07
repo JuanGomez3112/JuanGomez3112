@@ -1954,6 +1954,7 @@ html.js .reveal:not(.is-visible) {
   display: flex;
   gap: 5.5rem;
   position: relative;
+  align-items: flex-start;
 }
 .seccion-formacion .line-time .contain_line span {
   color: #F2F2F2;
@@ -1961,14 +1962,15 @@ html.js .reveal:not(.is-visible) {
   font-size: 0.75rem;
   font-weight: bold;
   position: relative;
-  margin-top: 0.75rem;
+  margin-top: 0;
+  line-height: 2rem;
   transition: color 0.25s ease;
 }
 .seccion-formacion .line-time .contain_line .info_line {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  margin-top: 0.8rem;
+  margin-top: 0.44rem;
   align-items: start;
 }
 .seccion-formacion .line-time .contain_line .info_line h3 {
@@ -2035,8 +2037,9 @@ html.js .reveal:not(.is-visible) {
   left: 4.5rem;
 }
 .seccion-formacion .line-time .contain_line .tl-dot {
+  display: block;
   position: absolute;
-  top: 0.15rem;
+  top: 0;
   left: 3.5rem;
   width: 2rem;
   height: 2rem;
