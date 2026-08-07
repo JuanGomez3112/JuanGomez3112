@@ -255,38 +255,23 @@ function iniciarReveal() {
 }
 
 function iniciarCvZoom() {
-    const track = document.getElementById('cv-scroll');
-    const frame = track && track.querySelector('.cv-frame');
-    const img = frame && frame.querySelector('.cv-zoom');
-    if (!track || !img) return;
+    const cont = document.querySelector('.cta-curriculum_img');
+    const img = cont && cont.querySelector('.cv-zoom');
+    if (!img) return;
 
     let ticking = false;
-    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-    const lerp = (a, b, t) => a + (b - a) * t;
 
     const update = () => {
         ticking = false;
+        const r = cont.getBoundingClientRect(); // contenedor no escala -> estable
         const vh = window.innerHeight;
-        const scrollable = track.offsetHeight - vh;         // px de scroll dentro del track
-        const prog = clamp(-track.getBoundingClientRect().top / scrollable, 0, 1);
-
-        const imgH = img.offsetHeight || 1;                 // alto natural (scale 1) = 80vh
-        const big = (vh * 1.35) / imgH;                     // que el CV llene ~135% del alto
-        const small = big * 0.32;                           // preview chico al entrar/salir
-        const inEnd = 0.16, outStart = 0.84;
-
-        let scale, ty = 0;
-        if (prog <= inEnd) {
-            scale = lerp(small, big, prog / inEnd);         // crece al entrar
-        } else if (prog >= outStart) {
-            scale = lerp(big, small, (prog - outStart) / (1 - outStart)); // encoge al salir
-        } else {
-            scale = big;
-            const hold = (prog - inEnd) / (outStart - inEnd); // 0..1
-            const overflowY = Math.max(0, imgH * big - vh + 40);
-            ty = (0.5 - hold) * overflowY;                  // pan: de arriba hacia abajo
-        }
-        frame.style.transform = `translateY(${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+        const elCenter = r.top + r.height / 2;
+        const maxDist = vh / 2 + r.height / 2;
+        let p = (elCenter - vh / 2) / maxDist; // 0 = centrado
+        p = Math.max(-1, Math.min(1, p));
+        const c = 1 - Math.abs(p); // 1 centrado
+        const scale = (0.8 + 0.7 * c).toFixed(3); // 0.8 -> 1.5 en su lugar
+        img.style.transform = `scale(${scale})`;
     };
 
     const onScroll = () => {

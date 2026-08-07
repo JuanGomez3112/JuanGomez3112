@@ -181,58 +181,6 @@ html.js .reveal:not(.is-visible) {
     }
 }
 
-// El CTA Currículum ahora va sin imagen (se movió al showcase): 1 columna centrada
-.cta-curriculum {
-    @media (min-width: 1024px) {
-        grid-template-columns: 1fr !important;
-
-        .cta-curriculum_info {
-            padding: 3rem 1.5rem !important;
-
-            .curriculum_info {
-                align-items: center !important;
-                text-align: center;
-                max-width: 640px;
-                margin: 0 auto;
-
-                h3, p { text-align: center !important; }
-                .botones { justify-content: center; }
-            }
-        }
-    }
-}
-
-// ===== CV Showcase: scroll pinned (el CV se fija al centro y crece) =====
-.cv-scroll {
-    position: relative;
-    height: 320vh; // duracion del efecto (mas alto = mas scroll)
-
-    .cv-sticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden; // ventana: se recorre el CV grande deslizando
-    }
-
-    .cv-frame {
-        display: block;
-        will-change: transform;
-        transform-origin: center center;
-        transform: scale(0.45);
-
-        img {
-            display: block;
-            height: 80vh;
-            width: auto;
-            max-width: none;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.55));
-        }
-    }
-}
-
 .contenedor {
     display: flex;
     flex-direction: column;
