@@ -1,0 +1,176 @@
+// Pagina de detalle de proyecto (caso de estudio)
+.proyecto-detalle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 1.25rem 4rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    .proyecto-cargando {
+        color: rgba(217, 217, 217, 0.5);
+        padding: 4rem 0;
+    }
+
+    .pd-volver {
+        align-self: flex-start;
+        color: rgba(217, 217, 217, 0.7);
+        font-family: $tipografiaTerciaria;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        transition: color 0.25s ease;
+
+        &:hover { color: $oro; }
+    }
+
+    // ===== Hero =====
+    .pd-hero {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+
+        .pd-titulo {
+            font-family: $tipografiaPrincipal;
+            font-size: clamp(2rem, 6vw, 3.6rem);
+            color: $blanco;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        .pd-tech {
+            font-family: $tipografiaSecundaria;
+            color: rgba(217, 217, 217, 0.55);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .pd-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+    }
+
+    .pd-tag {
+        font-family: $tipografiaSecundaria;
+        font-size: 0.7rem;
+        color: $oroClaro;
+        border: 1px solid rgba(201, 162, 75, 0.4);
+        border-radius: 2rem;
+        padding: 0.25rem 0.75rem;
+    }
+
+    // ===== Galeria de mockups =====
+    .pd-galeria {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .pd-shot {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(217, 217, 217, 0.08);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    // ===== Info (2 columnas) =====
+    .pd-info {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+
+        .pd-col .section-eyebrow {
+            justify-content: flex-start;
+            margin-bottom: 0.9rem;
+
+            &::before { display: none; } // eyebrow alineado a la izquierda
+        }
+
+        .pd-mt { margin-top: 1.6rem; }
+
+        .pd-desc {
+            font-family: $tipografiaSecundaria;
+            color: rgba(217, 217, 217, 0.8);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .pd-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            li {
+                position: relative;
+                padding-left: 1.2rem;
+                color: rgba(217, 217, 217, 0.8);
+                font-size: 0.95rem;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0.55em;
+                    width: 6px;
+                    height: 6px;
+                    background: $oro;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    // ===== Acciones =====
+    .pd-acciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .pd-notfound {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 4rem 0;
+
+        h2 {
+            font-family: $tipografiaPrincipal;
+            color: $blanco;
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        gap: 4rem;
+        padding: 3rem 2rem 5rem;
+
+        .pd-info {
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+        }
+    }
+}

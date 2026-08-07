@@ -91,7 +91,7 @@ function iniciarDropdown() {
 // cargarProyectos.js
 
 function cargarProyectos$1(callback) {
-    fetch('src/data/proyectos.json')
+    fetch('src/data/proyectos.json?_=' + Date.now())
         .then(response => response.json())
         .then(data => {
             callback(data);
@@ -302,7 +302,7 @@ function manejarTabs(data) {
                                 <i class="fa-brands fa-github"></i>
                                 Repositorio
                             </a>
-                            <a href="${proyecto.verProyecto}" class="btn btn-pq btn-bd" target="_blank">
+                            <a href="proyecto.html?id=${proyecto.slug}" class="btn btn-pq btn-bd">
                                 <i class="fa-solid fa-eye"></i>
                                 Ver Proyecto
                             </a>

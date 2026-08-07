@@ -758,14 +758,14 @@
                 &::-webkit-scrollbar{
                     width: 0.5rem;
                     height: 4px;
-                    
+
 
                     &-thumb {
-                        background: $blanco;
+                        background: $oro;
                         border-radius: 4px;
 
                         &:hover {
-                            background: $crema;
+                            background: $oroClaro;
                         }
                     }
                 }
@@ -779,123 +779,112 @@
 
                     .card-proyect {
                         flex: 0 0 auto;
-                        width: calc(100% / 3);
-                        min-height: max-content;
+                        width: min(78vw, 300px);
                         display: flex;
+                        flex-direction: column;
                         position: relative;
-                        box-shadow: $sombra;
-                        transition: box-shadow .4s ease-in-out;
-                        height: auto;
                         overflow: hidden;
-                        max-width: 400px;
+                        white-space: normal;
+                        background: rgba(255, 255, 255, 0.03);
+                        border-radius: 12px;
+                        border: 1px solid rgba(217, 217, 217, 0.08);
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+                        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 
                         .imagen-card {
-                            position: absolute;
+                            position: relative;
                             width: 100%;
-                            height: 100%;
-                            display: flex;
+                            height: 165px;
+                            flex: none;
+                            overflow: hidden;
 
-
-                            &::before {
-                                content: '';
-                                position: absolute;
-                                top: 0;
-                                left: 0;
-                                width: 100%;
-                                height: 100%;
-                                background-color: $gris;
-                                opacity: 0;
-                                transition: opacity 0.4s ease;
-                                z-index: 2;
-                            }
+                            &::before { display: none; }
 
                             img {
                                 width: 100%;
                                 height: 100%;
                                 object-fit: cover;
-                                z-index: 1;
-                                filter: blur(0);
-                                transition: filter .4s ease-in-out;
-                                top: 0;
+                                transition: transform .4s ease;
                             }
-
-
                         }
 
+                        // info SIEMPRE visible
                         .card-info {
                             position: relative;
-                            width: calc(100vw - 1.5rem);
-                            height: 100%;
-                            opacity: 0;
-                            transition: opacity .3s ease-in-out;
-                            z-index: 3;
-                            padding: 1.5rem;
+                            opacity: 1;
+                            width: 100%;
+                            flex: 1;
+                            z-index: 1;
+                            padding: 1.1rem;
                             display: flex;
                             flex-direction: column;
-                            align-items: center;
-                            gap: 1.5rem;
+                            gap: 0.9rem;
 
                             .info-proyect {
-                                width: 100%;
-                                height: max-content;
                                 display: flex;
                                 flex-direction: column;
-                                gap: .5rem;
+                                gap: 0.4rem;
 
                                 h4 {
                                     font-family: $tipografiaSecundaria;
                                     color: $blanco;
-                                    font-size: 1rem;
+                                    font-size: 1.05rem;
+                                    font-weight: 600;
                                 }
 
                                 .valoracion {
                                     display: flex;
-                                    gap: .5rem;
+                                    gap: 0.25rem;
 
                                     i {
-                                        font-size: 0.75rem;
+                                        font-size: 0.7rem;
                                         color: $oro;
                                     }
                                 }
 
                                 p {
                                     font-family: $tipografiaSecundaria;
-                                    color: $crema;
-                                    font-size: 0.625rem;
-                                    font-weight: 700;
+                                    color: rgba(217, 217, 217, 0.6);
+                                    font-size: 0.65rem;
+                                    font-weight: 600;
+                                    letter-spacing: 0.5px;
                                 }
 
                                 .tags {
-                                    width: 100%;
                                     display: flex;
                                     flex-wrap: wrap;
-                                    gap: .25rem;
-                                    margin-top: .5rem;
+                                    gap: 0.3rem;
+                                    margin-top: 0.4rem;
 
                                     .btn-tags {
-                                        font-size: 0.625rem;
-                                        background: $degradadoOro;
-                                        color: $azul;
-                                        font-weight: 800;
+                                        font-size: 0.6rem;
+                                        background: transparent;
+                                        color: $oroClaro;
+                                        border: 1px solid rgba(201, 162, 75, 0.4);
+                                        font-weight: 500;
                                     }
                                 }
                             }
 
                             .botones {
-                                position: relative;
+                                display: flex;
+                                gap: 0.6rem;
+                                margin-top: auto;
 
                                 a {
-                                    padding: 0.375rem 0.5rem;
+                                    padding: 0.4rem 0.7rem;
                                     border-radius: 2rem;
+                                    font-size: 0.8rem;
                                 }
                             }
                         }
 
-
-                        &:nth-child(3) {
-                            background-color: $gris;
-                            display: flex;
+                        // card "ver mas proyectos"
+                        &.card-more {
+                            background: rgba(201, 162, 75, 0.05);
+                            align-items: center;
                             justify-content: center;
+                            min-height: 300px;
 
                             a {
                                 display: flex;
@@ -903,33 +892,23 @@
                                 color: $oro;
                                 justify-content: center;
                                 align-items: center;
-                                font-size: 1.5rem;
-                                font-family: $tipografiaSecundaria;
-                                gap: 2rem;
+                                gap: 1rem;
+                                font-family: $tipografiaTerciaria;
+                                font-size: 1rem;
+                                letter-spacing: 1px;
+                                text-transform: uppercase;
 
-                                i {
-                                    font-size: 5rem;
-                                }
-
+                                i { font-size: 3rem; }
                             }
                         }
 
                         &:hover {
-                            box-shadow: $sombraHover;
+                            transform: translateY(-5px);
+                            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+                            border-color: rgba(201, 162, 75, 0.35);
 
-                            .card-info {
-                                opacity: 1;
-                            }
-
-                            .imagen-card::before {
-                                opacity: 0.8;
-                            }
-
-                            & .imagen-card img {
-                                filter: blur(16px);
-                            }
+                            .imagen-card img { transform: scale(1.05); }
                         }
-
                     }
 
 
@@ -937,17 +916,8 @@
             }
 
             @media (min-width: 430px) {
-                h3 {
-                    font-size: 1.5rem;
-                }
-
-                .contenedor-proyectos {
-                    .proyectos-card {
-                        .card-proyect {
-                            width: calc(100vw - 3rem);
-                            height: 14rem;
-                        }
-                    }
+                .card-proyect {
+                    width: 320px !important;
                 }
             }
 
@@ -955,6 +925,96 @@
                 padding: 0 4rem;
             }
 
+        }
+
+        // ===== Contacto (form real + directo) =====
+        .contacto {
+            padding: 3rem 1.25rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.6rem;
+
+            h3 {
+                font-family: $tipografiaPrincipal;
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                color: $blanco;
+                font-weight: 400;
+            }
+
+            .contacto-intro {
+                font-family: $tipografiaSecundaria;
+                color: rgba(217, 217, 217, 0.7);
+                max-width: 520px;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+            .contacto-grid {
+                width: 100%;
+                max-width: 900px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: left;
+            }
+
+            .contacto-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+                .input,
+                .textarea {
+                    width: 100%;
+                    min-width: 0;
+                }
+
+                .form-estado {
+                    font-size: 0.85rem;
+                    min-height: 1.2em;
+
+                    &.ok { color: $oroClaro; }
+                    &.error { color: #e08a8a; }
+                }
+            }
+
+            .contacto-directo {
+                display: flex;
+                flex-direction: column;
+                gap: 0.9rem;
+                align-self: start;
+
+                .cd-label {
+                    font-family: $tipografiaTerciaria;
+                    text-transform: uppercase;
+                    letter-spacing: 2px;
+                    color: $oro;
+                    font-size: 0.8rem;
+                    margin-bottom: 0.3rem;
+                }
+
+                .cd-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.6rem;
+                    color: rgba(217, 217, 217, 0.85);
+                    font-family: $tipografiaSecundaria;
+                    transition: color 0.25s ease;
+
+                    i { color: $oro; width: 20px; text-align: center; }
+
+                    &:hover { color: $blanco; }
+                }
+            }
+
+            @media (min-width: 768px) {
+                .contacto-grid {
+                    grid-template-columns: 1.3fr 1fr;
+                    gap: 3.5rem;
+                }
+            }
         }
 
         .cta-contacto {

@@ -93,7 +93,7 @@ function iniciarDropdown() {
 // proyectosRecientes.js
 
 function cargarProyectos() {
-    fetch('src/data/proyectos.json')
+    fetch('src/data/proyectos.json?_=' + Date.now())
         .then(response => response.json())
         .then(data => {
             // Obtener la referencia al contenedor de proyectos recientes
@@ -128,7 +128,7 @@ function cargarProyectos() {
                                 <i class="fa-brands fa-github"></i>
                                 Repositorio
                             </a>
-                            <a href="${proyecto.verProyecto}" class="btn btn-pq btn-bd" target="_blank">
+                            <a href="proyecto.html?id=${proyecto.slug}" class="btn btn-pq btn-bd">
                                 <i class="fa-solid fa-eye"></i>
                                 Ver Proyecto
                             </a>
@@ -156,81 +156,42 @@ function cargarProyectos() {
         });
 }
 
-function formulario() {
-    const proyecto = document.getElementById('btn-proyecto');
-    const contratacion = document.getElementById('btn-contratacion');
-    const formProyecto = document.getElementById('form-proyecto');
-    const formContacto = document.getElementById('form-contacto');
+function iniciarContacto() {
+    const form = document.getElementById('contacto-form');
+    if (!form) return;
+    const estado = document.getElementById('form-estado');
+    const boton = form.querySelector('button[type="submit"]');
 
-    proyecto.addEventListener("click", () => {
-        if (!formProyecto.classList.contains('visible')) {
-            formProyecto.classList.add('visible');
-            formContacto.classList.remove('visible');
-            formProyecto.scrollIntoView({ behavior: "smooth" });
-            formProyecto.querySelector('input').focus();
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const action = form.getAttribute('action') || '';
+
+        // Fallback: si Formspree aun no esta configurado, abre el correo
+        if (!action || action.includes('TU_ID')) {
+            const cuerpo = `Nombre: ${form.nombre.value}%0D%0ACorreo: ${form.correo.value}%0D%0A%0D%0A${form.mensaje.value}`;
+            window.location.href = `mailto:gomezrodriguez3112@gmail.com?subject=Contacto desde la web&body=${cuerpo}`;
+            return;
         }
-    });
 
-    contratacion.addEventListener("click", () => {
-        if (!formContacto.classList.contains('visible')) {
-            formContacto.classList.add('visible');
-            formProyecto.classList.remove('visible');
-            formContacto.scrollIntoView({ behavior: "smooth" });
-            formContacto.querySelector('input').focus();
-        }
-    });
+        const original = boton.innerHTML;
+        boton.disabled = true;
+        boton.innerHTML = 'Enviando…';
+        if (estado) { estado.textContent = ''; estado.className = 'form-estado'; }
 
-    // Agregar controlador de eventos para el envío del formulario de proyectos
-    formProyecto.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evitar que el formulario se envíe por defecto
-
-        // Comprobación de validez de los campos del formulario
-        if (this.checkValidity()) {
-            // Obtener los valores de los campos del formulario
-            const nombre = this.querySelector('input[name="nombre"]').value;
-            const correo = this.querySelector('input[name="correo"]').value;
-            const telefono = this.querySelector('input[name="telefono"]').value;
-            const fecha = new Date(this.querySelector('input[name="fecha"]').value);
-            const presupuesto = this.querySelector('input[name="presupuesto"]').value;
-            const descripcion = this.querySelector('textarea[name="descripcion"]').value;
-
-            // Validar el número de teléfono
-            const telefonoValido = /^\d{3}-\d{3}-\d{4}$/.test(telefono);
-
-            // Validar el correo electrónico
-            const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
-
-            // Obtener la fecha actual
-            const fechaActual = new Date();
-            // Agregar un mes a la fecha actual
-            const fechaMinima = new Date(fechaActual);
-            fechaMinima.setMonth(fechaActual.getMonth() + 1);
-
-            // Validar la fecha estimada
-            const fechaValida = fecha.getTime() >= fechaMinima.getTime();
-
-            if (telefonoValido && correoValido && fechaValida) {
-                // Aquí puedes realizar cualquier acción que desees con los datos del formulario
-                console.log("Nombre:", nombre);
-                console.log("Correo:", correo);
-                console.log("Teléfono:", telefono);
-                console.log("Fecha estimada:", fecha.toLocaleDateString());
-                console.log("Presupuesto:", presupuesto);
-                console.log("Descripción:", descripcion);
-
-                // Por ejemplo, puedes enviar los datos a través de una solicitud HTTP
-                // utilizando fetch() o cualquier otra biblioteca de HTTP
-            } else {
-                // Mostrar mensajes de error según las validaciones
-                let mensajeError = "Por favor, corrige los siguientes errores:\n";
-                if (!telefonoValido) mensajeError += "- El número de teléfono no es válido.\n";
-                if (!correoValido) mensajeError += "- La dirección de correo electrónico no es válida.\n";
-                if (!fechaValida) mensajeError += "- La fecha estimada debe ser al menos un mes después de la fecha actual.\n";
-                alert(mensajeError);
-            }
-        } else {
-            // Si el formulario no es válido según las reglas HTML5, muestra un mensaje de error
-            alert("Por favor, completa todos los campos correctamente.");
+        try {
+            const resp = await fetch(action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (!resp.ok) throw new Error('fallo');
+            form.reset();
+            if (estado) { estado.textContent = '¡Mensaje enviado! Te responderé pronto.'; estado.classList.add('ok'); }
+        } catch (err) {
+            if (estado) { estado.textContent = 'No se pudo enviar. Escríbeme a gomezrodriguez3112@gmail.com'; estado.classList.add('error'); }
+        } finally {
+            boton.disabled = false;
+            boton.innerHTML = original;
         }
     });
 }
@@ -279,6 +240,6 @@ window.onload = function () {
     iniciarSlide();
     iniciarDropdown();
     cargarProyectos();
-    formulario();
+    iniciarContacto();
     iniciarRoles();
 };

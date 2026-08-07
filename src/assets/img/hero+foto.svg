@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 294.81 263.5">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill: #d9d9d9;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        font-family: MinionConceptRoman-Bold, 'Minion Variable Concept';
+        font-size: 52px;
+        font-variation-settings: 'wght' 700, 'opsz' 11;
+      }
+
+      .cls-2 {
+        font-size: 18px;
+        letter-spacing: .08em;
+      }
+
+      .cls-2, .cls-5 {
+        font-family: LouisGeorgeCafeLight-@, 'Louis George Cafe Light';
+      }
+
+      .cls-3 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-6 {
+        font-weight: 700;
+      }
+
+      .cls-7 {
+        fill: #f4f2fa;
+        font-family: BerlinSansFBDemi-Bold, 'Berlin Sans FB Demi';
+        font-size: 47.07px;
+      }
+
+      .cls-5 {
+        font-size: 15.69px;
+      }
+    </style>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <g>
+        <text class="cls-5" transform="translate(23.62 53.08)"><tspan x="0" y="0">Hola! soy</tspan></text>
+        <text class="cls-6" transform="translate(0 88.09)"><tspan class="cls-1" x="0" y="0">J</tspan><tspan class="cls-3" x="15.81" y="0">uan </tspan><tspan class="cls-4" x="103.79" y="0" xml:space="preserve">    </tspan><tspan class="cls-7" x="149.76" y="0">Gómez</tspan></text>
+        <text class="cls-2" transform="translate(182.47 106.57)"><tspan x="0" y="0">Técnico de TI</tspan></text>
+      </g>
+      <image width="1086" height="1448" transform="translate(21.33) scale(.18)" xlink:href="../../../../Downloads/png lista.png"/>
+    </g>
+  </g>
+</svg>
