@@ -259,14 +259,29 @@ function iniciarReveal() {
 function iniciarCvZoom() {
     const track = document.querySelector('.cv-scroll');
     const frame = track && track.querySelector('.cv-frame');
-    if (!frame) return;
+    const img = frame && frame.querySelector('img');
+    if (!img) return;
 
     const CHICO = 0.34;  // preview pequeño (cámara lejos)
-    const GRANDE = 1.0;  // CV completo en pantalla (cámara cerca)
-    const IN_END = 0.30; // % de la pista donde termina el zoom in
-    const OUT_START = 0.70; // % donde empieza el zoom out
+    const ZOOM = 1.22;   // llena el ancho y come los márgenes grises del mockup
+    const HOJAS = 3;     // PERFIL / EXPERIENCIA / FORMACION
+    const IN_END = 0.14; // fin del zoom in
+    const OUT_START = 0.86; // inicio del zoom out
 
     const easeInOut = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+
+    // Pan con paradas: recorre las hojas 1 a 1 (viaje + dwell en cada una)
+    const panEscalonado = (f) => {
+        const stops = HOJAS;               // nº de paradas
+        const seg = 1 / stops;             // ancho de cada tramo
+        const idx = Math.min(stops - 1, Math.floor(f / seg));
+        const local = (f - idx * seg) / seg; // 0..1 dentro del tramo
+        const dwell = 0.45;                // % del tramo detenido en la hoja
+        let posDentro;
+        if (local < dwell) posDentro = 0;  // pausa en la hoja
+        else posDentro = easeInOut((local - dwell) / (1 - dwell)); // viaja a la siguiente
+        return (idx + posDentro) / (stops - 1); // 0 (arriba) .. 1 (abajo)
+    };
 
     let ticking = false;
 
@@ -274,22 +289,31 @@ function iniciarCvZoom() {
         ticking = false;
         const r = track.getBoundingClientRect();
         const vh = window.innerHeight;
-        // prog 0..1: 0 = pista recién entra (sticky empieza), 1 = pista por salir
         const total = r.height - vh;
         let prog = total > 0 ? (-r.top) / total : 0;
         prog = Math.max(0, Math.min(1, prog));
 
-        let scale;
+        const W0 = img.offsetWidth;   // tamaño de layout (sin escalar)
+        const H0 = img.offsetHeight;
+        const vw = window.innerWidth;
+        const GRANDE = W0 > 0 ? (ZOOM * vw) / W0 : 1; // escala para llenar el ancho
+
+        let scale, ty;
         if (prog <= IN_END) {
             const t = easeInOut(prog / IN_END);
             scale = CHICO + (GRANDE - CHICO) * t;
+            ty = Math.max(0, (H0 * scale - vh) / 2); // alineado arriba (empieza PERFIL)
         } else if (prog >= OUT_START) {
             const t = easeInOut((prog - OUT_START) / (1 - OUT_START));
             scale = GRANDE - (GRANDE - CHICO) * t;
+            ty = Math.max(0, (H0 * scale - vh) / 2);
         } else {
-            scale = GRANDE; // hold: CV completo, la cámara lo mira fijo
+            scale = GRANDE;
+            const O = H0 * GRANDE - vh;      // sobrante vertical a panear
+            const f = (prog - IN_END) / (OUT_START - IN_END);
+            ty = O > 0 ? (O / 2) - panEscalonado(f) * O : 0; // +arriba .. -abajo
         }
-        frame.style.transform = `scale(${scale.toFixed(3)})`;
+        frame.style.transform = `translateY(${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
     };
 
     const onScroll = () => {
