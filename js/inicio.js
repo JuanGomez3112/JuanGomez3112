@@ -312,23 +312,23 @@ function iniciarCvZoom() {
             const r = track.getBoundingClientRect();
             const total = track.offsetHeight - vh;
             const prog = clamp01(total > 0 ? (-r.top) / total : 0);
-            const topAlign = (s) => Math.max(0, (H0 * s - vh) / 2);
+            // sobrante vertical cuando está a tamaño completo (para el pan)
+            const O = Math.max(0, H0 * GRANDE - vh);
 
             if (prog < REST_IN) {
                 scale = 1; ty = 0;                       // en su lugar (columna)
             } else if (prog < IN_END) {
                 const t = easeInOut((prog - REST_IN) / (IN_END - REST_IN));
                 scale = 1 + (GRANDE - 1) * t;            // sale y crece
-                ty = topAlign(scale);
+                ty = (O / 2) * t;                        // de centrado (0) a borde arriba, sincronizado
             } else if (prog < OUT_START) {
                 scale = GRANDE;                          // pan hoja por hoja
-                const O = H0 * GRANDE - vh;
                 const f = (prog - IN_END) / (OUT_START - IN_END);
-                ty = O > 0 ? (O / 2) - panEscalonado(f) * O : 0;
+                ty = (O / 2) - panEscalonado(f) * O;     // arriba (O/2) -> abajo (-O/2)
             } else if (prog < REST_OUT) {
                 const t = easeInOut((prog - OUT_START) / (REST_OUT - OUT_START));
                 scale = GRANDE - (GRANDE - 1) * t;       // vuelve
-                ty = -topAlign(scale);                   // desde ABAJO (sin salto)
+                ty = -(O / 2) * (1 - t);                 // de abajo (-O/2) a centrado (0), sincronizado
             } else {
                 scale = 1; ty = 0;                       // reposo final
             }
