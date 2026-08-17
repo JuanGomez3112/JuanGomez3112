@@ -6,7 +6,6 @@
 (function () {
     function initMenu() {
         const boton = document.querySelector('.candy-box');
-        const contOlas = document.querySelector('.contenedor-olas');
         const menuCont = document.querySelector('.menu-container');
         const header = document.querySelector('header');
         if (!boton || !menuCont) return;
@@ -20,11 +19,15 @@
         boton.setAttribute('aria-controls', menuCont.id);
 
         let timerId;
-        const abierto = () => !!(contOlas && contOlas.classList.contains('active'));
+        // El estado vivía en la clase .active de .contenedor-olas (markup de las
+        // olas, ya eliminado). Ahora es una variable interna que cambia en los
+        // mismos instantes: true al abrir, false al terminar el cierre.
+        let estaAbierto = false;
+        const abierto = () => estaAbierto;
 
         const dropDown = () => {
             clearTimeout(timerId);
-            if (contOlas) contOlas.classList.add('active');
+            estaAbierto = true;
             menuCont.style.display = 'flex';
             boton.setAttribute('aria-expanded', 'true');
             boton.setAttribute('aria-label', 'Cerrar menú');
@@ -38,7 +41,7 @@
             boton.setAttribute('aria-label', 'Abrir menú');
             timerId = setTimeout(() => {
                 menuCont.style.display = 'none';
-                setTimeout(() => { if (contOlas) contOlas.classList.remove('active'); }, 100);
+                setTimeout(() => { estaAbierto = false; }, 100);
             }, 600);
         };
 
