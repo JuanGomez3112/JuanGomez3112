@@ -170,7 +170,7 @@ function iniciarContacto() {
         // Fallback: si Formspree aun no esta configurado, abre el correo
         if (!action || action.includes('TU_ID')) {
             const cuerpo = `Nombre: ${form.nombre.value}%0D%0ACorreo: ${form.correo.value}%0D%0A%0D%0A${form.mensaje.value}`;
-            window.location.href = `mailto:gomezrodriguez3112@gmail.com?subject=Contacto desde la web&body=${cuerpo}`;
+            window.location.href = `mailto:GomezRodriguez3112@gmail.com?subject=Contacto desde la web&body=${cuerpo}`;
             return;
         }
 
@@ -189,7 +189,7 @@ function iniciarContacto() {
             form.reset();
             if (estado) { estado.textContent = '¡Mensaje enviado! Te responderé pronto.'; estado.classList.add('ok'); }
         } catch (err) {
-            if (estado) { estado.textContent = 'No se pudo enviar. Escríbeme a gomezrodriguez3112@gmail.com'; estado.classList.add('error'); }
+            if (estado) { estado.textContent = 'No se pudo enviar. Escríbeme a GomezRodriguez3112@gmail.com'; estado.classList.add('error'); }
         } finally {
             boton.disabled = false;
             boton.innerHTML = original;
