@@ -15,11 +15,11 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css?v=45" />
+    <link rel="stylesheet" href="css/style.css?v=46" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=45" defer></script>
-    <script src="js/menu.js?v=45" defer></script>
-    <script src="js/curriculum.js?v=45" defer></script>
+    <script src="js/header.js?v=46" defer></script>
+    <script src="js/menu.js?v=46" defer></script>
+    <script src="js/curriculum.js?v=46" defer></script>
 </head>
 
 <body>
@@ -76,52 +76,46 @@
             
                 <div class="curriculum_content">
                     <div class="vista_curriculum">
-                        <div class="cont-triptych">
-                            <div class="triptych">
-                                <div class="papel  izq" id="p1">
-                                    <div class="front">
-                                        <img loading="lazy" src="src/assets/img/curriculum/exterior-pt1.webp" alt="" class="pagina" id="f1">
-                                    </div>
-                                    <div class="back">
-                                        <img loading="lazy" src="src/assets/img/curriculum/interior-pt1.webp" alt="" class="pagina" id="b1">
-                                    </div>
-                                </div>
-                            
-                                <div class="papel" id="p2">
-                                    <div class="front">
-                                        <img loading="lazy" src="src/assets/img/curriculum/exterior-pt2.webp" alt="" class="pagina" id="f2">
-                                    </div>
-                                    <div class="back">
-                                        <img loading="lazy" src="src/assets/img/curriculum/interior-pt2.webp" alt="" class="pagina" id="b2">
-                                    </div>
-                                </div>
-                            
-                                <div class="papel der" id="p3">
-                                    <div class="front">
-                                        <img loading="lazy" src="src/assets/img/curriculum/exterior-pt3.webp" alt="" class="pagina" id="f3">
-                                    </div>
-                                    <div class="back">
-                                        <img loading="lazy" src="src/assets/img/curriculum/interior-pt3.webp" alt="" class="pagina" id="b3">
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- El CV fisico es un triptico VERTICAL: se despliega hacia
+                             abajo y se lee como scroll. El visor lo replica. -->
+                        <div class="cv-vertical" id="cvVertical" tabindex="0" role="region"
+                            aria-label="Currículum, 6 caras. Usa las flechas arriba y abajo para pasar de cara.">
+                            <figure class="cv-hoja" data-cara="1">
+                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada del currículum: Juan Gómez, Técnico de TI" class="pagina">
+                            </figure>
+                            <figure class="cv-hoja" data-cara="2">
+                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="pagina">
+                            </figure>
+                            <figure class="cv-hoja" data-cara="3">
+                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="pagina">
+                            </figure>
+                            <figure class="cv-hoja" data-cara="4">
+                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación y referencias" class="pagina">
+                            </figure>
+                            <figure class="cv-hoja" data-cara="5">
+                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="pagina">
+                            </figure>
+                            <figure class="cv-hoja" data-cara="6">
+                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="pagina">
+                            </figure>
                         </div>
+                        <p class="cv-contador"><span id="cvActual">1</span> / 6</p>
                     </div>
-            
+
                     <div class="control-button">
                         <div class="botones next-back">
-                            <button class="btn-control prev-btn">
-                                <i class="fa-solid fa-circle-chevron-left"></i>
+                            <button class="btn-control prev-btn" type="button" aria-label="Cara anterior">
+                                <i class="fa-solid fa-circle-chevron-up"></i>
                             </button>
-                            <button class="btn-control next-btn ">
-                                <i class="fa-solid fa-circle-chevron-right"></i>
+                            <button class="btn-control next-btn" type="button" aria-label="Cara siguiente">
+                                <i class="fa-solid fa-circle-chevron-down"></i>
                             </button>
                         </div>
                         <div class="botones zoom">
-                            <button class="btn-control zoom-out">
+                            <button class="btn-control zoom-out" type="button" aria-label="Alejar">
                                 <i class="fa-solid fa-magnifying-glass-minus"></i>
                             </button>
-                            <button class="btn-control zoom-in">
+                            <button class="btn-control zoom-in" type="button" aria-label="Acercar">
                                 <i class="fa-solid fa-magnifying-glass-plus"></i>
                             </button>
                         </div>
