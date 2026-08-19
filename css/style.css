@@ -2291,56 +2291,61 @@ html.js .reveal:not(.is-visible) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
+  /* La escena en perspectiva: los paneles caen hacia el espectador. */
+  perspective: 1600px;
+  perspective-origin: 50% 0%;
 }
-/* Visor vertical: el CV fisico se despliega hacia abajo, no a los lados.
-   Cada cara ocupa el alto del marco y encaja con scroll-snap. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-vertical {
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold {
   --cv-zoom: 1;
-  width: 100%;
-  max-width: 52rem;
-  height: 26rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
-  border-radius: 0.5rem;
-  background: #0c0c0c;
-  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.55);
-  scrollbar-width: thin;
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-vertical:focus-visible {
-  outline: 2px solid #C9A24B;
-  outline-offset: 3px;
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-hoja {
-  margin: 0;
-  height: 100%;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  width: min(100%, calc(30rem * var(--cv-zoom)));
+  transform-style: preserve-3d;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Con zoom la cara desborda su marco y se desplaza aqui dentro, no en el
-     contenedor: asi el scroll-snap de las caras no se descoloca. */
-  overflow: auto;
-  scrollbar-width: thin;
+  flex-direction: column;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-hoja .pagina {
-  display: block;
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold:focus-visible {
+  outline: 2px solid #C9A24B;
+  outline-offset: 6px;
+}
+/* Cada panel gira sobre su borde superior, como el pliegue del papel. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              max-height 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 0.35s ease;
+  max-height: 60rem;
+  /* En un flex column el min-height:auto implicito gana sobre max-height:0 y
+     el panel no colapsaria al plegarse. */
+  min-height: 0;
   flex: 0 0 auto;
-  margin: auto;
-  /* A zoom 1 la cara cabe entera en el marco por ancho y por alto. Al ampliar
-     puede crecer hasta el zoom pedido y se desplaza dentro de la hoja. */
-  width: auto;
+  overflow: hidden;
+  box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.45);
+}
+/* Plegado: el panel se va de canto y deja de ocupar alto. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel.plegado {
+  transform: rotateX(-92deg);
+  max-height: 0;
+  opacity: 0.15;
+  box-shadow: none;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel .pagina {
+  display: block;
+  width: 100%;
   height: auto;
-  max-width: calc(100% * var(--cv-zoom));
-  max-height: calc(100% * var(--cv-zoom));
+  max-width: none;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;
   font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: #8a8a8a;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+    transition: none;
+  }
 }
 .page-curriculum .curriculum_content .control-button {
   display: flex;

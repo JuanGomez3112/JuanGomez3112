@@ -15,11 +15,11 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css?v=46" />
+    <link rel="stylesheet" href="css/style.css?v=47" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=46" defer></script>
-    <script src="js/menu.js?v=46" defer></script>
-    <script src="js/curriculum.js?v=46" defer></script>
+    <script src="js/header.js?v=47" defer></script>
+    <script src="js/menu.js?v=47" defer></script>
+    <script src="js/curriculum.js?v=47" defer></script>
 </head>
 
 <body>
@@ -76,38 +76,33 @@
             
                 <div class="curriculum_content">
                     <div class="vista_curriculum">
-                        <!-- El CV fisico es un triptico VERTICAL: se despliega hacia
-                             abajo y se lee como scroll. El visor lo replica. -->
-                        <div class="cv-vertical" id="cvVertical" tabindex="0" role="region"
-                            aria-label="Currículum, 6 caras. Usa las flechas arriba y abajo para pasar de cara.">
-                            <figure class="cv-hoja" data-cara="1">
+                        <!-- El CV fisico es un triptico VERTICAL: la tapa es la
+                             portada y los tres paneles interiores se despliegan
+                             hacia abajo, cada uno con bisagra en su borde superior. -->
+                        <div class="cv-trifold" id="cvTrifold" tabindex="0" role="region"
+                            aria-label="Currículum plegable. Usa las flechas para desplegarlo y plegarlo.">
+                            <div class="cv-panel" data-panel="0">
                                 <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada del currículum: Juan Gómez, Técnico de TI" class="pagina">
-                            </figure>
-                            <figure class="cv-hoja" data-cara="2">
-                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="pagina">
-                            </figure>
-                            <figure class="cv-hoja" data-cara="3">
-                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="pagina">
-                            </figure>
-                            <figure class="cv-hoja" data-cara="4">
-                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación y referencias" class="pagina">
-                            </figure>
-                            <figure class="cv-hoja" data-cara="5">
-                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="pagina">
-                            </figure>
-                            <figure class="cv-hoja" data-cara="6">
-                                <img loading="lazy" src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="pagina">
-                            </figure>
+                            </div>
+                            <div class="cv-panel" data-panel="1">
+                                <img src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="pagina">
+                            </div>
+                            <div class="cv-panel" data-panel="2">
+                                <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="pagina">
+                            </div>
+                            <div class="cv-panel" data-panel="3">
+                                <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación, referencias y contacto" class="pagina">
+                            </div>
                         </div>
-                        <p class="cv-contador"><span id="cvActual">1</span> / 6</p>
+                        <p class="cv-contador">Desplegado <span id="cvActual">0</span> de 3</p>
                     </div>
 
                     <div class="control-button">
                         <div class="botones next-back">
-                            <button class="btn-control prev-btn" type="button" aria-label="Cara anterior">
+                            <button class="btn-control prev-btn" type="button" aria-label="Plegar un panel">
                                 <i class="fa-solid fa-circle-chevron-up"></i>
                             </button>
-                            <button class="btn-control next-btn" type="button" aria-label="Cara siguiente">
+                            <button class="btn-control next-btn" type="button" aria-label="Desplegar un panel">
                                 <i class="fa-solid fa-circle-chevron-down"></i>
                             </button>
                         </div>
