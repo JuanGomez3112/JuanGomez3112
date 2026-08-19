@@ -2336,6 +2336,11 @@ html.js .reveal:not(.is-visible) {
   height: auto;
   max-width: none;
 }
+/* Cada panel lleva sus dos caras; se muestra la que toque. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-cara="a"] .cara-b,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-cara="b"] .cara-a {
+  display: none;
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;
   font-size: 0.85rem;
