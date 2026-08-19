@@ -2292,7 +2292,8 @@ html.js .reveal:not(.is-visible) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  /* La escena en perspectiva: los paneles caen hacia el espectador. */
+  /* Escena en perspectiva. Plegado en C: las solapas giran todas en el
+     mismo sentido, sobre su borde superior. */
   perspective: 1600px;
   perspective-origin: 50% 0%;
 }
@@ -2307,17 +2308,16 @@ html.js .reveal:not(.is-visible) {
   outline: 2px solid #C9A24B;
   outline-offset: 6px;
 }
-/* Cada panel gira sobre su borde superior, como el pliegue del papel. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+  position: relative;
   transform-origin: top center;
   transform-style: preserve-3d;
-  backface-visibility: hidden;
   transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
               max-height 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
               opacity 0.35s ease;
   max-height: 60rem;
-  /* En un flex column el min-height:auto implicito gana sobre max-height:0 y
-     el panel no colapsaria al plegarse. */
+  /* En flex column el min-height:auto implicito gana sobre max-height:0 y el
+     panel no colapsaria al plegarse. */
   min-height: 0;
   flex: 0 0 auto;
   overflow: hidden;
@@ -2330,16 +2330,24 @@ html.js .reveal:not(.is-visible) {
   opacity: 0.15;
   box-shadow: none;
 }
+/* La solapa de turno sube sobre su borde superior al abrir el CV. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando {
+  transform: rotateX(-180deg);
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel .pagina {
-  display: block;
+  display: none;
   width: 100%;
   height: auto;
   max-width: none;
 }
-/* Cada panel lleva sus dos caras; se muestra la que toque. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-cara="a"] .cara-b,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-cara="b"] .cara-a {
-  display: none;
+/* Que se ve en cada estado del plegado. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="0"] .v-portada,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="1"] .v-perfil,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-perfil,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="1"] .v-contraportada,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-experiencia,
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-formacion {
+  display: block;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;

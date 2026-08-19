@@ -1,10 +1,18 @@
 'use strict';
 
-// Visor del CV. El CV fisico es un triptico VERTICAL de 3 paneles por cara:
-//   cara A (interior): perfil / experiencia+habilidades / formacion+referencias
-//   cara B (exterior): portada / sobre mi / contraportada con QR
-// Se despliega hacia abajo, cada panel con bisagra en su borde superior. El
-// visor horizontal anterior, con paneles que volteaban sobre el eje Y, ya no
+// Visor del CV. El CV fisico es un triptico VERTICAL plegado en C, y el visor
+// reproduce como se abre de verdad:
+//
+//   estado 0  cerrado, solo se ve la portada.
+//   estado 1  la portada sube sobre su borde superior y se voltea al perfil.
+//             Debajo asoma la contraportada, que todavia tapa el panel del medio.
+//   estado 2  esa se abre y quedan a la vista experiencia y formacion.
+//
+// Al ser plegado en C y no en Z, las dos solapas giran en el mismo sentido:
+// ambas suben sobre su borde superior. Por eso las dos transiciones son el mismo
+// gesto y no uno hacia arriba y otro hacia abajo.
+//
+// El visor horizontal anterior, con paneles que volteaban sobre el eje Y, no
 // aplica en nada.
 function iniciarSeccionCurriculum() {
     const trifold = document.getElementById('cvTrifold');
@@ -13,48 +21,50 @@ function iniciarSeccionCurriculum() {
     const paneles = [...trifold.querySelectorAll('.cv-panel')];
     const nextBtn = document.querySelector('.next-btn');
     const prevBtn = document.querySelector('.prev-btn');
-    const flipBtn = document.querySelector('.flip-btn');
     const zoomInBtn = document.querySelector('.zoom-in');
     const zoomOutBtn = document.querySelector('.zoom-out');
-    const contador = document.getElementById('cvActual');
-    const etiquetaCara = document.getElementById('cvCara');
+    const etiqueta = document.getElementById('cvEstado');
+
+    const ESTADOS = ['Cerrado', 'Abriendo — perfil', 'Abierto — CV completo'];
+    const ULTIMO = ESTADOS.length - 1;
 
     const ZOOM_MIN = 1;
     const ZOOM_MAX = 2;
     const ZOOM_PASO = 0.25;
     let zoom = 1;
 
-    // Paneles a la vista: 1 = plegado del todo, 3 = desplegado del todo.
-    let visibles = 1;
+    let estado = 0;
+    let animando = false;
 
     const pintar = () => {
-        paneles.forEach((p, i) => p.classList.toggle('plegado', i >= visibles));
-        if (contador) contador.textContent = String(visibles);
-        if (etiquetaCara) {
-            etiquetaCara.textContent = trifold.dataset.cara === 'a'
-                ? 'cara interior'
-                : 'cara exterior';
-        }
-        if (prevBtn) prevBtn.disabled = visibles === 1;
-        if (nextBtn) nextBtn.disabled = visibles === paneles.length;
+        trifold.dataset.estado = String(estado);
+        // El panel del medio aparece a partir del estado 1; el ultimo, en el 2.
+        paneles[1].classList.toggle('plegado', estado < 1);
+        paneles[2].classList.toggle('plegado', estado < 2);
+        if (etiqueta) etiqueta.textContent = ESTADOS[estado];
+        if (prevBtn) prevBtn.disabled = estado === 0;
+        if (nextBtn) nextBtn.disabled = estado === ULTIMO;
         if (zoomOutBtn) zoomOutBtn.disabled = zoom <= ZOOM_MIN;
         if (zoomInBtn) zoomInBtn.disabled = zoom >= ZOOM_MAX;
     };
 
-    const desplegar = (n) => {
-        visibles = Math.min(Math.max(n, 1), paneles.length);
-        pintar();
-        if (visibles > 1) {
-            const panel = paneles[visibles - 1];
-            setTimeout(() => {
-                panel.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-            }, 320);
-        }
-    };
+    // Cada paso voltea la solapa de arriba: sube sobre su borde superior y en
+    // mitad del giro se cambia la imagen, para no ver la cara espejada. Al
+    // avanzar voltea el panel que se abre; al retroceder, el que se cierra.
+    const irA = (n) => {
+        const destino = Math.min(Math.max(n, 0), ULTIMO);
+        if (destino === estado || animando) return;
 
-    const voltear = () => {
-        trifold.dataset.cara = trifold.dataset.cara === 'a' ? 'b' : 'a';
-        pintar();
+        const solapa = paneles[destino > estado ? estado : destino];
+
+        animando = true;
+        solapa.classList.add('volteando');
+        setTimeout(() => {
+            estado = destino;
+            pintar();
+            solapa.classList.remove('volteando');
+            animando = false;
+        }, 275);
     };
 
     const aplicarZoom = (nuevo) => {
@@ -63,33 +73,27 @@ function iniciarSeccionCurriculum() {
         pintar();
     };
 
-    if (nextBtn) nextBtn.addEventListener('click', () => desplegar(visibles + 1));
-    if (prevBtn) prevBtn.addEventListener('click', () => desplegar(visibles - 1));
-    if (flipBtn) flipBtn.addEventListener('click', voltear);
+    if (nextBtn) nextBtn.addEventListener('click', () => irA(estado + 1));
+    if (prevBtn) prevBtn.addEventListener('click', () => irA(estado - 1));
     if (zoomInBtn) zoomInBtn.addEventListener('click', () => aplicarZoom(zoom + ZOOM_PASO));
     if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => aplicarZoom(zoom - ZOOM_PASO));
 
-    // Clic en el primer panel: despliega o pliega el CV entero.
-    paneles[0].addEventListener('click', () => {
-        desplegar(visibles === 1 ? paneles.length : 1);
-    });
+    // Clic sobre el CV: abre del todo, o lo cierra si ya estaba abierto.
+    trifold.addEventListener('click', () => irA(estado === 0 ? 1 : (estado < ULTIMO ? estado + 1 : 0)));
 
     trifold.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowDown' || e.key === 'PageDown') {
             e.preventDefault();
-            desplegar(visibles + 1);
+            irA(estado + 1);
         } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
             e.preventDefault();
-            desplegar(visibles - 1);
+            irA(estado - 1);
         } else if (e.key === 'End') {
             e.preventDefault();
-            desplegar(paneles.length);
+            irA(ULTIMO);
         } else if (e.key === 'Home') {
             e.preventDefault();
-            desplegar(1);
-        } else if (e.key === 'v' || e.key === 'V') {
-            e.preventDefault();
-            voltear();
+            irA(0);
         }
     });
 

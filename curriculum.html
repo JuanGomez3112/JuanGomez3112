@@ -15,11 +15,11 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css?v=48" />
+    <link rel="stylesheet" href="css/style.css?v=49" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=48" defer></script>
-    <script src="js/menu.js?v=48" defer></script>
-    <script src="js/curriculum.js?v=48" defer></script>
+    <script src="js/header.js?v=49" defer></script>
+    <script src="js/menu.js?v=49" defer></script>
+    <script src="js/curriculum.js?v=49" defer></script>
 </head>
 
 <body>
@@ -76,43 +76,36 @@
             
                 <div class="curriculum_content">
                     <div class="vista_curriculum">
-                        <!-- El CV fisico es un triptico VERTICAL: 3 paneles por cara.
-                             Cara A (interior): perfil / experiencia / formacion.
-                             Cara B (exterior): portada / sobre mi / contraportada.
-                             Se despliega hacia abajo, bisagra en el borde superior. -->
-                        <div class="cv-trifold" id="cvTrifold" data-cara="a" tabindex="0" role="region"
-                            aria-label="Currículum plegable de 3 paneles. Usa las flechas para desplegarlo y plegarlo.">
+                        <!-- Plegado en C, tal como se abre el CV fisico:
+                             estado 0 - cerrado, solo la portada.
+                             estado 1 - la portada sube y se voltea al perfil; debajo
+                                        asoma la contraportada, que aun tapa el medio.
+                             estado 2 - esa se abre y quedan experiencia y formacion. -->
+                        <div class="cv-trifold" id="cvTrifold" data-estado="0" tabindex="0" role="region"
+                            aria-label="Currículum plegable. Usa las flechas para abrirlo y cerrarlo.">
                             <div class="cv-panel" data-panel="0">
-                                <img src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="pagina cara-a">
-                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada: Juan Gómez, Técnico de TI" class="pagina cara-b">
+                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada: Juan Gómez, Técnico de TI" class="pagina v-portada">
+                                <img src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="pagina v-perfil">
                             </div>
                             <div class="cv-panel" data-panel="1">
-                                <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="pagina cara-a">
-                                <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="pagina cara-b">
+                                <img src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="pagina v-contraportada">
+                                <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="pagina v-experiencia">
+                                <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="pagina v-sobremi">
                             </div>
                             <div class="cv-panel" data-panel="2">
-                                <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación, referencias y contacto" class="pagina cara-a">
-                                <img src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="pagina cara-b">
+                                <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación, referencias y contacto" class="pagina v-formacion">
                             </div>
                         </div>
-                        <p class="cv-contador">
-                            Panel <span id="cvActual">1</span> de 3 ·
-                            <span id="cvCara">cara interior</span>
-                        </p>
+                        <p class="cv-contador"><span id="cvEstado">Cerrado</span></p>
                     </div>
 
                     <div class="control-button">
                         <div class="botones next-back">
-                            <button class="btn-control prev-btn" type="button" aria-label="Plegar un panel">
+                            <button class="btn-control prev-btn" type="button" aria-label="Plegar">
                                 <i class="fa-solid fa-circle-chevron-up"></i>
                             </button>
-                            <button class="btn-control next-btn" type="button" aria-label="Desplegar un panel">
+                            <button class="btn-control next-btn" type="button" aria-label="Desplegar">
                                 <i class="fa-solid fa-circle-chevron-down"></i>
-                            </button>
-                        </div>
-                        <div class="botones voltear">
-                            <button class="btn-control flip-btn" type="button" aria-label="Ver la otra cara">
-                                <i class="fa-solid fa-rotate"></i>
                             </button>
                         </div>
                         <div class="botones zoom">
