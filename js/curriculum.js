@@ -35,7 +35,7 @@ function iniciarSeccionCurriculum() {
     const ULTIMO = ESTADOS.length - 1;
 
     const ZOOM_MIN = 1;
-    const ZOOM_MAX = 2;
+    const ZOOM_MAX = 2.5;
     const ZOOM_PASO = 0.25;
     let zoom = 1;
     let estado = 0;
@@ -78,9 +78,17 @@ function iniciarSeccionCurriculum() {
         pintar();
     };
 
+    const marco = carta.parentElement;
+
     const aplicarZoom = (nuevo) => {
+        const antes = zoom;
         zoom = Math.min(Math.max(nuevo, ZOOM_MIN), ZOOM_MAX);
         carta.style.setProperty('--cv-zoom', zoom);
+        // Ampliar y reducir manteniendo el centro de lo que se esta mirando.
+        if (marco && antes !== zoom) {
+            const centro = (marco.scrollLeft + marco.clientWidth / 2) / antes;
+            marco.scrollLeft = centro * zoom - marco.clientWidth / 2;
+        }
         pintar();
     };
 

@@ -2275,9 +2275,11 @@ html.js .reveal:not(.is-visible) {
 }
 .page-curriculum .curriculum_content {
   width: 100%;
-  height: 33.25rem;
+  /* Sin alto fijo: la carta crece al desplegarse. El 33.25rem de antes era la
+     medida del triptico horizontal y hacia que se saliera sobre el titulo. */
+  height: auto;
   position: relative;
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
   z-index: 8;
   display: flex;
   flex-direction: column;
@@ -2293,11 +2295,24 @@ html.js .reveal:not(.is-visible) {
   align-items: center;
   gap: 1rem;
 }
+/* Marco: a zoom 1 la carta entra justa; al ampliar, se desplaza aqui dentro. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-marco {
+  width: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+  display: flex;
+  justify-content: center;
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta {
   --cv-zoom: 1;
   --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
   position: relative;
-  width: min(100%, calc(30rem * var(--cv-zoom)));
+  /* A zoom 1 la carta ocupa el marco, con tope en 52.625rem = 842px, que es el
+     ancho real de las imagenes: mas grande solo seria interpolar. Al ampliar
+     crece y se desplaza dentro del marco. */
+  width: calc(100% * var(--cv-zoom));
+  max-width: calc(52.625rem * var(--cv-zoom));
+  flex: 0 0 auto;
   /* content-box a proposito: con border-box el relleno que abre hueco para las
      solapas se comeria el ancho, el pliego encogeria al abrirse y el hueco
      dejaria de medir lo que mide un panel. */
@@ -2412,18 +2427,21 @@ html.js .reveal:not(.is-visible) {
   display: flex;
   position: relative;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 2.5rem;
   width: 100%;
 }
 .page-curriculum .curriculum_content .control-button .next-back {
   display: flex;
-  width: 100%;
+  width: auto;
   position: relative;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.625rem;
 }
 .page-curriculum .curriculum_content .control-button .zoom {
-  position: absolute;
+  position: relative;
   display: flex;
   gap: 1.625rem;
 }
