@@ -46,6 +46,16 @@ function iniciarSeccionCurriculum() {
         5: 'Del revés — portada'
     };
 
+    const ZOOM_MIN = 1;
+    const ZOOM_MAX = 3;
+    const ZOOM_PASO = 0.25;
+    let zoom = 1;
+
+    // El marco es el que hace scroll cuando se amplia. Estaba declarado dentro
+    // de iniciarInclinacion, asi que aplicarZoom lanzaba ReferenceError en cada
+    // clic y el zoom no llegaba a pintar el estado de los botones.
+    const marco = carta.closest('.cv-marco');
+
     let paso = 0;
     const estadoActual = () => SECUENCIA[paso];
 
@@ -53,14 +63,17 @@ function iniciarSeccionCurriculum() {
         const estado = estadoActual();
         carta.dataset.estado = String(estado);
         if (etiqueta) etiqueta.textContent = ETIQUETAS[estado];
-        if (prevBtn) prevBtn.disabled = paso === 0;
-        if (nextBtn) nextBtn.disabled = paso === SECUENCIA.length - 1;
+        // El recorrido es un bucle: del ultimo paso se vuelve al primero, asi
+        // que ninguna de las dos flechas se agota nunca.
         if (zoomOutBtn) zoomOutBtn.disabled = zoom <= ZOOM_MIN;
         if (zoomInBtn) zoomInBtn.disabled = zoom >= ZOOM_MAX;
     };
 
+    // Da la vuelta por los dos lados: -1 lleva al ultimo, y uno mas alla del
+    // ultimo vuelve al primero.
     const irA = (n) => {
-        const destino = Math.min(Math.max(n, 0), SECUENCIA.length - 1);
+        const total = SECUENCIA.length;
+        const destino = ((n % total) + total) % total;
         if (destino === paso) return;
         paso = destino;
         pintar();
@@ -95,10 +108,8 @@ function iniciarSeccionCurriculum() {
     if (zoomInBtn) zoomInBtn.addEventListener('click', () => aplicarZoom(zoom + ZOOM_PASO));
     if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => aplicarZoom(zoom - ZOOM_PASO));
 
-    // Clic en la carta: siguiente paso, y desde abierta vuelve al principio.
-    carta.addEventListener('click', () => {
-        irA(paso < SECUENCIA.length - 1 ? paso + 1 : 0);
-    });
+    // Clic en la carta: avanza un paso, dando la vuelta al llegar al final.
+    carta.addEventListener('click', () => irA(paso + 1));
 
     carta.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowDown' || e.key === 'PageDown') {
