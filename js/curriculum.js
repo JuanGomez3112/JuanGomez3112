@@ -3,17 +3,17 @@
 // Visor del CV. Se comporta como una carta doblada en C para meterla en un
 // sobre, y se abre igual que se abriria esa carta:
 //
-// El doblez esta anclado en la PARTE 1, que no se mueve nunca. Las otras dos
-// cuelgan de ella y sus pliegues van anidados, asi que plegar la 2 arrastra la
-// 3 consigo, igual que el papel.
+// Son DOS dobleces encadenados sobre el mismo pliego:
 //
-//   estado 0  doblada. La 3 esta subida sobre la 2, y la 2 sobre la 1.
-//   estado 1  baja la 2 a su sitio; la 3 sigue subida, tumbada sobre ella.
-//   estado 2  baja la 3: el CV queda abierto del todo.
-//   estado 3  el pliego doblado, visto por detras.
+//   ABRIR   el panel del medio no se mueve. La parte 1 esta abatida sobre el y
+//           la 3 doblada sobre el; se van levantando hasta dejarlo abierto.
+//   CERRAR  si se sigue bajando, el pliego se recoge del otro modo: sube la 3
+//           sobre la 2, y despues el grupo 2+3 entero sobre la 1. Ahi la cara
+//           que queda mirando afuera es el QR, y un paso mas lo voltea.
 //
-// Al cerrar, las dos partes SUBEN -- primero la 3 sobre la 2, luego la 2 sobre
-// la 1 -- y al llegar a doblada un paso mas lo voltea.
+// Por eso la parte 1 es HERMANA del grupo 2+3 en el marcado y no su padre: con
+// la 1 de raiz no se puede abatir sobre la 2 sin arrastrarla.
+
 function iniciarSeccionCurriculum() {
     const carta = document.getElementById('cvCarta');
     if (!carta) return;
@@ -24,24 +24,29 @@ function iniciarSeccionCurriculum() {
     const zoomOutBtn = document.querySelector('.zoom-out');
     const etiqueta = document.getElementById('cvEstado');
 
-    // Secuencia lineal del pliego. Cerrar recorre las solapas de abajo hacia
-    // arriba, una a una, y al terminar le da la vuelta:
+    // Un solo recorrido de ida y vuelta con el boton de bajar:
     //
-    //   abierta  --cerrar-->  se pliega la de ABAJO
-    //            --cerrar-->  se pliega la de ARRIBA (queda la portada)
-    //            --cerrar-->  se voltea y se ve el reverso con el QR
+    //   0  cerrada          se ve la portada
+    //   1  abriendo         sube la tapa: perfil arriba, sobre mi en el medio
+    //   2  abierta          las tres partes a la vista
+    //   3  recogiendo       vuelve a subir la 3 sobre la 2
+    //   4  cerrada del otro modo   sube el grupo 2+3 sobre la 1: se ve el QR
+    //   5  volteada         se le da la vuelta al pliego: se ve la portada
     //
-    // Abrir hace el camino inverso. Por eso el reverso va al principio del
-    // array: es el paso anterior a "doblada", no un estado suelto.
-    const SECUENCIA = [3, 0, 1, 2];
+    // Los estados 1 y 3 se ven igual: uno abriendo y otro recogiendo. Por eso
+    // la secuencia es una lista de estados y no un contador, y el mismo estado
+    // puede aparecer dos veces con distinto sentido.
+    const SECUENCIA = [0, 1, 2, 3, 4, 5];
     const ETIQUETAS = {
-        3: 'Doblada, del revés — portada',
-        0: 'Doblada — código QR',
+        0: 'Doblada — portada',
         1: 'Abriendo — perfil',
-        2: 'Abierta — CV completo'
+        2: 'Abierta — CV completo',
+        3: 'Plegando — sube la parte 3',
+        4: 'Plegada — código QR',
+        5: 'Del revés — portada'
     };
 
-    let paso = 1;                       // arranca doblada, ensenando la portada
+    let paso = 0;
     const estadoActual = () => SECUENCIA[paso];
 
     const pintar = () => {

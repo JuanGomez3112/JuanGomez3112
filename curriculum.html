@@ -15,11 +15,11 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css?v=72" />
+    <link rel="stylesheet" href="css/style.css?v=73" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=72" defer></script>
-    <script src="js/menu.js?v=72" defer></script>
-    <script src="js/curriculum.js?v=72" defer></script>
+    <script src="js/header.js?v=73" defer></script>
+    <script src="js/menu.js?v=73" defer></script>
+    <script src="js/curriculum.js?v=73" defer></script>
 </head>
 
 <body>
@@ -80,28 +80,29 @@
                         <!-- La escena recibe la inclinacion del raton; la carta,
                              el plegado. Separadas para que no peleen. -->
                         <div class="cv-escena" id="cvEscena">
-                        <!-- Doblez en C anclado en la parte 1: al cerrar, la 3 sube
-                             sobre la 2 y despues la 2 sube sobre la 1 llevandose la 3
-                             consigo. Por eso los pliegues van ANIDADOS: girar el
-                             pliegue 2 arrastra todo lo que cuelga de el. -->
+                        <!-- Dos dobleces encadenados sobre el mismo pliego:
+                             ABRIR  el panel del medio (parte 2) no se mueve. La 1
+                                    esta abatida sobre el y la 3 doblada sobre el.
+                             CERRAR si sigues bajando, sube el grupo 2+3 entero
+                                    sobre la 1 y queda el QR mirando afuera.
+                             Por eso la 1 es HERMANA del grupo 2+3, no su padre. -->
                         <div class="cv-carta" id="cvCarta" data-estado="0" tabindex="0" role="region"
-                            aria-label="Currículum doblado como una carta. Ábrelo pliegue a pliegue con las flechas; al plegarlo del todo se voltea y muestra el código QR.">
+                            aria-label="Currículum plegable. Baja para abrirlo pliegue a pliegue; si sigues bajando se vuelve a plegar y se voltea.">
 
-                            <div class="cv-panel cv-panel-1">
+                            <div class="cv-parte cv-parte-1">
                                 <img src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Perfil profesional" class="cara-frente">
-                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada: Juan Gómez, Técnico de TI" class="cara-dorso">
+                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="Portada: Juan Gómez, Técnico de TI" class="cara-dorso-x">
+                                <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="" aria-hidden="true" class="cara-dorso-y">
+                            </div>
 
-                                <div class="cv-pliegue cv-pliegue-2">
-                                    <div class="cv-panel cv-panel-2">
-                                        <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="cara-frente">
-                                        <img src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="cara-dorso">
+                            <div class="cv-grupo-23">
+                                <div class="cv-parte cv-parte-2">
+                                    <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="Experiencia y habilidades" class="cara-frente">
+                                    <img src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="Contraportada con código QR a la web" class="cara-dorso-x">
 
-                                        <div class="cv-pliegue cv-pliegue-3">
-                                            <div class="cv-panel cv-panel-3">
-                                                <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación, referencias y contacto" class="cara-frente">
-                                                <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="cara-dorso">
-                                            </div>
-                                        </div>
+                                    <div class="cv-parte cv-parte-3">
+                                        <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="Formación, referencias y contacto" class="cara-frente">
+                                        <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="cara-dorso-x">
                                     </div>
                                 </div>
                             </div>
