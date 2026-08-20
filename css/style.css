@@ -2296,13 +2296,23 @@ html.js .reveal:not(.is-visible) {
   gap: 1rem;
 }
 /* Marco: a zoom 1 la carta entra justa; al ampliar, se desplaza aqui dentro. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-marco::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-marco {
   width: 100%;
   /* El marco manda: la carta entra entera a zoom 1, incluso desplegada. Al
      ampliar para leer, se desplaza aqui dentro en vez de estirar la pagina. */
   max-height: 78vh;
   overflow: auto;
-  scrollbar-width: thin;
+  /* Sin barras a la vista. Aparte de molestar cuando entran y salen, al
+     aparecer se comian ~15px de ancho del marco: la escena recalculaba su
+     tamano y el primer paso de zoom daba un salto. Se sigue desplazando con
+     la rueda y arrastrando. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior: contain;
   /* Perspectiva de la escena: la del raton. La de las solapas vive en .cv-medio. */
   perspective: 1500px;
   perspective-origin: 50% 50%;
@@ -2323,11 +2333,13 @@ html.js .reveal:not(.is-visible) {
   --ancho-base: min(100%, 34vh);
   width: calc(var(--ancho-base) * var(--cv-zoom));
   margin: 0 auto;
+  /* El cambio de tamano se acompana, no se da de golpe. */
+  transition: width 0.32s cubic-bezier(0.16, 0.78, 0.24, 1),
+              transform 0.25s ease-out;
   --giro-x: 0deg;
   --giro-y: 0deg;
   transform-style: preserve-3d;
   transform: rotateX(var(--giro-x)) rotateY(var(--giro-y));
-  transition: transform 0.25s ease-out;
   will-change: transform;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-escena.quieta {
