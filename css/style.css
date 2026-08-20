@@ -2292,16 +2292,16 @@ html.js .reveal:not(.is-visible) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  /* Escena en perspectiva. Plegado en C: las solapas giran todas en el
-     mismo sentido, sobre su borde superior. */
-  perspective: 1100px;
-  perspective-origin: 50% 0%;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-trifold {
   position: relative;
   --cv-zoom: 1;
   width: min(100%, calc(30rem * var(--cv-zoom)));
-  transform-style: preserve-3d;
+  /* La perspectiva tiene que estar en el PADRE DIRECTO de los paneles. Estaba
+     en .vista_curriculum, el abuelo, y no llegaba: el giro se aplastaba sin
+     profundidad y no se leia hacia donde iba. */
+  perspective: 1100px;
+  perspective-origin: 50% 50%;
   display: flex;
   flex-direction: column;
 }
@@ -2334,8 +2334,9 @@ html.js .reveal:not(.is-visible) {
 }
 /* La solapa de turno sube sobre su borde superior al abrir el CV. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando {
-  transform: rotateX(-180deg);
-  /* Al venirse hacia el espectador debe pasar por delante del panel de abajo. */
+  /* Hacia adelante: la solapa se levanta viniendose hacia el espectador. El
+     translateZ la despega del plano para que se vea venir, no solo encogerse. */
+  transform: translateZ(60px) rotateX(-180deg);
   z-index: 2;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel .pagina {
