@@ -15,11 +15,11 @@
     <meta property="og:url" content="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="stylesheet" href="css/style.css?v=60" />
+    <link rel="stylesheet" href="css/style.css?v=65" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=60" defer></script>
-    <script src="js/menu.js?v=60" defer></script>
-    <script src="js/curriculum.js?v=60" defer></script>
+    <script src="js/header.js?v=65" defer></script>
+    <script src="js/menu.js?v=65" defer></script>
+    <script src="js/curriculum.js?v=65" defer></script>
 </head>
 
 <body>
@@ -83,6 +83,9 @@
                              Al abrir, una sube y la otra baja. El QR es el dorso del
                              panel del medio: se ve por detras del CV doblado. -->
                         <div class="cv-marco">
+                        <!-- La escena recibe la inclinacion del raton; la carta,
+                             el plegado. Separadas para que no peleen. -->
+                        <div class="cv-escena" id="cvEscena">
                         <div class="cv-carta" id="cvCarta" data-estado="0" tabindex="0" role="region"
                             aria-label="Currículum doblado como una carta. Usa las flechas para abrirlo y cerrarlo.">
 
@@ -102,6 +105,7 @@
                                     <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="Sobre mí" class="cara-dorso">
                                 </div>
                             </div>
+                        </div>
                         </div>
                         </div>
                         <p class="cv-contador"><span id="cvEstado">Doblada</span></p>

@@ -2298,21 +2298,62 @@ html.js .reveal:not(.is-visible) {
 /* Marco: a zoom 1 la carta entra justa; al ampliar, se desplaza aqui dentro. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-marco {
   width: 100%;
+  /* El marco manda: la carta entra entera a zoom 1, incluso desplegada. Al
+     ampliar para leer, se desplaza aqui dentro en vez de estirar la pagina. */
+  max-height: 78vh;
   overflow: auto;
   scrollbar-width: thin;
-  display: flex;
-  justify-content: center;
+  /* Perspectiva de la escena: la del raton. La de las solapas vive en .cv-medio. */
+  perspective: 1500px;
+  perspective-origin: 50% 50%;
+  /* Nada de justify-content: center. Con el contenido mas grande que el marco,
+     el centrado por flex desborda hacia la izquierda y esa parte no se alcanza
+     con el scroll. Con margin auto no pasa. */
+  display: block;
+}
+/* Capa del raton: inclina el conjunto sin tocar el plegado. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+  position: relative;
+  /* La escena manda el tamano y la carta la llena. Asi el relleno que abre
+     hueco para las solapas, que va en porcentaje, se resuelve contra un ancho
+     igual al de la carta. Con la escena mas ancha, reservaba de mas.
+     34vh de ancho => desplegada mide 3 paneles = 2.12 x ancho = ~72vh, y entra
+     entera en el marco. Pequena a proposito: para leer esta el zoom. */
+  --cv-zoom: 1;
+  --ancho-base: min(100%, 34vh);
+  width: calc(var(--ancho-base) * var(--cv-zoom));
+  margin: 0 auto;
+  --giro-x: 0deg;
+  --giro-y: 0deg;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--giro-x)) rotateY(var(--giro-y));
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-escena.quieta {
+  transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
+}
+/* Brillo especular que sigue al puntero: es lo que hace que se lea como papel
+   inclinado y no como una imagen girada. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-escena::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(60% 45% at var(--luz-x, 50%) var(--luz-y, 0%),
+              rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-escena.iluminada::after {
+  opacity: 1;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta {
   --cv-zoom: 1;
   --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
   position: relative;
-  /* A zoom 1 la carta ocupa el marco, con tope en 52.625rem = 842px, que es el
-     ancho real de las imagenes: mas grande solo seria interpolar. Al ampliar
-     crece y se desplaza dentro del marco. */
-  width: calc(100% * var(--cv-zoom));
-  max-width: calc(52.625rem * var(--cv-zoom));
-  flex: 0 0 auto;
+  width: 100%;
   /* content-box a proposito: con border-box el relleno que abre hueco para las
      solapas se comeria el ancho, el pliego encogeria al abrirse y el hueco
      dejaria de medir lo que mide un panel. */
@@ -2419,8 +2460,12 @@ html.js .reveal:not(.is-visible) {
 }
 @media (prefers-reduced-motion: reduce) {
   .page-curriculum .curriculum_content .vista_curriculum .cv-carta,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-solapa {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-solapa,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
     transition: none;
+  }
+  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+    transform: none;
   }
 }
 .page-curriculum .curriculum_content .control-button {

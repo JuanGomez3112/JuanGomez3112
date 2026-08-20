@@ -35,7 +35,7 @@ function iniciarSeccionCurriculum() {
     const ULTIMO = ESTADOS.length - 1;
 
     const ZOOM_MIN = 1;
-    const ZOOM_MAX = 2.5;
+    const ZOOM_MAX = 3;
     const ZOOM_PASO = 0.25;
     let zoom = 1;
     let estado = 0;
@@ -83,7 +83,7 @@ function iniciarSeccionCurriculum() {
     const aplicarZoom = (nuevo) => {
         const antes = zoom;
         zoom = Math.min(Math.max(nuevo, ZOOM_MIN), ZOOM_MAX);
-        carta.style.setProperty('--cv-zoom', zoom);
+        (document.getElementById('cvEscena') || carta).style.setProperty('--cv-zoom', zoom);
         // Ampliar y reducir manteniendo el centro de lo que se esta mirando.
         if (marco && antes !== zoom) {
             const centro = (marco.scrollLeft + marco.clientWidth / 2) / antes;
@@ -116,7 +116,63 @@ function iniciarSeccionCurriculum() {
         }
     });
 
+    iniciarInclinacion(carta);
     pintar();
+}
+
+// Inclinacion con el raton: la escena gira siguiendo al puntero y un brillo se
+// desplaza por encima. Es lo que da la sensacion de papel en 3D y no de imagen
+// plana. Se apaga en pantallas tactiles y con movimiento reducido.
+function iniciarInclinacion(carta) {
+    const escena = document.getElementById('cvEscena');
+    const marco = escena && escena.parentElement;
+    if (!escena || !marco) return;
+
+    const finoDePuntero = window.matchMedia('(pointer: fine)').matches;
+    const menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!finoDePuntero || menosMovimiento) return;
+
+    const GIRO_MAX = 9;      // grados
+    let pendiente = false;
+    let ultimo = null;
+
+    const aplicar = () => {
+        pendiente = false;
+        if (!ultimo) return;
+        const caja = marco.getBoundingClientRect();
+        // -1..1 desde el centro del marco
+        const px = (ultimo.clientX - caja.left) / caja.width * 2 - 1;
+        const py = (ultimo.clientY - caja.top) / caja.height * 2 - 1;
+        const x = Math.max(-1, Math.min(1, px));
+        const y = Math.max(-1, Math.min(1, py));
+
+        // El eje vertical del raton inclina en X, y al reves: se sigue el puntero.
+        escena.style.setProperty('--giro-y', (x * GIRO_MAX).toFixed(2) + 'deg');
+        escena.style.setProperty('--giro-x', (-y * GIRO_MAX).toFixed(2) + 'deg');
+        escena.style.setProperty('--luz-x', ((x + 1) / 2 * 100).toFixed(1) + '%');
+        escena.style.setProperty('--luz-y', ((y + 1) / 2 * 100).toFixed(1) + '%');
+    };
+
+    marco.addEventListener('pointermove', (e) => {
+        ultimo = e;
+        escena.classList.remove('quieta');
+        escena.classList.add('iluminada');
+        if (!pendiente) {
+            pendiente = true;
+            requestAnimationFrame(aplicar);
+        }
+    });
+
+    const reposar = () => {
+        escena.classList.add('quieta');
+        escena.classList.remove('iluminada');
+        escena.style.setProperty('--giro-x', '0deg');
+        escena.style.setProperty('--giro-y', '0deg');
+    };
+
+    marco.addEventListener('pointerleave', reposar);
+    // Al plegar o desplegar, la carta vuelve a su reposo para no sumar giros.
+    carta.addEventListener('click', reposar);
 }
 
 window.onload = function () {
