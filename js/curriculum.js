@@ -149,14 +149,11 @@ function iniciarInclinacion(carta) {
         // El eje vertical del raton inclina en X, y al reves: se sigue el puntero.
         escena.style.setProperty('--giro-y', (x * GIRO_MAX).toFixed(2) + 'deg');
         escena.style.setProperty('--giro-x', (-y * GIRO_MAX).toFixed(2) + 'deg');
-        escena.style.setProperty('--luz-x', ((x + 1) / 2 * 100).toFixed(1) + '%');
-        escena.style.setProperty('--luz-y', ((y + 1) / 2 * 100).toFixed(1) + '%');
     };
 
     marco.addEventListener('pointermove', (e) => {
         ultimo = e;
         escena.classList.remove('quieta');
-        escena.classList.add('iluminada');
         if (!pendiente) {
             pendiente = true;
             requestAnimationFrame(aplicar);
@@ -165,7 +162,6 @@ function iniciarInclinacion(carta) {
 
     const reposar = () => {
         escena.classList.add('quieta');
-        escena.classList.remove('iluminada');
         escena.style.setProperty('--giro-x', '0deg');
         escena.style.setProperty('--giro-y', '0deg');
     };

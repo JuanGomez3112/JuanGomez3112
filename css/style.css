@@ -2333,22 +2333,6 @@ html.js .reveal:not(.is-visible) {
 .page-curriculum .curriculum_content .vista_curriculum .cv-escena.quieta {
   transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
 }
-/* Brillo especular que sigue al puntero: es lo que hace que se lea como papel
-   inclinado y no como una imagen girada. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-escena::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 4;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  background: radial-gradient(60% 45% at var(--luz-x, 50%) var(--luz-y, 0%),
-              rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-escena.iluminada::after {
-  opacity: 1;
-}
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta {
   --cv-zoom: 1;
   --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
@@ -2432,8 +2416,14 @@ html.js .reveal:not(.is-visible) {
   z-index: 2;
 }
 /* Dobladas: cada solapa cae sobre el medio, ensenando su dorso. */
+/* Con la bisagra abajo, rotateX positivo barre hacia ATRAS y el panel del medio
+   tapa la solapa mientras gira. En negativo viene hacia el espectador, que es
+   como se abre una hoja. La de abajo tiene la bisagra arriba, asi que su
+   sentido es el contrario: positivo. Plegado en C, giros opuestos. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-arriba,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-arriba,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-arriba {
+  transform: rotateX(-180deg);
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-solapa-abajo,
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-abajo,
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-abajo {
