@@ -2382,8 +2382,11 @@ html.js .reveal:not(.is-visible) {
      esta transparente arriba y abajo cuando el CV esta doblado. */
   box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.5);
   transform-style: preserve-3d;
-  /* La perspectiva va en el padre DIRECTO de las solapas, que ahora es el medio. */
-  perspective: 1400px;
+  /* Perspectiva larga a proposito. Con 1400px la solapa se agrandaba muchisimo
+     al pasar cerca del espectador y volvia a encoger: ese golpe de tamano es lo
+     que se leia como un salto. Con 3200px hay profundidad pero el tamano
+     apenas cambia durante el giro. */
+  perspective: 3200px;
   perspective-origin: 50% 50%;
 }
 /* Las solapas cuelgan de los pliegues del panel del medio. */
