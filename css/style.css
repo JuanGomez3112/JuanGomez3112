@@ -2367,6 +2367,52 @@ html.js .reveal:not(.is-visible) {
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
+/* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
+   propio panel, asi que no se corta contra los bordes del contenedor como
+   pasaba con el brillo anterior. Es el gesto que hace que se lea como papel. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg,
+              rgba(0, 0, 0, 0.78) 0%,
+              rgba(0, 0, 0, 0.42) 55%,
+              rgba(0, 0, 0, 0.62) 100%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after {
+  animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
+}
+@keyframes giroPapel {
+  0%   { opacity: 0; }
+  45%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* Sombra de contacto: la solapa que se levanta oscurece el panel de abajo. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
+  animation: sombraContacto 0.62s ease-out;
+}
+@keyframes sombraContacto {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
+    animation: none;
+  }
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
   display: block;
   width: 100%;
@@ -2397,7 +2443,55 @@ html.js .reveal:not(.is-visible) {
   height: 0;
   padding-bottom: var(--panel);
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.16, 0.78, 0.24, 1);
+  /* Lenta al arrancar, rapida al cruzar el canto, suave al asentar. Con una
+     curva que sale disparada, el momento de canto se comia el recorrido. */
+  transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
+}
+/* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
+   propio panel, asi que no se corta contra los bordes del contenedor como
+   pasaba con el brillo anterior. Es el gesto que hace que se lea como papel. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg,
+              rgba(0, 0, 0, 0.78) 0%,
+              rgba(0, 0, 0, 0.42) 55%,
+              rgba(0, 0, 0, 0.62) 100%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after {
+  animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
+}
+@keyframes giroPapel {
+  0%   { opacity: 0; }
+  45%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* Sombra de contacto: la solapa que se levanta oscurece el panel de abajo. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
+  animation: sombraContacto 0.62s ease-out;
+}
+@keyframes sombraContacto {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
+    animation: none;
+  }
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
   position: absolute;

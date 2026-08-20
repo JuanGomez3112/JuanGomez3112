@@ -66,6 +66,7 @@ function iniciarSeccionCurriculum() {
             animando = true;
             estado = 0;
             pintar();
+            marcarGiro();
             setTimeout(() => {
                 estado = destino;
                 pintar();
@@ -76,6 +77,18 @@ function iniciarSeccionCurriculum() {
 
         estado = destino;
         pintar();
+        marcarGiro();
+    };
+
+    // Enciende el sombreado del papel mientras dura el giro.
+    let temporizadorGiro;
+    const marcarGiro = () => {
+        clearTimeout(temporizadorGiro);
+        carta.classList.remove('girando');
+        // Reinicia la animacion aunque se encadenen dos pasos seguidos.
+        void carta.offsetWidth;
+        carta.classList.add('girando');
+        temporizadorGiro = setTimeout(() => carta.classList.remove('girando'), 640);
     };
 
     const marco = carta.parentElement;
