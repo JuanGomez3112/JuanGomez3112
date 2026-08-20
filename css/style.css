@@ -2334,15 +2334,18 @@ html.js .reveal:not(.is-visible) {
   transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta {
-  --cv-zoom: 1;
-  --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
-  position: relative;
   width: 100%;
-  /* Caja fija de 3 paneles (842 x 596*3). Antes crecia con padding, y al abrir
-     el hueco empujaba el panel del medio hacia abajo: ese era el salto. En una
-     carta de verdad el medio no se mueve, solo giran las solapas. Ahora el
-     espacio de arriba y abajo esta siempre reservado y transparente. */
+  /* La perspectiva va UNA sola vez, aqui. Puesta en cada pliegue, cada uno
+     abria su propio contexto 3D y aplanaba a sus hijos contra su plano: el
+     navegador perdia la profundidad entre hojas y las ordenaba por orden de
+     pintado. Larga a proposito, para que el panel no se agrande de golpe al
+     pasar cerca del espectador. */
+  perspective: 3200px;
+  perspective-origin: 50% 50%;
+  /* Caja fija de 3 paneles (842 x 596*3): nada se desplaza al abrir o cerrar,
+     solo giran los pliegues. */
   aspect-ratio: 842 / 1788;
+  position: relative;
   box-sizing: border-box;
   transform-style: preserve-3d;
   transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
@@ -2352,187 +2355,122 @@ html.js .reveal:not(.is-visible) {
   outline: 2px solid #C9A24B;
   outline-offset: 8px;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio > .cara-frente {
+/* La parte 1 es el ancla: no se mueve nunca. Las otras dos cuelgan de ella. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.5);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel > .cara-frente {
   display: block;
   width: 100%;
   height: auto;
   max-width: none;
   backface-visibility: hidden;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio > .cara-dorso {
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel > .cara-dorso {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  /* Cada dorso se pregira en el MISMO eje que lo va a descubrir. Los paneles 2
+     y 3 se destapan al plegarse sobre el eje X, asi que pregirarlos en Y los
+     dejaba cabeza abajo: el giro del pliegue les sumaba otro medio vuelta. */
+  transform: rotateX(180deg);
+}
+/* El panel 1 es la excepcion: su dorso solo se ve cuando se voltea el pliego
+   entero, y eso es un giro en Y. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel-1 > .cara-dorso {
   transform: rotateY(180deg);
 }
-/* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
-   propio panel, asi que no se corta contra los bordes del contenedor como
-   pasaba con el brillo anterior. Es el gesto que hace que se lea como papel. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa::after {
-  content: "";
+/* Cada pliegue cuelga del borde inferior de su panel y gira sobre el. Van
+   ANIDADOS: al plegar el 2 se lleva consigo el 3, como el papel de verdad. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-pliegue {
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(180deg,
-              rgba(0, 0, 0, 0.78) 0%,
-              rgba(0, 0, 0, 0.42) 55%,
-              rgba(0, 0, 0, 0.62) 100%);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after {
-  animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
-}
-@keyframes giroPapel {
-  0%   { opacity: 0; }
-  45%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-/* Sombra de contacto: la solapa que se levanta oscurece el panel de abajo. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
-  animation: sombraContacto 0.62s ease-out;
-}
-@keyframes sombraContacto {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
-    animation: none;
-  }
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: none;
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio {
-  position: absolute;
-  top: 33.3333%;
+  top: 100%;
   left: 0;
   right: 0;
-  /* La sombra vive aqui, no en la carta: la caja de la carta es 3 paneles y
-     esta transparente arriba y abajo cuando el CV esta doblado. */
-  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.5);
+  transform-origin: top center;
   transform-style: preserve-3d;
-  /* Perspectiva larga a proposito. Con 1400px la solapa se agrandaba muchisimo
-     al pasar cerca del espectador y volvia a encoger: ese golpe de tamano es lo
-     que se leia como un salto. Con 3200px hay profundidad pero el tamano
-     apenas cambia durante el giro. */
-  perspective: 3200px;
-  perspective-origin: 50% 50%;
-}
-/* Las solapas cuelgan de los pliegues del panel del medio. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 0;
-  padding-bottom: var(--panel);
-  transform-style: preserve-3d;
-  /* Lenta al arrancar, rapida al cruzar el canto, suave al asentar. Con una
-     curva que sale disparada, el momento de canto se comia el recorrido. */
+  /* Lento al arrancar, rapido al cruzar el canto, suave al asentar. */
   transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
 }
-/* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
-   propio panel, asi que no se corta contra los bordes del contenedor como
-   pasaba con el brillo anterior. Es el gesto que hace que se lea como papel. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(180deg,
-              rgba(0, 0, 0, 0.78) 0%,
-              rgba(0, 0, 0, 0.42) 55%,
-              rgba(0, 0, 0, 0.62) 100%);
+/* Plegado: el pliegue sube y queda tumbado sobre el panel de arriba.
+   El translateZ separa las hojas en profundidad. Sin el quedan todas en el
+   mismo plano, el navegador no puede ordenarlas y decide por orden de pintado.
+   Los signos no coinciden porque el pliegue 3 cuelga del 2: cuando el 2 esta
+   plegado su marco viene ya volteado, y ahi el eje Z apunta al reves. Con
+   estos valores el orden en profundidad queda 2 delante, 3 emparedada y 1 al
+   fondo, que es como se apila el papel de verdad. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-pliegue-2,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-pliegue-2 {
+  transform: rotateX(180deg) translateZ(-2px);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after {
-  animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
+/* Con la parte 2 en su sitio, la 3 esta tumbada ENCIMA de ella. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-pliegue-3 {
+  transform: rotateX(180deg) translateZ(-2px);
 }
-@keyframes giroPapel {
-  0%   { opacity: 0; }
-  45%  { opacity: 1; }
-  100% { opacity: 0; }
-}
-/* Sombra de contacto: la solapa que se levanta oscurece el panel de abajo. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 55%);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
-  animation: sombraContacto 0.62s ease-out;
-}
-@keyframes sombraContacto {
-  0%   { opacity: 0.9; }
-  100% { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-solapa::after,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-medio::after {
-    animation: none;
-  }
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-}
-/* El dorso va girado, asi aparece solo cuando la solapa esta doblada. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa .cara-dorso {
+/* Con las dos plegadas, la 3 queda EMPAREDADA entre la 1 y la 2, o sea dentro
+   del paquete: no hay forma de verla. Se oculta y punto. Intentar que el
+   navegador la ordene por profundidad no funciona de forma fiable con
+   pliegues anidados, y el precio de fallar es ensenar la cara equivocada.
+   El retardo de la visibilidad evita que asome mientras la 2 todavia gira. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-pliegue-3,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-pliegue-3 {
   transform: rotateX(180deg);
+  visibility: hidden;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa-arriba {
-  bottom: 100%;
-  transform-origin: bottom center;   /* pliegue superior del medio */
-  z-index: 3;
+.page-curriculum .curriculum_content .vista_curriculum .cv-pliegue-3 {
+  visibility: visible;
+  transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1),
+              visibility 0s linear 0.3s;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-solapa-abajo {
-  top: 100%;
-  transform-origin: top center;      /* pliegue inferior del medio */
-  z-index: 2;
-}
-/* Dobladas: cada solapa cae sobre el medio, ensenando su dorso. */
-/* Con la bisagra abajo, rotateX positivo barre hacia ATRAS y el panel del medio
-   tapa la solapa mientras gira. En negativo viene hacia el espectador, que es
-   como se abre una hoja. La de abajo tiene la bisagra arriba, asi que su
-   sentido es el contrario: positivo. Plegado en C, giros opuestos. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-arriba,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-arriba {
-  transform: rotateX(-180deg);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-solapa-abajo,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-abajo,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-abajo {
-  transform: rotateX(180deg);
-}
-/* Estado 3: se dobla y se le da la vuelta al pliego para ver el reverso, que
-   es el dorso del panel del medio (el QR). Las solapas quedan del otro lado. */
+/* Volteo del pliego doblado para ver el reverso. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] {
   transform: rotateY(180deg);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa {
-  visibility: hidden;
+/* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
+   propio panel, asi que no se corta contra los bordes del contenedor. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(180deg,
+              rgba(0, 0, 0, 0.78) 0%,
+              rgba(0, 0, 0, 0.42) 55%,
+              rgba(0, 0, 0, 0.62) 100%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-panel-2::after,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-panel-3::after {
+  animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
+}
+@keyframes giroPapel {
+  0%   { opacity: 0; }
+  45%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-pliegue,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+    transition: none;
+  }
+  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+    transform: none;
+  }
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-panel::after {
+    animation: none;
+  }
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;

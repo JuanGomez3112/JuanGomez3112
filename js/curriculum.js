@@ -3,22 +3,17 @@
 // Visor del CV. Se comporta como una carta doblada en C para meterla en un
 // sobre, y se abre igual que se abriria esa carta:
 //
-//   estado 0  doblada. La solapa de arriba esta abatida hacia abajo sobre el
-//             panel del medio y ensena su dorso: la portada. Debajo de ella, la
-//             solapa de abajo esta doblada hacia arriba, tambien sobre el medio.
-//   estado 1  la solapa de arriba SUBE y se coloca encima; queda a la vista el
-//             perfil. En el medio se ve ahora el dorso de la otra solapa:
-//             sobre mi, que sigue tapando el panel central.
-//   estado 2  la solapa de abajo BAJA a su sitio, ensena formacion y descubre
-//             experiencia en el medio.
-//   estado 3  el pliego doblado, visto por detras: el dorso del panel del
-//             medio, o sea el QR.
+// El doblez esta anclado en la PARTE 1, que no se mueve nunca. Las otras dos
+// cuelgan de ella y sus pliegues van anidados, asi que plegar la 2 arrastra la
+// 3 consigo, igual que el papel.
 //
-// Cerrar recorre esos estados al reves, plegando las solapas de ABAJO hacia
-// ARRIBA una a una, y al llegar a doblada da un paso mas y se voltea.
+//   estado 0  doblada. La 3 esta subida sobre la 2, y la 2 sobre la 1.
+//   estado 1  baja la 2 a su sitio; la 3 sigue subida, tumbada sobre ella.
+//   estado 2  baja la 3: el CV queda abierto del todo.
+//   estado 3  el pliego doblado, visto por detras.
 //
-// Las dos solapas giran en sentidos OPUESTOS -- una sube, otra baja -- porque
-// asi es el doblez en C. El panel del medio no se mueve nunca.
+// Al cerrar, las dos partes SUBEN -- primero la 3 sobre la 2, luego la 2 sobre
+// la 1 -- y al llegar a doblada un paso mas lo voltea.
 function iniciarSeccionCurriculum() {
     const carta = document.getElementById('cvCarta');
     if (!carta) return;
@@ -40,8 +35,8 @@ function iniciarSeccionCurriculum() {
     // array: es el paso anterior a "doblada", no un estado suelto.
     const SECUENCIA = [3, 0, 1, 2];
     const ETIQUETAS = {
-        3: 'Reverso — código QR',
-        0: 'Doblada — portada',
+        3: 'Doblada, del revés — portada',
+        0: 'Doblada — código QR',
         1: 'Abriendo — perfil',
         2: 'Abierta — CV completo'
     };
