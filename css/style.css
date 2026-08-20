@@ -2293,66 +2293,76 @@ html.js .reveal:not(.is-visible) {
   align-items: center;
   gap: 1rem;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold {
-  position: relative;
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta {
   --cv-zoom: 1;
-  width: min(100%, calc(30rem * var(--cv-zoom)));
-  /* La perspectiva tiene que estar en el PADRE DIRECTO de los paneles. Estaba
-     en .vista_curriculum, el abuelo, y no llegaba: el giro se aplastaba sin
-     profundidad y no se leia hacia donde iba. */
-  perspective: 1100px;
-  perspective-origin: 50% 50%;
-  display: flex;
-  flex-direction: column;
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold:focus-visible {
-  outline: 2px solid #C9A24B;
-  outline-offset: 6px;
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+  --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
   position: relative;
-  transform-origin: top center;
-  transform-style: preserve-3d;
-  transition: transform 0.55s cubic-bezier(0.16, 0.78, 0.24, 1),
-              max-height 0.55s cubic-bezier(0.16, 0.78, 0.24, 1),
-              opacity 0.35s ease,
-              box-shadow 0.55s ease;
-  max-height: 60rem;
-  /* En flex column el min-height:auto implicito gana sobre max-height:0 y el
-     panel no colapsaria al plegarse. */
-  min-height: 0;
-  flex: 0 0 auto;
-  overflow: hidden;
-  box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.45);
+  width: min(100%, calc(30rem * var(--cv-zoom)));
+  padding: 0;
+  transition: padding 0.6s cubic-bezier(0.16, 0.78, 0.24, 1);
+  cursor: pointer;
 }
-/* Plegado: el panel se va de canto y deja de ocupar alto. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-panel.plegado {
-  transform: rotateX(-92deg);
-  max-height: 0;
-  opacity: 0.15;
-  box-shadow: none;
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta:focus-visible {
+  outline: 2px solid #C9A24B;
+  outline-offset: 8px;
 }
-/* La solapa de turno sube sobre su borde superior al abrir el CV. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando {
-  /* Hacia adelante: la solapa se levanta viniendose hacia el espectador. El
-     translateZ la despega del plano para que se vea venir, no solo encogerse. */
-  transform: translateZ(60px) rotateX(-180deg);
-  z-index: 2;
+/* Al abrirse, la carta hace sitio para la solapa que se despliega. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"],
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="2"] {
+  padding-top: var(--panel);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-panel .pagina {
-  display: none;
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="2"] {
+  padding-bottom: var(--panel);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio img,
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
+  display: block;
   width: 100%;
   height: auto;
   max-width: none;
 }
-/* Que se ve en cada estado del plegado. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="0"] .v-portada,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="1"] .v-perfil,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-perfil,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="1"] .v-contraportada,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-experiencia,
-.page-curriculum .curriculum_content .vista_curriculum .cv-trifold[data-estado="2"] .v-formacion {
-  display: block;
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio {
+  position: relative;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.45);
+  /* La perspectiva va en el padre DIRECTO de las solapas, que ahora es el medio. */
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+}
+/* Las solapas cuelgan de los pliegues del panel del medio. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+  padding-bottom: var(--panel);
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 0.78, 0.24, 1);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.45);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+/* El dorso va girado, asi aparece solo cuando la solapa esta doblada. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa .cara-dorso {
+  transform: rotateX(180deg);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa-arriba {
+  bottom: 100%;
+  transform-origin: bottom center;   /* pliegue superior del medio */
+  z-index: 3;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-solapa-abajo {
+  top: 100%;
+  transform-origin: top center;      /* pliegue inferior del medio */
+  z-index: 2;
+}
+/* Dobladas: cada solapa cae sobre el medio, ensenando su dorso. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-arriba,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-solapa-abajo,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-abajo {
+  transform: rotateX(180deg);
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;
@@ -2361,7 +2371,8 @@ html.js .reveal:not(.is-visible) {
   color: #8a8a8a;
 }
 @media (prefers-reduced-motion: reduce) {
-  .page-curriculum .curriculum_content .vista_curriculum .cv-panel {
+  .page-curriculum .curriculum_content .vista_curriculum .cv-carta,
+  .page-curriculum .curriculum_content .vista_curriculum .cv-solapa {
     transition: none;
   }
 }
