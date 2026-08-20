@@ -2433,9 +2433,24 @@ html.js .reveal:not(.is-visible) {
   transform: rotateX(180deg);
   visibility: hidden;
 }
+/* La caja mide 3 paneles siempre, pero lo que se ve ocupa un tercio distinto
+   segun el paso, asi que la carta se desplaza para que el bloque visible quede
+   centrado. Los porcentajes de translateY son sobre el alto de la carta: 1/6 es
+   medio panel, 1/3 es uno entero.
+     cerrada  el paquete esta en el tercio del medio        -> centrado
+     abriendo se ven las partes 1 y 2, dos tercios de arriba -> baja medio panel
+     abierta  se ven las tres                                -> centrado
+     plegada  el paquete sube al tercio de arriba            -> baja un panel */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"],
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] {
+  transform: translateY(16.6667%);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="4"] {
+  transform: translateY(33.3333%);
+}
 /* Volteo final: se ve la portada, y su dorso pasa al pregirado en Y. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] {
-  transform: rotateY(180deg);
+  transform: translateY(33.3333%) rotateY(180deg);
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] .cara-dorso-x {
   visibility: hidden;
