@@ -2298,8 +2298,17 @@ html.js .reveal:not(.is-visible) {
   --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
   position: relative;
   width: min(100%, calc(30rem * var(--cv-zoom)));
+  /* content-box a proposito: con border-box el relleno que abre hueco para las
+     solapas se comeria el ancho, el pliego encogeria al abrirse y el hueco
+     dejaria de medir lo que mide un panel. */
+  box-sizing: content-box;
   padding: 0;
-  transition: padding 0.6s cubic-bezier(0.16, 0.78, 0.24, 1);
+  /* Una sola sombra, la del pliego entero. Con sombra por panel aparecia una
+     banda oscura en cada doblez, como si fueran hojas sueltas apiladas. */
+  box-shadow: 0 1.4rem 2.6rem rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+  transition: padding 0.6s cubic-bezier(0.16, 0.78, 0.24, 1),
+              transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
   cursor: pointer;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta:focus-visible {
@@ -2314,7 +2323,21 @@ html.js .reveal:not(.is-visible) {
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="2"] {
   padding-bottom: var(--panel);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-medio img,
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio > .cara-frente {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  backface-visibility: hidden;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-medio > .cara-dorso {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
 .page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
   display: block;
   width: 100%;
@@ -2323,7 +2346,7 @@ html.js .reveal:not(.is-visible) {
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-medio {
   position: relative;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.45);
+  transform-style: preserve-3d;
   /* La perspectiva va en el padre DIRECTO de las solapas, que ahora es el medio. */
   perspective: 1400px;
   perspective-origin: 50% 50%;
@@ -2337,7 +2360,6 @@ html.js .reveal:not(.is-visible) {
   padding-bottom: var(--panel);
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.16, 0.78, 0.24, 1);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.45);
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-solapa img {
   position: absolute;
@@ -2360,9 +2382,19 @@ html.js .reveal:not(.is-visible) {
 }
 /* Dobladas: cada solapa cae sobre el medio, ensenando su dorso. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-arriba,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-arriba,
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-solapa-abajo,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-abajo {
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-solapa-abajo,
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa-abajo {
   transform: rotateX(180deg);
+}
+/* Estado 3: se dobla y se le da la vuelta al pliego para ver el reverso, que
+   es el dorso del panel del medio (el QR). Las solapas quedan del otro lado. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] {
+  transform: rotateY(180deg);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-solapa {
+  visibility: hidden;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-contador {
   margin: 0;

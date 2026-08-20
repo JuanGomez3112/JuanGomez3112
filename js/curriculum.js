@@ -11,6 +11,8 @@
 //             contraportada, que sigue tapando el panel central.
 //   estado 2  la solapa de abajo BAJA a su sitio, ensena formacion y descubre
 //             experiencia en el medio.
+//   estado 3  se vuelve a doblar y se le da la vuelta al pliego: se ve el
+//             reverso, que es el dorso del panel del medio (el QR).
 //
 // Las dos solapas giran en sentidos OPUESTOS -- una sube, otra baja -- porque
 // asi es el doblez en C. El panel del medio no se mueve nunca.
@@ -24,7 +26,12 @@ function iniciarSeccionCurriculum() {
     const zoomOutBtn = document.querySelector('.zoom-out');
     const etiqueta = document.getElementById('cvEstado');
 
-    const ESTADOS = ['Doblada', 'Abriendo — perfil', 'Abierta — CV completo'];
+    const ESTADOS = [
+        'Doblada — portada',
+        'Abriendo — perfil',
+        'Abierta — CV completo',
+        'Reverso — código QR'
+    ];
     const ULTIMO = ESTADOS.length - 1;
 
     const ZOOM_MIN = 1;
@@ -42,8 +49,32 @@ function iniciarSeccionCurriculum() {
         if (zoomInBtn) zoomInBtn.disabled = zoom >= ZOOM_MAX;
     };
 
+    let animando = false;
+
     const irA = (n) => {
-        estado = Math.min(Math.max(n, 0), ULTIMO);
+        if (animando) return;
+        const destino = Math.min(Math.max(n, 0), ULTIMO);
+        if (destino === estado) return;
+
+        // Un pliego no se dobla y se voltea a la vez: primero se cierra y
+        // despues se le da la vuelta. Igual al volver del reverso.
+        const REVERSO = 3;
+        const entraOSaleDelReverso =
+            (destino === REVERSO && estado !== 0) || (estado === REVERSO && destino !== 0);
+
+        if (entraOSaleDelReverso) {
+            animando = true;
+            estado = 0;
+            pintar();
+            setTimeout(() => {
+                estado = destino;
+                pintar();
+                animando = false;
+            }, 620);
+            return;
+        }
+
+        estado = destino;
         pintar();
     };
 
