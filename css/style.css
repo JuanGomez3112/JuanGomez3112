@@ -2294,10 +2294,11 @@ html.js .reveal:not(.is-visible) {
   gap: 1rem;
   /* Escena en perspectiva. Plegado en C: las solapas giran todas en el
      mismo sentido, sobre su borde superior. */
-  perspective: 1600px;
+  perspective: 1100px;
   perspective-origin: 50% 0%;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-trifold {
+  position: relative;
   --cv-zoom: 1;
   width: min(100%, calc(30rem * var(--cv-zoom)));
   transform-style: preserve-3d;
@@ -2312,9 +2313,10 @@ html.js .reveal:not(.is-visible) {
   position: relative;
   transform-origin: top center;
   transform-style: preserve-3d;
-  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-              max-height 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-              opacity 0.35s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 0.78, 0.24, 1),
+              max-height 0.55s cubic-bezier(0.16, 0.78, 0.24, 1),
+              opacity 0.35s ease,
+              box-shadow 0.55s ease;
   max-height: 60rem;
   /* En flex column el min-height:auto implicito gana sobre max-height:0 y el
      panel no colapsaria al plegarse. */
@@ -2324,15 +2326,54 @@ html.js .reveal:not(.is-visible) {
   box-shadow: 0 1.2rem 2rem rgba(0, 0, 0, 0.45);
 }
 /* Plegado: el panel se va de canto y deja de ocupar alto. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-panel.plegado {
-  transform: rotateX(-92deg);
+.page-curriculum .curriculum_content .vista_curriculum
+  transform: rotateX(92deg);
   max-height: 0;
   opacity: 0.15;
   box-shadow: none;
 }
 /* La solapa de turno sube sobre su borde superior al abrir el CV. */
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando {
-  transform: rotateX(-180deg);
+  transform: rotateX(180deg);
+}
+/* Volumen del giro: la cara se oscurece al abatirse, como el papel que pierde
+   la luz, y el panel proyecta mas sombra cuanto mas levantado esta. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+              rgba(0, 0, 0, 0.62) 0%,
+              rgba(0, 0, 0, 0.18) 38%,
+              rgba(0, 0, 0, 0) 62%,
+              rgba(0, 0, 0, 0.42) 100%);
+  opacity: 0;
+  transition: opacity 0.55s cubic-bezier(0.16, 0.78, 0.24, 1);
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando::after,
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel.plegado::after {
+  opacity: 1;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-panel.volteando {
+  box-shadow: 0 2.6rem 3.4rem rgba(0, 0, 0, 0.72);
+  z-index: 2;
+}
+/* Sombra que la solapa arroja sobre el panel de abajo mientras se levanta. */
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  z-index: 1;
+}
+.page-curriculum .curriculum_content .vista_curriculum .cv-trifold.en-giro::before {
+  opacity: 1;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-panel .pagina {
   display: none;

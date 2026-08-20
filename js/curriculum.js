@@ -59,11 +59,14 @@ function iniciarSeccionCurriculum() {
 
         animando = true;
         solapa.classList.add('volteando');
+        trifold.classList.add('en-giro');   // enciende la sombra proyectada
         setTimeout(() => {
             estado = destino;
             pintar();
             solapa.classList.remove('volteando');
             animando = false;
+            // La sombra se apaga un poco despues, cuando el papel ya asento.
+            setTimeout(() => trifold.classList.remove('en-giro'), 220);
         }, 275);
     };
 
