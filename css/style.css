@@ -2354,30 +2354,19 @@ html.js .reveal:not(.is-visible) {
   --panel: 70.784%;          /* alto de un panel: 596/842 del ancho */
   position: relative;
   width: 100%;
-  /* content-box a proposito: con border-box el relleno que abre hueco para las
-     solapas se comeria el ancho, el pliego encogeria al abrirse y el hueco
-     dejaria de medir lo que mide un panel. */
-  box-sizing: content-box;
-  padding: 0;
-  /* Una sola sombra, la del pliego entero. Con sombra por panel aparecia una
-     banda oscura en cada doblez, como si fueran hojas sueltas apiladas. */
-  box-shadow: 0 1.4rem 2.6rem rgba(0, 0, 0, 0.5);
+  /* Caja fija de 3 paneles (842 x 596*3). Antes crecia con padding, y al abrir
+     el hueco empujaba el panel del medio hacia abajo: ese era el salto. En una
+     carta de verdad el medio no se mueve, solo giran las solapas. Ahora el
+     espacio de arriba y abajo esta siempre reservado y transparente. */
+  aspect-ratio: 842 / 1788;
+  box-sizing: border-box;
   transform-style: preserve-3d;
-  transition: padding 0.6s cubic-bezier(0.16, 0.78, 0.24, 1),
-              transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
   cursor: pointer;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-carta:focus-visible {
   outline: 2px solid #C9A24B;
   outline-offset: 8px;
-}
-/* Al abrirse, la carta hace sitio para la solapa que se despliega. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"],
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="2"] {
-  padding-top: var(--panel);
-}
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="2"] {
-  padding-bottom: var(--panel);
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-medio > .cara-frente {
   display: block;
@@ -2401,7 +2390,13 @@ html.js .reveal:not(.is-visible) {
   max-width: none;
 }
 .page-curriculum .curriculum_content .vista_curriculum .cv-medio {
-  position: relative;
+  position: absolute;
+  top: 33.3333%;
+  left: 0;
+  right: 0;
+  /* La sombra vive aqui, no en la carta: la caja de la carta es 3 paneles y
+     esta transparente arriba y abajo cuando el CV esta doblado. */
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.5);
   transform-style: preserve-3d;
   /* La perspectiva va en el padre DIRECTO de las solapas, que ahora es el medio. */
   perspective: 1400px;
