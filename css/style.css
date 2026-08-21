@@ -1389,12 +1389,14 @@ html.js .reveal:not(.is-visible) {
   z-index: 50;
   position: relative;
 }
-.contenedor main .cta-curriculum .cv-frame img {
-  display: block;
-  height: auto;
+/* En la home el pliego llena su columna: nada de marco con scroll ni zoom,
+   aqui lo mueve el scroll de la pagina. */
+.cv-pliego--home {
   width: min(80vw, 440px);
-  max-width: none;
-  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.6));
+}
+.cv-pliego--home .cv-escena {
+  width: 100%;
+  transition: transform 0.35s ease-out;
 }
 @media (min-width: 430px) {
   .contenedor main .cta-curriculum .cta-curriculum_info .curriculum_info h3 {
@@ -1453,7 +1455,7 @@ html.js .reveal:not(.is-visible) {
   .contenedor main .cta-curriculum .cv-frame {
     grid-column: 2;
   }
-  .contenedor main .cta-curriculum .cv-frame img {
+  .cv-pliego--home {
     width: min(42vw, 900px);
   }
 }
@@ -2296,11 +2298,11 @@ html.js .reveal:not(.is-visible) {
   gap: 1rem;
 }
 /* Marco: a zoom 1 la carta entra justa; al ampliar, se desplaza aqui dentro. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-marco::-webkit-scrollbar {
+.cv-pliego .cv-marco::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-marco {
+.cv-pliego .cv-marco {
   width: 100%;
   /* El marco manda: la carta entra entera a zoom 1, incluso desplegada. Al
      ampliar para leer, se desplaza aqui dentro en vez de estirar la pagina. */
@@ -2322,7 +2324,7 @@ html.js .reveal:not(.is-visible) {
   display: block;
 }
 /* Capa del raton: inclina el conjunto sin tocar el plegado. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+.cv-pliego .cv-escena {
   position: relative;
   /* La escena manda el tamano y la carta la llena. Asi el relleno que abre
      hueco para las solapas, que va en porcentaje, se resuelve contra un ancho
@@ -2342,10 +2344,10 @@ html.js .reveal:not(.is-visible) {
   transform: rotateX(var(--giro-x)) rotateY(var(--giro-y));
   will-change: transform;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-escena.quieta {
+.cv-pliego .cv-escena.quieta {
   transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta {
+.cv-pliego .cv-carta {
   width: 100%;
   /* Caja fija de 3 paneles: nada se desplaza, solo giran los pliegues. */
   aspect-ratio: 842 / 1788;
@@ -2361,11 +2363,11 @@ html.js .reveal:not(.is-visible) {
   transition: transform 0.7s cubic-bezier(0.16, 0.78, 0.24, 1);
   cursor: pointer;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta:focus-visible {
+.cv-pliego .cv-carta:focus-visible {
   outline: 2px solid #C9A24B;
   outline-offset: 8px;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte {
+.cv-pliego .cv-parte {
   position: absolute;
   left: 0;
   right: 0;
@@ -2374,34 +2376,34 @@ html.js .reveal:not(.is-visible) {
   transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1),
               visibility 0s linear 0.3s;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte > img {
+.cv-pliego .cv-parte > img {
   display: block;
   width: 100%;
   height: auto;
   max-width: none;
   backface-visibility: hidden;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte > .cara-dorso-x,
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte > .cara-dorso-y {
+.cv-pliego .cv-parte > .cara-dorso-x,
+.cv-pliego .cv-parte > .cara-dorso-y {
   position: absolute;
   inset: 0;
   height: 100%;
 }
 /* Cada dorso se pregira en el MISMO eje que lo descubre, o sale cabeza abajo. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte > .cara-dorso-x {
+.cv-pliego .cv-parte > .cara-dorso-x {
   transform: rotateX(180deg);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte > .cara-dorso-y {
+.cv-pliego .cv-parte > .cara-dorso-y {
   transform: rotateY(180deg);
   visibility: hidden;
 }
 /* La parte 1 arriba; el grupo 2+3 ocupa los dos tercios de abajo y es lo que
    sube entero en el cierre nuevo. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte-1 {
+.cv-pliego .cv-parte-1 {
   top: 0;
   transform-origin: bottom center;   /* pliegue con la parte 2 */
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-grupo-23 {
+.cv-pliego .cv-grupo-23 {
   position: absolute;
   top: 33.3333%;
   left: 0;
@@ -2410,10 +2412,10 @@ html.js .reveal:not(.is-visible) {
   transform-style: preserve-3d;
   transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte-2 {
+.cv-pliego .cv-parte-2 {
   top: 0;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte-3 {
+.cv-pliego .cv-parte-3 {
   top: 100%;
   transform-origin: top center;      /* pliegue con la parte 2 */
 }
@@ -2422,26 +2424,26 @@ html.js .reveal:not(.is-visible) {
 /* Cerrada: la 1 abatida sobre la 2 (se ve la portada). El translateZ la pone
    por delante: la 3 tambien esta tumbada sobre la 2, y la 1 es la de fuera, la
    tapa. Sin el, mandaba el orden del marcado y asomaba sobre mi. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-parte-1 {
+.cv-pliego .cv-carta[data-estado="0"] .cv-parte-1 {
   transform: rotateX(-180deg) translateZ(-3px);
 }
 /* La 3 doblada sobre la 2 (se ve sobre mi). */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="0"] .cv-parte-3,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"] .cv-parte-3,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] .cv-parte-3 {
+.cv-pliego .cv-carta[data-estado="0"] .cv-parte-3,
+.cv-pliego .cv-carta[data-estado="1"] .cv-parte-3,
+.cv-pliego .cv-carta[data-estado="3"] .cv-parte-3 {
   transform: rotateX(180deg);
 }
 
 /* --- CERRAR: sube el grupo 2+3 sobre la 1 --- */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="4"] .cv-grupo-23,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] .cv-grupo-23 {
+.cv-pliego .cv-carta[data-estado="4"] .cv-grupo-23,
+.cv-pliego .cv-carta[data-estado="5"] .cv-grupo-23 {
   transform: rotateX(180deg) translateZ(-2px);
 }
 /* Con el grupo subido, la 3 queda dentro del paquete: no hay forma de verla.
    Ocultarla evita depender de que el navegador ordene bien tres hojas
    anidadas en profundidad, cosa que no hace de forma fiable. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="4"] .cv-parte-3,
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] .cv-parte-3 {
+.cv-pliego .cv-carta[data-estado="4"] .cv-parte-3,
+.cv-pliego .cv-carta[data-estado="5"] .cv-parte-3 {
   transform: rotateX(180deg);
   visibility: hidden;
 }
@@ -2453,27 +2455,27 @@ html.js .reveal:not(.is-visible) {
      abriendo se ven las partes 1 y 2, dos tercios de arriba -> baja medio panel
      abierta  se ven las tres                                -> centrado
      plegada  el paquete sube al tercio de arriba            -> baja un panel */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="1"],
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="3"] {
+.cv-pliego .cv-carta[data-estado="1"],
+.cv-pliego .cv-carta[data-estado="3"] {
   transform: translateY(16.6667%);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="4"] {
+.cv-pliego .cv-carta[data-estado="4"] {
   transform: translateY(33.3333%);
 }
 /* Volteo final: se ve la portada, y su dorso pasa al pregirado en Y. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] {
+.cv-pliego .cv-carta[data-estado="5"] {
   transform: translateY(33.3333%) rotateY(180deg);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] .cara-dorso-x {
+.cv-pliego .cv-carta[data-estado="5"] .cara-dorso-x {
   visibility: hidden;
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta[data-estado="5"] .cv-parte-1 > .cara-dorso-y {
+.cv-pliego .cv-carta[data-estado="5"] .cv-parte-1 > .cara-dorso-y {
   visibility: visible;
 }
 
 /* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del
    propio panel, asi que no se corta contra los bordes del contenedor. */
-.page-curriculum .curriculum_content .vista_curriculum .cv-parte::after {
+.cv-pliego .cv-parte::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2485,7 +2487,7 @@ html.js .reveal:not(.is-visible) {
               rgba(0, 0, 0, 0.42) 55%,
               rgba(0, 0, 0, 0.62) 100%);
 }
-.page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-parte::after {
+.cv-pliego .cv-carta.girando .cv-parte::after {
   animation: giroPapel 0.62s cubic-bezier(0.55, 0.06, 0.28, 1);
 }
 @keyframes giroPapel {
@@ -2494,16 +2496,16 @@ html.js .reveal:not(.is-visible) {
   100% { opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-parte,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-grupo-23,
-  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+  .cv-pliego .cv-carta,
+  .cv-pliego .cv-parte,
+  .cv-pliego .cv-grupo-23,
+  .cv-pliego .cv-escena {
     transition: none;
   }
-  .page-curriculum .curriculum_content .vista_curriculum .cv-escena {
+  .cv-pliego .cv-escena {
     transform: none;
   }
-  .page-curriculum .curriculum_content .vista_curriculum .cv-carta.girando .cv-parte::after {
+  .cv-pliego .cv-carta.girando .cv-parte::after {
     animation: none;
   }
 }

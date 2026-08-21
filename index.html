@@ -17,11 +17,11 @@
     <link rel="canonical" href="https://juangomez3112.github.io/JuanGomez3112/">
     <meta name="twitter:card" content="summary_large_image">
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="css/style.css?v=77" />
+    <link rel="stylesheet" href="css/style.css?v=79" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="js/header.js?v=77" defer></script>
-    <script src="js/menu.js?v=77" defer></script>
-    <script src="js/inicio.js?v=77" defer></script>
+    <script src="js/header.js?v=79" defer></script>
+    <script src="js/menu.js?v=79" defer></script>
+    <script src="js/inicio.js?v=79" defer></script>
 </head>
 
 <body>
@@ -236,8 +236,28 @@
                         </div>
                     </article>
 
-                    <a href="curriculum.html" class="cv-frame" aria-label="Ver currículum completo">
-                        <img src="src/assets/img/cv.webp" alt="Currículum de Juan Gómez" class="cv-zoom">
+                    <!-- El mismo pliego de la pagina del CV, aqui movido por el scroll. -->
+                    <a href="curriculum.html" class="cv-frame cv-pliego cv-pliego--home"
+                        aria-label="Ver currículum completo">
+                        <div class="cv-escena" id="cvEscenaHome">
+                            <div class="cv-carta" id="cvCartaHome" data-estado="0">
+                                <div class="cv-parte cv-parte-1">
+                                    <img src="src/assets/img/curriculum/cv-cara2-perfil.webp" alt="Currículum de Juan Gómez" class="cara-frente">
+                                    <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="" aria-hidden="true" class="cara-dorso-x">
+                                    <img src="src/assets/img/curriculum/cv-cara1-portada.webp" alt="" aria-hidden="true" class="cara-dorso-y">
+                                </div>
+                                <div class="cv-grupo-23">
+                                    <div class="cv-parte cv-parte-2">
+                                        <img src="src/assets/img/curriculum/cv-cara3-experiencia.webp" alt="" aria-hidden="true" class="cara-frente">
+                                        <img src="src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="" aria-hidden="true" class="cara-dorso-x">
+                                        <div class="cv-parte cv-parte-3">
+                                            <img src="src/assets/img/curriculum/cv-cara4-formacion.webp" alt="" aria-hidden="true" class="cara-frente">
+                                            <img src="src/assets/img/curriculum/cv-cara5-sobremi.webp" alt="" aria-hidden="true" class="cara-dorso-x">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </a>
                 </div>
             </section>

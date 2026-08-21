@@ -203,116 +203,102 @@ function iniciarReveal() {
     els.forEach(e => obs.observe(e));
 }
 
-// Efecto "cámara": el CV descansa en su columna (al lado). Al activarse el
-// efecto SALE de su posición, pasa al centro para verse completo (pan hoja x
-// hoja) y al terminar VUELVE a su lugar. Todo con transición suave.
+// El CV de la home es el mismo pliego de la pagina del curriculum, pero aqui
+// no lo mueven botones: lo mueve el scroll. Al entrar en la seccion sale de su
+// columna, crece hacia el centro, se despliega pliegue a pliegue y al final
+// vuelve a su sitio. La escena se inclina con el recorrido, asi que los
+// paneles se separan en profundidad y el conjunto tiene paralaje.
 function iniciarCvZoom() {
     const track = document.querySelector('.cta-curriculum');
     const frame = track && track.querySelector('.cv-frame');
-    const img = frame && frame.querySelector('img');
-    const backdrop = track && track.querySelector('.cv-backdrop');
-    if (!img) return;
+    const escena = frame && frame.querySelector('.cv-escena');
+    const carta = frame && frame.querySelector('.cv-carta');
+    if (!frame || !escena || !carta) return;
 
-    const FILL = 0.72;    // zoom (llena 72% del ancho, sin recorte)
-    const HOJAS = 3;      // PERFIL / EXPERIENCIA / FORMACION
-    const REST_IN = 0.07; // reposo inicial: el CV se queda en su lugar
-    const IN_END = 0.28;  // fin del "sale al centro"
-    const OUT_START = 0.78; // inicio del "vuelve"
-    const REST_OUT = 0.95;  // reposo final
+    const FILL = 0.62;      // cuanto del ancho de pantalla llena al estar grande
 
-    const easeInOut = (t) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+    // Tramos del recorrido, en fraccion de la seccion.
+    const SALE_INI = 0.06;  // hasta aqui descansa en su columna
+    const SALE_FIN = 0.26;  // ya esta en el centro y a tamano grande
+    const ABRE_1 = 0.44;    // primer pliegue abierto
+    const ABRE_2 = 0.60;    // abierto del todo
+    const VUELVE = 0.82;    // empieza a volver
+    const FIN = 0.96;       // en su columna otra vez
+
     const clamp01 = (v) => Math.max(0, Math.min(1, v));
+    const suave = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+    const entre = (v, a, b) => clamp01((v - a) / (b - a));
     const esDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+    const menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Pan con paradas: recorre las hojas 1 a 1. Devuelve 0..1 exacto (0=arriba,
-    // 1=abajo). Hay HOJAS paradas => HOJAS-1 viajes entre ellas.
-    const panEscalonado = (f) => {
-        const cells = HOJAS - 1;            // viajes entre hojas
-        const cellW = 1 / cells;
-        const idx = Math.min(cells - 1, Math.floor(f / cellW));
-        const local = (f - idx * cellW) / cellW; // 0..1 dentro del viaje
-        const dwell = 0.22;                 // pausa corta en la hoja antes de viajar
-        const viaje = local < dwell ? 0 : easeInOut((local - dwell) / (1 - dwell));
-        return (idx + viaje) / cells;       // 0..1
-    };
+    let pendiente = false;
+    let centroReposo = 0;   // centro horizontal del pliego quieto, cacheado
 
-    let ticking = false;
-    let restCenterX = 0; // centro horizontal del CV en reposo (viewport), cacheado
-
-    // Mide el centro en reposo sin transform (evita el temblor de leer el rect animado)
+    // Se mide sin transform, para no leer un rect a medio animar.
     const medir = () => {
-        const prev = frame.style.transform;
+        const previo = frame.style.transform;
         frame.style.transform = 'none';
-        const rect = frame.getBoundingClientRect();
-        restCenterX = rect.left + rect.width / 2;
-        frame.style.transform = prev;
+        const caja = frame.getBoundingClientRect();
+        centroReposo = caja.left + caja.width / 2;
+        frame.style.transform = previo;
     };
 
-    const update = () => {
-        ticking = false;
-        const vh = window.innerHeight, vw = window.innerWidth;
-        const W0 = img.offsetWidth, H0 = img.offsetHeight;
-        const GRANDE = W0 > 0 ? Math.max(1, (FILL * vw) / W0) : 1;
+    const pintar = () => {
+        pendiente = false;
+        const vw = window.innerWidth;
+        const anchoBase = frame.offsetWidth;
+        if (!anchoBase) return;
 
-        let scale = 1, ty = 0, tx = 0;
+        const caja = track.getBoundingClientRect();
+        const recorrido = track.offsetHeight - window.innerHeight;
+        const p = clamp01(recorrido > 0 ? (-caja.top) / recorrido : 0);
 
-        if (esDesktop()) {
-            // Modo pista: la fila está fija (sticky) y el scroll dentro de la
-            // sección de 300vh controla salir -> centro -> pan -> volver.
-            const r = track.getBoundingClientRect();
-            const total = track.offsetHeight - vh;
-            const prog = clamp01(total > 0 ? (-r.top) / total : 0);
-            // sobrante vertical cuando está a tamaño completo (para el pan)
-            const O = Math.max(0, H0 * GRANDE - vh);
+        // Estado del pliegue: cerrado -> primer pliegue -> abierto -> cerrado.
+        let estado = 0;
+        if (p >= ABRE_2 && p < VUELVE) estado = 2;
+        else if (p >= ABRE_1) estado = 1;
+        carta.dataset.estado = String(estado);
 
-            if (prog < REST_IN) {
-                scale = 1; ty = 0;                       // en su lugar (columna)
-            } else if (prog < IN_END) {
-                const t = easeInOut((prog - REST_IN) / (IN_END - REST_IN));
-                scale = 1 + (GRANDE - 1) * t;            // sale y crece
-                ty = (O / 2) * t;                        // de centrado (0) a borde arriba, sincronizado
-            } else if (prog < OUT_START) {
-                scale = GRANDE;                          // pan hoja por hoja
-                const f = (prog - IN_END) / (OUT_START - IN_END);
-                ty = (O / 2) - panEscalonado(f) * O;     // arriba (O/2) -> abajo (-O/2)
-            } else if (prog < REST_OUT) {
-                const t = easeInOut((prog - OUT_START) / (REST_OUT - OUT_START));
-                scale = GRANDE - (GRANDE - 1) * t;       // vuelve
-                ty = -(O / 2) * (1 - t);                 // de abajo (-O/2) a centrado (0), sincronizado
-            } else {
-                scale = 1; ty = 0;                       // reposo final
-            }
-
-        } else {
-            // Móvil: proximidad. Al centrarse la sección, crece para verse grande.
-            const r = track.getBoundingClientRect();
-            const elCenter = r.top + r.height / 2;
-            const d = Math.abs(elCenter - vh / 2) / (vh / 2 + r.height / 2);
-            const c = clamp01(1 - d);                    // 1 = centrado
-            scale = 1 + (GRANDE - 1) * easeInOut(c);
-            ty = 0;
+        if (!esDesktop() || menosMovimiento) {
+            frame.style.transform = '';
+            escena.style.removeProperty('--giro-x');
+            escena.style.removeProperty('--giro-y');
+            return;
         }
 
-        // pop: 0 en reposo -> 1 a tamaño completo. Maneja tx (desktop) y el fondo.
-        const pop = GRANDE > 1 ? clamp01((scale - 1) / (GRANDE - 1)) : 0;
-        if (esDesktop()) tx = (vw / 2 - restCenterX) * pop; // de la columna al centro
-        if (backdrop) backdrop.style.opacity = pop.toFixed(3);
+        // Camara: sale de su columna, crece y se centra; al final deshace.
+        const grande = Math.max(1, (FILL * vw) / anchoBase);
+        let escala = 1;
+        if (p >= SALE_INI && p < SALE_FIN) {
+            escala = 1 + (grande - 1) * suave(entre(p, SALE_INI, SALE_FIN));
+        } else if (p >= SALE_FIN && p < VUELVE) {
+            escala = grande;
+        } else if (p >= VUELVE && p < FIN) {
+            escala = grande - (grande - 1) * suave(entre(p, VUELVE, FIN));
+        }
+        const haciaCentro = (escala - 1) / (grande - 1 || 1);
+        const tx = (vw / 2 - centroReposo) * haciaCentro;
+        frame.style.transform = `translateX(${tx.toFixed(1)}px) scale(${escala.toFixed(3)})`;
 
-        frame.style.transform = `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+        // Paralaje: el pliego llega escorzado y se endereza segun se despliega.
+        // Al irse, vuelve a inclinarse. El giro lateral acompana el recorrido.
+        const abierto = entre(p, SALE_FIN, ABRE_2);
+        const yendose = entre(p, VUELVE, FIN);
+        const giroX = 14 * (1 - suave(abierto)) + 10 * suave(yendose);
+        const giroY = 9 * (1 - suave(abierto)) - 6 * suave(yendose);
+        escena.style.setProperty('--giro-x', giroX.toFixed(2) + 'deg');
+        escena.style.setProperty('--giro-y', giroY.toFixed(2) + 'deg');
     };
 
-    const onScroll = () => {
-        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    const alScroll = () => {
+        if (!pendiente) { pendiente = true; requestAnimationFrame(pintar); }
     };
+    const alRedimensionar = () => { medir(); alScroll(); };
 
-    const onResize = () => { medir(); onScroll(); };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize, { passive: true });
-    // mide tras cargar imagen/layout
-    if (img.complete) medir(); else img.addEventListener('load', () => { medir(); update(); });
+    window.addEventListener('scroll', alScroll, { passive: true });
+    window.addEventListener('resize', alRedimensionar, { passive: true });
     medir();
-    update();
+    pintar();
 }
 
 window.onload = function () {
