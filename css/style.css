@@ -2404,6 +2404,10 @@ html.js .reveal:not(.is-visible) {
   transition: transform 0.62s cubic-bezier(0.55, 0.06, 0.28, 1),
               visibility 0s linear 0.3s;
 }
+/* Las seis caras se exportan al mismo tamano exacto (842x596), asi que los
+   tres paneles miden igual y las juntas caen en los tercios. Antes salian con
+   1px de diferencia entre ellas y el CV parecia 3 hojas sueltas. Se normalizan
+   al convertirlas, no con CSS: forzarlo aqui descolocaba las caras del dorso. */
 .cv-pliego .cv-parte > img {
   display: block;
   width: 100%;
