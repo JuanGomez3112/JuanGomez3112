@@ -12,6 +12,10 @@
       Fondo claro a propósito: el tríptico oscuro de la web se imprime sucio y
       se come el tóner, y en RRHH imprimen para la entrevista.
 
+      Salen dos archivos del mismo origen:
+        - el PDF, para adjuntar en el correo
+        - el SVG, para retocar en Illustrator con el texto vivo
+
       Para regenerarlo:
       chrome --headless --print-to-pdf="...\CV - Juan Gomez - Tecnico de TI.pdf"
              --no-pdf-header-footer "...\cv-a4.html"
@@ -42,9 +46,13 @@
             min-height: 297mm;
             background: var(--papel);
             color: var(--tinta);
-            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            font-size: 9.3pt;
-            line-height: 1.46;
+            /* Fuentes de la marca, las mismas del triptico. Ademas de que
+               encajan, estan instaladas en la maquina, asi que al abrir el PDF
+               en Illustrator resuelve los nombres y el texto sigue editable en
+               vez de quedar como subconjunto huerfano. */
+            font-family: "Louis George Cafe", "Segoe UI", Arial, sans-serif;
+            font-size: 8.9pt;
+            line-height: 1.4;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
@@ -61,20 +69,22 @@
         }
 
         h1 {
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 23pt;
+            font-family: "Minion Pro", "MinionPro-Regular", "Minion", Georgia, serif;
+            font-size: 25pt;
             font-weight: 400;
             letter-spacing: 0.2pt;
             line-height: 1.05;
         }
 
         h1 b {
+            font-family: "Berlin Sans FB Demi", "Berlin Sans FB", sans-serif;
             font-weight: 700;
         }
 
         .rol {
             margin-top: 1.5mm;
-            font-size: 10pt;
+            font-family: "Berlin Sans FB Demi", "Berlin Sans FB", sans-serif;
+            font-size: 10.5pt;
             letter-spacing: 2.6pt;
             text-transform: uppercase;
             color: var(--oro);
@@ -107,7 +117,8 @@
         }
 
         h2 {
-            font-size: 8.4pt;
+            font-family: "Berlin Sans FB Demi", "Berlin Sans FB", sans-serif;
+            font-size: 8.8pt;
             letter-spacing: 2.2pt;
             text-transform: uppercase;
             color: var(--oro);
@@ -149,8 +160,9 @@
         }
 
         .puesto h3 {
-            font-size: 9.4pt;
-            font-weight: 600;
+            font-family: "Berlin Sans FB Demi", "Berlin Sans FB", sans-serif;
+            font-size: 10pt;
+            font-weight: 400;
         }
 
         .fechas {
