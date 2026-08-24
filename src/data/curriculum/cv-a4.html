@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CV - Juan Gómez - Técnico de TI</title>
+    <!--
+      Fuente del CV en A4 para enviar por correo. De aquí sale el PDF con
+      Chrome headless (--print-to-pdf), así que el texto queda SELECCIONABLE:
+      los sistemas que leen currículums no saben leer una imagen.
+
+      Fondo claro a propósito: el tríptico oscuro de la web se imprime sucio y
+      se come el tóner, y en RRHH imprimen para la entrevista.
+
+      Para regenerarlo:
+      chrome --headless --print-to-pdf="...\CV - Juan Gomez - Tecnico de TI.pdf"
+             --no-pdf-header-footer "...\cv-a4.html"
+    -->
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        :root {
+            --tinta: #16181c;
+            --suave: #5b6068;
+            --tenue: #8c9198;
+            --oro: #96721c;
+            --linea: #dcdde0;
+            --papel: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 210mm;
+            min-height: 297mm;
+            background: var(--papel);
+            color: var(--tinta);
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            font-size: 9.3pt;
+            line-height: 1.46;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .hoja {
+            padding: 14mm 15mm 11mm;
+        }
+
+        /* ---------- cabecera ---------- */
+        header {
+            border-bottom: 2px solid var(--oro);
+            padding-bottom: 4mm;
+            margin-bottom: 5mm;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23pt;
+            font-weight: 400;
+            letter-spacing: 0.2pt;
+            line-height: 1.05;
+        }
+
+        h1 b {
+            font-weight: 700;
+        }
+
+        .rol {
+            margin-top: 1.5mm;
+            font-size: 10pt;
+            letter-spacing: 2.6pt;
+            text-transform: uppercase;
+            color: var(--oro);
+        }
+
+        .contacto {
+            margin-top: 3mm;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2mm 5mm;
+            font-size: 8.2pt;
+            color: var(--suave);
+        }
+
+        .contacto a {
+            color: var(--suave);
+            text-decoration: none;
+        }
+
+        .contacto b {
+            color: var(--tinta);
+            font-weight: 600;
+        }
+
+        /* ---------- rejilla ---------- */
+        .cuerpo {
+            display: grid;
+            grid-template-columns: 1fr 62mm;
+            gap: 8mm;
+        }
+
+        h2 {
+            font-size: 8.4pt;
+            letter-spacing: 2.2pt;
+            text-transform: uppercase;
+            color: var(--oro);
+            border-bottom: 1px solid var(--linea);
+            padding-bottom: 1.2mm;
+            margin-bottom: 3mm;
+        }
+
+        section + section {
+            margin-top: 5mm;
+        }
+
+        .perfil {
+            color: var(--suave);
+            text-align: justify;
+        }
+
+        .perfil em {
+            display: block;
+            margin-top: 2mm;
+            color: var(--oro);
+            font-style: italic;
+        }
+
+        /* ---------- experiencia ---------- */
+        .puesto {
+            margin-bottom: 3.4mm;
+        }
+
+        .puesto:last-child {
+            margin-bottom: 0;
+        }
+
+        .puesto-fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4mm;
+        }
+
+        .puesto h3 {
+            font-size: 9.4pt;
+            font-weight: 600;
+        }
+
+        .fechas {
+            font-size: 8pt;
+            color: var(--tenue);
+            white-space: nowrap;
+        }
+
+        .empresa {
+            font-size: 8.6pt;
+            color: var(--oro);
+            font-style: italic;
+            margin-bottom: 0.8mm;
+        }
+
+        .puesto p {
+            color: var(--suave);
+            text-align: justify;
+        }
+
+        /* ---------- columna lateral ---------- */
+        .etiquetas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4mm;
+        }
+
+        .etiquetas span {
+            border: 1px solid var(--linea);
+            border-radius: 99px;
+            padding: 0.7mm 2.2mm;
+            font-size: 7.6pt;
+            color: var(--suave);
+        }
+
+        .sub {
+            font-size: 7.8pt;
+            font-weight: 700;
+            letter-spacing: 0.6pt;
+            text-transform: uppercase;
+            color: var(--tenue);
+            margin: 3mm 0 1.5mm;
+        }
+
+        ul {
+            list-style: none;
+            color: var(--suave);
+        }
+
+        ul li {
+            padding-left: 3mm;
+            position: relative;
+            margin-bottom: 0.5mm;
+        }
+
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 1.5mm;
+            width: 1.2mm;
+            height: 1.2mm;
+            border-radius: 50%;
+            background: var(--oro);
+        }
+
+        .estudio {
+            margin-bottom: 2.4mm;
+        }
+
+        .estudio b {
+            display: block;
+            font-size: 8.8pt;
+            font-weight: 600;
+        }
+
+        .estudio span {
+            color: var(--tenue);
+            font-size: 7.9pt;
+        }
+
+        .cursos {
+            color: var(--suave);
+            font-size: 7.9pt;
+        }
+
+        .cursos b {
+            color: var(--tinta);
+            font-weight: 600;
+        }
+
+        .cursos p {
+            margin-bottom: 1.4mm;
+        }
+
+        .ref {
+            margin-bottom: 2.6mm;
+        }
+
+        .ref b {
+            display: block;
+            font-size: 9pt;
+            font-weight: 600;
+            /* Dos lineas fijas: el nombre mas largo se parte y, sin esto,
+               desalineaba el telefono de las otras dos columnas. */
+            min-height: 2.5em;
+        }
+
+        .ref span {
+            display: block;
+            color: var(--tenue);
+            font-size: 7.9pt;
+        }
+
+        .ref i {
+            font-style: normal;
+            color: var(--oro);
+            font-size: 8.2pt;
+        }
+
+        /* ---------- pie ---------- */
+        footer {
+            margin-top: 6mm;
+            padding-top: 2.6mm;
+            border-top: 1px solid var(--linea);
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.6pt;
+            color: var(--tenue);
+        }
+
+        footer a {
+            color: var(--oro);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hoja">
+        <header>
+            <h1>Juan <b>Gómez</b></h1>
+            <p class="rol">Técnico de Tecnología</p>
+            <div class="contacto">
+                <span><b>+1 (849) 460 - 4348</b></span>
+                <span><a href="mailto:GomezRodriguez3112@gmail.com">GomezRodriguez3112@gmail.com</a></span>
+                <span><a href="https://juangomez3112.github.io/JuanGomez3112">juangomez3112.github.io/JuanGomez3112</a></span>
+                <span>linkedin.com/in/juangomez3112</span>
+                <span>github.com/JuanGomez3112</span>
+                <span>Santo Domingo, República Dominicana</span>
+            </div>
+        </header>
+
+        <div class="cuerpo">
+            <main>
+                <section>
+                    <h2>Perfil</h2>
+                    <p class="perfil">
+                        Técnico con más de 5 años en soporte técnico, mantenimiento preventivo y sistemas de
+                        videovigilancia (CCTV). Miembro fundador del área de Tecnología de una unidad militar (C5i),
+                        donde reduje ~90% los casos de soporte. Experiencia en diagnóstico y resolución de fallas,
+                        atención de contingencias y optimización de la operación en entornos de alta demanda.
+                        Aprendizaje rápido y trabajo bajo presión en equipo.
+                        <em>Aporto una base técnica sólida para mantener la operación estable y en mejora continua.</em>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Experiencia</h2>
+
+                    <div class="puesto">
+                        <div class="puesto-fila">
+                            <h3>Técnico de Tecnología</h3>
+                            <span class="fechas">2024 - 2026</span>
+                        </div>
+                        <p class="empresa">Centro Médico Guadalupe</p>
+                        <p>Soporte técnico y mantenimiento preventivo de equipos y sistemas, garantizando la continuidad
+                            operativa. Diagnóstico y resolución de fallas de hardware y software, e implementación de
+                            mejoras que optimizan la operación diaria.</p>
+                    </div>
+
+                    <div class="puesto">
+                        <div class="puesto-fila">
+                            <h3>Técnico de Tecnología</h3>
+                            <span class="fechas">2020 - 2024</span>
+                        </div>
+                        <p class="empresa">C5i</p>
+                        <p>Miembro fundador del área de Tecnología. Soporte técnico e infraestructura TI, y sistemas de
+                            videovigilancia CCTV: monitoreo, diagnóstico y mantenimiento. Desarrollo de herramientas web
+                            internas. Contribuí a reducir ~90% los casos de soporte mediante mejoras aplicadas a la
+                            operación.</p>
+                    </div>
+
+                    <div class="puesto">
+                        <div class="puesto-fila">
+                            <h3>Director de Cámaras</h3>
+                            <span class="fechas">2018 - 2022</span>
+                        </div>
+                        <p class="empresa">Gstar-Services</p>
+                        <p>Dirección y operación de equipos de cámara en transmisiones en vivo (sorteo televisivo "La
+                            Primera"), coordinando la producción técnica en tiempo real bajo alta presión.</p>
+                    </div>
+
+                    <div class="puesto">
+                        <div class="puesto-fila">
+                            <h3>Diseño y Desarrollo Web — Freelance</h3>
+                            <span class="fechas">2019 - Presente</span>
+                        </div>
+                        <p class="empresa">DiHensen</p>
+                        <p>Diseño gráfico, branding y desarrollo de sitios web responsivos para clientes, gestionando
+                            cada proyecto de principio a fin.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Referencias</h2>
+                    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm">
+                        <div class="ref">
+                            <b>Ing. Gabriel Méndez</b>
+                            <span>Encargado de Tecnología — CMG</span>
+                            <i>+1 (829) 788 - 3264</i>
+                        </div>
+                        <div class="ref">
+                            <b>Cap. de Cor. Jonathan Villar</b>
+                            <span>Director de Tecnología — CEMED</span>
+                            <i>+1 (809) 821 - 1520</i>
+                        </div>
+                        <div class="ref">
+                            <b>Belkis Almonte</b>
+                            <span>Coordinadora — GSTAR Services</span>
+                            <i>+1 (849) 201 - 3817</i>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <aside>
+                <section>
+                    <h2>Habilidades</h2>
+                    <div class="etiquetas">
+                        <span>Soporte técnico</span><span>Mantenimiento preventivo</span><span>Redes</span>
+                        <span>Infraestructura TI</span><span>CCTV</span><span>Videovigilancia</span>
+                        <span>Diagnóstico de fallas</span><span>Hardware</span><span>Software</span>
+                        <span>MySQL</span><span>HTML</span><span>CSS</span><span>SASS</span>
+                        <span>JavaScript</span><span>WordPress</span><span>Git</span><span>GitHub</span>
+                        <span>Photoshop</span><span>Illustrator</span><span>Excel</span>
+                    </div>
+
+                    <p class="sub">Blandas</p>
+                    <ul>
+                        <li>Trabajo bajo presión</li>
+                        <li>Resolución de problemas</li>
+                        <li>Comunicación y coordinación</li>
+                        <li>Respuesta ante contingencias</li>
+                        <li>Trabajo en equipo</li>
+                        <li>Atención al detalle</li>
+                        <li>Aprendizaje rápido</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Formación</h2>
+                    <div class="estudio">
+                        <b>ITLA — Desarrollo de Software</b>
+                        <span>Instituto Tecnológico de Las Américas · 2 cuatrimestres</span>
+                    </div>
+                    <div class="estudio">
+                        <b>Formación técnica en soporte y tecnología</b>
+                        <span>C5i</span>
+                    </div>
+
+                    <p class="sub">Cursos</p>
+                    <div class="cursos">
+                        <p><b>Desarrollo web:</b> HTML y CSS, Sass y SCSS, JavaScript, Git y GitHub, WordPress.</p>
+                        <p><b>UX/UI:</b> Fundamentos de Diseño de Interfaces, Fundamentos de UX &amp; UI, Prototipado con
+                            Figma, Arquitectura de la Información.</p>
+                        <p><b>Diseño y branding:</b> Photoshop, Diseño de logotipos, Identidad visual, Estrategias de
+                            naming.</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <footer>
+            <span>Currículum completo e interactivo en
+                <a href="https://juangomez3112.github.io/JuanGomez3112/curriculum.html">juangomez3112.github.io/JuanGomez3112</a></span>
+            <span>© 2026 Juan Gómez</span>
+        </footer>
+    </div>
+</body>
+
+</html>
