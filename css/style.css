@@ -1399,17 +1399,17 @@ html.js .reveal:not(.is-visible) {
   transition: transform 0.35s ease-out;
 }
 /* En la home el pliego se ve SIEMPRE abierto: el plegado vive en la pagina del
-   CV. Aqui lo que aporta es la profundidad, asi que las tres partes se separan
-   en Z. Al inclinarse la escena, cada una se desplaza a distinto ritmo y el
-   paralaje sale del propio 3D, sin capas fingidas. */
-.cv-pliego--home .cv-parte-1 {
-  transform: translateZ(26px);
-}
-.cv-pliego--home .cv-parte-3 {
-  transform: translateZ(-26px);
+   CV. Las tres partes van en el MISMO plano, como el papel de verdad. Probe a
+   separarlas en Z para dar paralaje y no vale: al moverlas en profundidad la
+   perspectiva las desplaza en pantalla y se abren huecos entre pliegues. El
+   escorzo de la escena ya da profundidad de sobra sin romper la hoja.
+   Una sola sombra, la del pliego entero: con sombra por panel aparecia una
+   banda oscura en cada doblez, como hojas sueltas apiladas. */
+.cv-pliego--home .cv-carta {
+  box-shadow: 0 2rem 3.4rem rgba(0, 0, 0, 0.66);
 }
 .cv-pliego--home .cv-parte {
-  box-shadow: 0 1.6rem 3rem rgba(0, 0, 0, 0.62);
+  box-shadow: none;
 }
 /* Filo dorado en el pliegue: marca donde dobla el papel. */
 .cv-pliego--home .cv-parte + .cv-grupo-23::before,
