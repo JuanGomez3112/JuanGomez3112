@@ -204,24 +204,25 @@ function iniciarReveal() {
 }
 
 // El CV de la home es el mismo pliego de la pagina del curriculum, pero aqui
-// no lo mueven botones: lo mueve el scroll. Al entrar en la seccion sale de su
-// columna, crece hacia el centro, se despliega pliegue a pliegue y al final
-// vuelve a su sitio. La escena se inclina con el recorrido, asi que los
-// paneles se separan en profundidad y el conjunto tiene paralaje.
+// se ve SIEMPRE abierto y no lo mueven botones: lo mueve el scroll. Al entrar
+// en la seccion sale de su columna, se endereza y crece hacia el centro; al
+// salir vuelve a inclinarse y a su sitio. El plegado se queda para la pagina
+// del CV, que es donde tiene sentido manejarlo.
+//
+// El paralaje sale del propio 3D: las tres partes estan separadas en Z, asi
+// que al inclinarse la escena cada una se desplaza a distinto ritmo.
 function iniciarCvZoom() {
     const track = document.querySelector('.cta-curriculum');
     const frame = track && track.querySelector('.cv-frame');
     const escena = frame && frame.querySelector('.cv-escena');
-    const carta = frame && frame.querySelector('.cv-carta');
-    if (!frame || !escena || !carta) return;
+    if (!frame || !escena) return;
 
     const FILL = 0.62;      // cuanto del ancho de pantalla llena al estar grande
 
     // Tramos del recorrido, en fraccion de la seccion.
     const SALE_INI = 0.06;  // hasta aqui descansa en su columna
     const SALE_FIN = 0.26;  // ya esta en el centro y a tamano grande
-    const ABRE_1 = 0.44;    // primer pliegue abierto
-    const ABRE_2 = 0.60;    // abierto del todo
+    const DE_FRENTE = 0.52; // aqui esta enderezado del todo
     const VUELVE = 0.82;    // empieza a volver
     const FIN = 0.96;       // en su columna otra vez
 
@@ -253,12 +254,6 @@ function iniciarCvZoom() {
         const recorrido = track.offsetHeight - window.innerHeight;
         const p = clamp01(recorrido > 0 ? (-caja.top) / recorrido : 0);
 
-        // Estado del pliegue: cerrado -> primer pliegue -> abierto -> cerrado.
-        let estado = 0;
-        if (p >= ABRE_2 && p < VUELVE) estado = 2;
-        else if (p >= ABRE_1) estado = 1;
-        carta.dataset.estado = String(estado);
-
         if (!esDesktop() || menosMovimiento) {
             frame.style.transform = '';
             escena.style.removeProperty('--giro-x');
@@ -280,12 +275,12 @@ function iniciarCvZoom() {
         const tx = (vw / 2 - centroReposo) * haciaCentro;
         frame.style.transform = `translateX(${tx.toFixed(1)}px) scale(${escala.toFixed(3)})`;
 
-        // Paralaje: el pliego llega escorzado y se endereza segun se despliega.
-        // Al irse, vuelve a inclinarse. El giro lateral acompana el recorrido.
-        const abierto = entre(p, SALE_FIN, ABRE_2);
+        // Paralaje: llega escorzado, se endereza al llegar al centro y al
+        // marcharse se inclina hacia el otro lado.
+        const enderezando = entre(p, SALE_INI, DE_FRENTE);
         const yendose = entre(p, VUELVE, FIN);
-        const giroX = 14 * (1 - suave(abierto)) + 10 * suave(yendose);
-        const giroY = 9 * (1 - suave(abierto)) - 6 * suave(yendose);
+        const giroX = 16 * (1 - suave(enderezando)) + 12 * suave(yendose);
+        const giroY = 11 * (1 - suave(enderezando)) - 8 * suave(yendose);
         escena.style.setProperty('--giro-x', giroX.toFixed(2) + 'deg');
         escena.style.setProperty('--giro-y', giroY.toFixed(2) + 'deg');
     };
