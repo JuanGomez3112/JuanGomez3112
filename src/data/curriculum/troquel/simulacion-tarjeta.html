@@ -4,25 +4,17 @@
        font-family:"Louis George Cafe","Segoe UI",sans-serif}
   .escena{perspective:2400px;perspective-origin:50% 42%;padding:60px}
   .panel{position:relative;width:1188px;height:840px;transform-style:preserve-3d;
-         transform:rotateX(38deg) rotateZ(-18deg);box-shadow:0 55px 80px rgba(0,0,0,.7)}
+         transform:rotateX(36deg) rotateZ(-17deg);box-shadow:0 55px 80px rgba(0,0,0,.7)}
   .panel > img{width:100%;height:100%;display:block}
-
-  /* tapa la maqueta que hay en el arte: era una simulacion y se borra */
-  .tapa{position:absolute;left:118px;top:301px;width:392px;height:237px;
-        background:#1b1b1d;box-shadow:inset 0 0 40px rgba(0,0,0,.5)}
-
-  /* hueco: sombra dentro del papel, para que la tarjeta se vea METIDA */
-  .hueco{position:absolute;left:144px;top:308px;width:340px;height:220px;border-radius:3px;
-         background:#141416;box-shadow:inset 0 3px 7px rgba(0,0,0,.9), inset 0 -1px 0 rgba(255,255,255,.05)}
-
-  /* tarjeta: apoyada en el hueco, sin translateZ ni sombra flotante */
-  .tarjeta{position:absolute;left:144px;top:308px;width:340px;height:220px;border-radius:4px;
-           overflow:hidden;background:linear-gradient(150deg,#2a2a2a 0%,#101010 78%);
-           box-shadow:0 1px 2px rgba(0,0,0,.9), 0 0 0 1px rgba(201,162,75,.45)}
-  .barra{position:absolute;inset:0 0 auto 0;height:28px;background:#151515;
-         border-bottom:1px solid #262626;display:flex;align-items:center;gap:6px;padding:0 10px}
-  .punto{width:6px;height:6px;border-radius:50%;background:#3a3a3a}
-  .punto.on{background:#C9A24B}
+  .tapa{position:absolute;left:118px;top:301px;width:392px;height:237px;background:#1b1b1d}
+  .hueco{position:absolute;left:144.0px;top:308.0px;width:340.0px;height:220.0px;border-radius:3px;
+         background:#141416;box-shadow:inset 0 3px 8px rgba(0,0,0,.95)}
+  .tarjeta{position:absolute;left:144.0px;top:308.0px;width:340.0px;height:220.0px;border-radius:4px;
+           overflow:hidden;background:linear-gradient(150deg,#2b2b2b 0%,#101010 78%);
+           box-shadow:0 1px 2px rgba(0,0,0,.9), 0 0 0 1px rgba(201,162,75,.5)}
+  .barra{position:absolute;inset:0 0 auto 0;height:28px;background:#151515;border-bottom:1px solid #262626;
+         display:flex;align-items:center;gap:6px;padding:0 10px}
+  .punto{width:6px;height:6px;border-radius:50%;background:#3a3a3a} .punto.on{background:#C9A24B}
   .url{flex:1;height:14px;border-radius:8px;background:#1e1e1e;display:flex;align-items:center;
        justify-content:center;font-size:8px;color:#7d7d7d}
   .cuerpo{position:absolute;left:24px;right:24px;top:58px}
@@ -32,35 +24,33 @@
   .nombre .n2{font-family:"Berlin Sans FB Demi","Berlin Sans FB",sans-serif;font-weight:700}
   .rol{margin-top:9px;font-size:10px;letter-spacing:3.4px;text-transform:uppercase;color:#C9A24B}
   .hair{height:1px;width:72px;margin-top:12px;background:linear-gradient(90deg,#C9A24B,transparent)}
-
-  /* solapas de papel que muerden las esquinas: van POR ENCIMA de la tarjeta */
-  .solapa{position:absolute;width:0;height:0;filter:drop-shadow(0 1px 1px rgba(0,0,0,.8))}
-  .filo{position:absolute;width:132px;height:1px;background:rgba(255,255,255,.13);transform-origin:center}
+  .solapa{position:absolute;width:0;height:0;filter:drop-shadow(-1px -1px 1px rgba(0,0,0,.9))}
+  /* el corte: linea oscura con brillo al lado, como un papel cortado a la luz */
+  .corte{position:absolute;height:2px;transform-origin:left center;
+         background:linear-gradient(180deg,rgba(255,255,255,.22) 0 1px, rgba(0,0,0,.95) 1px 2px)}
+  /* texto bajo la tarjeta */
+  .pie{position:absolute;left:144.0px;top:552.0px;width:340.0px;text-align:center}
+  .pie b{display:block;font-family:"Berlin Sans FB Demi","Berlin Sans FB",sans-serif;
+        font-size:15px;letter-spacing:3.4px;text-transform:uppercase;color:#C9A24B}
+  .pie span{display:block;margin-top:5px;font-size:11px;color:#7e7e82;letter-spacing:.6px}
 </style></head><body>
 <div class="escena"><div class="panel">
   <img src="http://127.0.0.1:8777/src/assets/img/curriculum/cv-cara6-contraportada.webp" alt="">
-  <div class="tapa"></div>
-  <div class="hueco"></div>
-
+  <div class="tapa"></div><div class="hueco"></div>
   <div class="tarjeta">
     <div class="barra"><i class="punto"></i><i class="punto"></i><i class="punto on"></i>
       <span class="url">juangomez3112.github.io/JuanGomez3112</span></div>
-    <div class="cuerpo">
-      <p class="hola">Hola! soy</p>
+    <div class="cuerpo"><p class="hola">Hola! soy</p>
       <p class="nombre"><span class="n1">Juan</span> <span class="n2">Gómez</span></p>
-      <p class="rol">Técnico de TI</p>
-      <div class="hair"></div>
-    </div>
+      <p class="rol">Técnico de TI</p><div class="hair"></div></div>
   </div>
-
-  <!-- 4 esquinas de papel sobre la tarjeta (52 px = 13 mm de mordida) -->
-  <div class="solapa" style="left:144px;top:308px;border-left:52px solid #1e1e20;border-bottom:52px solid transparent"></div>
-  <div class="solapa" style="left:432px;top:308px;border-right:52px solid #1e1e20;border-bottom:52px solid transparent"></div>
-  <div class="solapa" style="left:144px;top:476px;border-left:52px solid #1e1e20;border-top:52px solid transparent"></div>
-  <div class="solapa" style="left:432px;top:476px;border-right:52px solid #1e1e20;border-top:52px solid transparent"></div>
-  <!-- filo del corte, que es lo que delata que el papel esta cortado -->
-  <div class="filo" style="left:78px;top:360px;transform:rotate(45deg)"></div>
-  <div class="filo" style="left:418px;top:360px;transform:rotate(-45deg)"></div>
-  <div class="filo" style="left:78px;top:476px;transform:rotate(-45deg)"></div>
-  <div class="filo" style="left:418px;top:476px;transform:rotate(45deg)"></div>
+  <div class="solapa" style="left:144px;top:308px;border-left:52px solid #232326;border-bottom:52px solid transparent"></div>
+  <div class="solapa" style="left:432px;top:308px;border-right:52px solid #232326;border-bottom:52px solid transparent"></div>
+  <div class="solapa" style="left:144px;top:476px;border-left:52px solid #232326;border-top:52px solid transparent"></div>
+  <div class="solapa" style="left:432px;top:476px;border-right:52px solid #232326;border-top:52px solid transparent"></div>
+  <div class="corte" style="left:107.2px;top:271.2px;width:104.0px;transform:rotate(45.0deg)"></div>
+  <div class="corte" style="left:520.8px;top:271.2px;width:104.0px;transform:rotate(135.0deg)"></div>
+  <div class="corte" style="left:107.2px;top:564.8px;width:104.0px;transform:rotate(-45.0deg)"></div>
+  <div class="corte" style="left:520.8px;top:564.8px;width:104.0px;transform:rotate(-135.0deg)"></div>
+  <div class="pie"><b>Llévatela</b><span>Sujeta por las cuatro esquinas</span></div>
 </div></div></body></html>
