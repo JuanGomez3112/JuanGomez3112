@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   TROQUEL para la tarjeta alojada en el CV.
-  Panel A4 apaisado 297x210 mm. Tarjeta 85x55 mm.
-  Tarjeta en x=30 y=140 mm desde la esquina superior izquierda.
-  Cortes de 24 mm a 45 grados, centrados en cada esquina.
+  Panel A4 apaisado 297x210 mm. Tarjeta 85x55 mm en x=36 y=77 mm.
+  Cortes de 26 mm a 45 grados, centrados en cada esquina.
 
-  Va en el cuadrante inferior izquierdo porque es la unica zona libre: el
-  centro choca con la maqueta del navegador y con el bloque del QR.
+  La posicion sale de la maqueta que ya esta en el arte (x 30.6-126.6,
+  y 76.3-133.5 mm): la tarjeta va centrada sobre ella. Esa maqueta era una
+  simulacion, asi que HAY QUE BORRARLA del arte antes de imprimir.
 
   En Illustrator: capa APARTE llamada TROQUEL, tinta plana en sobreimpresion.
   El punteado es guia y no se imprime.
@@ -14,12 +14,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="297.0mm" height="210.0mm" viewBox="0 0 297.0 210.0">
   <g id="guia" stroke="#8a8a8a" stroke-width="0.25" stroke-dasharray="2 2" fill="none">
     <rect x="3.0" y="3.0" width="291.0" height="204.0"/>
-    <rect x="30.0" y="140.0" width="85.0" height="55.0" stroke="#c9a24b"/>
+    <rect x="36.0" y="77.0" width="85.0" height="55.0" stroke="#c9a24b"/>
   </g>
   <g id="TROQUEL" stroke="#ff00ff" stroke-width="0.35" fill="none" stroke-linecap="round">
-    <line x1="21.51" y1="131.51" x2="38.49" y2="148.49"/>
-    <line x1="123.49" y1="131.51" x2="106.51" y2="148.49"/>
-    <line x1="21.51" y1="203.49" x2="38.49" y2="186.51"/>
-    <line x1="123.49" y1="203.49" x2="106.51" y2="186.51"/>
+    <line x1="26.81" y1="67.81" x2="45.19" y2="86.19"/>
+    <line x1="130.19" y1="67.81" x2="111.81" y2="86.19"/>
+    <line x1="26.81" y1="141.19" x2="45.19" y2="122.81"/>
+    <line x1="130.19" y1="141.19" x2="111.81" y2="122.81"/>
   </g>
 </svg>
