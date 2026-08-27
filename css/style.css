@@ -2504,7 +2504,11 @@ html.js .reveal:not(.is-visible) {
   width: 29.933%;
   height: 24.190%;
   transform-style: preserve-3d;
-  transform: rotateX(180deg);
+  /* Ese translateZ de 3px no es decorativo: sin el, la tarjeta en reposo queda
+     en el MISMO plano que la imagen del panel, el navegador no puede ordenar
+     dos superficies coplanares y parte de la tarjeta desaparece detras del
+     papel al terminar el giro. Con 3 mil por delante, siempre gana. */
+  transform: rotateX(180deg) translateZ(3px);
   visibility: hidden;
   transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
               visibility 0s linear 0.2s;
