@@ -3,30 +3,30 @@
   TROQUEL para la tarjeta alojada en el CV.
   Panel A4 apaisado 297x210 mm.
 
-  Tarjeta AL CORTE: 88.9 x 50.8 mm (3.5 x 2 pulgadas).
-  Los PDF de la tarjeta miden 95.2 x 57.1 mm porque llevan 3 mm de sangrado por
-  lado; el troquel se hace con la medida al corte, que es lo que queda del papel
-  despues de cortar.
+  Tarjeta: 95.2 x 57.1 mm  (medida del PDF con sangrado).
+  Posicion: x=30.9 y=76.2 mm, centrada en el mismo punto que la ventana
+  dibujada en el arte.
 
-  Posicion: x=34.0 y=79.4 mm, centrada en el mismo punto que la ventana
-  ya dibujada en el arte (centro x=78.5 y=104.8 mm).
+  IMPORTANTE: los cortes van en las esquinas de la TARJETA REAL, no en las del
+  rectangulo impreso. Si la tarjeta es mas grande que ese rectangulo, lo tapa
+  entero y deja de verse, que es incluso mejor. Medir la tarjeta ya impresa con
+  regla y regenerar con ese numero.
 
-  OJO: la ventana del arte esta a 95.7 x 57 mm, o sea a medida de SANGRADO. Si
-  se deja asi, la tarjeta impresa baila unos 3 mm por lado y las esquinas no la
-  sujetan bien. Hay que redibujarla a 88.9 x 50.8.
+  Espacio libre comprobado en el arte: el monograma acaba hacia y=60 mm, el
+  titulo "Mi Tarjeta" empieza hacia y=145, y el QR hacia x=187. Cabe una
+  tarjeta bastante mayor sin tocar nada mas.
 
   En Illustrator: capa APARTE llamada TROQUEL, tinta plana en sobreimpresion.
-  El punteado es guia y no se imprime.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="297.0mm" height="210.0mm" viewBox="0 0 297.0 210.0">
   <g id="guia" stroke="#8a8a8a" stroke-width="0.25" stroke-dasharray="2 2" fill="none">
     <rect x="3.0" y="3.0" width="291.0" height="204.0"/>
-    <rect x="34.05" y="79.40" width="88.9" height="50.8" stroke="#c9a24b"/>
+    <rect x="30.90" y="76.25" width="95.2" height="57.1" stroke="#c9a24b"/>
   </g>
   <g id="TROQUEL" stroke="#ff00ff" stroke-width="0.35" fill="none" stroke-linecap="round">
-    <line x1="24.86" y1="70.21" x2="43.24" y2="88.59"/>
-    <line x1="132.14" y1="70.21" x2="113.76" y2="88.59"/>
-    <line x1="24.86" y1="139.39" x2="43.24" y2="121.01"/>
-    <line x1="132.14" y1="139.39" x2="113.76" y2="121.01"/>
+    <line x1="21.71" y1="67.06" x2="40.09" y2="85.44"/>
+    <line x1="135.29" y1="67.06" x2="116.91" y2="85.44"/>
+    <line x1="21.71" y1="142.54" x2="40.09" y2="124.16"/>
+    <line x1="135.29" y1="142.54" x2="116.91" y2="124.16"/>
   </g>
 </svg>
