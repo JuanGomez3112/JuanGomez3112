@@ -2415,8 +2415,7 @@ html.js .reveal:not(.is-visible) {
   max-width: none;
   backface-visibility: hidden;
 }
-.cv-pliego .cv-parte > .cara-dorso-x,
-.cv-pliego .cv-parte > .cara-dorso-y {
+.cv-pliego .cv-parte > .cara-dorso-x {
   position: absolute;
   inset: 0;
   height: 100%;
@@ -2424,10 +2423,6 @@ html.js .reveal:not(.is-visible) {
 /* Cada dorso se pregira en el MISMO eje que lo descubre, o sale cabeza abajo. */
 .cv-pliego .cv-parte > .cara-dorso-x {
   transform: rotateX(180deg);
-}
-.cv-pliego .cv-parte > .cara-dorso-y {
-  transform: rotateY(180deg);
-  visibility: hidden;
 }
 /* La parte 1 arriba; el grupo 2+3 ocupa los dos tercios de abajo y es lo que
    sube entero en el cierre nuevo. */
@@ -2469,8 +2464,7 @@ html.js .reveal:not(.is-visible) {
 /* --- CERRAR: sube el grupo 2+3 sobre la 1 --- */
 .cv-pliego .cv-carta[data-estado="4"] .cv-grupo-23,
 .cv-pliego .cv-carta[data-estado="5"] .cv-grupo-23,
-.cv-pliego .cv-carta[data-estado="6"] .cv-grupo-23,
-.cv-pliego .cv-carta[data-estado="7"] .cv-grupo-23 {
+.cv-pliego .cv-carta[data-estado="6"] .cv-grupo-23 {
   transform: rotateX(180deg) translateZ(-2px);
 }
 /* Con el grupo subido, la 3 queda dentro del paquete: no hay forma de verla.
@@ -2478,8 +2472,7 @@ html.js .reveal:not(.is-visible) {
    anidadas en profundidad, cosa que no hace de forma fiable. */
 .cv-pliego .cv-carta[data-estado="4"] .cv-parte-3,
 .cv-pliego .cv-carta[data-estado="5"] .cv-parte-3,
-.cv-pliego .cv-carta[data-estado="6"] .cv-parte-3,
-.cv-pliego .cv-carta[data-estado="7"] .cv-parte-3 {
+.cv-pliego .cv-carta[data-estado="6"] .cv-parte-3 {
   transform: rotateX(180deg);
   visibility: hidden;
 }
@@ -2500,17 +2493,6 @@ html.js .reveal:not(.is-visible) {
 .cv-pliego .cv-carta[data-estado="6"] {
   transform: translateY(33.3333%);
 }
-/* Volteo final: se ve la portada, y su dorso pasa al pregirado en Y. */
-.cv-pliego .cv-carta[data-estado="7"] {
-  transform: translateY(33.3333%) rotateY(180deg);
-}
-.cv-pliego .cv-carta[data-estado="7"] .cara-dorso-x {
-  visibility: hidden;
-}
-.cv-pliego .cv-carta[data-estado="7"] .cv-parte-1 > .cara-dorso-y {
-  visibility: visible;
-}
-
 /* --- La tarjeta alojada en la contraportada --- */
 /* Medidas en % del panel: 88.9 x 50.8 mm sobre 297 x 210 mm. Va dentro de la
    parte 2 y con el mismo pregiro en X que su dorso, que es la cara donde esta

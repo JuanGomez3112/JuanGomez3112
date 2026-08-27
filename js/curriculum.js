@@ -39,35 +39,26 @@ function iniciarSeccionCurriculum() {
     // Los estados 1 y 3 se ven igual: uno abriendo y otro recogiendo. Por eso
     // la secuencia es una lista de estados y no un contador, y el mismo estado
     // puede aparecer dos veces con distinto sentido.
-    const SECUENCIA = [0, 1, 2, 3, 4, 5, 6, 7];
-    const ETIQUETAS = {
-        0: 'Doblada — portada',
-        1: 'Abriendo — perfil',
-        2: 'Abierta — CV completo',
-        3: 'Plegando — sube la parte 3',
-        4: 'Plegada — la tarjeta en su hueco',
-        5: 'La tarjeta sale',
-        6: 'La tarjeta por detrás',
-        7: 'Del revés — portada'
-    };
-
-    const ZOOM_MIN = 1;
-    const ZOOM_MAX = 3;
-    const ZOOM_PASO = 0.25;
-    let zoom = 1;
-
-    // El marco es el que hace scroll cuando se amplia. Estaba declarado dentro
-    // de iniciarInclinacion, asi que aplicarZoom lanzaba ReferenceError en cada
-    // clic y el zoom no llegaba a pintar el estado de los botones.
-    const marco = carta.closest('.cv-marco');
+    // Cada paso del recorrido: que estado del pliego pinta y como se llama.
+    // Es una lista y no un contador porque un mismo estado aparece dos veces
+    // con distinto sentido: el 1 abriendo y recogiendo, y el 4 con la tarjeta
+    // en su hueco al principio y al final del bloque de la tarjeta.
+    const PASOS = [
+        { estado: 0, texto: 'Doblada — portada' },
+        { estado: 1, texto: 'Abriendo — perfil' },
+        { estado: 2, texto: 'Abierta — CV completo' },
+        { estado: 3, texto: 'Plegando — sube la parte 3' },
+        { estado: 4, texto: 'Plegada — la tarjeta en su hueco' },
+        { estado: 5, texto: 'La tarjeta sale' },
+        { estado: 6, texto: 'La tarjeta por detrás' },
+        { estado: 4, texto: 'La tarjeta vuelve a su hueco' }
+    ];
 
     let paso = 0;
-    const estadoActual = () => SECUENCIA[paso];
-
     const pintar = () => {
-        const estado = estadoActual();
+        const { estado, texto } = PASOS[paso];
         carta.dataset.estado = String(estado);
-        if (etiqueta) etiqueta.textContent = ETIQUETAS[estado];
+        if (etiqueta) etiqueta.textContent = texto;
         // El recorrido es un bucle: del ultimo paso se vuelve al primero, asi
         // que ninguna de las dos flechas se agota nunca.
         if (zoomOutBtn) zoomOutBtn.disabled = zoom <= ZOOM_MIN;
@@ -77,7 +68,7 @@ function iniciarSeccionCurriculum() {
     // Da la vuelta por los dos lados: -1 lleva al ultimo, y uno mas alla del
     // ultimo vuelve al primero.
     const irA = (n) => {
-        const total = SECUENCIA.length;
+        const total = PASOS.length;
         const destino = ((n % total) + total) % total;
         if (destino === paso) return;
         paso = destino;
@@ -125,7 +116,7 @@ function iniciarSeccionCurriculum() {
             irA(paso - 1);
         } else if (e.key === 'End') {
             e.preventDefault();
-            irA(SECUENCIA.length - 1);
+            irA(PASOS.length - 1);
         } else if (e.key === 'Home') {
             e.preventDefault();
             irA(0);
