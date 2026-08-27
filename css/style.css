@@ -2468,14 +2468,18 @@ html.js .reveal:not(.is-visible) {
 
 /* --- CERRAR: sube el grupo 2+3 sobre la 1 --- */
 .cv-pliego .cv-carta[data-estado="4"] .cv-grupo-23,
-.cv-pliego .cv-carta[data-estado="5"] .cv-grupo-23 {
+.cv-pliego .cv-carta[data-estado="5"] .cv-grupo-23,
+.cv-pliego .cv-carta[data-estado="6"] .cv-grupo-23,
+.cv-pliego .cv-carta[data-estado="7"] .cv-grupo-23 {
   transform: rotateX(180deg) translateZ(-2px);
 }
 /* Con el grupo subido, la 3 queda dentro del paquete: no hay forma de verla.
    Ocultarla evita depender de que el navegador ordene bien tres hojas
    anidadas en profundidad, cosa que no hace de forma fiable. */
 .cv-pliego .cv-carta[data-estado="4"] .cv-parte-3,
-.cv-pliego .cv-carta[data-estado="5"] .cv-parte-3 {
+.cv-pliego .cv-carta[data-estado="5"] .cv-parte-3,
+.cv-pliego .cv-carta[data-estado="6"] .cv-parte-3,
+.cv-pliego .cv-carta[data-estado="7"] .cv-parte-3 {
   transform: rotateX(180deg);
   visibility: hidden;
 }
@@ -2491,18 +2495,63 @@ html.js .reveal:not(.is-visible) {
 .cv-pliego .cv-carta[data-estado="3"] {
   transform: translateY(16.6667%);
 }
-.cv-pliego .cv-carta[data-estado="4"] {
+.cv-pliego .cv-carta[data-estado="4"],
+.cv-pliego .cv-carta[data-estado="5"],
+.cv-pliego .cv-carta[data-estado="6"] {
   transform: translateY(33.3333%);
 }
 /* Volteo final: se ve la portada, y su dorso pasa al pregirado en Y. */
-.cv-pliego .cv-carta[data-estado="5"] {
+.cv-pliego .cv-carta[data-estado="7"] {
   transform: translateY(33.3333%) rotateY(180deg);
 }
-.cv-pliego .cv-carta[data-estado="5"] .cara-dorso-x {
+.cv-pliego .cv-carta[data-estado="7"] .cara-dorso-x {
   visibility: hidden;
 }
-.cv-pliego .cv-carta[data-estado="5"] .cv-parte-1 > .cara-dorso-y {
+.cv-pliego .cv-carta[data-estado="7"] .cv-parte-1 > .cara-dorso-y {
   visibility: visible;
+}
+
+/* --- La tarjeta alojada en la contraportada --- */
+/* Medidas en % del panel: 88.9 x 50.8 mm sobre 297 x 210 mm. Va dentro de la
+   parte 2 y con el mismo pregiro en X que su dorso, que es la cara donde esta
+   el hueco. */
+.cv-pliego .cv-tarjeta {
+  position: absolute;
+  left: 11.448%;
+  top: 37.810%;
+  width: 29.933%;
+  height: 24.190%;
+  transform-style: preserve-3d;
+  transform: rotateX(180deg);
+  visibility: hidden;
+  transition: transform 0.85s cubic-bezier(0.22, 0.61, 0.36, 1),
+              visibility 0s linear 0.2s;
+}
+.cv-pliego .cv-tarjeta img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  backface-visibility: hidden;
+  border-radius: 2px;
+  box-shadow: 0 0.4rem 0.9rem rgba(0, 0, 0, 0.55);
+}
+.cv-pliego .cv-tarjeta .tarjeta-dorso {
+  transform: rotateY(180deg);
+}
+/* Solo se ve cuando el pliego esta plegado con la contraportada de frente. */
+.cv-pliego .cv-carta[data-estado="4"] .cv-tarjeta,
+.cv-pliego .cv-carta[data-estado="5"] .cv-tarjeta,
+.cv-pliego .cv-carta[data-estado="6"] .cv-tarjeta {
+  visibility: visible;
+}
+/* 5: sale del hueco.  6: ademas se voltea y ensena el dorso. */
+.cv-pliego .cv-carta[data-estado="5"] .cv-tarjeta {
+  transform: rotateX(180deg) translate3d(38%, -14%, 26px);
+}
+.cv-pliego .cv-carta[data-estado="6"] .cv-tarjeta {
+  transform: rotateX(180deg) translate3d(38%, -14%, 26px) rotateY(180deg);
 }
 
 /* La hoja pierde luz mientras gira y la recupera al asentar. Va dentro del

@@ -31,19 +31,24 @@ function iniciarSeccionCurriculum() {
     //   2  abierta          las tres partes a la vista
     //   3  recogiendo       vuelve a subir la 3 sobre la 2
     //   4  cerrada del otro modo   sube el grupo 2+3 sobre la 1: se ve el QR
-    //   5  volteada         se le da la vuelta al pliego: se ve la portada
+    //                       y con el la tarjeta metida en su hueco
+    //   5  la tarjeta sale del troquel
+    //   6  la tarjeta se voltea y ensena su dorso
+    //   7  volteada         se le da la vuelta al pliego: se ve la portada
     //
     // Los estados 1 y 3 se ven igual: uno abriendo y otro recogiendo. Por eso
     // la secuencia es una lista de estados y no un contador, y el mismo estado
     // puede aparecer dos veces con distinto sentido.
-    const SECUENCIA = [0, 1, 2, 3, 4, 5];
+    const SECUENCIA = [0, 1, 2, 3, 4, 5, 6, 7];
     const ETIQUETAS = {
         0: 'Doblada — portada',
         1: 'Abriendo — perfil',
         2: 'Abierta — CV completo',
         3: 'Plegando — sube la parte 3',
-        4: 'Plegada — código QR',
-        5: 'Del revés — portada'
+        4: 'Plegada — la tarjeta en su hueco',
+        5: 'La tarjeta sale',
+        6: 'La tarjeta por detrás',
+        7: 'Del revés — portada'
     };
 
     const ZOOM_MIN = 1;
