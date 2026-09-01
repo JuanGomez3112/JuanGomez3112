@@ -54,6 +54,15 @@ function iniciarSeccionCurriculum() {
         { estado: 4, texto: 'La tarjeta vuelve a su hueco' }
     ];
 
+    // --- Zoom. NO BORRAR al tocar el bloque de PASOS: ya se perdieron dos veces
+    // al reemplazar ese bloque por rangos, y el fallo no lo caza `node --check`
+    // porque es un ReferenceError en tiempo de ejecucion, no de sintaxis. ---
+    const ZOOM_MIN = 1;
+    const ZOOM_MAX = 3;
+    const ZOOM_PASO = 0.25;
+    let zoom = 1;
+    const marco = carta.closest('.cv-marco');
+
     let paso = 0;
     const pintar = () => {
         const { estado, texto } = PASOS[paso];
